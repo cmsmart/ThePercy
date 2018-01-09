@@ -16,5 +16,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "main": "index.js",
+  "repository": "git@github.com:GretchS/ThePercy.git",
+  "author": "Hannah Bourke <hannah25@gmail.com>",
+  "license": "MIT"
 }
