@@ -25,4 +25,4 @@ Create a dedicated micro-site to sit alongside the Percy De Wolfe website which 
 5. Add gitignore
 
 ## Local Setup
-- run `yarn init`
+- run `yarn install`
