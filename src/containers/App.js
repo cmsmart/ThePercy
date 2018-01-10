@@ -8,6 +8,8 @@ import { MushersPage } from '../components/MushersPage'
 import { PrimaryLayout } from '../components/PrimaryLayout'
 import { StatisticsPage } from '../components/StatisticsPage'
 
+import ProgressBarChart from '../components/ProgressBarChart'
+
 class App extends Component {
   render() {
     return (
@@ -23,6 +25,11 @@ class App extends Component {
             <Redirect to='/tracker'  />
           </Switch>
         </Router>
+
+        <ProgressBarChart
+            title='Progress Bar Chart'
+          />
+          
       </div>
     );
   }
