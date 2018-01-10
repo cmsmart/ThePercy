@@ -1,6 +1,6 @@
 import React from 'react'
 import ProgressBarChart from '../components/ProgressBarChart'
-
+import Timer from '../containers/Timer'
 
 import { Table } from './Table'
 
@@ -11,6 +11,7 @@ export const Dashboard = (props) => {
   return (
     <div className='dashboard'>
       <p>Dashboard</p>
+        <Timer />
 
         <ProgressBarChart
           title='Progress Bar Chart'

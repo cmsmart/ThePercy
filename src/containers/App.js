@@ -7,7 +7,6 @@ import { MapPage } from '../components/MapPage'
 import { MushersPage } from '../components/MushersPage'
 import { PrimaryLayout } from '../components/PrimaryLayout'
 import { StatisticsPage } from '../components/StatisticsPage'
-import Timer from '../containers/Timer'
 
 
 class App extends Component {
@@ -85,7 +84,6 @@ class App extends Component {
     return (
       <div className="App">
         <PrimaryLayout />
-        <Timer />
         <Router>
           <Switch>
             <Route path='/tracker' component={MapPage}/>
