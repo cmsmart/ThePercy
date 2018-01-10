@@ -23,9 +23,9 @@ class Timer extends Component {
 
   timer = () => {
     // Set the time of the next race in Dawson in unix time
-    // const eventTime = moment(1521741600);
+    const eventTime = moment(1521741600);
     // Test past event - March 2017
-    const eventTime = moment(1490205600);
+    // const eventTime = moment(1490205600);
     // Establish current time
     const now = moment().unix()
     // Work out the time until the next race
