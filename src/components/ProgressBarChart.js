@@ -14,7 +14,7 @@ const data = [
       {name: 'Gretchen', distance: 5, experience: 'vetran'}
 ];
 
-class ProgressBarChart extends Component  {
+class ProgressBarChart extends Component {
 	render () {
   	return (
     	<BarChart width={600} height={400} data={data}
