@@ -23,6 +23,7 @@ Create a dedicated micro-site to sit alongside the Percy De Wolfe website which 
 3. Setup top level components
 4. Setup react-router for each page
 5. Add gitignore
+6. Created Table component
 
 ## Local Setup
-- run `yarn init`
+- run `yarn install`
