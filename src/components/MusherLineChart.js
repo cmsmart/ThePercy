@@ -33,7 +33,7 @@ class MusherLineChart extends Component {
   	return (
       <div className="area-chart-wrapper" style={{ width: '100%', height: '400px' }}>
       <ResponsiveContainer>
-      <LineChart width={600} height={300} margin={{top: 30, right: 30, left: 20, bottom: 5}}>
+      <LineChart width={300} height={300} margin={{top: 30, right: 30, left: 20, bottom: 5}}>
         <CartesianGrid strokeDasharray="3 3"/>
         <XAxis dataKey="dist"  type="number" allowDuplicatedCategory={false} domain={[0, 338]}/>
         <YAxis dataKey="time" type="time" domain={[0, 50]} />

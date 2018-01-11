@@ -27,7 +27,7 @@ class ProgressBarChart extends Component {
         <CartesianGrid strokeDasharray="3 3"/>
         <Tooltip/>
         <Legend />
-        <Bar dataKey="distance" fil4="#8884d8">
+        <Bar dataKey="distance" fill="#8884d8">
        		{
           	data.map((entry, index) => { 
             	return <Cell fill={data[index].experience === 'vetran' ? '#4e7590' : '#C3D8EC' } />;
