@@ -17,6 +17,14 @@ export const MushersPage = props => {
         <ProfileCard name={props.name} src={require("../assets/cardimage1.jpg")} />
       </div>
       
+import SimpleBarChart from '../components/MusherRaceHistory'
+
+export const MushersPage = (props) => {
+  return (
+    <div className='mushers-page'>
+      <h1>Mushers Name</h1>
+
+      <SimpleBarChart />
     </div>
   )
 }
