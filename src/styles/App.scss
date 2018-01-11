@@ -7,3 +7,62 @@ html, body {
   background: $primaryColor;
   font-family: $mainfont;
 }
+
+a {
+  text-decoration: none;
+  color: $primaryColor;
+}
+
+.field {
+  background-color: #f8f8f8;
+  margin: 1rem;
+}
+.field h2 {
+  padding: 1rem;
+  margin: 0;
+  color: $primaryColor
+    }
+
+.myCards {
+  display: flex;
+  flex-wrap: wrap;
+  background: $white;
+  // justify-content: space-around;
+}
+
+
+.card {
+    color: $primaryColor;
+    transition: 0.3s;
+    width: 10rem;
+    margin: 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 0.5rem 1rem;
+}
+
+
+.avatar {
+  display: flex;
+  height: 100px;
+  width: 100px;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  overflow:hidden;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  img {
+    max-width: 90%;
+    border-radius: 50%;
+  }
+}

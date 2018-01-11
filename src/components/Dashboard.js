@@ -1,11 +1,8 @@
 import React from 'react'
 import ProgressBarChart from '../components/ProgressBarChart'
-<<<<<<< HEAD
 import Timer from '../containers/Timer'
-=======
 import DummyChart from '../components/DummyChart'
 
->>>>>>> progressBar
 
 import { Table } from './Table'
 
