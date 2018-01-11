@@ -1,5 +1,6 @@
 import React from 'react'
 import ProgressBarChart from '../components/ProgressBarChart'
+import DummyChart from '../components/DummyChart'
 
 
 import { Table } from './Table'
@@ -19,6 +20,8 @@ export const Dashboard = (props) => {
       <p>Fake Table</p>
       <Table data={props.updates} classname={'live-data'} headings={headings} />
 
+      <p>Playing wth chart formatting</p>
+      <DummyChart />
     </div>
   )
 }
