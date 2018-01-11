@@ -28,7 +28,7 @@ class ProgressBarChart extends Component {
         <Bar dataKey="distance" fil4="#8884d8">
        		{
           	data.map((entry, index) => { 
-            	return <Cell fill={data[index].experience === 'vetran' ? '#0C2639' : '#C3D8EC' } />;
+            	return <Cell fill={data[index].experience === 'vetran' ? '#4e7590' : '#C3D8EC' } />;
             })
           }
         </Bar>
