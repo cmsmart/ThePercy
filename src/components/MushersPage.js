@@ -11,7 +11,7 @@ const data = [
   {
     name: "	Kristina Disney",
     src:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrk5kYS738Y0wuMtv1LjcSw7Fj5M9Fho2lYDEHHg_ctfpg0DjsCw"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0WFhJaQNuKHE18KXPJg5CoupVT0I94aoH0HiJoR1IFp2Gvg5WVQ"
   },
   {
     name: "Maeva Waterman",
@@ -43,22 +43,31 @@ const data = [
     src:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrk5kYS738Y0wuMtv1LjcSw7Fj5M9Fho2lYDEHHg_ctfpg0DjsCw"
   },
-  { name: "Alexandra Rochat", src:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvtT7JPpHERpawwFSUvX5kSLGlEbCaYPJeqyhOJjB6ci6WtI15" },
+  {
+    name: "Alexandra Rochat",
+    src:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvtT7JPpHERpawwFSUvX5kSLGlEbCaYPJeqyhOJjB6ci6WtI15"
+  },
   {
     name: "Marine Gastard",
     src:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrk5kYS738Y0wuMtv1LjcSw7Fj5M9Fho2lYDEHHg_ctfpg0DjsCw"
   },
-  { name: "Clayton Perry", src:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvtT7JPpHERpawwFSUvX5kSLGlEbCaYPJeqyhOJjB6ci6WtI15" },
+  {
+    name: "Clayton Perry",
+    src:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvtT7JPpHERpawwFSUvX5kSLGlEbCaYPJeqyhOJjB6ci6WtI15"
+  },
   {
     name: "Gerry Willomitzer",
     src:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrk5kYS738Y0wuMtv1LjcSw7Fj5M9Fho2lYDEHHg_ctfpg0DjsCw"
   },
-  { name: "Gaetan Pierrard", src:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvtT7JPpHERpawwFSUvX5kSLGlEbCaYPJeqyhOJjB6ci6WtI15" },
+  {
+    name: "Gaetan Pierrard",
+    src:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvtT7JPpHERpawwFSUvX5kSLGlEbCaYPJeqyhOJjB6ci6WtI15"
+  },
   {
     name: "Wendy Chung",
     src:
