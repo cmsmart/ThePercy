@@ -5,7 +5,7 @@ function ProfileCard(props) {
     <div className="card">
             <a href="#">
     <div className="avatar">
-      <img src={props.src} alt="Avatar" style={{ width: "200" }} />
+      <img src={props.src} alt="Avatar" aria-label="Musher avatar" style={{ width: "200" }} />
       </div>
       <div className="container">
         <h4>
