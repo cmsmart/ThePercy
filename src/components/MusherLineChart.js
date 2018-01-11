@@ -8,6 +8,11 @@ const series = [
     {time: '30', dist: 152.7},
     {time: '32', dist: 338}
   ]},
+  {year: '2013', data: [
+    {time: '0', dist: 0 },
+    {time: '30', dist: 152.7},
+    {time: '50', dist: 338}
+  ]},
   {year: '2016', data: [
     {time: '0', dist: 0 },
     {time: '13', dist: 12.4},
@@ -28,19 +33,19 @@ class MusherLineChart extends Component {
   	return (
       <div className="area-chart-wrapper" style={{ width: '100%', height: '400px' }}>
       <ResponsiveContainer>
-      <LineChart width={600} height={300} margin={{top: 20, right: 30, left: 20, bottom: 5}}>
+      <LineChart width={600} height={300} margin={{top: 30, right: 30, left: 20, bottom: 5}}>
         <CartesianGrid strokeDasharray="3 3"/>
         <XAxis dataKey="dist"  type="number" allowDuplicatedCategory={false} domain={[0, 338]}/>
         <YAxis dataKey="time" type="time" domain={[0, 50]} />
         <Tooltip/>
         <Legend/>
         {series.map(s => (
-          <Line dataKey="time" data={s.data} name={s.year} key={s.year} />
+          <Line type="monotone" dataKey="time" data={s.data} name={s.year} key={s.year} stroke="#4e7590"  strokeWidth="3" />
         ))}
-          <ReferenceLine x={80.4}  stroke="red" label={{ position: "top", value: "Fortymile in", fill:"red" }}  />
-        <ReferenceLine x={159.87}  stroke="red" label={{ position: "top", value: "Eagle", fill:"red" }} />
-        <ReferenceLine x={240.27} stroke="red" label={{ position: "top", value: "Fortymile out", fill:"red" }} />
-        <ReferenceLine x={338} stroke="red" label={{ position: "top", value: "Finish", fill:"red" }} />
+          <ReferenceLine x={80.4} stroke="red" label={{ position: "top", value: "Fortymile in", fill:"red" }}  />
+          <ReferenceLine x={159.87} stroke="red" label={{ position: "top", value: "Eagle", fill:"red" }} />
+          <ReferenceLine x={240.27} stroke="red" label={{ position: "top", value: "Fortymile out", fill:"red" }} />
+          <ReferenceLine x={338} stroke="red" label={{ position: "top", value: "Finish", fill:"red" }} />
       </LineChart>
       </ResponsiveContainer>
       </div>
