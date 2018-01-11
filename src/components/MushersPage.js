@@ -1,6 +1,7 @@
 import React from 'react'
 
 import SimpleBarChart from '../components/MusherRaceHistory'
+import MusherLineChart from './MusherLineChart'
 
 export const MushersPage = (props) => {
   return (
@@ -8,6 +9,8 @@ export const MushersPage = (props) => {
       <h1>Mushers Name</h1>
 
       <SimpleBarChart />
+
+      <MusherLineChart />
     </div>
   )
 }
