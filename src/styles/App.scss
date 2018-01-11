@@ -28,6 +28,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   background: $white;
+  justify-content: center;
 }
 
 .card {
@@ -39,6 +40,7 @@ a {
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
 
 }
 
@@ -55,7 +57,8 @@ a {
   overflow: hidden;
   justify-content: center;
   align-self: center;
-  margin: 2rem;
+  margin: 10px;
+  border: 2px solid $primaryColor;
   img {
     margin: 0 auto;
     border-radius: 50%;
