@@ -17,6 +17,8 @@ const data = [
 class ProgressBarChart extends Component {
 	render () {
   	return (
+      <div className="area-chart-wrapper" style={{ width: '100%', height: '400px' }}>
+      <ResponsiveContainer>
     	<BarChart width={600} height={400} data={data}
             margin={{top: 20, right: 30, left: 20, bottom: 5}}
             layout="vertical">
@@ -36,6 +38,8 @@ class ProgressBarChart extends Component {
         <ReferenceLine x={159.87}  stroke="red" label={{ position: "top", value: "Eagle", fill:"red" }} />
         <ReferenceLine x={240.27} stroke="red" label={{ position: "top", value: "Fortymile out", fill:"red" }} />
       </BarChart>
+      </ResponsiveContainer>
+      </div>
     )}
   }
 
