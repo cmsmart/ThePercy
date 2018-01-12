@@ -21,9 +21,14 @@ export default class  MushersPage extends Component {
   }
   
   componentDidMount() {
-    console.log(getMushers())
+    getMushers()
       .then((res) => 
-      console.log(res))
+      this.setState({searchResults: res})
+    )
+  }
+  
+  componentDidUpdate() {
+    console.log(this.state)
   }
   
   componentWillUpdate(nextProps, nextState) {
