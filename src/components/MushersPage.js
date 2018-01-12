@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import ProfileCard from './ProfileCard';
 import SimpleBarChart from '../components/MusherRaceHistory'
+import { SearchFilterContainer } from "./SearchFilterContainer";
+import { getMushers } from "../api/mushers";
 
 const data = [
   {
@@ -75,19 +77,48 @@ const data = [
   }
 ];
 
-export const MushersPage = props => {
-  return (
-    <div className="mushers-page">
-      <p>Mushers Page</p>
-      <div className='field'>
-      <h2>The Field</h2>
-      <div className="myCards">
-      {data.map((musher) => {
-        return (<ProfileCard name={musher.name} src={musher.src} />)
-      })} 
-      </div>
-      </div>
-        <SimpleBarChart />
-    </div>
+
+export default class  MushersPage extends Component {
+  state = {
+    year: null,
+    race: null,
+    searchQuery: null,
+    searchResults: []
+  }
+  
+  handleSearchQuery = (query) => {
+    this.setState({ searchQuery: query })
+  }
+
+  displaySearchResults = (searchResults) => {
+    
+  }
+  
+  componentDidMount() {
+    getMushers()
+      .then((res) => 
+      this.setState({searchResults: res})
     )
+  }
+  
+  componentDidUpdate() {
+    console.log(this.state)
+  }
+  
+  render() {
+    console.log(this.state.searchResults)
+    return <div className="mushers-page">
+        <p>Mushers Page</p>
+        <SearchFilterContainer {...this.state} handleSearchQuery={this.handleSearchQuery} />
+        <div className="field">
+          <h2>The Field</h2>
+          <div className="myCards">
+            {data.map(musher => {
+              return <ProfileCard name={musher.name} src={musher.src} />;
+            })}
+          </div>
+        </div>
+        <SimpleBarChart />
+      </div>;
+  }
 }
