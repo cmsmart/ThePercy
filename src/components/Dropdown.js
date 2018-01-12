@@ -8,7 +8,7 @@ const mapDataToOptions = (data) => (
 
 export const Dropdown = (props) => {
     return (
-        <select>
+        <select onChange={(event) => {props.handleSelection(event.target.value)}}>
             {mapDataToOptions(props.data)}
         </select>
     )

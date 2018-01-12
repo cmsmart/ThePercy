@@ -2,9 +2,11 @@ import React from 'react'
 
 export const Results = (props) => {
     return (
-        console.log(props),
         <div>
             Results
+            {props.filterSearchResults(props.mushers).map((musher, index) => (
+                <p key={index}>{musher.musher}</p>
+            ))}
         </div>
     )
 }

@@ -1,41 +1,66 @@
 import React, { Component } from 'react'
-import { SearchFilterContainer } from './SearchFilterContainer'
 
-import { getMushers } from '../api/mushers';
+import { getMushers } from '../api/mushers'
+
+import { Results } from './Results'
+import { SearchFilterContainer } from './SearchFilterContainer'
 
 export default class  MushersPage extends Component {
   
   state = {
-    year: null,
-    race: null,
+    year: 'Year',
+    race: 'Race',
     searchQuery: null,
-    searchResults: []
+    mushers: []
   }
   
   handleSearchQuery = (query) => {
     this.setState({ searchQuery: query })
   }
 
-  displaySearchResults = (searchResults) => {
-    
+  handleYearSelection = (year) => {
+    this.setState({ year: year })
   }
-  
-  componentDidMount() {
-    console.log(getMushers())
-      .then((res) => 
-      console.log(res))
-  }
-  
-  componentWillUpdate(nextProps, nextState) {
 
+  handleRaceSelection = (race) => {
+    this.setState({ race: race })
+  }
+
+  filterSearchResults = () => {
+    let filteredResults = [...this.state.mushers]
+    if (this.state.year !== 'Year') {
+      filteredResults = filteredResults.filter((result) => (
+        result.year === this.state.year
+      ))
+    }
+    if (this.state.race !== 'Race') {
+      filteredResults = filteredResults.filter((result) => (
+        result.race === this.state.race
+      ))
+    }
+    if (this.state.searchQuery) {
+      filteredResults = filteredResults.filter((result) => (
+        new RegExp(this.state.searchQuery).test(result.musher)
+      ))
+    }
+    // let searchResults = filteredResults.filter((result) => (
+    //   result.musher_id !== searchResults.forEach()
+    // ))
+    return filteredResults
+  }
+
+  componentDidMount() {
+    getMushers()
+      .then((res) => 
+      this.setState({mushers: res}))
   }
   
   render() {
-    console.log(this.state)
     return (
       <div className='mushers-page'>
         <p>Mushers Page</p>
-        <SearchFilterContainer {...this.state} handleSearchQuery={this.handleSearchQuery} />
+        <SearchFilterContainer handleSearchQuery={this.handleSearchQuery} handleYearSelection={this.handleYearSelection} handleRaceSelection={this.handleRaceSelection} />
+        <Results {...this.state} filterSearchResults={this.filterSearchResults} />
       </div>
     )
   }
