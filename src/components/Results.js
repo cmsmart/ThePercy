@@ -4,7 +4,7 @@ export const Results = (props) => {
     return (
         <div>
             Results
-            {props.filterSearchResults(props.mushers).map((musher, index) => (
+            {props.filterResults(props.mushers).map((musher, index) => (
                 <p key={index}>{musher.musher}</p>
             ))}
         </div>

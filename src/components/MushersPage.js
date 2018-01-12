@@ -26,7 +26,7 @@ export default class  MushersPage extends Component {
     this.setState({ race: race })
   }
 
-  filterSearchResults = () => {
+  filterResults = () => {
     let filteredResults = [...this.state.mushers]
     if (this.state.year !== 'Year') {
       filteredResults = filteredResults.filter((result) => (
@@ -43,9 +43,9 @@ export default class  MushersPage extends Component {
         new RegExp(this.state.searchQuery).test(result.musher)
       ))
     }
-    // let searchResults = filteredResults.filter((result) => (
-    //   result.musher_id !== searchResults.forEach()
-    // ))
+    filteredResults = filteredResults.filter((result, index, self) => {
+      return self.map(mapObj => mapObj['musher_id']).indexOf(result['musher_id']) === index
+    })
     return filteredResults
   }
 
@@ -60,7 +60,7 @@ export default class  MushersPage extends Component {
       <div className='mushers-page'>
         <p>Mushers Page</p>
         <SearchFilterContainer handleSearchQuery={this.handleSearchQuery} handleYearSelection={this.handleYearSelection} handleRaceSelection={this.handleRaceSelection} />
-        <Results {...this.state} filterSearchResults={this.filterSearchResults} />
+        <Results {...this.state} filterResults={this.filterResults} />
       </div>
     )
   }
