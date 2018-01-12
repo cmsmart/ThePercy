@@ -3,6 +3,7 @@ import ProfileCard from './ProfileCard';
 import SimpleBarChart from '../components/MusherRaceHistory'
 import { SearchFilterContainer } from "./SearchFilterContainer";
 import { getMushers } from "../api/mushers";
+import NavBar from './NavBar';
 
 export default class  MushersPage extends Component {
   state = {

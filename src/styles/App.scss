@@ -8,6 +8,46 @@ html, body {
   font-family: $mainfont;
 }
 
+nav {
+  background-color: $darkblue;
+  border: 0.5rem solid $white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  ul {
+    list-style: none;
+    display: flex;
+    li {
+      margin: 0 2rem;
+      a {
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 0.2rem solid $darkblue;
+      }
+      a:hover {
+        color: $highlightColor;
+        display: flex;
+        flex-direction: column;
+        // border-bottom: 0.2rem solid $highlightColor;
+      }
+    }
+  }
+}
+.active {
+  color: $highlightColor;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.2rem solid $highlightColor;
+}
+
+.nav-icons{
+  height: 3rem;
+  width: auto;
+  display: block;
+  margin: 0.5rem;
+}
+
 a {
   text-decoration: none;
   color: $primaryColor;
