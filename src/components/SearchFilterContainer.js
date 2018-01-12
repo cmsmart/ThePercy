@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { Dropdown } from './Dropdown';
+import { Searchbar } from './Searchbar';
+import { Results } from './Results'
 
 const generateYearsArray = () => {
     let years = []
@@ -8,23 +11,18 @@ const generateYearsArray = () => {
     return years
 }
 
-export default class SearchFilterContainer extends Component {
+export const SearchFilterContainer = (props) => { 
+
+    const years = generateYearsArray().reverse()
+    const races = ['Percy', 'Percy Junior']
     
-    state = {
-        year: null,
-        race: null,
-        searchQuery: null,
-    }
-
-    render() {
-
-        const years = generateYearsArray()
-        const races = ['Percy', 'Percy Junior']
-        
-        return (
-            <div>
-                <p>SearchFilter</p>
-            </div>
-        )   
-    }
+    return (
+        <div>
+            <p>SearchFilter</p>
+            <Dropdown data={years} />
+            <Dropdown data={races} />
+            <Searchbar {...props} />
+            <Results {...props} />
+        </div>
+    )   
 }
