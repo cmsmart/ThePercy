@@ -14,6 +14,7 @@ const data = [
       {name: 'Gretchen', distance: 5, experience: 'vetran'}
 ];
 
+
 class ProgressBarChart extends Component {
 	render () {
   	return (
@@ -22,7 +23,7 @@ class ProgressBarChart extends Component {
     	<BarChart width={600} height={400} data={data}
             margin={{top: 20, right: 30, left: 20, bottom: 5}}
             layout="vertical">
-    	  <XAxis type="number" domain={[0, 338]} />
+    	  <XAxis type="number" domain={[0, 338]} ticks={[85, 169, 254, 338]}/>
        	<YAxis type="category" dataKey="name" />
         <CartesianGrid strokeDasharray="3 3"/>
         <Tooltip/>
