@@ -11,7 +11,8 @@ nav {
     display: flex;
     padding: 0; }
     nav ul li {
-      margin: 0 2rem; }
+      margin: 0 3rem;
+      text-align: center; }
       nav ul li a {
         color: #F8F8F8;
         display: flex;
@@ -60,14 +61,31 @@ nav {
     header .info img.logo {
       display: none; }
     header .info aside {
-      display: none; } }
+      display: none; }
+  nav ul li {
+    margin: 0 1rem; }
+    nav ul li a {
+      line-height: 1rem;
+      font-size: 0.8rem; }
+      nav ul li a:hover {
+        color: #FA5252; }
+  .nav-icons {
+    height: 2rem;
+    margin: 0.5rem; } }
 
 @media screen and (min-width: 700px) and (max-width: 845px) {
   header .info img.logo {
     width: 105px;
     height: 79.1px; }
   header .info .site-title {
-    font-size: 1.5em; } }
+    font-size: 1.5em; }
+  nav ul li {
+    margin: 0 2rem; }
+    nav ul li a:hover {
+      color: #FA5252; }
+  .nav-icons {
+    height: 3rem;
+    margin: 0.5rem; } }
 
 html, body {
   width: 100%;

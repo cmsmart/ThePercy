@@ -12,7 +12,29 @@
                 display: none;
             }
         }
-    }  
+    }
+    // Navigation
+
+nav {
+    ul {
+      li {
+        margin: 0;
+        a {
+            line-height: 1rem;
+            font-size: 0.5rem;
+          &:hover {
+            color: $pink;
+            // border-bottom: 0.2rem solid $pink;
+          }
+        }
+      }
+    }
+  }
+  
+  .nav-icons{
+    height: 1.5rem;
+    margin: 0.1rem;
+  }
 }
 
 @media screen and (min-width: 700px) and (max-width: 845px) {
@@ -27,6 +49,22 @@
             }
         }
     }
+
+// Navigation
+
+nav {
+    ul {
+      li {
+        margin: 0 2rem;
+          }
+        }
+      }
+  }
+  
+  .nav-icons{
+    height: 3rem;
+    margin: 0.5rem;
+  }
 }
 
 
