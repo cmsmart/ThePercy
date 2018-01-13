@@ -34,6 +34,24 @@ nav {
   display: block;
   margin: 0.5rem; }
 
+.timer {
+  background-color: #C3D8EC;
+  color: #0C2639;
+  max-width: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  border: 0.2rem solid #F8F8F8; }
+  .timer h4 {
+    margin: auto;
+    padding: 0; }
+  .timer p {
+    margin: 1rem 2rem; }
+
 @media screen and (max-width: 700px) {
   header {
     text-align: center; }
