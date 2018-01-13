@@ -44,7 +44,8 @@ class SimpleBarChart extends Component {
             <ResponsiveContainer>
                 <BarChart width={800} height={300} data={data} maxBarSize={20}
                 margin={{top: 15, right: 30, left: 20, bottom: 5}}>
-                    <XAxis dataKey="name"/>
+                    <XAxis dataKey="name" />
+                    <XAxis dataKey="time" type="time" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]} />
                     <YAxis domain={[20]}/>
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip/>
