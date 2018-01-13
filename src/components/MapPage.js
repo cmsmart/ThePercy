@@ -2,8 +2,8 @@ import React from 'react'
 
 export const MapPage = (props) => {
   return (
-    <div className='map-page'>
-      <p>Map Page</p>
-    </div>
+    <main className='map-page'>
+      <iframe src="http://www.thepercy.com/tracker/"></iframe>
+    </main>
   )
 }

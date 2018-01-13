@@ -5,7 +5,7 @@ import MusherLineChart from './MusherLineChart'
 
 export const MusherPage = (props) => {
   return (
-    <div className='mushers-page'>
+    <div className='musher-page'>
       <h1>Mushers Name</h1>
 
       <MusherHistoryChart />
