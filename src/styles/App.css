@@ -5,10 +5,11 @@ nav {
   margin: 0.2rem 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly; }
+  justify-content: space-around; }
   nav ul {
     list-style: none;
-    display: flex; }
+    display: flex;
+    padding: 0; }
     nav ul li {
       margin: 0 2rem; }
       nav ul li a {
@@ -168,7 +169,8 @@ button {
 
 .field {
   background-color: #F8F8F8;
-  margin: 1rem; }
+  margin: 1rem;
+  color: #0C2639; }
 
 .field h2 {
   padding: 1rem;
@@ -180,6 +182,8 @@ button {
   flex-wrap: wrap;
   background: #F8F8F8;
   justify-content: center; }
+  .myCards a {
+    color: #0C2639; }
 
 .card {
   color: #0C2639;
