@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-import "../App.css";
+import "../styles/App.css";
 
 import { Dashboard } from '../components/Dashboard'
 import { Historical } from '../components/Historical'
 import { MapPage } from '../components/MapPage'
-import { MushersPage } from '../components/MushersPage'
+import MushersPage from '../components/MushersPage'
 import { PrimaryLayout } from '../components/PrimaryLayout'
 import { StatisticsPage } from '../components/StatisticsPage'
 import Timer from '../containers/Timer'
@@ -82,6 +82,7 @@ class App extends Component {
     }
   }
 
+  
   render() {
     return (
       <div className="App">
@@ -97,7 +98,9 @@ class App extends Component {
               <Historical {...this.state.data} />
             )} />
             <Route path='/statistics' component={StatisticsPage} />
-            <Route path='/mushers' component={MushersPage} />
+            <Route path='/mushers' render={() => (
+              <MushersPage />
+            )} />
             <Redirect to='/tracker'  />
           </Switch>
         </Router>

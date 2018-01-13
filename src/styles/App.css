@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700");
+html, body {
+  margin: 0;
+  padding: 0;
+  color: #C3D8EC;
+  background: #0C2639;
+  font-family: "Comfortaa"; }
+
+nav {
+  background-color: #4E7590;
+  border: 0.5rem solid #F8F8F8;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly; }
+  nav ul {
+    list-style: none;
+    display: flex; }
+    nav ul li {
+      margin: 0 2rem; }
+      nav ul li a {
+        color: #F8F8F8;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 0.2rem solid #4E7590; }
+      nav ul li a:hover {
+        color: #FA5252;
+        display: flex;
+        flex-direction: column; }
+
+.active {
+  color: #FA5252;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.2rem solid #FA5252; }
+
+.nav-icons {
+  height: 3rem;
+  width: auto;
+  display: block;
+  margin: 0.5rem; }
+
+a {
+  text-decoration: none;
+  color: #0C2639; }
+
+.searchFilter {
+  margin: 1rem; }
+
+body select {
+  display: inline-block;
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  margin: 0.5rem 0.2rem 0.5rem 0;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #4E7590;
+  background: url("https://image.ibb.co/iMeAJv/selectbox_arrow.png") right center no-repeat;
+  background-color: #F8F8F8;
+  color: #0C2639;
+  font-size: 1rem;
+  line-height: 2rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+/* body select.select_box option */
+body select option {
+  padding: 0 4px; }
+
+input {
+  background-color: #F8F8F8;
+  border: none;
+  color: #0C2639;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem; }
+
+button {
+  background-color: #4E7590;
+  border: none;
+  color: #F8F8F8;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  transition-duration: 0.4s; }
+
+button:hover {
+  background-color: #F8F8F8;
+  /* Green */
+  color: #4E7590; }
+
+.field {
+  background-color: #F8F8F8;
+  margin: 1rem; }
+
+.field h2 {
+  padding: 1rem;
+  margin: 0;
+  color: #0C2639; }
+
+.myCards {
+  display: flex;
+  flex-wrap: wrap;
+  background: #F8F8F8;
+  justify-content: center; }
+
+.card {
+  color: #0C2639;
+  transition: 0.3s;
+  width: 12rem;
+  margin: 0.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; }
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+
+.avatar {
+  display: flex;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  overflow: hidden;
+  justify-content: center;
+  align-self: center;
+  margin: 10px;
+  border: 2px solid #0C2639; }
+  .avatar img {
+    margin: 0 auto;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative; }
+
+.container {
+  padding: 0.5rem 1rem; }
+
