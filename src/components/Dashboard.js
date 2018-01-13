@@ -10,8 +10,7 @@ const headings = ['ID', 'Name', 'Num1', 'Num2', 'Num3']
 export const Dashboard = (props) => {
 
   return (
-    <div className='dashboard'>
-      <p>Dashboard</p>
+    <main className='dashboard'>
         <Timer />
 
         <ProgressBarChart
@@ -21,9 +20,7 @@ export const Dashboard = (props) => {
       <p>Fake Table</p>
       <Table data={props.updates} classname={'live-data'} headings={headings} />
 
-      <p>Playing wth chart formatting</p>
-      <DummyChart />
-    </div>
+    </main>
   )
 }
 
