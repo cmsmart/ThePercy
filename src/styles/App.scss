@@ -15,7 +15,7 @@ html, body {
 body {
   color: $textColor;
   background: $primaryColor;
-  font-family: $mainfont;
+  font-family: $secondaryfont;
 }
 
 #root {
@@ -38,6 +38,10 @@ main {
 }
 
 //Headers
+
+h1, h2, h3, h4 {
+  font-family: $mainfont;
+}
 
 h1 {
   font-size: 1.8em;
@@ -84,7 +88,7 @@ header {
 
 a {
   text-decoration: none;
-  color: $primaryColor;
+  color: $textColor;
 }
 
 
@@ -92,7 +96,7 @@ a {
 
 iframe {
   height: 100%;
-  max-height: 700px;
+  min-height: 700px;
   width: 100%;
   border: 0;
 }
