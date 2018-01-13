@@ -1,63 +1,95 @@
 import React, { Component } from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, LabelList, Legend } from 'recharts'
+import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, LabelList, Legend, Label } from 'recharts'
 import { ResponsiveContainer } from 'recharts';
 
-const Recharts = {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, LabelList, Legend};
+const Recharts = {ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, LabelList, Legend};
 const data = [
-      {name: '2000', place: 1, runtime: 28.36},
-      {name: '2001', place: 10, runtime: 24.60},
-      {name: '2002', place: 0, runtime: 30.20},
-      {name: '2003', place: 1, runtime: 24.36},
-      {name: '2004', place: 1, runtime: 26.36},
-      {name: '2005', place: 1, runtime: 30.36},
-      {name: '2006', place: 1, runtime: 24.11},
-      {name: '2007', place: 3, runtime: 26.36},
-      {name: '2008', place: 4, runtime: 22.36},
-      {name: '2009', place: 1, runtime: 30.09},
-      {name: '2010', place: 4, runtime: 35.36},
-      {name: '2011', place: 1, runtime: 28.36},
-      {name: '2012', place: 1, runtime: 34.12},
-      {name: '2013', place: 4, runtime: 28.36},
-      {name: '2014', place: 1, runtime: 32.36},
-      {name: '2015', place: 1, runtime: 24.33},
-      {name: '2016', place: 1, runtime: 22.36},
+  {year: '2002', place: 6, runtime: 9.53, race: "Percy Junior"},
+  {year: '2003', place: 1, runtime: 8.22, race: "Percy Junior"},
+  {year: '2004', place: 8, runtime: 27.10, race: "Percy"},
+  {year: '2005', place: null, runtime: null, race: null},
+  {year: '2006', place: 2, runtime: 22.01, race: "Percy"},
+  {year: '2007', place: null, runtime: "Scratched", race: null},
+  {year: '2008', place: 1, runtime: 22.20, race: "Percy"},
+  {year: '2009', place: null, runtime: "scratched", race: "Percy"},
+  {year: '2010', place: 5, runtime: 26.24, race: "Percy"},
+  {year: '2011', place: 2, runtime: 21.37, race: "Percy"},
+  {year: '2012', place: 1, runtime: 24.14, race: "Percy"},
+  {year: '2013', place: 4, runtime: 24.43, race: "Percy"},
+  {year: '2014', place: 2, runtime: 19.16, race: "Percy"},
+  {year: '2015', place: null, runtime: "Scratched", race: "Percy"},
+  {year: '2016', place: null, runtime: null, race: null},
+  {year: '2017', place: 6, runtime: 27.37, race: "Percy"},
 ];
 
-const renderCustomizedLabel = (props) => {
-  const { x, y, width, height, value } = props;
-  const radius = 10;
+const CustomLabel = (props) => {
+  return <div>{props.value}</div>
+}
 
-  return (
-    <g>
-      <circle cx={x + width / 2} cy={y - radius} r={radius} fill="#8884d8" />
-      <text x={x + width / 2} y={y - radius} fill="#fff" textAnchor="middle" dominantBaseline="middle">
-        {value}
-      </text>
-    </g>
-  );
-};
+const RenderLegend = () => {
+  return <div style={{
+    color: "#191919",
+    display: "inline-block",
+    padding: "0.3rem 1.2rem",
+  }}>
+  <p style={{
+    padding: "0.3rem 1.2rem",
+    textAnchor: "middle",
+    margin: "0",
+    fontSize: "0.8rem",
+    textAlign: "center",
+    fontWeight: "bold"
+  }}>Legend</p>
+  <p style={{
+    backgroundColor: "#0C2639",
+    color: "#fff",
+    padding: "0.5rem 1.2rem",
+    margin: "0.1rem",
+    textAnchor: "middle",
+    fontSize: "0.8rem",
+    textAlign: "center"
+  }}>Percy</p>
+  <p style={{
+    textAlign: "center",
+    color: "#fff",
+    backgroundColor: "#C3D8EC",
+    fontSize: "0.8rem",
+    padding: "0.5rem 1.2rem",
+    textAnchor: "middle",
+    margin: "0.1rem"
+  }}>Percy Junior</p>
+  </div>
+}
 
-class SimpleBarChart extends Component {
+class MusherHistoryChart extends Component {
 	render () {
   	return (
-        <div className="area-chart-wrapper" style={{ width: '100%', height: '400px' }}>
-            <ResponsiveContainer>
-                <BarChart width={800} height={300} data={data} maxBarSize={20}
-                margin={{top: 15, right: 30, left: 20, bottom: 5}}>
-                    <XAxis dataKey="name" />
-                    <XAxis dataKey="time" type="time" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]} />
-                    <YAxis domain={[20]}/>
-                    <CartesianGrid strokeDasharray="3 3"/>
-                    <Tooltip/>
-                    <Legend value={'sss'}/>
-                    <Bar dataKey="runtime" fill="#8884d8" minPointSize={1}>
-                        <LabelList dataKey="place" content={renderCustomizedLabel} />
+        <div className="Composed-chart-wrapper" style={{ width: '95%', height: '400px', backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
+            <ResponsiveContainer padding="1rem">
+                <ComposedChart width={800} height={300} data={data}
+                margin={{top: 30, right: 30, left: 50, bottom: 30}}>
+                    <XAxis dataKey="year">
+                      <Label value="Time (hours)" offset={-15} position="insideBottom"/>
+                    </XAxis>
+                    <YAxis>
+                      <Label value="Year"angle={-90} offset={-35} position="insideLeft"/> 
+                    </YAxis>
+                    <CartesianGrid strokeDasharray="3 3" stroke='#f5f5f5'/>
+                    <Tooltip cursor={{fill: "eee"}} />
+                    <Legend layout="vertical" verticalAlign="middle" align="right" content={RenderLegend}/> 
+                    <Bar dataKey="runtime" fill="#8884d8" barSize={20} >
+                      {
+                        data.map((entry, index) => { 
+                          return <Cell fill={data[index].race === 'Percy' ? '#0C2639' : '#C3D8EC' } />;
+                        })
+                      }
                     </Bar>
-                </BarChart>
+                    <Line type='monotone' dataKey='runtime' stroke='#ff7300' connectNulls='true'/>
+                </ComposedChart>
             </ResponsiveContainer>
         </div>
     );
   }
 }
 
-export default SimpleBarChart
+export default MusherHistoryChart

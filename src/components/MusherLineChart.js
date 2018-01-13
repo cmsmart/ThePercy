@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, ResponsiveContainer} from 'recharts'
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, ResponsiveContainer, Label} from 'recharts'
 import PropTypes from 'prop-types'
 
 const Recharts = {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend}; 
@@ -29,80 +29,32 @@ const series = [
   ]},
 ];
 
-function renderText(child, x, y, rotate, stroke, key) {
-  if (child && child.content) {
-    return (<text
-      key={key}
-      x={x}
-      y={y}
-      transform={`rotate(${rotate})`}
-      textAnchor="middle"
-      stroke={stroke}
-      {...child.props}>
-      {child.content}
-    </text>);
-  }
-
-  return (<text
-    key={key}
-    x={x}
-    y={y}
-    transform={`rotate(${rotate})`}
-    textAnchor="middle"
-    stroke={stroke}>{child}</text>);
+const CustomLabel = (props) => {
+  return <div>{props.value}</div>
 }
-
-function AxisLabel({ axisType, x, y, width, height, stroke, children }) {
-  const isVert = axisType === 'yAxis';
-  const cx = isVert ? x : x + (width / 2);
-  const cy = isVert ? (height / 2) + y : y + height + 20;
-  const rot = isVert ? `270 ${cx} ${cy}` : 0;
-  const lineHeight = 20;
-
-  if (children.length > 1 && children.map) {
-    return (<g>
-      {children.map((child, index) =>
-        renderText(
-          child,
-          cx,
-          cy + index * lineHeight,
-          rot,
-          stroke,
-          index)
-      )}
-    </g>);
-  }
-
-  return renderText(children, cx, cy, rot, stroke);
-}
-AxisLabel.propTypes = {
-  axisType: PropTypes.oneOf(['yAxis', 'xAxis']),
-  x: PropTypes.number,
-  y: PropTypes.number,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  stroke: PropTypes.string,
-  children: PropTypes.any,
-};
 
 class MusherLineChart extends Component {
 	render () {
   	return (
-      <div className="area-chart-wrapper" style={{ width: '100%', height: '400px' }}>
-      <ResponsiveContainer>
-      <LineChart width={300} height={300} margin={{top: 30, right: 30, left: 20, bottom: 5}}>
+      <div className="Line-chart-wrapper" style={{ width: "45%", height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
+      <ResponsiveContainer padding="1rem">
+      <LineChart width={300} height={300} margin={{top: 30, right: 30, left: 50, bottom: 50}}>
         <CartesianGrid strokeDasharray="3 3" horizontal={false}/>
-        <XAxis dataKey="time" type="time" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]} label={<AxisLabel axisType="xAxis"  x={50} y={350} width={0} height={0}>Time (hours)</AxisLabel>}/>
-         <YAxis  dataKey="dist"  type="number"  allowDuplicatedCategory={false} domain={[0, 338]} label={<AxisLabel axisType="yAxis" x={25} y={150} width={0} height={0}>{['Distance Travelled', 'km']}</AxisLabel>}/>
+        <XAxis dataKey="time" type="time" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]}>
+          <Label value={['Time (hours)']} offset={-45} position="insideBottom" ticks={[85, 169, 254, 338]}/>
+        </XAxis>
+        <YAxis  dataKey="dist"  type="number"  allowDuplicatedCategory={false} domain={[0, 338]} >
+          <Label value={['Distance (km)']} angle={-90} offset={-25} position="insideLeft" /> 
+        </YAxis>
         <Tooltip/>
         <Legend/>
         {series.map(s => (
           <Line type="monotone" dataKey="dist" data={s.data} name={s.year} key={s.year} stroke="#4e7590"  strokeWidth="2" />
         ))}
-          <ReferenceLine y={80.4} stroke="red" strokeWidth="0.5" label={{ position: "end", value: "Fortymile in", fill:"red" }}  />
-          <ReferenceLine y={159.87} stroke="red" strokeWidth="0.5" label={{ position: "top", value: "Eagle", fill:"red" }} />
-          <ReferenceLine y={240.27} stroke="red" strokeWidth="0.5" label={{ position: "top", value: "Fortymile out", fill:"red" }} />
-          <ReferenceLine y={338} stroke="red" strokeWidth="0.5" label={{ position: "top", value: "Finish", fill:"red" }} />
+          <ReferenceLine y={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
+          <ReferenceLine y={159.87} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+          <ReferenceLine y={240.27} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+          <ReferenceLine y={338} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
       </LineChart>
       </ResponsiveContainer>
       </div>
