@@ -18,7 +18,6 @@ export const SearchFilterContainer = (props) => {
     
     return (
         <div className="searchFilter">
-            <p>SearchFilter</p>
             <Dropdown data={years} handleSelection={props.handleYearSelection} />
             <Dropdown data={races} handleSelection={props.handleRaceSelection} />
             <Searchbar {...props} />
