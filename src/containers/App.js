@@ -6,6 +6,7 @@ import { Dashboard } from '../components/Dashboard'
 import { Historical } from '../components/Historical'
 import { MapPage } from '../components/MapPage'
 import MushersPage from '../components/MushersPage'
+import MusherPage from '../components/MusherPage'
 import { PrimaryLayout } from '../components/PrimaryLayout'
 import { StatisticsPage } from '../components/StatisticsPage'
 import Timer from '../containers/Timer'
@@ -98,6 +99,7 @@ class App extends Component {
               <Historical {...this.state.data} />
             )} />
             <Route path='/statistics' component={StatisticsPage} />
+            <Route path='/musher' component={MusherPage} />
             <Route path='/mushers' render={() => (
               <MushersPage />
             )} />
