@@ -1,0 +1,214 @@
+@import 'variables';
+@import 'nav';
+@import 'media';
+
+html, body {
+  width: 100%;
+  height: 100%;
+  
+  margin: 0;
+  padding: 0;
+
+  font-family: sans-serif;
+}
+
+body {
+  color: $textColor;
+  background: $primaryColor;
+  font-family: $secondaryfont;
+}
+
+#root {
+  height: 98%;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 0;
+
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+main {
+  flex: 1;
+}
+
+//Headers
+
+h1, h2, h3, h4 {
+  font-family: $mainfont;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+// Header
+
+header {
+  margin-top: 10px;
+}
+
+.info {
+  display: flex;
+  flex-flow: wrap;
+  margin-bottom: 20px;
+    img.logo {
+      margin-right: 20px;
+      width: 150px;
+      height: 113px;
+    }
+    section {
+      flex: 1 1 auto;
+    }
+    .site-title {
+      margin-bottom: 10px;
+    }
+    aside {
+      width: 30px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      img {
+        margin: 5px auto;
+      }
+    }
+}
+
+// Links
+
+a {
+  text-decoration: none;
+  color: $textColor;
+}
+
+
+// Map page 
+
+iframe {
+  height: 100%;
+  min-height: 700px;
+  width: 100%;
+  border: 0;
+}
+
+// Search
+
+.searchFilter {
+  margin: 1rem;
+  select { 
+    display: inline-block;
+    padding: 0.5rem 2rem 0.5rem 1rem; 
+    margin: 0.5rem 0.2rem 0.5rem 0; 
+    max-width: 100%; 
+    height: auto; 
+    border: 1px solid $darkblue; 
+    background: url("https://image.ibb.co/iMeAJv/selectbox_arrow.png") right center no-repeat; background-color: $white; 
+    color: $primaryColor; 
+    font-size: 1rem; 
+    line-height: 2rem; 
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    option { 
+      padding: 0 4px; 
+    }
+  }
+}
+
+// Forms and Buttons
+
+input {
+  background-color: $white;
+  border: none;
+  color: $primaryColor;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+button {
+    background-color: $darkblue;
+    border: none;
+    color: $white;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    transition-duration: 0.4s;
+    &:hover {
+      background-color: $white; /* Green */
+      color: $darkblue;
+  }
+
+}
+
+.field {
+  background-color: $white;
+  margin: 1rem;
+}
+
+.field h2 {
+  padding: 1rem;
+  margin: 0;
+  color: $primaryColor
+    }
+
+// Cards
+
+.myCards {
+  display: flex;
+  flex-wrap: wrap;
+  background: $white;
+  justify-content: center;
+}
+
+.card {
+    color: $primaryColor;
+    transition: 0.3s;
+    width: 12rem;
+    margin: 0.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+}
+
+.avatar {
+  display: flex;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  overflow: hidden;
+  justify-content: center;
+  align-self: center;
+  margin: 10px;
+  border: 2px solid $primaryColor;
+  img {
+    margin: 0 auto;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    // height: 100%;
+    // width: 100%;
+    
+  }
+}
+

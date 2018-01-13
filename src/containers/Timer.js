@@ -62,9 +62,9 @@ class Timer extends Component {
     const { countdownText } = this.state
 
     return (
-      <div className="App">
-        <h1>Race countdown: </h1>
-        <h2>{ countdownText }</h2>
+      <div className="timer">
+        <p>Race countdown: </p>
+        <p>{ countdownText }</p>
       </div>
     )
   }
