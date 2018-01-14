@@ -16,7 +16,7 @@ const formatCountdownTextLabel = (digit, strict) => {
 
 class Timer extends Component {
   state = {
-    months: "",
+    // months: "",
     days: "",
     hours: "",
     minutes: "",
@@ -28,14 +28,11 @@ class Timer extends Component {
     const eventTime = moment(1521741600);
     // Test past event - March 2017
     // const eventTime = moment(1490205600);
-    // Establish current time
     const now = moment().unix();
-    // Work out the time until the next race
     const countdown = eventTime - now;
-    // Convert that time into milliseconds
+    // Convert time until event into milliseconds
     const interval = 1000;
     let duration = moment.duration(countdown * interval, "milliseconds");
-    console.log("duration", duration);
 
     setInterval(() => {
       duration = moment.duration(
@@ -43,7 +40,7 @@ class Timer extends Component {
         "milliseconds"
       );
 
-      const months = formatCountdownTextLabel(duration.months(), true);
+      // const months = formatCountdownTextLabel(duration.months(), true);
       const asDays = formatCountdownTextLabel(duration.asDays(), true);
       const days = Math.floor(asDays)
 
@@ -52,7 +49,7 @@ class Timer extends Component {
       const seconds = formatCountdownTextLabel(duration.seconds(), false);
 
       this.setState({
-        months: months,
+        // months: months,
         days: days,
         hours: hours,
         minutes: minutes,
@@ -66,7 +63,7 @@ class Timer extends Component {
   }
 
   render() {
-    const { months, days, hours, minutes, seconds } = this.state;
+    const { days, hours, minutes, seconds } = this.state;
 
     return (
       <div className="timer">
