@@ -58,6 +58,15 @@ const RenderLegend = () => {
     textAnchor: "middle",
     margin: "0.1rem"
   }}>Percy Junior</p>
+  <p style={{
+    backgroundColor: "#ff7300",
+    color: "#fff",
+    padding: "0.5rem 1.2rem",
+    margin: "0.1rem",
+    textAnchor: "middle",
+    fontSize: "0.8rem",
+    textAlign: "center"
+  }}>Run Time</p>
   </div>
 }
 

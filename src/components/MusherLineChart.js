@@ -33,29 +33,42 @@ const CustomLabel = (props) => {
   return <div>{props.value}</div>
 }
 
+const YearColor = [
+  {year: "2018", lineColor: "#5f4b8b"},
+  {year: "2017", lineColor: "#88b04b"},
+  {year: "2016", lineColor: "#91a8d0"},
+  {year: "2015", lineColor: "#964f4c"},
+  {year: "2014", lineColor: "#ad5e99"},
+  {year: "2013", lineColor: "#009473"},
+  {year: "2012", lineColor: "#dd4124"}
+]
+
 class MusherLineChart extends Component {
 	render () {
   	return (
       <div className="Line-chart-wrapper" style={{ width: "45%", height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
       <ResponsiveContainer padding="1rem">
-      <LineChart width={300} height={300} margin={{top: 30, right: 30, left: 50, bottom: 50}}>
-        <CartesianGrid strokeDasharray="3 3" horizontal={false}/>
-        <XAxis dataKey="time" type="time" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]}>
-          <Label value={['Time (hours)']} offset={-45} position="insideBottom" ticks={[85, 169, 254, 338]}/>
-        </XAxis>
-        <YAxis  dataKey="dist"  type="number"  allowDuplicatedCategory={false} domain={[0, 338]} >
-          <Label value={['Distance (km)']} angle={-90} offset={-25} position="insideLeft" /> 
-        </YAxis>
-        <Tooltip/>
-        <Legend/>
-        {series.map(s => (
-          <Line type="monotone" dataKey="dist" data={s.data} name={s.year} key={s.year} stroke="#4e7590"  strokeWidth="2" />
-        ))}
-          <ReferenceLine y={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
-          <ReferenceLine y={159.87} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-          <ReferenceLine y={240.27} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-          <ReferenceLine y={338} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-      </LineChart>
+        <LineChart width={300} height={300} margin={{top: 30, right: 30, left: 50, bottom: 50}}>
+          <CartesianGrid strokeDasharray="3 3" horizontal={false}/>
+          <XAxis dataKey="time" type="time" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]} >
+            <Label value={['Time (hours)']} offset={-45} position="insideBottom" ticks={[85, 169, 254, 338]}/>
+          </XAxis>
+          <YAxis  dataKey="dist"  type="number"  allowDuplicatedCategory={false} domain={[0, 338]} >
+            <Label value={['Distance (km)']} angle={-90} offset={-25} position="insideLeft" /> 
+          </YAxis>
+          <Tooltip/>
+          <Legend/>
+          {series.map(s => (
+            <Line dataKey="dist" data={s.data} name={s.year} key={s.year} strokeWidth="2"/> 
+          ))}
+          {YearColor.map(year => (
+             <Line key={year.year} stroke={year.lineColor} />
+          ))}
+            <ReferenceLine y={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
+            <ReferenceLine y={159.87} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+            <ReferenceLine y={240.27} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+            <ReferenceLine y={338} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+        </LineChart>
       </ResponsiveContainer>
       </div>
     )}
