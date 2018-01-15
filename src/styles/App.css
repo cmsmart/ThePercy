@@ -34,7 +34,8 @@ nav {
   height: 3rem;
   width: auto;
   display: block;
-  margin: 0.5rem; }
+  margin: 0.5rem;
+  color: #FA5252; }
 
 .timer {
   background-color: #C3D8EC;
