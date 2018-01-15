@@ -6,8 +6,8 @@ export const Searchbar = (props) => {
             event.preventDefault()
             props.handleSearchQuery(event.target.elements.search.value)
         }}>
-            <input type='text' name='search' placeholder='Search' />
-            <button type='submit' />
+            <input type='text' name='search' placeholder='e.g. Magnus Kaltenborn' />
+            <button type='submit'>Search</button>
         </form>
     )
 }

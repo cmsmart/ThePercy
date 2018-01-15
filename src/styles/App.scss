@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'nav';
+@import 'timer';
 @import 'media';
 
 html, body {
@@ -13,8 +14,8 @@ html, body {
 }
 
 body {
-  color: $textColor;
-  background: $primaryColor;
+  color: $lightblue;
+  background: $navy;
   font-family: $secondaryfont;
 }
 
@@ -88,7 +89,7 @@ header {
 
 a {
   text-decoration: none;
-  color: $textColor;
+  color: $lightblue;
 }
 
 
@@ -113,7 +114,7 @@ iframe {
     height: auto; 
     border: 1px solid $darkblue; 
     background: url("https://image.ibb.co/iMeAJv/selectbox_arrow.png") right center no-repeat; background-color: $white; 
-    color: $primaryColor; 
+    color: $navy; 
     font-size: 1rem; 
     line-height: 2rem; 
     appearance: none; 
@@ -130,7 +131,7 @@ iframe {
 input {
   background-color: $white;
   border: none;
-  color: $primaryColor;
+  color: $navy;
   padding: 0.5rem 1rem;
   text-align: center;
   text-decoration: none;
@@ -159,12 +160,13 @@ button {
 .field {
   background-color: $white;
   margin: 1rem;
+  color: $navy;
 }
 
 .field h2 {
   padding: 1rem;
   margin: 0;
-  color: $primaryColor
+  color: $navy
     }
 
 // Cards
@@ -174,10 +176,13 @@ button {
   flex-wrap: wrap;
   background: $white;
   justify-content: center;
+  a {
+    color: $navy;
+  }
 }
 
 .card {
-    color: $primaryColor;
+    color: $navy;
     transition: 0.3s;
     width: 12rem;
     margin: 0.5rem;
@@ -200,7 +205,7 @@ button {
   justify-content: center;
   align-self: center;
   margin: 10px;
-  border: 2px solid $primaryColor;
+  border: 2px solid $navy;
   img {
     margin: 0 auto;
     border-radius: 50%;
