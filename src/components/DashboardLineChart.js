@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, ResponsiveContainer, Label} from 'recharts'
-import PropTypes from 'prop-types'
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from 'recharts'
+//import PropTypes from 'prop-types'
 
 const series = [
   {name: 'Cho', data: [
@@ -129,14 +129,15 @@ class DashboardLineChart extends Component {
       <ResponsiveContainer padding="1rem">
         <LineChart width={300} height={300} margin={{top: 30, right: 30, left: 50, bottom: 50}}>
           <CartesianGrid strokeDasharray="3 3" horizontal={false}/>
-          <XAxis dataKey="time" type="time" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]} >
-            <Label value={['Time (hours)']} offset={-45} position="insideBottom" ticks={[85, 169, 254, 338]}/>
+          <XAxis dataKey="time" type="number" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]} >
+            <Label name={['Time (hours)']} offset={-45} position="insideBottom" ticks={[85, 169, 254, 338]}/>
           </XAxis>
           <YAxis  dataKey="dist"  type="number"  allowDuplicatedCategory={false} domain={[0, 338]} >
-            <Label value={['Distance (km)']} angle={-90} offset={-25} position="insideLeft" /> 
+            <Label name={['Distance (km)']} angle={-90} offset={-25} position="insideLeft" /> 
           </YAxis>
           <Tooltip/>
-          <Legend layout="vertical" verticalAlign="middle" align="leftBottom" content={RenderLegend}/> />
+      
+          <Legend layout="vertical" verticalAlign="middle" align="left" content={RenderLegend}/> />
           {series.map(s => (
             <Line dataKey="dist" data={s.data} name={s.name} key={s.name} /> 
           ))}

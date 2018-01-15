@@ -44,13 +44,8 @@ const renderLegend = () => {
     </div>;
 }
 
-class DataWrapper extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      index: 0,
-      data: [
-          {
+const data = [
+  {
           "event_id": 115,
           "musher_id": 238,
           "msg_id": 376719583,
@@ -65,7 +60,7 @@ class DataWrapper extends React.Component {
           "hours": 11,
           "minutes": 47,
           "seconds": 27
-          }
+            }
           },
           {
           "event_id": 115,
@@ -82,7 +77,7 @@ class DataWrapper extends React.Component {
           "hours": 13,
           "minutes": 9,
           "seconds": 14
-          }
+            }
           },
           {
           "event_id": 115,
@@ -99,7 +94,7 @@ class DataWrapper extends React.Component {
           "hours": 12,
           "minutes": 7,
           "seconds": 27
-          }
+            }
           },
           {
           "event_id": 115,
@@ -116,7 +111,7 @@ class DataWrapper extends React.Component {
           "hours": 16,
           "minutes": 27,
           "seconds": 16
-          }
+            }
           },
           {
           "event_id": 115,
@@ -133,7 +128,7 @@ class DataWrapper extends React.Component {
           "hours": 11,
           "minutes": 57,
           "seconds": 27
-          }
+            }
           },
           {
             "event_id": 115,
@@ -168,7 +163,7 @@ class DataWrapper extends React.Component {
             "hours": 1,
             "minutes": 14,
             "seconds": 49
-            }
+              }
             },
             {
             "event_id": 115,
@@ -186,7 +181,7 @@ class DataWrapper extends React.Component {
             "hours": 5,
             "minutes": 42,
             "seconds": 43
-            }
+              }
             },
             {
             "event_id": 115,
@@ -202,7 +197,7 @@ class DataWrapper extends React.Component {
             "run_time": {
             "minutes": 13,
             "seconds": 50
-            }
+              }
             },
             {
             "event_id": 115,
@@ -220,20 +215,10 @@ class DataWrapper extends React.Component {
             "hours": 5,
             "minutes": 22,
             "seconds": 44
+              }
             }
-            }
-        ]
-      }
-    }
-   
-    render(){
-      return (
-        <ProgressBarChart data={this.state.data}/>
-      )
-    }
-  }
-
-
+        ];
+    
 class ProgressBarChart extends Component {
 	render () {
   	return (
@@ -244,17 +229,13 @@ class ProgressBarChart extends Component {
           <Label value="Distance (m)" offset={-15} position="insideBottom" ticks={[0, 85000, 169000, 254000, 338000]}/>
         </XAxis>
         <YAxis type="category" dataKey="musher_id">
-          <Label value="Mushers" angle={-90} offset={-35} position="insideLeft" />
+          <Label value='Mushers' angle={-90} offset={-35} position="insideLeft" />
         </YAxis>
         <Tooltip cursor={{ fill: "#eee" }} />
         <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
 
-        <Bar dataKey="run_dist" maxBarSize={15} data={this.props.data}>
-        {/*data.map((entry, index) => {
-        return <Cell fill={data.event_id === 115 ? "#b5b991" : "#3d5941"} />;})
-        */}
-        </Bar>
-
+        <Bar dataKey="run_dist" maxBarSize={15} />
+   
           <ReferenceLine x={80400} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine x={159870} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine x={240270} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />

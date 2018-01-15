@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, ResponsiveContainer, Label} from 'recharts'
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from 'recharts'
 import PropTypes from 'prop-types'
 
 const series = [
@@ -136,7 +136,7 @@ class MusherLineChart extends Component {
             <Label value={['Distance (km)']} angle={-90} offset={-25} position="insideLeft" /> 
           </YAxis>
           <Tooltip/>
-          <Legend layout="vertical" verticalAlign="middle" align="leftBottom" content={RenderLegend}/> />
+          <Legend layout="vertical" verticalAlign="middle" align="left" content={RenderLegend}/> />
           {series.map(s => (
             <Line dataKey="dist" data={s.data} name={s.year} key={s.year} /> 
           ))}
