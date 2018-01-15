@@ -4,17 +4,17 @@ import PropTypes from 'prop-types'
 
 const Recharts = {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend}; 
 const series = [
-  {year: '2012', data: [
+  {name: 'Cho', data: [
     {time: '0', dist: 0 },
     {time: '30', dist: 152.7},
     {time: '50', dist: 338}
   ]},
-  {year: '2013', data: [
+  {name: 'Hannah', data: [
     {time: '0', dist: 0 },
     {time: '30', dist: 152.7},
     {time: '45', dist: 338}
   ]},
-  {year: '2016', data: [
+  {name: 'Carl', data: [
     {time: '0', dist: 0 },
     {time: '13', dist: 12.4},
     {time: '18', dist: 25.7},
@@ -22,7 +22,7 @@ const series = [
     {time: '30', dist: 145.8},
     {time: '45', dist: 338}
   ]},
-  {year: '2017', data: [
+  {name: 'Gretchen', data: [
     {time: '0', dist: 0 },
     {time: '5', dist: 7.4},
     {time: '50', dist: 338}
@@ -55,7 +55,7 @@ const RenderLegend = () => {
     textAnchor: "middle",
     fontSize: "0.4rem",
     textAlign: "center"
-  }}>2018</p>
+  }}>Cho</p>
   <p style={{
     textAlign: "center",
     color: "#fff",
@@ -64,7 +64,7 @@ const RenderLegend = () => {
     padding: "0.25rem 0.6rem",
     textAnchor: "middle",
     margin: "0.05rem"
-  }}>2017</p>
+  }}>Hannah</p>
   <p style={{
     backgroundColor: "#91a8d0",
     color: "#fff",
@@ -73,7 +73,7 @@ const RenderLegend = () => {
     textAnchor: "middle",
     fontSize: "0.4rem",
     textAlign: "center"
-  }}>2016</p>
+  }}>Carl</p>
   <p style={{
     backgroundColor: "#964f4c",
     color: "#fff",
@@ -82,7 +82,7 @@ const RenderLegend = () => {
     textAnchor: "middle",
     fontSize: "0.4rem",
     textAlign: "center"
-  }}>2015</p>
+  }}>Gretchen</p>
   <p style={{
     textAlign: "center",
     color: "#fff",
@@ -91,7 +91,7 @@ const RenderLegend = () => {
     padding: "0.25rem 0.6rem",
     textAnchor: "middle",
     margin: "0.05rem"
-  }}>2014</p>
+  }}>George</p>
   <p style={{
     backgroundColor: "#009473",
     color: "#fff",
@@ -100,7 +100,7 @@ const RenderLegend = () => {
     textAnchor: "middle",
     fontSize: "0.4rem",
     textAlign: "center"
-  }}>2013</p>
+  }}>Julia</p>
    <p style={{
     backgroundColor: "#dd4124",
     color: "#fff",
@@ -109,21 +109,21 @@ const RenderLegend = () => {
     textAnchor: "middle",
     fontSize: "0.4rem",
     textAlign: "center"
-  }}>2012</p>
+  }}>Nick</p>
   </div>
 }
 
-const YearColor = [
-  {year: "2018", lineColor: "#5f4b8b"},
-  {year: "2017", lineColor: "#88b04b"},
-  {year: "2016", lineColor: "#91a8d0"},
-  {year: "2015", lineColor: "#964f4c"},
-  {year: "2014", lineColor: "#ad5e99"},
-  {year: "2013", lineColor: "#009473"},
-  {year: "2012", lineColor: "#dd4124"}
+const NameColor = [
+  {name: "Cho", lineColor: "#5f4b8b"},
+  {name: "Hannah", lineColor: "#88b04b"},
+  {name: "Carl", lineColor: "#91a8d0"},
+  {name: "Gretchen", lineColor: "#964f4c"},
+  {name: "George", lineColor: "#ad5e99"},
+  {name: "Julia", lineColor: "#009473"},
+  {name: "Nick", lineColor: "#dd4124"}
 ]
 
-class MusherLineChart extends Component {
+class DashboardLineChart extends Component {
 	render () {
   	return (
       <div className="Line-chart-wrapper" style={{ width: "45%", height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
@@ -139,10 +139,10 @@ class MusherLineChart extends Component {
           <Tooltip/>
           <Legend layout="vertical" verticalAlign="middle" align="leftBottom" content={RenderLegend}/> />
           {series.map(s => (
-            <Line dataKey="dist" data={s.data} name={s.year} key={s.year} /> 
+            <Line dataKey="dist" data={s.data} name={s.name} key={s.name} /> 
           ))}
-          {YearColor.map(year => (
-             <Line key={year.year} stroke={year.lineColor} name={year.year} strokeWidth="2" />
+          {NameColor.map(name => (
+             <Line key={name.name} stroke={name.lineColor} name={name.name} strokeWidth="2" />
           ))}
             <ReferenceLine y={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine y={159.87} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
@@ -154,4 +154,4 @@ class MusherLineChart extends Component {
     )}
 }
 
-export default MusherLineChart
+export default DashboardLineChart

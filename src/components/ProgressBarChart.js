@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label } from 'recharts'
+import { ResponsiveContainer } from 'recharts';
+
+
 // yarn add prop-types
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, Cell, ReferenceLine, ResponsiveContainer, Label } from 'recharts'
 
 const data = [
       {name: 'Cho', distance: 337, experience: 'veteran'},
@@ -57,29 +60,31 @@ const renderLegend = () => {
 
 class ProgressBarChart extends Component {
 	render () {
-  	return <div className="Bar-chart-wrapper" style={{ width: "95%", height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
-        <ResponsiveContainer padding="1rem">
-          <BarChart width={600} height={400} data={data} margin={{ top: 30, right: 30, left: 50, bottom: 30 }} layout="vertical">
-            <XAxis type="number" domain={[0, 338]}>
-              <Label value="Distance" offset={-15} position="insideBottom" />
-            </XAxis>
-            <YAxis type="category" dataKey="name">
-              <Label value="Mushers" angle={-90} offset={-35} position="insideLeft" />
-            </YAxis>
-            <Tooltip cursor={{ fill: "#eee" }} />
-            <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
-            <Bar dataKey="distance" maxBarSize={15}>
-              {data.map((entry, index) => {
-                return <Cell fill={data[index].experience === "veteran" ? "#3d5941" : "#b5b991"} />;
-              })}
-            </Bar>
-            <ReferenceLine x={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
-            <ReferenceLine x={159.87} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-            <ReferenceLine x={240.27} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-            <ReferenceLine x={338} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>}
+  	return (
+      <div className="area-chart-wrapper" style={{ width: '95%', height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
+      <ResponsiveContainer padding="1rem">
+      <BarChart width={600} height={400} data={data} margin={{ top: 30, right: 30, left: 50, bottom: 30 }} layout="vertical">
+        <XAxis type="number" domain={[0, 338]}>
+          <Label value="Distance" offset={-15} position="insideBottom" ticks={[85, 169, 254, 338]}/>
+        </XAxis>
+        <YAxis type="category" dataKey="name">
+          <Label value="Mushers" angle={-90} offset={-35} position="insideLeft" />
+        </YAxis>
+        <Tooltip cursor={{ fill: "#eee" }} />
+        <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
+        <Bar dataKey="distance" maxBarSize={15}>
+          {data.map((entry, index) => {
+            return <Cell fill={data[index].experience === "veteran" ? "#3d5941" : "#b5b991"} />;
+          })}
+        </Bar>
+          <ReferenceLine x={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
+          <ReferenceLine x={159.87} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+          <ReferenceLine x={240.27} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+          <ReferenceLine x={338} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+      </BarChart>
+      </ResponsiveContainer>
+      </div>
+    )}
   }
 
   export default ProgressBarChart
