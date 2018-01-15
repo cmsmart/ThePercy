@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ProfileCard from './ProfileCard';
-import { getPastMushers } from '../api/pastmushers'
+import { getMushers } from '../api/mushers'
 import { Results } from './Results'
 import { SearchFilterContainer } from './SearchFilterContainer'
 
@@ -48,7 +48,7 @@ export default class  MushersPage extends Component {
   }
 
   componentDidMount() {
-    getPastMushers()
+    getMushers()
       .then((res) => 
       this.setState({mushers: res}))
   }

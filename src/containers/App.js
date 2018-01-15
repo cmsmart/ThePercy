@@ -6,11 +6,9 @@ import { Header } from '../components/Header/Header'
 import { Dashboard } from '../components/Dashboard'
 import { Historical } from '../components/Historical'
 import { MapPage } from '../components/MapPage'
+import { MusherPage } from '../components/MusherPage'
 import MushersPage from '../components/MushersPage'
-import MusherPage from '../components/MusherPage'
 import { StatisticsPage } from '../components/StatisticsPage'
-
-
 
 class App extends Component {
 
@@ -82,39 +80,24 @@ class App extends Component {
       }
     }
   }
-
   
   render() {
     return (
       <div className="container">
         <Router>
           <Fragment>
-        <Header />
-          <Switch>
-            <Route path='/tracker' component={MapPage}/>
-
-            <Route path='/dashboard' render={() => (
-              <Dashboard {...this.state.data} />
-            )} />
-
-            <Route path='/pastraces' render={() => (
-              <Historical {...this.state.data} />
-            )} />
-
-            <Route path='/statistics' component={StatisticsPage} />
-
-            <Route path='/musher' component={MusherPage} />
-
-            <Route path='/mushers' render={() => (
-              <MushersPage />
-            )} />
-
-            <Redirect to='/tracker'  />
-
-          </Switch>
+            <Header />
+            <Switch>
+              <Route path='/tracker' component={MapPage}/>
+              <Route path='/dashboard' render={() => (<Dashboard {...this.state.data} />)} />
+              <Route path='/pastraces' render={() => (<Historical {...this.state.data} />)} />
+              <Route path='/statistics' component={StatisticsPage} />
+              <Route path='/musher' component={MusherPage} />
+              <Route path='/mushers' render={() => (<MushersPage />)} />
+              <Redirect to='/tracker'  />
+            </Switch>
           </Fragment>
         </Router>
-
       </div>
     );
   }
