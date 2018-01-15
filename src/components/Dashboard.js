@@ -1,5 +1,6 @@
 import React from 'react'
 import ProgressBarChart from '../components/ProgressBarChart'
+import DashboardLineChart from '../components/DashboardLineChart'
 import Timer from '../containers/Timer'
 
 import { Table } from './Table'
@@ -15,6 +16,10 @@ export const Dashboard = (props) => {
 
         <ProgressBarChart
           title='Progress Bar Chart'
+        />
+
+          <DashboardLineChart
+          title='Race Progress Chart'
         />
 
       <p>Fake Table</p>

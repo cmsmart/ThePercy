@@ -78,10 +78,10 @@ class MusherHistoryChart extends Component {
                 <ComposedChart width={800} height={300} data={data}
                 margin={{top: 30, right: 30, left: 50, bottom: 30}}>
                     <XAxis dataKey="year">
-                      <Label value="Time (hours)" offset={-15} position="insideBottom"/>
+                      <Label value="Year" offset={-15} position="insideBottom"/>
                     </XAxis>
                     <YAxis>
-                      <Label value="Year"angle={-90} offset={-35} position="insideLeft"/> 
+                      <Label value="Time (hours)"angle={-90} offset={-35} position="insideLeft"/> 
                     </YAxis>
                     <CartesianGrid strokeDasharray="3 3" stroke='#f5f5f5'/>
                     <Tooltip cursor={{fill: "eee"}} />
