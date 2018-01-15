@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
+
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label } from 'recharts'
 import { ResponsiveContainer } from 'recharts';
 
- const Recharts = {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine};
+
+// yarn add prop-types
+
 const data = [
-      {name: 'Cho', distance: 337, experience: 'vetran'},
+      {name: 'Cho', distance: 337, experience: 'veteran'},
       {name: 'Pat', distance: 110, experience: 'rookie'},
-      {name: 'Matt', distance: 230, experience: 'vetran'},
+      {name: 'John', distance: 230, experience: 'veteran'},
       {name: 'Carl', distance: 300, experience: 'rookie'},
-      {name: 'Hannah', distance: 205, experience: 'vetran'},
-      {name: 'Frank', distance: 190, experience: 'vetran'},
+      {name: 'Hannah', distance: 205, experience: 'veteran'},
+      {name: 'Frank', distance: 190, experience: 'veteran'},
       {name: 'Clayton', distance: 99, experience: 'rookie'},
-      {name: 'Gretchen', distance: 5, experience: 'vetran'}
+      {name: 'Gretchen', distance: 5, experience: 'veteran'}
 ];
 
 const MyLabel = (props) => {

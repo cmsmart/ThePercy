@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import "../styles/App.css";
 
+import { Header } from '../components/Header/Header'
+import { PrimaryLayout } from '../components/PrimaryLayout'
 import { Dashboard } from '../components/Dashboard'
 import { Historical } from '../components/Historical'
 import { MapPage } from '../components/MapPage'
-import { MushersPage } from '../components/MushersPage'
-import { PrimaryLayout } from '../components/PrimaryLayout'
+import MushersPage from '../components/MushersPage'
+import MusherPage from '../components/MusherPage'
 import { StatisticsPage } from '../components/StatisticsPage'
+
 
 
 class App extends Component {
@@ -81,24 +84,38 @@ class App extends Component {
     }
   }
 
+  
   render() {
     return (
-      <div className="App">
-        <PrimaryLayout />
+      <div className="container">
+        <Header />
+        {/* <PrimaryLayout /> */}
+
         <Router>
           <Switch>
             <Route path='/tracker' component={MapPage}/>
+
             <Route path='/dashboard' render={() => (
               <Dashboard {...this.state.data} />
             )} />
+
             <Route path='/pastraces' render={() => (
               <Historical {...this.state.data} />
             )} />
+
             <Route path='/statistics' component={StatisticsPage} />
-            <Route path='/mushers' component={MushersPage} />
+
+            <Route path='/musher' component={MusherPage} />
+
+            <Route path='/mushers' render={() => (
+              <MushersPage />
+            )} />
+
             <Redirect to='/tracker'  />
+
           </Switch>
         </Router>
+
       </div>
     );
   }

@@ -1,9 +1,10 @@
 import React from 'react'
+import Timer from '../containers/Timer'
+
 
 export const PrimaryLayout = (props) => {
   return (
-    <div className='primary-layout'>
-      <header>Percy DeWolfe Memorial Mail Race</header>
-    </div>
+    <main className='main-container'>
+    </main>
   )
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+
 import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, LabelList, Legend, Label } from 'recharts'
+
 import { ResponsiveContainer } from 'recharts';
 
 const Recharts = {ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, LabelList, Legend};
@@ -86,6 +88,7 @@ class MusherHistoryChart extends Component {
                     <CartesianGrid strokeDasharray="3 3" stroke='#f5f5f5'/>
                     <Tooltip cursor={{fill: "eee"}} />
                     <Legend layout="vertical" verticalAlign="middle" align="right" content={RenderLegend}/> 
+
                     <Bar dataKey="runtime" fill="#8884d8" barSize={20} >
                       {
                         data.map((entry, index) => { 
@@ -102,3 +105,4 @@ class MusherHistoryChart extends Component {
 }
 
 export default MusherHistoryChart
+
