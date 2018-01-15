@@ -1,6 +1,6 @@
 import api from './init'
 
-export function getPastRaces() {
+export function getPastMushers() {
   return api.get('./past').then((res) => {
     return res.data
   })

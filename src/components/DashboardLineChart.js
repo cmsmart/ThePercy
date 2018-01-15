@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, ResponsiveContainer, Label} from 'recharts'
 import PropTypes from 'prop-types'
 
-const Recharts = {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend}; 
 const series = [
   {name: 'Cho', data: [
     {time: '0', dist: 0 },
