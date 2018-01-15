@@ -198,10 +198,13 @@ button {
   display: inline-block;
   font-size: 1rem;
   transition-duration: 0.4s; }
+
   button:hover {
     background-color: #F8F8F8;
     /* Green */
-    color: #4E7590; }
+    color: #4E7590; 
+    cursor: pointer;
+  }
 
 .field {
   background-color: #F8F8F8;
@@ -249,3 +252,6 @@ button {
     border-radius: 50%;
     object-fit: cover;
     position: relative; }
+
+.mushers-page form {
+  display: inline-flex; }
