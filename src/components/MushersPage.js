@@ -50,7 +50,7 @@ export default class  MushersPage extends Component {
   componentDidMount() {
     getMushers()
       .then((res) => 
-      this.setState({mushers: res}))
+      this.setState({ mushers: res }))
   }
   
   render() {
