@@ -4,7 +4,7 @@ import { Searchbar } from './Searchbar';
 
 const generateYearsArray = () => {
     let years = []
-    for (let i = 2000; i <= (new Date()).getFullYear(); i++) {
+    for (let i = 2012; i <= (new Date()).getFullYear(); i++) {
         years.push(i)
     }
     years.push('Year')

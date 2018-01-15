@@ -250,3 +250,6 @@ button {
     border-radius: 50%;
     object-fit: cover;
     position: relative; }
+
+.mushers-page form {
+  display: inline-flex; }
