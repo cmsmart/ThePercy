@@ -4,11 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
-    "prop-types": "^15.6.0",
     "moment-timezone": "^0.5.14",
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.1.2",
-    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",

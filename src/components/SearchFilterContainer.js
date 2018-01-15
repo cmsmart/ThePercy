@@ -4,7 +4,7 @@ import { Searchbar } from './Searchbar';
 
 const generateYearsArray = () => {
     let years = []
-    for (let i = 2000; i <= (new Date()).getFullYear(); i++) {
+    for (let i = 2012; i <= (new Date()).getFullYear(); i++) {
         years.push(i)
     }
     years.push('Year')
@@ -18,7 +18,6 @@ export const SearchFilterContainer = (props) => {
     
     return (
         <div className="searchFilter">
-            <p>SearchFilter</p>
             <Dropdown data={years} handleSelection={props.handleYearSelection} />
             <Dropdown data={races} handleSelection={props.handleRaceSelection} />
             <Searchbar {...props} />
