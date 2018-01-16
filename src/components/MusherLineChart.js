@@ -135,7 +135,7 @@ class MusherLineChart extends Component {
           <YAxis  dataKey="dist"  type="number"  allowDuplicatedCategory={false} domain={[0, 338]} >
             <Label value={['Distance (km)']} angle={-90} offset={-25} position="insideLeft" /> 
           </YAxis>
-          <Tooltip/>
+          <Tooltip />
           <Legend layout="vertical" verticalAlign="middle" align="left" content={RenderLegend}/> />
           {series.map(s => (
             <Line dataKey="dist" data={s.data} name={s.year} key={s.year} /> 

@@ -1,11 +1,5 @@
 import React, { Component } from 'react'
-
-import { BarChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label } from 'recharts'
-import { ResponsiveContainer } from 'recharts';
-
-const MyLabel = (props) => {
-  return <div>{props.value}</div>
-}
+import { BarChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
 
 const renderLegend = () => {
   return <div style={{ 
@@ -46,20 +40,20 @@ const renderLegend = () => {
 
 const data = [
   {
-          "event_id": 115,
-          "musher_id": 238,
-          "msg_id": 376719583,
-          "longitude": "-140.704502",
-          "latitude": "64.607365",
-          "msg_time": 1427432947,
-          "msg_age": 88545114,
-          "utc_dc_out": "2015-03-26T17:21:40.000Z",
-          "checkpoint_time": 1427445537,
-          "run_dist": 120710,
-          "run_time": {
-          "hours": 11,
-          "minutes": 47,
-          "seconds": 27
+    "event_id": 115,
+    "musher_id": 238,
+    "msg_id": 376719583,
+    "longitude": "-140.704502",
+    "latitude": "64.607365",
+    "msg_time": 1427432947,
+    "msg_age": 88545114,
+    "utc_dc_out": "2015-03-26T17:21:40.000Z",
+    "checkpoint_time": 1427445537,
+    "run_dist": 120710,
+    "run_time": {
+      "hours": 11,
+      "minutes": 47,
+      "seconds": 27
             }
           },
           {
@@ -218,32 +212,60 @@ const data = [
               }
             }
         ];
-    
+
+function metresToKm(run_dist) {
+  return (run_dist / 1000).toFixed(1);
+} 
+
+function arrayTimeToHours(days, hours, minutes, seconds) {
+  return ((days*24) + (hours) + (minutes*0.0166667) + (seconds*0.000277778)).toFixed(3);
+}
+
+function getMushersBiggestDistance(musher_id, run_dist) {
+
+  // map through data for musher_id and get run_dist
+  // if next run_dist is > prev run_dist, update run_dist
+  // else return run_dist
+  return
+
+}
+
+function rookieOrNot(musher_id, event_id) {
+ // map through past race event_id, 
+ //does musher_id occur more than once for previous percy event_ids?
+ //if yes, vetran
+ //else rookie
+ return 
+   // push status back to musher_id
+ 
+}
 class ProgressBarChart extends Component {
-	render () {
-  	return (
-      <div className="bar-chart-wrapper" style={{ width: '95%', height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
-      <ResponsiveContainer padding="1rem">
-      <BarChart data={this.props.data}  syncId="anyId" width={600} height={400} margin={{ top: 30, right: 30, left: 50, bottom: 30 }} layout="vertical">
-        <XAxis type="number" domain={[0, 338000]}>
-          <Label value="Distance (m)" offset={-15} position="insideBottom" ticks={[0, 85000, 169000, 254000, 338000]}/>
-        </XAxis>
-        <YAxis type="category" dataKey="musher_id">
-          <Label value='Mushers' angle={-90} offset={-35} position="insideLeft" />
-        </YAxis>
-        <Tooltip cursor={{ fill: "#eee" }} />
-        <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
-
-        <Bar dataKey="run_dist" maxBarSize={15} />
-   
-          <ReferenceLine x={80400} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
-            <ReferenceLine x={159870} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-            <ReferenceLine x={240270} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-            <ReferenceLine x={338000} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-      </BarChart>
-      </ResponsiveContainer>
-      </div>
-    )}
-  }
-
-  export default ProgressBarChart
+  render () {
+    return (
+      <div className="area-chart-wrapper" style={{ width: '95%', height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
+        <ResponsiveContainer padding="1rem">
+              <BarChart width={600} height={400} data={data} margin={{ top: 30, right: 30, left: 50, bottom: 30 }} layout="vertical">
+                <XAxis type="number" domain={[0, 338000]}>
+                  <Label name="Distance" offset={-15} position="insideBottom" ticks={[85000, 169000, 254000, 338000]}/>
+                </XAxis>
+                <YAxis type="category" dataKey="musher_id">
+                  <Label name="Mushers" angle={-90} offset={-35} position="insideLeft" />
+                </YAxis>
+                <Tooltip cursor={{ fill: "#eee" }} />
+                <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
+                <Bar dataKey="run_dist" maxBarSize={15}>
+                  {data.map((entry, index) => {
+                    return <Cell fill={data[index].experience === "veteran" ? "#3d5941" : "#b5b991"} />;
+                  })}
+                </Bar>
+                  <ReferenceLine x={80400} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
+                  <ReferenceLine x={159870} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+                  <ReferenceLine x={240270} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+                  <ReferenceLine x={338000} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+              </BarChart>
+              </ResponsiveContainer>
+              </div>
+            )}
+          }
+        
+          export default ProgressBarChart
