@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-import React from 'react'
-import WinningTimesChart from './WinningTimes'
-=======
 import React, { Component } from 'react'
->>>>>>> 1fdd37dde34fa5fef2a0544b9bf9f9dc7f82befd
 
 import { getPastMushers } from '../api/pastmushers';
 
+import WinningTimesChart from './WinningTimes'
 import { compareObjectValues } from '../utils/compareObjectValues'
 
 const tallyRaceCount = (data) => {
