@@ -21,7 +21,6 @@ const tallyRaceCount = (data) => {
 }
 
 export default class StatisticsPage extends Component {
- 
   render() {
     return (
     <div className='statistics-page'>
