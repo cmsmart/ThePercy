@@ -27,31 +27,39 @@ filteredArray.map((musher) => {
     })
     return years
 }
-    
-
-const data = [
-    {year: "2015", race: "Percy", Percy: 20.21},
-    {year: "2016", race: "Percy", 'Percy Junior': 21.39, Percy: 10.50},
-    {year: "2017", race: "Percy", Percy: 21.40, 'Percy Junior': 10.47},
-];
 
 const RenderLegend = () => {
     return <div style={{color: "#191919",display: "inline-block", padding: "0.3rem 1.2rem"}}>
       <p style={{ padding: "0.3rem 1.2rem",textAnchor: "middle", margin: "0", fontSize: "0.8rem", textAlign: "center", fontWeight: "bold"
       }}>Legend</p>
-      <p style={{ backgroundColor: "#0C2639", color: "#fff", padding: "0.5rem 1.2rem", margin: "0.1rem", textAnchor: "middle", fontSize: "0.8rem", textAlign: "center"
+      <p style={{ backgroundColor: "#3d5941", color: "#fff", padding: "0.5rem 1.2rem", margin: "0.1rem", textAnchor: "middle", fontSize: "0.8rem", textAlign: "center"
       }}>Percy</p>
-      <p style={{ textAlign: "center", color: "#fff", backgroundColor: "#C3D8EC", fontSize: "0.8rem", padding: "0.5rem 1.2rem", textAnchor: "middle", margin: "0.1rem"
+      <p style={{ textAlign: "center", color: "#fff", backgroundColor: "#b5b991", fontSize: "0.8rem", padding: "0.5rem 1.2rem", textAnchor: "middle", margin: "0.1rem"
       }}>Percy Junior</p>
     </div>
-  }
+}
 
   export default class WinningTimesChart extends Component {
+
+    state = {
+        mushers: null,
+        data: null
+      }
+    
+      componentDidMount() {
+        getPastMushers().then((res) => {
+          this.setState({ mushers: res })
+        }).then(() => {
+          this.setState({ data: generateWinningTimesData(this.state.mushers) })
+        })
+      }
+
 	render () {
+        
   	return (
         <div className="Composed-chart-wrapper" style={{ width: '95%', height: '400px', backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
             <ResponsiveContainer padding="1rem">
-                <ComposedChart width={800} height={300} data={data}
+                <ComposedChart width={800} height={300} data={this.state.data}
                 margin={{top: 30, right: 30, left: 50, bottom: 30}}>
                     <XAxis dataKey="year">
                       <Label value="Year" offset={-15} position="insideBottom"/>
@@ -62,8 +70,8 @@ const RenderLegend = () => {
                     <CartesianGrid strokeDasharray="3 3" stroke='#f5f5f5'/>
                     <Tooltip cursor={{fill: "eee"}} />
                     <Legend layout="vertical" verticalAlign="middle" align="right" content={RenderLegend}/> 
-                    <Bar dataKey="Percy Junior" name="Percy Jr" fill="blue" label={'test'} />
-                    <Bar dataKey="Percy" name="Percy" fill="green" />
+                    <Bar dataKey="Percy Junior" name="Percy Jr" fill="#3d5941" label={'test'} />
+                    <Bar dataKey="Percy" name="Percy" fill="#b5b991"/>
                 </ComposedChart>
             </ResponsiveContainer>
         </div>
