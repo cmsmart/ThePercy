@@ -7,9 +7,8 @@ import WinningTimesChart from './WinningTimesChart'
 import { compareObjectValues } from '../utils/compareObjectValues'
 
 const tallyKeyCount = (data, key) => {
-  let sortedArray = data
   let countArray = []
-  sortedArray.map((musher) => {
+  data.forEach((musher) => {
     if (countArray.some((object) => (object.name === musher.musher))) {
       countArray.forEach((object) => {
         if (object.name === musher.musher) {
@@ -18,9 +17,8 @@ const tallyKeyCount = (data, key) => {
       })
     }
     else {
-      countArray = [ ...countArray, { name: musher.musher, race: 1 } ]
+      return countArray = [ ...countArray, { name: musher.musher, race: 1 } ]
     }
-    return countArray
   })
   return countArray = countArray.slice().sort(compareObjectValues([key], 'desc'))
 }
@@ -51,6 +49,10 @@ export default class StatisticsPage extends Component {
   componentDidMount() {
     getPastMushers().then((res) => {
       this.setState({ data: res })
+    }).then(() => {
+      console.log(getTopRaces(this.state.data))
+      console.log(getTopWins(this.state.data))
+      console.log(getTopTimes(this.state.data, 'Percy'))
     })
   }
   
