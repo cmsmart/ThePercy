@@ -1,0 +1,47 @@
+
+// Navigation
+
+nav {
+    background-color: $darkblue;
+    border: 0.2rem solid $white;
+    margin: 0.2rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      li {
+        margin: 0 3rem;
+        text-align: center;
+        a {
+          padding: 0 0.2rem;
+          color: $white;
+          display: flex;
+          flex-direction: column;
+          border-bottom: 0.2rem solid $darkblue;
+          &:hover {
+            color: $pink;
+            display: flex;
+            flex-direction: column;
+            // border-bottom: 0.2rem solid $pink;
+          }
+        }
+      }
+    }
+  }
+  
+  .active {
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.2rem solid $pink;
+  }
+  
+  .nav-icons{
+    height: 3rem;
+    width: auto;
+    display: block;
+    margin: 0.5rem;
+  }
