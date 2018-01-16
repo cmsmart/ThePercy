@@ -8,7 +8,7 @@ import { Historical } from '../components/Historical'
 import { MapPage } from '../components/MapPage'
 import { MusherPage } from '../components/MusherPage'
 import MushersPage from '../components/MushersPage'
-import { StatisticsPage } from '../components/StatisticsPage'
+import StatisticsPage from '../components/StatisticsPage'
 
 class App extends Component {
 
