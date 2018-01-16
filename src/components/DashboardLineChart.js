@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, ResponsiveContainer, Label} from 'recharts'
-import PropTypes from 'prop-types'
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from 'recharts'
 
 const series = [
   {name: 'Cho', data: [
@@ -28,9 +27,6 @@ const series = [
   ]},
 ];
 
-const CustomLabel = (props) => {
-  return <div>{props.value}</div>
-}
 
 const RenderLegend = () => {
   return <div style={{

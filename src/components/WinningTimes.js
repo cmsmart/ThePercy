@@ -1,56 +1,52 @@
 import React, { Component } from 'react'
+import { getPastMushers } from '../api/pastmushers'
 
-import { ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Cell, LabelList, Legend, Label } from 'recharts'
+import { ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts'
 
 import { ResponsiveContainer } from 'recharts';
 
-const Recharts = {ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Cell, LabelList, Legend};
+const generateYearsArray = () => {
+    let years = []
+    for (let i = 2000; i < (new Date()).getFullYear(); i++) {
+      years = [ ...years, { year: `${i}` } ]
+    }
+    return years
+}
+  
+const generateWinningTimesData = (data) => {
+let filteredArray = data.filter((datum) => datum.standing === '1')
+let years = generateYearsArray()
+
+filteredArray.map((musher) => {
+    return years = years.map((year) => {
+        if (year.year === musher.year) {
+            year = Object.assign({}, year, ...year, { [musher.race]: parseFloat((musher.run_time).replace(/:/gi, '.')) })
+        }
+        return year
+        })
+    })
+    return years
+}
+    
+
 const data = [
     {year: "2015", race: "Percy", Percy: 20.21},
     {year: "2016", race: "Percy", 'Percy Junior': 21.39, Percy: 10.50},
     {year: "2017", race: "Percy", Percy: 21.40, 'Percy Junior': 10.47},
 ];
 
-const CustomLabel = (props) => {
-  return <div>{props.value}</div>
-}
-
 const RenderLegend = () => {
-  return <div style={{
-        color: "#191919",
-        display: "inline-block",
-        padding: "0.3rem 1.2rem",
-    }}>
-    <p style={{
-        padding: "0.3rem 1.2rem",
-        textAnchor: "middle",
-        margin: "0",
-        fontSize: "0.8rem",
-        textAlign: "center",
-        fontWeight: "bold"
-    }}>Legend</p>
-    <p style={{
-        backgroundColor: "#0C2639",
-        color: "#fff",
-        padding: "0.5rem 1.2rem",
-        margin: "0.1rem",
-        textAnchor: "middle",
-        fontSize: "0.8rem",
-        textAlign: "center"
-    }}>Percy</p>
-    <p style={{
-        textAlign: "center",
-        color: "#fff",
-        backgroundColor: "#C3D8EC",
-        fontSize: "0.8rem",
-        padding: "0.5rem 1.2rem",
-        textAnchor: "middle",
-        margin: "0.1rem"
-    }}>Percy Junior</p>
-  </div>
-}
+    return <div style={{color: "#191919",display: "inline-block", padding: "0.3rem 1.2rem"}}>
+      <p style={{ padding: "0.3rem 1.2rem",textAnchor: "middle", margin: "0", fontSize: "0.8rem", textAlign: "center", fontWeight: "bold"
+      }}>Legend</p>
+      <p style={{ backgroundColor: "#0C2639", color: "#fff", padding: "0.5rem 1.2rem", margin: "0.1rem", textAnchor: "middle", fontSize: "0.8rem", textAlign: "center"
+      }}>Percy</p>
+      <p style={{ textAlign: "center", color: "#fff", backgroundColor: "#C3D8EC", fontSize: "0.8rem", padding: "0.5rem 1.2rem", textAnchor: "middle", margin: "0.1rem"
+      }}>Percy Junior</p>
+    </div>
+  }
 
-class WinningTimesChart extends Component {
+  export default class WinningTimesChart extends Component {
 	render () {
   	return (
         <div className="Composed-chart-wrapper" style={{ width: '95%', height: '400px', backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
@@ -61,7 +57,7 @@ class WinningTimesChart extends Component {
                       <Label value="Year" offset={-15} position="insideBottom"/>
                     </XAxis>
                     <YAxis>
-                      <Label value="Time (hours)"angle={-90} offset={-35} position="insideLeft"/> 
+                      <Label value="Time (hours)" angle={-90} offset={-35} position="insideLeft"/> 
                     </YAxis>
                     <CartesianGrid strokeDasharray="3 3" stroke='#f5f5f5'/>
                     <Tooltip cursor={{fill: "eee"}} />
@@ -74,6 +70,3 @@ class WinningTimesChart extends Component {
     );
   }
 }
-
-export default WinningTimesChart
-
