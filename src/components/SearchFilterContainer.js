@@ -5,16 +5,17 @@ import { Searchbar } from './Searchbar';
 const generateYearsArray = () => {
     let years = []
     for (let i = 2012; i <= (new Date()).getFullYear(); i++) {
-        years.push(i)
+        years = [ i, ...years ]
     }
-    years.push('Year')
-    return years
+    return years = [ 'Year', ...years ]
 }
 
 export const SearchFilterContainer = (props) => { 
 
-    const years = generateYearsArray().reverse()
+    const years = generateYearsArray()
     const races = ['Race', 'Percy', 'Percy Junior']
+
+    console.log(years)
     
     return (
         <div className="searchFilter">
