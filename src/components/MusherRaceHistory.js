@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, Legend, Label } from 'recharts'
+import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, Label } from 'recharts'
 
 import { ResponsiveContainer } from 'recharts';
 
@@ -23,49 +23,49 @@ const data = [
   {year: '2017', place: 6, runtime: 27.37, race: "Percy"},
 ];
 
-const RenderLegend = () => {
-  return <div style={{
-    color: "#191919",
-    display: "inline-block",
-    padding: "0.3rem 1.2rem",
-  }}>
-  <p style={{
-    padding: "0.3rem 1.2rem",
-    textAnchor: "middle",
-    margin: "0",
-    fontSize: "0.8rem",
-    textAlign: "center",
-    fontWeight: "bold"
-  }}>Legend</p>
-  <p style={{
-    backgroundColor: "#0C2639",
-    color: "#fff",
-    padding: "0.5rem 1.2rem",
-    margin: "0.1rem",
-    textAnchor: "middle",
-    fontSize: "0.8rem",
-    textAlign: "center"
-  }}>Percy</p>
-  <p style={{
-    textAlign: "center",
-    color: "#fff",
-    backgroundColor: "#C3D8EC",
-    fontSize: "0.8rem",
-    padding: "0.5rem 1.2rem",
-    textAnchor: "middle",
-    margin: "0.1rem"
-  }}>Percy Junior</p>
-  <p style={{
-    backgroundColor: "#ff7300",
-    color: "#fff",
-    padding: "0.5rem 1.2rem",
-    margin: "0.1rem",
-    textAnchor: "middle",
-    fontSize: "0.8rem",
-    textAlign: "center"
-  }}>Run Time</p>
-  </div>
-}
+// const RenderLegend = () => {
+//   return <div style={{
+//     color: "#191919",
+//     display: "inline-block",
+//     padding: "0.3rem 1.2rem",
+//   }}>
+//   <p style={{
+//     padding: "0.3rem 1.2rem",
+//     textAnchor: "middle",
+//     margin: "0",
+//     fontSize: "0.8rem",
+//     textAlign: "center",
+//     fontWeight: "bold"
+//   }}>Legend</p>
+//   <p style={{
+//     backgroundColor: "#0C2639",
+//     color: "#fff",
+//     padding: "0.5rem 1.2rem",
+//     margin: "0.1rem",
+//     textAnchor: "middle",
+//     fontSize: "0.8rem",
+//     textAlign: "center"
+//   }}>Percy</p>
+//   <p style={{
+//     textAlign: "center",
+//     color: "#fff",
+//     backgroundColor: "#C3D8EC",
+//     fontSize: "0.8rem",
+//     padding: "0.5rem 1.2rem",
+//     textAnchor: "middle",
+//     margin: "0.1rem"
+//   }}>Percy Junior</p>
+//   <p style={{
+//     backgroundColor: "#ff7300",
+//     color: "#fff",
+//     padding: "0.5rem 1.2rem",
+//     margin: "0.1rem",
+//     textAnchor: "middle",
+//     fontSize: "0.8rem",
+//     textAlign: "center"
+//   }}>Run Time</p>
+//   </div>
+// }
 
 class MusherHistoryChart extends Component {
 	render () {
@@ -82,8 +82,7 @@ class MusherHistoryChart extends Component {
                     </YAxis>
                     <CartesianGrid strokeDasharray="3 3" stroke='#f5f5f5'/>
                     <Tooltip cursor={{fill: "eee"}} />
-                    <Legend layout="vertical" verticalAlign="middle" align="right" content={RenderLegend}/> 
-
+                    {/* <Legend layout="vertical" verticalAlign="middle" align="right" content={RenderLegend}/>  */}
                     <Bar dataKey="runtime" fill="#8884d8" barSize={20} >
                       {
                         data.map((entry, index) => { 
@@ -91,7 +90,7 @@ class MusherHistoryChart extends Component {
                         })
                       }
                     </Bar>
-                    <Line type='monotone' dataKey='runtime' stroke='#ff7300' connectNulls='true'/>
+                    <Line type='monotone' dataKey='runtime' stroke='#ff7300' connectNulls={true}/>
                 </ComposedChart>
             </ResponsiveContainer>
         </div>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 
-import { getPastMushers } from '../api/pastmushers';
+import { getPastMushers } from '../api/pastmushers'
 
-import WinningTimesChart from './WinningTimes'
+import WinningTimesChart from './WinningTimesChart'
+
 import { compareObjectValues } from '../utils/compareObjectValues'
 
 const tallyKeyCount = (data, key) => {
@@ -12,12 +13,12 @@ const tallyKeyCount = (data, key) => {
     if (countArray.some((object) => (object.name === musher.musher))) {
       countArray.forEach((object) => {
         if (object.name === musher.musher) {
-          return object[key]++
+          return object.race++
         }
       })
     }
     else {
-      countArray = [ ...countArray, { name: musher.musher, [key]: 1 } ]
+      countArray = [ ...countArray, { name: musher.musher, race: 1 } ]
     }
     return countArray
   })
@@ -44,16 +45,12 @@ const getTopTimes = (data, race) => {
 export default class StatisticsPage extends Component {
 
   state = {
-    mushers: []
+    data: []
   }
 
   componentDidMount() {
     getPastMushers().then((res) => {
-      this.setState({ mushers: res })
-    }).then(() => {
-      console.log('Top Five Races', getTopRaces(this.state.mushers))
-      console.log('Top Five Wins', getTopWins(this.state.mushers))
-      console.log('Fastest Times', getTopTimes(this.state.mushers, 'Percy'))
+      this.setState({ data: res })
     })
   }
   

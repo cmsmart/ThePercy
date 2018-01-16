@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label, ResponsiveContainer } from 'recharts'
 
-import { getPastMushers } from '../api/pastmushers';
+import { getPastMushers } from '../api/pastmushers'
 
 const generateYearsArray = () => {
     let years = []
-    for (let i = 2012; i < (new Date()).getFullYear(); i++) {
+    for (let i = 2000; i < (new Date()).getFullYear(); i++) {
       years = [ ...years, { year: `${i}` } ]
     }
     return years
@@ -63,7 +63,7 @@ const RenderLegend = () => {
     )
 }
 
-class WinningTimesChart extends Component {
+export default class WinningTimesChart extends Component {
 
     state = {
         data: null
@@ -77,7 +77,6 @@ class WinningTimesChart extends Component {
 
 	render () {
         return (
-            !!this.state.data && console.log(generateWinningTimesData(this.state.data)),
             !!this.state.data && <div className="Composed-chart-wrapper" style={{ width: '95%', height: '400px', backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
                 <ResponsiveContainer padding="1rem">
                     <ComposedChart width={800} height={300} data={generateWinningTimesData(this.state.data)}
@@ -99,6 +98,3 @@ class WinningTimesChart extends Component {
         );
     }
 }
-
-export default WinningTimesChart
-
