@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import ProfileCard from './ProfileCard';
+import React, { Component } from 'react';
 import { getMushers } from '../api/mushers'
 import { Results } from './Results'
 import { SearchFilterContainer } from './SearchFilterContainer'

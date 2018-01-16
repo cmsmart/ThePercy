@@ -5,6 +5,7 @@ import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, L
 import { ResponsiveContainer } from 'recharts';
 
 const Recharts = {ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, LabelList, Legend};
+
 const data = [
   {year: '2002', place: 6, runtime: 9.53, race: "Percy Junior"},
   {year: '2003', place: 1, runtime: 8.22, race: "Percy Junior"},
@@ -24,9 +25,9 @@ const data = [
   {year: '2017', place: 6, runtime: 27.37, race: "Percy"},
 ];
 
-const CustomLabel = (props) => {
-  return <div>{props.value}</div>
-}
+// const CustomLabel = (props) => {
+//   return <div>{props.value}</div>
+// }
 
 const RenderLegend = () => {
   return <div style={{
