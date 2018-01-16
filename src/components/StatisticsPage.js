@@ -5,29 +5,6 @@ import { getPastMushers } from '../api/pastmushers';
 import WinningTimesChart from './WinningTimes'
 import { compareObjectValues } from '../utils/compareObjectValues'
 
-const generateYearsArray = () => {
-  let years = []
-  for (let i = 2012; i < (new Date()).getFullYear(); i++) {
-    years = [ ...years, { year: `${i}` } ]
-  }
-  return years
-}
-
-const generateWinningTimesData = (data) => {
-  let filteredArray = data.filter((datum) => datum.standing === '1')
-  let years = generateYearsArray()
-  
-  filteredArray.map((musher) => {
-      return years = years.map((year) => {
-          if (year.year === musher.year) {
-              year = Object.assign({}, year, ...year, { [musher.race]: parseFloat((musher.run_time).replace(/:/gi, '.')) })
-          }
-          return year
-      })
-  })
-  return years
-}
-
 const tallyKeyCount = (data, key) => {
   let sortedArray = data
   let countArray = []
@@ -42,19 +19,26 @@ const tallyKeyCount = (data, key) => {
     else {
       countArray = [ ...countArray, { name: musher.musher, [key]: 1 } ]
     }
+    return countArray
   })
   return countArray = countArray.slice().sort(compareObjectValues([key], 'desc'))
 }
 
-const getTopFiveRaces = (data) => {
+const getTopRaces = (data) => {
   let countArray = tallyKeyCount(data, 'races').slice(0, 5)
   return countArray
 }
 
-const getTopFiveWins = (data) => {
+const getTopWins = (data) => {
   let filteredArray = data.filter((data) => (data.standing === '1'))
   let countArray = tallyKeyCount(filteredArray, 'wins').slice(0, 5)
   return countArray
+}
+
+const getTopTimes = (data, race) => {
+  let filteredArray = data.filter((data) => (data.standing === '1' && data.race === `${race}`))
+  filteredArray = filteredArray.slice().sort(compareObjectValues('run_time'))
+  return filteredArray = filteredArray.slice(0, 5)
 }
 
 export default class StatisticsPage extends Component {
@@ -67,8 +51,9 @@ export default class StatisticsPage extends Component {
     getPastMushers().then((res) => {
       this.setState({ mushers: res })
     }).then(() => {
-      console.log('Top Five Races', getTopFiveRaces(this.state.mushers))
-      console.log('Top Five Races', getTopFiveWins(this.state.mushers))
+      console.log('Top Five Races', getTopRaces(this.state.mushers))
+      console.log('Top Five Wins', getTopWins(this.state.mushers))
+      console.log('Fastest Times', getTopTimes(this.state.mushers, 'Percy'))
     })
   }
   
