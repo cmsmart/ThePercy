@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { getPastMushers } from '../api/pastmushers'
 
-import { ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts'
-
-import { ResponsiveContainer } from 'recharts';
+import { ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label, ReponsiveContainer } from 'recharts'
 
 const generateYearsArray = () => {
     let years = []
