@@ -13,6 +13,12 @@ function InfoContainer(props) {
           <b>Hometown: </b>{ props.residence }
         </h4>
         <h4>
+          <b>Number of times run the Percy: </b>{ props.musher }
+        </h4>
+        <h4>
+          <b>Number of times run the Percy Junior: </b>
+        </h4>
+        <h4>
           <b>Best finishing time: </b>
         </h4>
         <h4>
