@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from 'recharts'
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from 'recharts';
 
 const series = [
   {year: '2012', data: [
@@ -26,6 +26,10 @@ const series = [
     {time: '50', dist: 338}
   ]},
 ];
+
+// const CustomLabel = (props) => {
+//   return <div>{props.value}</div>
+// }
 
 const RenderLegend = () => {
   return <div style={{
@@ -118,6 +122,19 @@ const YearColor = [
 ]
 
 class MusherLineChart extends Component {
+  state = {
+    musher_id: 115,
+    race_id: 238,
+  }
+
+  filterMusher = () => {
+    let filteredMusher = []
+    if (this.state.musher_id === 115) {
+      
+    }
+    return filteredMusher
+  }
+
 	render () {
   	return (
       <div className="Line-chart-wrapper" style={{ width: "45%", height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>

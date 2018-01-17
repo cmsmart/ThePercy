@@ -27,6 +27,10 @@ const series = [
   ]},
 ];
 
+// const CustomLabel = (props) => {
+//   return <div>{props.value}</div>
+// }
+
 const RenderLegend = () => {
   return <div style={{
     color: "#191919",

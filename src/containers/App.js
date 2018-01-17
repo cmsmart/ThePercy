@@ -6,7 +6,7 @@ import { Header } from '../components/Header/Header'
 import { Dashboard } from '../components/Dashboard'
 import { Historical } from '../components/Historical'
 import { MapPage } from '../components/MapPage'
-import { MusherPage } from '../components/MusherPage'
+import MusherPage from '../components/MusherPage'
 import MushersPage from '../components/MushersPage'
 import StatisticsPage from '../components/StatisticsPage'
 
@@ -92,7 +92,7 @@ class App extends Component {
               <Route path='/dashboard' render={() => (<Dashboard {...this.state.data} />)} />
               <Route path='/pastraces' render={() => (<Historical {...this.state.data} />)} />
               <Route path='/statistics' component={StatisticsPage} />
-              <Route path='/musher' component={MusherPage} />
+              <Route path='/mushers/:id' component={MusherPage} />
               <Route path='/mushers' render={() => (<MushersPage />)} />
               <Redirect to='/tracker'  />
             </Switch>

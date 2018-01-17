@@ -1,9 +1,8 @@
 import React from 'react'
 
-function ProfileCard(props) {
+function InfoContainer(props) {
   return (
     <div className="card">
-            <a href={`mushers/${props.musher_id}`}>
     <div className="avatar">
       <img src={`http://percy.cholenasmart.com/sites/default/files/${props.src}`} alt="Avatar" aria-label="Musher avatar" style={{ "width": "200" }} />
       </div>
@@ -14,9 +13,8 @@ function ProfileCard(props) {
           </b>
         </h4>
       </div>
-          </a>
     </div>
   )
 }
 
-export default ProfileCard;
+export default InfoContainer;
