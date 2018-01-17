@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import "../styles/App.css";
 
 import { Header } from '../components/Header/Header'
-import { Dashboard } from '../components/Dashboard'
+import Dashboard from '../components/Dashboard'
 import { Historical } from '../components/Historical'
 import { MapPage } from '../components/MapPage'
 import { MusherPage } from '../components/MusherPage'
