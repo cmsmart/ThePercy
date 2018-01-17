@@ -3,7 +3,7 @@ import MusherHistoryChart from '../components/MusherRaceHistory';
 import MusherLineChart from './MusherLineChart';
 import { getMushers, getMusher } from '../api/mushers';
 import ProfileCard from './ProfileCard';
-import MyLineChart from './LineChart';
+import LineChart from './LineChart';
 
 class MusherPage extends Component {
   state = {
@@ -54,7 +54,7 @@ class MusherPage extends Component {
         </div>
         </div>
       }
-        <MyLineChart musher_id={musher_id} />
+        <LineChart {...this.props} />
         <MusherHistoryChart />
       </div>
 )
