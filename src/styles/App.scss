@@ -196,6 +196,22 @@ button {
   }
 }
 
+.info-card {
+  background-color: $lightblue;
+  color: $darkblue;
+  display: flex;
+  border: 0.2rem solid $white;
+  .container {
+    height: auto;
+    margin: 0.5rem 1rem;
+    padding: 0 0.5rem;
+  }
+  h4 {
+    padding: 0.5rem;
+    margin: 0;
+  }
+}
+
 .avatar {
   display: flex;
   height: 10rem;
@@ -211,8 +227,8 @@ button {
     border-radius: 50%;
     object-fit: cover;
     position: relative;
-    // height: 100%;
-    // width: 100%;
+    height: 100%;
+    width: 100%;
     
   }
 }
@@ -222,5 +238,11 @@ button {
 .mushers-page {
   form {
     display: inline-flex;
+  }
+}
+
+.musher-page {
+  h1 {
+    text-align: center;
   }
 }

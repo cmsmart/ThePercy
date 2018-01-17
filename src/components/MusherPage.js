@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MusherHistoryChart from '../components/MusherRaceHistory';
 import MusherLineChart from './MusherLineChart';
 import { getMushers, getMusher } from '../api/mushers';
-import ProfileCard from './ProfileCard';
+import InfoContainer from './InfoContainer';
 import LineChart from './LineChart';
 
 class MusherPage extends Component {
@@ -49,9 +49,10 @@ class MusherPage extends Component {
         { !!this.state.musher &&
         <div>
         <h1>{musher.musher}</h1>
-        <div className="field">
-          <ProfileCard src={ this.getImageAddress(musher) } />
-        </div>
+          <InfoContainer src={ this.getImageAddress(musher)}
+          residence={musher.residence}
+          >
+          </InfoContainer>
         </div>
       }
         <LineChart {...this.props} />
