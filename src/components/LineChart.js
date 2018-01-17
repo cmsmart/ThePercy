@@ -110,34 +110,41 @@ const mySeries = [
         }
 ]
 
-const generatingData = (data, id, key) => {
+const filterDataStructure = (data) => {
+  let dataArray = []
+  data.forEach(datum => {
+    if (Object.keys(dataArray)[datum.event_id] !== datum.event_id) {
+      return dataArray = [ ...dataArray, generatingDataStructure(data, datum.musher_id, "musher_id")]
+    }
+
+  })
+
+  return dataArray
+}
+
+const generatingDataStructure = (data, id, key) => {
+  let filteredArray = data.filter(datum => {
+    datum.event_id
+  })
+  console.log('filtered array', filteredArray)
   // dataArray = [ {id : props.match.params.id, data: [ ]}]
   // map over the data array passed in, and for each object in the array
   let dataArray = data.map(datum => {
       if (datum[key] === id) {
           // Create a new object that adds distance and time key-value pairs to whatever already exists in the dataArray2
-          let item = { ...dataArray, distance: datum.run_dist, time: datum.run_time_str };
+          let item = { ...dataArray, event_id: datum.event_id, distance: datum.run_dist, time: datum.run_time_str };
           return item;
-        
       }
-  });
+    });
+    let dataObject = { data: dataArray };
   // Add what you've mapped to a new Array that also holds the ID key-value pair
-  let dataObject = { [key]: id, data: dataArray };
   return dataObject
-};
-
-const filterMusher = () => {
-    let filteredMusher = [];
-    if (this.state.musher_id === 115) {
-        return filteredMusher;
-    }
-    return filteredMusher
 };
 
 const LineChart = (props) => {
 
-    console.log(generatingData(mySeries, props.match.params.id, 'musher_id'))
-
+    console.log(generatingDataStructure(mySeries, props.match.params.id, 'musher_id'))
+    console.log(filterDataStructure(mySeries))
     return (
         <div>
             {/* <MusherLineChart props={generatingData(mySeries, props.match.musher_id)} /> */}
