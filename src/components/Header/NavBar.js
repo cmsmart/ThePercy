@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import { NavItem } from './NavItem'
-
 export const NavBar = (props) => {
   return (
     <nav>

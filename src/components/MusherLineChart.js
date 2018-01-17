@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from 'recharts';
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from 'recharts'
 
 const series = [
   {year: '2012', data: [
@@ -26,10 +26,6 @@ const series = [
     {time: '50', dist: 338}
   ]},
 ];
-
-// const CustomLabel = (props) => {
-//   return <div>{props.value}</div>
-// }
 
 const RenderLegend = () => {
   return <div style={{
