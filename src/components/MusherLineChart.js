@@ -32,83 +32,17 @@ const series = [
 // }
 
 const RenderLegend = () => {
-  return <div style={{
-    color: "#191919",
-    display: "inline-block",
-    padding: "0.3rem 1.2rem",
-  }}>
-  <p style={{
-    padding: "0.3rem 1.2rem",
-    textAnchor: "middle",
-    margin: "0",
-    fontSize: "0.8rem",
-    textAlign: "center",
-    fontWeight: "bold"
-  }}>Legend</p>
-  <p style={{
-    backgroundColor: "#5f4b8b",
-    color: "#fff",
-    padding: "0.25rem 0.6rem",
-    margin: "0.05rem",
-    textAnchor: "middle",
-    fontSize: "0.4rem",
-    textAlign: "center"
-  }}>2018</p>
-  <p style={{
-    textAlign: "center",
-    color: "#fff",
-    backgroundColor: "#88b04b",
-    fontSize: "0.4em",
-    padding: "0.25rem 0.6rem",
-    textAnchor: "middle",
-    margin: "0.05rem"
-  }}>2017</p>
-  <p style={{
-    backgroundColor: "#91a8d0",
-    color: "#fff",
-    padding: "0.25rem 0.6rem",
-    margin: "0.05rem",
-    textAnchor: "middle",
-    fontSize: "0.4rem",
-    textAlign: "center"
-  }}>2016</p>
-  <p style={{
-    backgroundColor: "#964f4c",
-    color: "#fff",
-    padding: "0.25rem 0.6rem",
-    margin: "0.05rem",
-    textAnchor: "middle",
-    fontSize: "0.4rem",
-    textAlign: "center"
-  }}>2015</p>
-  <p style={{
-    textAlign: "center",
-    color: "#fff",
-    backgroundColor: "#ad5e99",
-    fontSize: "0.4rem",
-    padding: "0.25rem 0.6rem",
-    textAnchor: "middle",
-    margin: "0.05rem"
-  }}>2014</p>
-  <p style={{
-    backgroundColor: "#009473",
-    color: "#fff",
-    padding: "0.25rem 0.6rem",
-    margin: "0.05rem",
-    textAnchor: "middle",
-    fontSize: "0.4rem",
-    textAlign: "center"
-  }}>2013</p>
-   <p style={{
-    backgroundColor: "#dd4124",
-    color: "#fff",
-    padding: "0.25rem 0.6rem",
-    margin: "0.05rem",
-    textAnchor: "middle",
-    fontSize: "0.4rem",
-    textAlign: "center"
-  }}>2012</p>
-  </div>
+  return 
+    <div style={{ color: "#191919", display: "inline-block", padding: "0.3rem 1.2rem"}}>
+      <p style={{ padding: "0.3rem 1.2rem", textAnchor: "middle", margin: "0", fontSize: "0.8rem", textAlign: "center", fontWeight: "bold"}}>Legend</p>
+      <p style={{ backgroundColor: "#5f4b8b", color: "#fff", padding: "0.25rem 0.6rem", margin: "0.05rem", textAnchor: "middle", fontSize: "0.4rem",textAlign: "center"}}>2018</p>
+      <p style={{ textAlign: "center", color: "#fff", backgroundColor: "#88b04b", fontSize: "0.4em", padding: "0.25rem 0.6rem", textAnchor: "middle", margin: "0.05rem"}}>2017</p>
+      <p style={{ backgroundColor: "#91a8d0", color: "#fff", padding: "0.25rem 0.6rem", margin: "0.05rem", textAnchor: "middle", fontSize: "0.4rem", textAlign: "center" }}>2016</p>
+      <p style={{backgroundColor: "#964f4c", color: "#fff", padding: "0.25rem 0.6rem",margin: "0.05rem", textAnchor: "middle", fontSize: "0.4rem", textAlign: "center"}}>2015</p>
+      <p style={{textAlign: "center", color: "#fff", backgroundColor: "#ad5e99", fontSize: "0.4rem", padding: "0.25rem 0.6rem", textAnchor: "middle", margin: "0.05rem" }}>2014</p>
+      <p style={{ backgroundColor: "#009473", color: "#fff", padding: "0.25rem 0.6rem", margin: "0.05rem", textAnchor: "middle", fontSize: "0.4rem", textAlign: "center" }}>2013</p>
+      <p style={{ backgroundColor: "#dd4124", color: "#fff", padding: "0.25rem 0.6rem", margin: "0.05rem", textAnchor: "middle", fontSize: "0.4rem", textAlign: "center"}}>2012</p>
+    </div>
 }
 
 const YearColor = [

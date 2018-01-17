@@ -58,10 +58,59 @@ const renderLegend = () => {
     </div>;
 }
 
+const generateKeyArray = (data, filterKey) => {
+  let countArray = []
+  data.forEach((datum) => {
+    if (countArray.every((object) => (object [filterKey] != datum[filterKey] ))) {
+      countArray = [...countArray, {
+        [filterKey]: datum[filterKey] 
+      }]
+    }
+  })
+  return countArray
+}
+
+const generateDataStructure = (data, id, key) => {
+  let dataArray = []
+  data.forEach((datum) => {
+    if (datum[key] == id) {
+      return dataArray = [ ...dataArray, {
+        distance: datum.run_dist } ];
+      }
+    })
+  return dataArray
+}
+
+const generateData = (data, key) => {
+  let filteredData = generateKeyArray(data, key)
+  filteredData = filterData.map((object) => {
+    return object = Object.assign({},
+    object, {data: generateDataStructure (data, object[key], key )} )
+  })
+  return filteredData
+}
+
 class ProgressBarChart extends Component {
+  constructor(props) {
+    super(props);
+
+    state = {
+      mushers: null,
+      data: null
+    }
+  
+    componentDidMount() {
+      getMushers().then((res) => {
+        this.setState({ mushers: res })
+      }).then(() => {
+        this.setState({ data: generateProgressDistanceData(this.state.mushers) })
+      })
+    }
+  }
+
 	render () {
   	return (
-      <div className="area-chart-wrapper" style={{ width: '95%', height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
+      <div className="area-chart-wrapper" style={{ width: '95%', height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
       <ResponsiveContainer padding="1rem">
       <BarChart width={600} height={400} data={data} margin={{ top: 30, right: 30, left: 50, bottom: 30 }} layout="vertical">
         <XAxis type="number" domain={[0, 338]}>
