@@ -40,7 +40,6 @@ class MusherPage extends Component {
     return image
   }
 
-
   render() {
     const { musher, musher_id } = this.state;
     
