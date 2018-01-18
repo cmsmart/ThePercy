@@ -118,6 +118,19 @@ const YearColor = [
 ]
 
 class MusherLineChart extends Component {
+  state = {
+    musher_id: 115,
+    race_id: 238,
+  }
+
+  filterMusher = () => {
+    let filteredMusher = []
+    if (this.state.musher_id === 115) {
+      
+    }
+    return filteredMusher
+  }
+
 	render () {
   	return (
       <div className="Line-chart-wrapper" style={{ width: "45%", height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
