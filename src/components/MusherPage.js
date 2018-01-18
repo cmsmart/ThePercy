@@ -49,9 +49,10 @@ class MusherPage extends Component {
         { !!this.state.musher &&
         <div>
         <h1>{musher.musher}</h1>
-        <div className="field">
-          <ProfileCard src={ this.getImageAddress(musher) } />
-        </div>
+          <InfoContainer src={ this.getImageAddress(musher)}
+          residence={musher.residence}
+          >
+          </InfoContainer>
         </div>
       }
         <LineChartData {...this.props} />
