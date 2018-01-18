@@ -42,7 +42,7 @@ const RenderLegend = () => {
                 fontWeight: "bold"
             }}>Legend</p>
             <p style={{
-                backgroundColor: "#0C2639",
+                backgroundColor: "#3d5941",
                 color: "#fff",
                 padding: "0.5rem 1.2rem",
                 margin: "0.1rem",
@@ -53,7 +53,7 @@ const RenderLegend = () => {
             <p style={{
                 textAlign: "center",
                 color: "#fff",
-                backgroundColor: "#C3D8EC",
+                backgroundColor: "#b5b991",
                 fontSize: "0.8rem",
                 padding: "0.5rem 1.2rem",
                 textAnchor: "middle",
@@ -90,8 +90,8 @@ export default class WinningTimesChart extends Component {
                         <CartesianGrid strokeDasharray="3 3" stroke='#f5f5f5'/>
                         <Tooltip cursor={{fill: "eee"}} />
                         <Legend layout="vertical" verticalAlign="middle" align="right" content={RenderLegend}/> 
-                        <Bar dataKey="Percy Junior" name="Percy Jr" fill="blue" label={'test'} />
-                        <Bar dataKey="Percy" name="Percy" fill="green" />
+                        <Bar dataKey="Percy Junior" name="Percy Jr" fill="#b5b991" />
+                        <Bar dataKey="Percy" name="Percy" fill="#3d5941"/>
                     </ComposedChart>
                 </ResponsiveContainer>
             </div>
