@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import WeatherChart from './WeatherChart'
 import WinningTimesChart from './WinningTimes'
 import { compareObjectValues } from '../utils/compareObjectValues'
+
 
 const tallyRaceCount = (data) => {
   let sortedArray = data.slice().sort(compareObjectValues('musher'))
@@ -26,6 +28,7 @@ export default class StatisticsPage extends Component {
     <div className='statistics-page'>
       <p>Statistics Page</p>
       <WinningTimesChart />
+      <WeatherChart />
     </div>
     )
   }
