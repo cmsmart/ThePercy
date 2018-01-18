@@ -76,13 +76,13 @@ class MusherLineChart extends Component {
         <LineChart width={300} height={300} margin={{top: 30, right: 30, left: 50, bottom: 50}}>
           <CartesianGrid strokeDasharray="3 3" horizontal={false}/>
           <XAxis dataKey="time" type="time" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]} >
-            <Label value={['Time (hours)']} offset={-45} position="insideBottom" ticks={[85, 169, 254, 338]}/>
+            <Label value={['Time (hours)']} offset={-45} position="insideBottom" />
           </XAxis>
-          <YAxis  dataKey="dist"  type="number"  allowDuplicatedCategory={false} domain={[0, 338]} >
+          <YAxis  dataKey="dist"  type="number"  allowDuplicatedCategory={false} domain={[0, 338]} ticks={[85, 169, 254, 338]} >
             <Label value={['Distance (km)']} angle={-90} offset={-25} position="insideLeft" /> 
           </YAxis>
           <Tooltip/>
-          <Legend layout="vertical" verticalAlign="middle" align="leftBottom" content={RenderLegend}/> />
+          <Legend layout="vertical" verticalAlign="middle" align="left" content={RenderLegend}/> />
           {series.map(s => (
             <Line dataKey="dist" data={s.data} name={s.year} key={s.year} /> 
           ))}
