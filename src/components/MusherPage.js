@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MusherHistoryChart from '../components/MusherRaceHistory';
 import MusherLineChart from './MusherLineChart';
 import { getMushers, getMusher } from '../api/mushers';
-import ProfileCard from './ProfileCard';
+import InfoContainer from './InfoContainer';
 import LineChartData from './LineChartData';
 
 class MusherPage extends Component {

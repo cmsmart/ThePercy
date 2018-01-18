@@ -83,51 +83,90 @@ const RenderLegend = () => {
   </div>
 }
 
-const YearColor = [
-  {event_id: "2018", lineColor: "#5f4b8b"},
-  {event_id: "2017", lineColor: "#88b04b"},
-  {event_id: "2016", lineColor: "#91a8d0"},
-  {event_id: "2015", lineColor: "#964f4c"},
-  {event_id: "2014", lineColor: "#ad5e99"},
-  {event_id: "2013", lineColor: "#009473"},
-  {event_id: "2012", lineColor: "#dd4124"}
+const EventColor = [
+  {event_id: 119, lineColor: "#5f4b8b"},
+  {event_id: 117, lineColor: "#88b04b"},
+  {event_id: 115, lineColor: "#91a8d0"},
+  {event_id: 113, lineColor: "#964f4c"},
+  {event_id: 111, lineColor: "#ad5e99"},
+  {event_id: 109, lineColor: "#009473"},
+  {event_id: 107, lineColor: "#dd4124"}
 ]
 
+const getYearForEvent = (event_id) => {
+  let eventYear = ''
+  event_ids.map(itemInAPI => {
+    if (itemInAPI.event_id === event_id) {
+      eventYear = itemInAPI.year
+    }
+    return eventYear
+  })
+  return eventYear
+}
+
+
+const getEventForYear = (year) => {
+  let eventID = ''
+  event_ids.map(itemInAPI => {
+    if (itemInAPI.name === "Percy DeWolfe Memorial Mail Race") {
+      if (itemInAPI.year) {
+        eventID = itemInAPI.event_id
+      }
+    }
+  })
+  return eventID
+}
+
+const getColorForEvent = (event_id) => {
+  let eventYear = getYearForEvent(event_id)
+  let eventColor = ''
+  EventColor.map(item => {
+    if (item.year === eventYear) {
+      eventColor = item.lineColor
+    }
+    return eventColor
+  })
+  return eventColor
+}
+
 const MusherLineChart = (props) => {
-  	return <div className="Line-chart-wrapper" style={{ width: "45%", height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
-        <ResponsiveContainer padding="1rem">
-          <LineChart width={300} height={300} margin={{ top: 30, right: 30, left: 50, bottom: 50 }}>
-            <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-            <XAxis dataKey="time" type="number" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]}>
-              <Label value={["Time (hours)"]} offset={-45} position="insideBottom"  />
-            </XAxis>
-            <YAxis dataKey="distance" type="number" allowDuplicatedCategory={false} domain={[0, 338]}>
-              <Label value={["Distance (km)"]} angle={-90} offset={-25} position="insideLeft" />
-            </YAxis>
-            <Tooltip />
-            <Legend layout="vertical" verticalAlign="middle" align="leftBottom" content={RenderLegend} />
-            {props.data.map(s => (
-              <Line {...props}
-                dataKey="distance"
-                data={s.data.slice().sort(compareObjectValues("time"))}
-                name={s.event_id}
-                key={s.event_id}
-              />
-            ))}
-            {YearColor.map(year => (
-              <Line
-                key={year.event_id}
-                stroke={year.lineColor}
-                name={year.event_id}
-                strokeWidth="2"
-              />
-            ))}
-            <ReferenceLine y={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
-            <ReferenceLine y={159.87} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-            <ReferenceLine y={240.27} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-            <ReferenceLine y={338} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>;}
+  return <div className="Line-chart-wrapper" style={{ width: "100%", height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
+    <ResponsiveContainer padding="1rem">
+      <LineChart width={300} height={300} margin={{ top: 30, right: 30, left: 50, bottom: 50 }}>
+        <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+        <XAxis dataKey="time" type="number" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]}>
+          <Label value={["Time (hours)"]} offset={-45} position="insideBottom" />
+        </XAxis>
+        <YAxis dataKey="distance" type="number" allowDuplicatedCategory={false} domain={[0, 338]}>
+          <Label value={["Distance (km)"]} angle={-90} offset={-25} position="insideLeft" />
+        </YAxis>
+        <Tooltip />
+        <Legend layout="vertical" verticalAlign="middle" align="leftBottom" content={RenderLegend} />
+        {props.data.map(s => (
+          <Line
+            {...props}
+            dataKey="distance"
+            data={s.data.slice().sort(compareObjectValues("time"))}
+            name={s.event_id}
+            key={s.event_id}
+          />
+        ))}
+        {EventColor.map(event => (
+        <Line
+          key={event.event_id}
+          stroke={event.lineColor}
+          name={event.event_id}
+          strokeWidth="3"
+          />
+        )
+        )}
+        <ReferenceLine y={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: "0.8em", fill: "#FA5252", scaleToFit: true }} />
+        <ReferenceLine y={159.87} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: "0.8em", fill: "#FA5252", scaleToFit: true }} />
+        <ReferenceLine y={240.27} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: "0.8em", fill: "#FA5252", scaleToFit: true }} />
+        <ReferenceLine y={338} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: "0.8em", fill: "#FA5252", scaleToFit: true }} />
+      </LineChart>
+    </ResponsiveContainer>
+  </div>
+}
 
 export default MusherLineChart
