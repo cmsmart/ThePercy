@@ -1,24 +1,10 @@
 import React, { Component } from 'react'
-import { NavLink } from "react-router-dom";
 
-const NavItem = (props) => {
-  return (
-    <li>
-      <NavLink to={props.path}>
-        <img className="nav-icons" src={require(`../../assets/${props.image}`)} alt="icon"/>
-        {props.title}
-      </NavLink>
-    </li> 
-  )
-}
-
-class NavBar extends Component{
-
-  render() {
+export const NavBar = (props) => {
   return (
     <nav>
       <ul>
-        <NavItem path="/tracker" image="map.svg" title="Race Map"/>
+        <NavItem path="/tracker" image="map.svg" title="Race Map" />
         <NavItem path="/dashboard" image="dashboard.svg" title="Dashboard" />
         <NavItem path="/pastraces" image="dashboard_historical.svg" title="Past Races" />
         <NavItem path="/mushers" image="team.svg" title="Mushers" />
@@ -27,7 +13,3 @@ class NavBar extends Component{
     </nav>
   )
 }
-
-}
-
-export default NavBar

@@ -27,7 +27,6 @@ const series = [
   ]},
 ];
 
-
 const RenderLegend = () => {
   return <div style={{
     color: "#191919",
