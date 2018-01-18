@@ -22,7 +22,7 @@ const series = [
   ]},
   {name: 'Gretchen', data: [
     {time: '0', dist: 0 },
-    {time: '5', dist: 7.4},
+    {time: '15', dist: 7.4},
     {time: '50', dist: 338}
   ]},
 ];
