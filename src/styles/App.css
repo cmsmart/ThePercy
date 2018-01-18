@@ -55,9 +55,8 @@ nav {
   .timer p {
     margin: 1rem 2rem; }
 
-.rechart h2 {
-  margin-left: 40px;
-  padding-top: 10px; }
+.recharts-legend-wrapper {
+  padding: 10px; }
 
 .recharts-label tspan {
   fill: #676a6c; }
@@ -67,6 +66,59 @@ nav {
 
 .recharts-cartesian-axis-tick-value {
   font-size: 13px; }
+
+.Composed-chart-wrapper {
+  margin: 0 10px; }
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background: white;
+  font-size: 14px; }
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #eceeef; }
+  .table thead th {
+    vertical-align: middle;
+    border-bottom: 2px solid #eceeef; }
+  .table tbody + tbody {
+    border-top: 2px solid #eceeef; }
+  .table .table {
+    background-color: #fff; }
+
+.table-sm th,
+.table-sm td {
+  padding: 0.3rem; }
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05); }
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075); }
+
+.table-active,
+.table-active > th,
+.table-active > td {
+  background-color: rgba(0, 0, 0, 0.075); }
+
+.table-hover .table-active:hover {
+  background-color: rgba(0, 0, 0, 0.075); }
+
+.table-hover .table-active:hover > td,
+.table-hover .table-active:hover > th {
+  background-color: rgba(0, 0, 0, 0.075); }
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar; }
+
+.table-responsive.table-bordered {
+  border: 0; }
 
 @media screen and (max-width: 700px) {
   header {
@@ -165,6 +217,14 @@ header {
 a {
   text-decoration: none;
   color: #C3D8EC; }
+
+.outer-wrapper {
+  background: white;
+  margin: 10px;
+  padding-bottom: 10px; }
+  .outer-wrapper h2 {
+    margin: 0 0 10px 20px;
+    padding-top: 20px; }
 
 iframe {
   height: 100%;
