@@ -68,6 +68,7 @@ class MusherLineChart extends Component {
           </LineChart>
         </ResponsiveContainer>
       </div>
-      }
+    )}
+  }
 
 export default MusherLineChart
