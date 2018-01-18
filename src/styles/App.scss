@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'nav';
 @import 'timer';
+@import 'recharts';
 @import 'media';
 
 html, body {
@@ -14,7 +15,7 @@ html, body {
 }
 
 body {
-  color: $lightblue;
+  color: $textgrey;
   background: $navy;
   font-family: $secondaryfont;
 }
@@ -50,6 +51,7 @@ h1 {
 
 h2 {
   font-size: 1.2em;
+  color: $textgrey;
 }
 
 // Header

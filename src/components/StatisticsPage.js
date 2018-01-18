@@ -4,6 +4,7 @@ import { getPastMushers } from '../api/pastmushers'
 
 import WinningTimesChart from './WinningTimesChart'
 import { StatisticInformation } from './StatisticInformation'
+import WeatherChart from './WeatherChart'
 
 import { compareObjectValues } from '../utils/compareObjectValues'
 import { deduplicateAndCountObjectByKey } from '../utils/deduplicateAndCountObjectByKey'
@@ -50,6 +51,7 @@ export default class StatisticsPage extends Component {
       <StatisticInformation data={getTopRaces(this.state.data)} id='name' value='races' />
       <StatisticInformation data={getTopWins(this.state.data)} id='name' value='wins' />
       <StatisticInformation data={getTopTimes(this.state.data, 'Percy')} id='name' value='time' />
+      <WeatherChart />
     </div>
     )
   }
