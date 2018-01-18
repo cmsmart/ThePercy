@@ -1,0 +1,18 @@
+.rechart {
+    h2 {
+        margin-left: 40px;
+        padding-top: 10px;
+    }
+}
+
+.recharts-label tspan {
+    fill: $textgrey;
+}
+
+.recharts-text {
+    fill: lighten($textgrey, 20%);
+}
+
+.recharts-cartesian-axis-tick-value {
+    font-size: 13px;
+}
