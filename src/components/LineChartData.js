@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MusherLineChart from './MusherLineChart';
+import {compareObjectValues} from '../utils/compareObjectValues';
 
 // Format we want 
 //const series = [
@@ -25,7 +26,7 @@ const mySeries = [
         "hours": 19.25
     },
     {
-        "event_id": "115",
+        "event_id": "117",
         "musher_id": "106",
         "run_dist": 80860,
         "run_time_str": "06.04.23",
@@ -39,7 +40,7 @@ const mySeries = [
         "hours": 19.09
     },
     {
-        "event_id": "115",
+        "event_id": "117",
         "musher_id": "106",
         "run_dist": 80677,
         "run_time_str": "05.34.21",
@@ -53,7 +54,7 @@ const mySeries = [
         "hours": 18.92
         },
         {
-        "event_id": "115",
+        "event_id": "117",
         "musher_id": "106",
         "run_dist": 120582,
         "run_time_str": "10.34.13",
@@ -67,7 +68,7 @@ const mySeries = [
         "hours": 18.73
         },
         {
-        "event_id": "115",
+        "event_id": "117",
         "musher_id": "106",
         "run_dist": 80862,
         "run_time_str": "07.34.27",
@@ -81,7 +82,7 @@ const mySeries = [
         "hours": 18.76
         },
         {
-        "event_id": "115",
+        "event_id": "117",
         "musher_id": "106",
         "run_dist": 80841,
         "run_time_str": "05.54.24",
@@ -95,7 +96,7 @@ const mySeries = [
         "hours": 18.56
         },
         {
-        "event_id": "115",
+        "event_id": "117",
         "musher_id": "106",
         "run_dist": 77597,
         "run_time_str": "05.24.21",
@@ -110,43 +111,6 @@ const mySeries = [
         }
 ]
 
-<<<<<<< HEAD
-const filterDataStructure = (data) => {
-  let dataArray = []
-  data.forEach(datum => {
-    if (Object.keys(dataArray)[datum.event_id] !== datum.event_id) {
-      return dataArray = [ ...dataArray, generatingDataStructure(data, datum.musher_id, "musher_id")]
-    }
-
-  })
-
-  return dataArray
-}
-
-const generatingDataStructure = (data, id, key) => {
-  let filteredArray = data.filter(datum => {
-    datum.event_id
-  })
-  console.log('filtered array', filteredArray)
-  // dataArray = [ {id : props.match.params.id, data: [ ]}]
-  // map over the data array passed in, and for each object in the array
-  let dataArray = data.map(datum => {
-      if (datum[key] === id) {
-          // Create a new object that adds distance and time key-value pairs to whatever already exists in the dataArray2
-          let item = { ...dataArray, event_id: datum.event_id, distance: datum.run_dist, time: datum.run_time_str };
-          return item;
-      }
-    });
-    let dataObject = { data: dataArray };
-  // Add what you've mapped to a new Array that also holds the ID key-value pair
-  return dataObject
-};
-
-const LineChart = (props) => {
-
-    console.log(generatingDataStructure(mySeries, props.match.params.id, 'musher_id'))
-    console.log(filterDataStructure(mySeries))
-=======
 const generateKeyArray = (data, filterKey) => {
     let countArray = []
     data.forEach((datum) => {
@@ -164,7 +128,7 @@ const generateDataStructure = (data, id, key) => {
     data.forEach((datum) => {
         if (datum[key] === id) {
             // Create a new object that adds distance and time key-value pairs to whatever already exists in the dataArray2
-            return dataArray = [ ...dataArray, { distance: datum.run_dist, time: datum.run_time_str } ];
+            return dataArray = [ ...dataArray, { distance: (datum.run_dist/1000), time: datum.hours } ];
         }
     })
     // Add what you've mapped to a new Array that also holds the ID key-value pair
@@ -178,21 +142,20 @@ const generateData = (data, key) => {
             return object = Object.assign({}, object, { data: generateDataStructure(data, object[key], key)} )
         // }
     })
-    return filteredData
+    return filteredData 
 }
 
 
-const LineChart = (props) => {
+const LineChartData = (props) => {
 
     // console.log(generatingData(mySeries, props.match.params.id, 'musher_id'))
-    console.log(generateData(mySeries, 'event_id'))
+    console.log("check data",generateData(mySeries, 'event_id'))
 
->>>>>>> c4e370b765af15162ca2919486a0613d8d9411aa
     return (
         <div>
-            {/* <MusherLineChart props={generatingData(mySeries, props.match.musher_id)} /> */}
+            <MusherLineChart data={generateData(mySeries, "event_id")} />
         </div>
     )
 }
 
-export default LineChart
+export default LineChartData
