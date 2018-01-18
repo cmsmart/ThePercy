@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { getMushers } from '../api/mushers'
 import { Results } from './Results'
 import { SearchFilterContainer } from './SearchFilterContainer'
@@ -59,7 +59,6 @@ export default class  MushersPage extends Component {
         <p>Mushers Page</p>
         <SearchFilterContainer handleSearchQuery={this.handleSearchQuery} handleYearSelection={this.handleYearSelection} handleRaceSelection={this.handleRaceSelection} />
         <Results {...this.state} filterResults={this.filterResults} />
-        <LineChartData />
       </div>
     )
   }

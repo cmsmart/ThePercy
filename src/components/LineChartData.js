@@ -108,6 +108,97 @@ const mySeries = [
         "run_dist": 157683,
         "run_time_str": "18.23.44",
         "hours": 18.4
+        },
+    {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 197683,
+        "run_time_str": "19.15.12",
+        "hours": 19.25
+    },
+    {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 90860,
+        "run_time_str": "06.04.23",
+        "hours": 6.07
+    },
+    {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 197683,
+        "run_time_str": "19.05.13",
+        "hours": 19.09
+    },
+    {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 90677,
+        "run_time_str": "05.34.21",
+        "hours": 5.57
+    },
+    {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 187683,
+        "run_time_str": "18.55.19",
+        "hours": 18.92
+        },
+        {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 130582,
+        "run_time_str": "10.34.13",
+        "hours": 10.57
+        },
+        {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 147683,
+        "run_time_str": "18.43.46",
+        "hours": 18.73
+        },
+        {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 90862,
+        "run_time_str": "07.34.27",
+        "hours": 7.57
+        },
+        {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 147683,
+        "run_time_str": "18.45.50",
+        "hours": 18.76
+        },
+        {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 90841,
+        "run_time_str": "05.54.24",
+        "hours": 5.91
+        },
+        {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 187683,
+        "run_time_str": "18.33.43",
+        "hours": 18.56
+        },
+        {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 87597,
+        "run_time_str": "05.24.21",
+        "hours": 5.41
+        },
+        {
+        "event_id": "119",
+        "musher_id": "106",
+        "run_dist": 187683,
+        "run_time_str": "18.23.44",
+        "hours": 18.4
         }
 ]
 
