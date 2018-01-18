@@ -3,15 +3,8 @@ import Avatar from './Avatar';
 
 function InfoContainer(props) {
   return (
-<<<<<<< HEAD
   <div className="info-card">
         <Avatar {...props} />
-=======
-    <div className="card">
-    <div className="avatar">
-      <img src={`http://percy.cholenasmart.com/sites/default/files/styles/mushers/public/${props.src}`} alt="Avatar" aria-label="Musher avatar" style={{ "width": "200" }} />
-      </div>
->>>>>>> development
       <div className="container">
         <h4>
           <b>Age: </b>
