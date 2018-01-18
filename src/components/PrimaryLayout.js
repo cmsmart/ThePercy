@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 
 import { Header } from '../components/Header/index'
-import { Dashboard } from '../components/Dashboard'
+import  Dashboard  from '../components/Dashboard'
 import { Historical } from '../components/Historical'
 import { MapPage } from '../components/MapPage'
 import MusherPage from '../components/MusherPage'
