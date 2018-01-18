@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, Label } from 'recharts'
-
-import { ResponsiveContainer } from 'recharts';
+import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, LabelList, Legend, Label, ResponsiveContainer } from 'recharts'
 
 const data = [
   {year: '2002', place: 6, runtime: 9.53, race: "Percy Junior"},

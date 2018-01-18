@@ -3,41 +3,28 @@ import React, { Component } from 'react'
 import { getPastMushers } from '../api/pastmushers'
 
 import WinningTimesChart from './WinningTimesChart'
+import { StatisticInformation } from './StatisticInformation'
+import WeatherChart from './WeatherChart'
 
 import { compareObjectValues } from '../utils/compareObjectValues'
-
-const tallyKeyCount = (data, key) => {
-  let countArray = []
-  data.forEach((musher) => {
-    if (countArray.some((object) => (object.name === musher.musher))) {
-      countArray.forEach((object) => {
-        if (object.name === musher.musher) {
-          return object.race++
-        }
-      })
-    }
-    else {
-      return countArray = [ ...countArray, { name: musher.musher, race: 1 } ]
-    }
-  })
-  return countArray = countArray.slice().sort(compareObjectValues([key], 'desc'))
-}
+import { deduplicateAndCountObjectByKey } from '../utils/deduplicateAndCountObjectByKey'
 
 const getTopRaces = (data) => {
-  let countArray = tallyKeyCount(data, 'races').slice(0, 5)
+  let countArray = deduplicateAndCountObjectByKey(data.filter((data) => (data.race === 'Percy')), 'musher', 'races', 'name').sort(compareObjectValues('races', 'desc')).slice(0, 10)
   return countArray
 }
 
 const getTopWins = (data) => {
-  let filteredArray = data.filter((data) => (data.standing === '1'))
-  let countArray = tallyKeyCount(filteredArray, 'wins').slice(0, 5)
+  let countArray = deduplicateAndCountObjectByKey(data.filter((data) => (data.standing === '1' && data.race === 'Percy')), 'musher', 'wins', 'name').sort(compareObjectValues('wins', 'desc')).slice(0, 10)
   return countArray
 }
 
-const getTopTimes = (data, race) => {
-  let filteredArray = data.filter((data) => (data.standing === '1' && data.race === `${race}`))
-  filteredArray = filteredArray.slice().sort(compareObjectValues('run_time'))
-  return filteredArray = filteredArray.slice(0, 5)
+const getTopTimes = (data) => {
+  let timesArray = data.filter((data) => (data.standing === '1' && data.race === 'Percy'))
+  .sort(compareObjectValues('run_time'))
+  .slice(0, 10)
+  .map((datum) => (datum = { name: datum.musher, time: datum.run_time, year: datum.year }))
+  return timesArray
 }
 
 export default class StatisticsPage extends Component {
@@ -61,6 +48,10 @@ export default class StatisticsPage extends Component {
     <div className='statistics-page'>
       <p>Statistics Page</p>
       <WinningTimesChart />
+      <StatisticInformation data={getTopRaces(this.state.data)} id='name' value='races' />
+      <StatisticInformation data={getTopWins(this.state.data)} id='name' value='wins' />
+      <StatisticInformation data={getTopTimes(this.state.data, 'Percy')} id='name' value='time' />
+      <WeatherChart />
     </div>
     )
   }
