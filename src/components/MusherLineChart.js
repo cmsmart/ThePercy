@@ -1,35 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from 'recharts';
-
-const series = [
-  {year: '2012', data: [
-    {time: '0', dist: 0 },
-    {time: '30', dist: 152.7},
-    {time: '50', dist: 338}
-  ]},
-  {year: '2013', data: [
-    {time: '0', dist: 0 },
-    {time: '30', dist: 152.7},
-    {time: '45', dist: 338}
-  ]},
-  {year: '2016', data: [
-    {time: '0', dist: 0 },
-    {time: '13', dist: 12.4},
-    {time: '18', dist: 25.7},
-    {time: '28', dist: 137.8 },
-    {time: '30', dist: 145.8},
-    {time: '45', dist: 338}
-  ]},
-  {year: '2017', data: [
-    {time: '0', dist: 0 },
-    {time: '5', dist: 7.4},
-    {time: '50', dist: 338}
-  ]},
-];
-
-// const CustomLabel = (props) => {
-//   return <div>{props.value}</div>
-// }
+import { compareObjectValues } from '../utils/compareObjectValues';
+import { event_ids } from '../api/event_id';
 
 const RenderLegend = () => {
   return 
@@ -46,13 +18,13 @@ const RenderLegend = () => {
 }
 
 const YearColor = [
-  {year: "2018", lineColor: "#5f4b8b"},
-  {year: "2017", lineColor: "#88b04b"},
-  {year: "2016", lineColor: "#91a8d0"},
-  {year: "2015", lineColor: "#964f4c"},
-  {year: "2014", lineColor: "#ad5e99"},
-  {year: "2013", lineColor: "#009473"},
-  {year: "2012", lineColor: "#dd4124"}
+  {event_id: "2018", lineColor: "#5f4b8b"},
+  {event_id: "2017", lineColor: "#88b04b"},
+  {event_id: "2016", lineColor: "#91a8d0"},
+  {event_id: "2015", lineColor: "#964f4c"},
+  {event_id: "2014", lineColor: "#ad5e99"},
+  {event_id: "2013", lineColor: "#009473"},
+  {event_id: "2012", lineColor: "#dd4124"}
 ]
 
 class MusherLineChart extends Component {
@@ -93,10 +65,9 @@ class MusherLineChart extends Component {
             <ReferenceLine y={159.87} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine y={240.27} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine y={338} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-        </LineChart>
-      </ResponsiveContainer>
+          </LineChart>
+        </ResponsiveContainer>
       </div>
-    )}
-}
+      }
 
 export default MusherLineChart
