@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { getPastMushers } from '../api/pastmushers'
 
 import WinningTimesChart from './WinningTimesChart'
+import WeatherChart from './WeatherChart'
 
 import { compareObjectValues } from '../utils/compareObjectValues'
 
@@ -61,6 +62,7 @@ export default class StatisticsPage extends Component {
     <div className='statistics-page'>
       <p>Statistics Page</p>
       <WinningTimesChart />
+      <WeatherChart />
     </div>
     )
   }
