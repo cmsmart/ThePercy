@@ -8,7 +8,7 @@ import Timer from '../containers/Timer'
 
 import { Table } from './Table'
 
-const headings = ['Status', 'Name', 'Bib', 'Start', 'Forty Mile In', 'Forty Mile Out', 'Eagle In', 'Eagle Out', 'Forty Mile In', 'Forty Mile Out', 'Finish', 'Total Run Time']
+const headings = ['Status', 'Name', 'Bib', 'Start', 'Fortymile In', 'Fortymile Out', 'Eagle In', 'Eagle Out', 'Fortymile In', 'Fortymile Out', 'Finish', 'Total Run Time']
 
 export default class Dashboard extends Component {
   
@@ -47,17 +47,16 @@ export default class Dashboard extends Component {
     !!this.state.data && console.log(this.generateTableData(this.state.data))
     return (
       <main className='dashboard'>
-          <Timer />
 
           <ProgressBarChart
             title='Progress Bar Chart'
           />
+          <Timer />
 
             <DashboardLineChart
             title='Race Progress Chart'
           />
 
-        <p>Real Table</p>
         {!!this.state.data && <Table data={this.generateTableData(this.state.data)} classname={'live-data'} headings={headings} />}
 
       </main>

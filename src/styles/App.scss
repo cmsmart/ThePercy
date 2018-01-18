@@ -2,6 +2,7 @@
 @import 'nav';
 @import 'timer';
 @import 'recharts';
+@import 'tables';
 @import 'media';
 
 html, body {
@@ -94,6 +95,19 @@ a {
   color: $lightblue;
 }
 
+
+// Wrappers for data boxes
+
+
+.outer-wrapper {
+  background: white;
+  margin: 10px;
+  padding-bottom: 10px;
+  h2 {
+      margin: 0 0 10px 20px;
+      padding-top: 20px;
+  }
+}
 
 // Map page 
 

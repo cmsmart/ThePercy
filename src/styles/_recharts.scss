@@ -1,8 +1,8 @@
 .rechart {
-    h2 {
-        margin-left: 40px;
-        padding-top: 10px;
-    }
+}
+
+.recharts-legend-wrapper {
+    padding: 10px;
 }
 
 .recharts-label tspan {
@@ -15,4 +15,8 @@
 
 .recharts-cartesian-axis-tick-value {
     font-size: 13px;
+}
+
+.Composed-chart-wrapper{
+    margin: 0 10px;
 }

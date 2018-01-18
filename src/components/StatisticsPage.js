@@ -48,10 +48,10 @@ export default class StatisticsPage extends Component {
     <div className='statistics-page'>
       <p>Statistics Page</p>
       <WinningTimesChart />
+      <WeatherChart />
       <StatisticInformation data={getTopRaces(this.state.data)} id='name' value='races' />
       <StatisticInformation data={getTopWins(this.state.data)} id='name' value='wins' />
       <StatisticInformation data={getTopTimes(this.state.data, 'Percy')} id='name' value='time' />
-      <WeatherChart />
     </div>
     )
   }
