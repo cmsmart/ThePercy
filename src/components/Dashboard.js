@@ -11,7 +11,7 @@ import { Table } from './Table'
 const headings = ['Status', 'Name', 'Bib', 'Start', 'Forty Mile In', 'Forty Mile Out', 'Eagle In', 'Eagle Out', 'Forty Mile In', 'Forty Mile Out', 'Finish', 'Total Run Time']
 
 export default class Dashboard extends Component {
-
+  
   state = {
     data: null
   }
