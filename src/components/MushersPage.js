@@ -59,7 +59,6 @@ export default class  MushersPage extends Component {
         <p>Mushers Page</p>
         <SearchFilterContainer handleSearchQuery={this.handleSearchQuery} handleYearSelection={this.handleYearSelection} handleRaceSelection={this.handleRaceSelection} />
         <Results {...this.state} filterResults={this.filterResults} />
-        <LineChart />
       </div>
     )
   }
