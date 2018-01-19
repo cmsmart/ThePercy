@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { getMushers } from '../api/mushers'
 import { Results } from './Results'
 import { SearchFilterContainer } from './SearchFilterContainer'
-import LineChartData from './LineChartData';
 import { filterResults } from '../utils/filterResults';
 
 

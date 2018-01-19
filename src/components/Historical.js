@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { FilterContainer } from './FilterContainer';
-import ProgressBarChart from "../components/ProgressBarChart";
 import DashboardLineChart from "../components/DashboardLineChart";
 import { getUpdates } from "../api/updates";
 import { getMushers } from "../api/mushers";
-import Timer from "../containers/Timer";
 import { Results } from "../components/Results";
 import { Table } from "./Table";
 import { filterResults } from "../utils/filterResults";

@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import MusherLineChart from './MusherLineChart';
-import {compareObjectValues} from '../utils/compareObjectValues';
 
 // Format we want 
 //const series = [

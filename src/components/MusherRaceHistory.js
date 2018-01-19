@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, Label, Legend } from 'recharts'
+import { ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Label, Legend } from 'recharts'
 
 import { ResponsiveContainer } from 'recharts'
 
@@ -21,24 +21,26 @@ const generateRunTimesData = (data) => {
       if (result.standing === "1") {
           first.push(Object.assign({}, {'wintime': parseFloat((result.run_time).replace(/:/gi, '.')), 'year': result.year, 'race': result.race}))
       }
+      return first
   })
   let filteredArray = data.filter((datum) => datum.musher_id === '88')
   let years = generateYearsArray()
   
   filteredArray.map((musher) => {
     var runtime = !isNaN((parseFloat(musher.run_time))) ? musher.runtime = parseFloat((musher.run_time).replace(/:/gi, '.')) : musher.runtime = null
-    return years = years.map((year) => {
+    years = years.map((year) => {
       if (year.year === musher.year) {
         first.map((win) => {
           if ((musher.year === win.year) && (musher.race === win.race)) {
-              year = Object.assign({}, year, { 'runtime': runtime, 'race': musher.race, 'standing': musher.standing, 'win': win.wintime })
-              }
-            })
+            year = Object.assign({}, year, { 'runtime': runtime, 'race': musher.race, 'standing': musher.standing, 'win': win.wintime })
           }
           return year
-      })
+        })
+      }
+      return years
+    })
+    return years
   })
-  return years
 }
 
 class MusherHistoryChart extends Component {

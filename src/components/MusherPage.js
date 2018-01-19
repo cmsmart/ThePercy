@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import MusherHistoryChart from '../components/MusherRaceHistory';
-import MusherLineChart from './MusherLineChart';
-import { getMushers, getMusherByID } from '../api/mushers';
+import { getMusherByID } from '../api/mushers';
 import InfoContainer from './InfoContainer';
 import LineChartData from './LineChartData';
 
 class MusherPage extends Component {
   state = {
-    musher_id: this.props.match.params.id,
-    musher: null,
-    mushers: {},
-  };
+    musher: null
+  }
 
   componentDidMount() {
     getMusherByID(this.state.musher_id)
@@ -20,19 +17,18 @@ class MusherPage extends Component {
   }
 
   render() {
-    const { musher, musher_id } = this.state;
     return (
       <div className="musher-page">
         { !!this.state.musher &&
         <div>
-        <h1>{musher.musher}</h1>
-          <InfoContainer src={musher.profile_image}
-          residence={musher.residence}
+        <h1>{this.state.musher.musher}</h1>
+          <InfoContainer src={this.state.musher.profile_image}
+          residence={this.state.musher.residence}
           >
           </InfoContainer>
         </div>
       }
-        <LineChartData {...this.props} />
+        <LineChartData />
         <MusherHistoryChart />
       </div>
 )

@@ -7,9 +7,6 @@ export const Field = props => {
     <div className="field">
     <h2>The Field</h2>
     <div className="myCards">
-    {props.data.filter(datum => {
-      
-    })}
   {props.data.map((datum, index) => {
     return (
           <ProfileCard

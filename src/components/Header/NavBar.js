@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { NavItem } from './NavItem'
 
 export const NavBar = (props) => {
