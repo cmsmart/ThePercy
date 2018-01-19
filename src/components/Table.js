@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const mapHeadingsToTable = (headings) => (
     <tr>
@@ -21,7 +21,6 @@ const mapDataToTable = (data) => (
         </tr>
     ))
 )
-
 
 export const Table = (props) => {
     const classes = `${props.classname} table table-hover table-condensed table-responsive`;
