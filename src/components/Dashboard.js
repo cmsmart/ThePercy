@@ -48,14 +48,10 @@ export default class Dashboard extends Component {
     return (
       <main className='dashboard'>
 
-          <ProgressBarChart
-            title='Progress Bar Chart'
-          />
-          <Timer />
+        <ProgressBarChart title='Progress Bar Chart' />
+        <Timer />
 
-            <DashboardLineChart
-            title='Race Progress Chart'
-          />
+         <DashboardLineChart title='Race Progress Chart' />
 
         {!!this.state.data && <Table data={this.generateTableData(this.state.data)} classname={'live-data'} headings={headings} />}
 
