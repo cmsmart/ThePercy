@@ -2,7 +2,6 @@ import React from 'react';
 import Avatar from './Avatar';
 
 function InfoContainer(props) {
-  console.log("props.src", props.src)
   return (
   <div className="info-card">
         <Avatar {...props} />

@@ -33,7 +33,6 @@ export default class  MushersPage extends Component {
   }
   
   render() {
-    console.log(this.state)
     return (
       <div className='mushers-page'>
         <p>Mushers Page</p>

@@ -17,9 +17,6 @@ class MusherPage extends Component {
     .then(res => {
       this.setState({ musher: res[0] })
     })
-    .then(() => {
-      console.log(this.state.musher)
-    })
   }
 
   render() {

@@ -60,7 +60,6 @@ export class Historical extends Component {
   }
 
   render() {
-    console.log(this.state)
     return <main className="dashboard">
         <FilterContainer handleYearSelection={this.handleYearSelection} handleRaceSelection={this.handleRaceSelection} />
         <div>{this.state.year}</div>

@@ -20,7 +20,6 @@ export default class Dashboard extends Component {
 
   componentDidMount() {
     getUpdates().then((res) => {
-      console.log(res)
       this.setState({ data: res })
     })
     getMushers().then((res) => {
@@ -58,8 +57,6 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    !!this.state.data && console.log(this.state.data)
-    
     return (
     <main className="dashboard">
         <Timer />

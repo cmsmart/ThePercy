@@ -14,8 +14,6 @@ export const SearchFilterContainer = (props) => {
 
     const years = generateYearsArray()
     const races = ['Race', 'Percy', 'Percy Junior']
-
-    console.log(years)
     
     return (
         <div className="searchFilter">

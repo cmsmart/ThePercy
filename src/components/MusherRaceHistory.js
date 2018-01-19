@@ -56,7 +56,6 @@ class MusherHistoryChart extends Component {
     })
   }
 	render () {
-    console.log(this.state.data)
   	return (
         <div className="Composed-chart-wrapper" style={{ width: '95%', height: '400px', backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
             <ResponsiveContainer padding="1rem">
