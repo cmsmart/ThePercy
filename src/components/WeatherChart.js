@@ -40,7 +40,7 @@ export default class WeatherChart extends Component {
                             <Label value="Temp (°C  )" angle={-90} position="insideLeft"/> 
                         </YAxis>
                         <CartesianGrid strokeDasharray="3 3"/>
-                        <Tooltip/>
+                        <Tooltip />
                         <Legend verticalAlign="top"/>
                         <Line type="monotone" dataKey="max" stroke="#8884d8" activeDot={{r: 8}}/>
                         <Line type="monotone" dataKey="min" stroke="#82ca9d" />

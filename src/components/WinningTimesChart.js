@@ -5,7 +5,7 @@ import { getPastMushers } from '../api/pastmushers'
 
 const generateYearsArray = () => {
     let years = []
-    for (let i = 2000; i < (new Date()).getFullYear(); i++) {
+    for (let i = 1981; i < (new Date()).getFullYear(); i++) {
       years = [ ...years, { year: `${i}` } ]
     }
     return years
@@ -54,7 +54,6 @@ const generateWinningTimesData = (data) => {
 
 	render () {
         
-    console.log(this.state.data)
   	return (
         <div className="outer-wrapper">
         <h2>Win Times</h2>

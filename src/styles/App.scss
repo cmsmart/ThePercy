@@ -88,6 +88,26 @@ header {
     }
 }
 
+// Statistics page
+
+.statistic-wrapper {
+  display: flex;
+  flex-flow: wrap;
+  section {
+    flex: 1 1 auto;
+    background: white;
+    margin: 5px;
+    padding: 10px 20px 10px 30px;
+    h2 {
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
 // Links
 
 a {
