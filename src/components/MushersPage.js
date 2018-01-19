@@ -3,13 +3,15 @@ import { getMushers } from '../api/mushers'
 import { Results } from './Results'
 import { SearchFilterContainer } from './SearchFilterContainer'
 import LineChartData from './LineChartData';
+import { filterResults } from '../utils/filterResults';
+
 
 export default class  MushersPage extends Component {
   state = {
     year: 'Year',
     race: 'Race',
     searchQuery: null,
-    data: []
+    data: null
   }
   
   handleSearchQuery = (query) => {
@@ -36,7 +38,7 @@ export default class  MushersPage extends Component {
       <div className='mushers-page'>
         <p>Mushers Page</p>
         <SearchFilterContainer handleSearchQuery={this.handleSearchQuery} handleYearSelection={this.handleYearSelection} handleRaceSelection={this.handleRaceSelection} />
-        <Results {...this.state} />
+        {!!this.state.data && <Results data={filterResults(this.state.data, this.state.year, this.state.race, this.state.searchQuery)} />}
       </div>
     )
   }

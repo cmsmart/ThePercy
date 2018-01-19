@@ -1,6 +1,5 @@
 import React from "react";
 import { Field } from "./Field";
-import { filterResults} from '../utils/filterResults';
 
 export const Results = props => {
   return (

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { FilterContainer } from './FilterContainer';
 import ProgressBarChart from "../components/ProgressBarChart";
 import DashboardLineChart from "../components/DashboardLineChart";
-import { getFilteredUpdates, getFilteredUpdatesByYear } from "../api/updates";
-import { getFilteredMushers, getFilteredMushersByYear } from "../api/mushers";
+import { getUpdates } from "../api/updates";
+import { getMushers } from "../api/mushers";
 import Timer from "../containers/Timer";
 import { Results } from "../components/Results";
 import { Table } from "./Table";
@@ -27,38 +27,27 @@ const headings = [
 export class Historical extends Component {
   state = { 
     data: null, 
-    year: "2017", 
-    race: "0", 
-    field: null 
+    field: null ,
+    year: '2017', 
+    race: 'Race'
   }
 
   componentDidMount() {
-    if (this.state.race === "0") {
-      getFilteredUpdatesByYear(this.state.year)
-      .then((res)=> {
-        this.setState({ data: res })
-      })
-      getFilteredMushersByYear(this.state.year)
-      .then((res)=> {
-        this.setState({ field: res })
-      })
-    } else {
-      getFilteredUpdates(this.state.year, this.state.race)
-      .then(res => {
-        this.setState({ data: res });
-      });
-      getFilteredMushers(this.state.year, this.state.race)
-      .then(res => {
-        this.setState({ field: res });
-      });
-    }
-  }
+    getUpdates()
+    .then((res)=> {
+      this.setState({ data: res })
+    })
+    getMushers()
+    .then((res)=> {
+      this.setState({ field: res })
+    })
+  } 
 
-  handleYearSelection = year => {
+  handleYearSelection = (year) => {
     this.setState({ year: year })
   };
 
-  handleRaceSelection = race => {
+  handleRaceSelection = (race) => {
     this.setState({ race: race });
   };
 
@@ -70,16 +59,14 @@ export class Historical extends Component {
     return tableData;
   }
 
-
-
   render() {
+    console.log(this.state)
     return <main className="dashboard">
         <FilterContainer handleYearSelection={this.handleYearSelection} handleRaceSelection={this.handleRaceSelection} />
         <div>{this.state.year}</div>
-        {!!this.state.field && <Results data={this.state.field} />}
-
+        {!!this.state.field && <Results data={filterResults(this.state.field, this.state.year, this.state.race)} />}
         <DashboardLineChart {...this.state} title="Race Progress Chart" />
-        {!!this.state.data && <Table data={this.generateTableData(this.state.data)} classname={"live-data"} headings={headings} />}
+        {!!this.state.data && <Table data={this.generateTableData(filterResults(this.state.data, this.state.year, this.state.race))} classname={"live-data"} headings={headings} />}
       </main>;
   }
 }

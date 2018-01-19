@@ -1,9 +1,8 @@
 import React from 'react'
 
 const mapDataToOptions = (data) => (
-    console.log('Object', Object.keys(data)),
-    Object.keys(data).map((datum, index) => (
-        <option key={index} value={`${data[datum]}`}>{`${datum}`}</option>
+    data.map((datum, index) => (
+        <option key={index} value={`${datum}`}>{`${datum}`}</option>
     ))
 )
 
