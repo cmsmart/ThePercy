@@ -21,34 +21,16 @@ class MusherPage extends Component {
     .then(() => {
       console.log(this.state.musher)
     })
-    // getMushers()
-    // .then(res => {
-    //   this.setState({ mushers: res })
-    // }).then(() => {
-    //   let filteredMushers = this.state.mushers.filter(musher => (
-    //     musher.musher_id === this.state.musher_id
-    //   )
-    // )
-    // console.log(filteredMushers)
-    // this.setState({ musher: filteredMushers })
-    // console.log('musher state', this.state.musher)
-    // })
-  }
-  getImageAddress(musher) {
-    const imageAddress = musher.profile_image.uri.split("//"); 
-    const image = imageAddress[1];
-    return image
   }
 
   render() {
     const { musher, musher_id } = this.state;
-    
     return (
-    <div className="musher-page">
+      <div className="musher-page">
         { !!this.state.musher &&
         <div>
         <h1>{musher.musher}</h1>
-          <InfoContainer src={ this.getImageAddress(musher)}
+          <InfoContainer src={musher.profile_image}
           residence={musher.residence}
           >
           </InfoContainer>
