@@ -167,6 +167,7 @@ const MusherLineChart = (props) => {
       </LineChart>
     </ResponsiveContainer>
   </div>
+
 }
 
 export default MusherLineChart
