@@ -24,6 +24,7 @@ const mapDataToTable = (data) => (
 
 export const Table = (props) => {
     const classes = `${props.classname} table table-hover table-condensed table-responsive`;
+    console.log('table', props.data)
     return (
         <div className="outer-wrapper">
             <h2>Race Updates</h2>

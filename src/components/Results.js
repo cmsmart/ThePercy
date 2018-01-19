@@ -10,7 +10,7 @@ export const Results = props => {
       {!!props.data &&
          (
            <Field
-            data={filterResults(props.data, props.year, props.race, props.searchQuery)}
+            data={props.data}
           />
         )
       }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MusherHistoryChart from '../components/MusherRaceHistory';
 import MusherLineChart from './MusherLineChart';
-import { getMushers, getMusher } from '../api/mushers';
+import { getMushers, getMusherByID } from '../api/mushers';
 import InfoContainer from './InfoContainer';
 import LineChartData from './LineChartData';
 
@@ -13,7 +13,7 @@ class MusherPage extends Component {
   };
 
   componentDidMount() {
-    getMusher(this.state.musher_id)
+    getMusherByID(this.state.musher_id)
     .then(res => {
       this.setState({ musher: res[0] })
     })

@@ -1,11 +1,9 @@
 export const filterResults = (data, year, race, searchQuery = null) => {
-  console.log('data', data);
   let filteredResults = data;
-  console.log("filtered results", filteredResults);
-  if (year !== "Year") {
+  if (year !== "0") {
     filteredResults = filteredResults.filter(result => result.year === year);
   }
-  if (race !== "Race") {
+  if (race !== "0") {
     filteredResults = filteredResults.filter(result => result.race === race);
   }
   if (searchQuery) {
@@ -19,6 +17,5 @@ export const filterResults = (data, year, race, searchQuery = null) => {
       index
     );
   });
-  console.log(filteredResults);
   return filteredResults;
 };

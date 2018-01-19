@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { FilterContainer } from './FilterContainer';
 import ProgressBarChart from "../components/ProgressBarChart";
 import DashboardLineChart from "../components/DashboardLineChart";
-import { getUpdates } from "../api/updates";
-import { getMushers } from "../api/mushers";
+import { getFilteredUpdates, getFilteredUpdatesByYear } from "../api/updates";
+import { getFilteredMushers, getFilteredMushersByYear } from "../api/mushers";
 import Timer from "../containers/Timer";
 import { Results } from "../components/Results";
 import { Table } from "./Table";
@@ -28,17 +28,30 @@ export class Historical extends Component {
   state = { 
     data: null, 
     year: "2017", 
-    race: "Percy", 
+    race: "0", 
     field: null 
   }
 
   componentDidMount() {
-    getUpdates().then(res => {
-      this.setState({ data: res });
-    });
-    getMushers().then(res => {
-      this.setState({ field: res });
-    });
+    if (this.state.race === "0") {
+      getFilteredUpdatesByYear(this.state.year)
+      .then((res)=> {
+        this.setState({ data: res })
+      })
+      getFilteredMushersByYear(this.state.year)
+      .then((res)=> {
+        this.setState({ field: res })
+      })
+    } else {
+      getFilteredUpdates(this.state.year, this.state.race)
+      .then(res => {
+        this.setState({ data: res });
+      });
+      getFilteredMushers(this.state.year, this.state.race)
+      .then(res => {
+        this.setState({ field: res });
+      });
+    }
   }
 
   handleYearSelection = year => {
@@ -60,19 +73,13 @@ export class Historical extends Component {
 
 
   render() {
-
-    !!this.state.data && console.log(this.state.data);
     return <main className="dashboard">
-        {console.log('in the return', this.state.year)}
         <FilterContainer handleYearSelection={this.handleYearSelection} handleRaceSelection={this.handleRaceSelection} />
         <div>{this.state.year}</div>
-        {console.log('1', this.state.field)}
-        {!!this.state.field && <Results year={this.state.year} race={this.state.race} data={this.state.field} />}
-        {console.log('2', this.state.field)}
+        {!!this.state.field && <Results data={this.state.field} />}
 
         <DashboardLineChart {...this.state} title="Race Progress Chart" />
-
-        {!!this.state.data && <Table data={this.generateTableData(filterResults(this.state.data, this.state.year, this.state.race))} classname={"live-data"} headings={headings} />}
+        {!!this.state.data && <Table data={this.generateTableData(this.state.data)} classname={"live-data"} headings={headings} />}
       </main>;
   }
 }
