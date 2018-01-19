@@ -41,9 +41,6 @@ const generateRunTimesData = (data) => {
   return years
 }
 
-
-
-
 class MusherHistoryChart extends Component {
 
   state = {

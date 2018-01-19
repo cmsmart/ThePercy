@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { getMushers } from '../api/mushers'
 import { Results } from './Results'
 import { SearchFilterContainer } from './SearchFilterContainer'
-import LineChart from './LineChart';
+import LineChartData from './LineChartData';
 
 export default class  MushersPage extends Component {
   state = {

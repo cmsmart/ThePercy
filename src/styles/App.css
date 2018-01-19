@@ -322,6 +322,19 @@ button {
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
 
+.info-card {
+  background-color: #C3D8EC;
+  color: #4E7590;
+  display: flex;
+  border: 0.2rem solid #F8F8F8; }
+  .info-card .container {
+    height: auto;
+    margin: 0.5rem 1rem;
+    padding: 0 0.5rem; }
+  .info-card h4 {
+    padding: 0.5rem;
+    margin: 0; }
+
 .avatar {
   display: flex;
   height: 10rem;
@@ -336,7 +349,12 @@ button {
     margin: 0 auto;
     border-radius: 50%;
     object-fit: cover;
-    position: relative; }
+    position: relative;
+    height: 100%;
+    width: 100%; }
 
 .mushers-page form {
   display: inline-flex; }
+
+.musher-page h1 {
+  text-align: center; }
