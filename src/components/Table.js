@@ -22,15 +22,20 @@ const mapDataToTable = (data) => (
     ))
 )
 
+
 export const Table = (props) => {
+    const classes = `${props.classname} table table-hover table-condensed table-responsive`;
     return (
-        <table className={ props.classname }>
-            <thead>
-                {mapHeadingsToTable(props.headings)}
-            </thead>
-            <tbody>
-                {props.data && mapDataToTable(props.data)}
-            </tbody>
-        </table>
+        <div className="outer-wrapper">
+            <h2>Race Updates</h2>
+            <table className={ classes } >
+                <thead>
+                    {mapHeadingsToTable(props.headings)}
+                </thead>
+                <tbody>
+                    {props.data && mapDataToTable(props.data)}
+                </tbody>
+            </table>
+        </div>
     )
 }

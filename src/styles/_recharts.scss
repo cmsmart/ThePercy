@@ -1,0 +1,22 @@
+.rechart {
+}
+
+.recharts-legend-wrapper {
+    padding: 10px;
+}
+
+.recharts-label tspan {
+    fill: $textgrey;
+}
+
+.recharts-text {
+    fill: lighten($textgrey, 20%);
+}
+
+.recharts-cartesian-axis-tick-value {
+    font-size: 13px;
+}
+
+.Composed-chart-wrapper{
+    margin: 0 10px;
+}

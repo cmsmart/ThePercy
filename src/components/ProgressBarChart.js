@@ -2,259 +2,158 @@ import React, { Component } from 'react'
 import { BarChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
 //import { getMushers } from '../api/po_by_mushers'
 
-const data = [
-  {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 70186,
-      "run_time_str": "04.54.30",
-      "hours": 4.91
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 157683,
-      "run_time_str": "13.13.59",
-      "hours": 13.23
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 95747,
-      "run_time_str": "08.44.17",
-      "hours": 8.74
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 0,
-      "run_time_str": "-00.23.24",
-      "hours": -0.39
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 157683,
-      "run_time_str": "13.23.59",
-      "hours": 13.4
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 125228,
-      "run_time_str": "10.54.13",
-      "hours": 10.9
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 59009,
-      "run_time_str": "04.04.39",
-      "hours": 4.08
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 155499,
-      "run_time_str": "13.04.03",
-      "hours": 13.07
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 65469,
-      "run_time_str": "04.34.30",
-      "hours": 4.58
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 45794,
-      "run_time_str": "03.04.36",
-      "hours": 3.08
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 145651,
-      "run_time_str": "12.24.03",
-      "hours": 12.4
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 89491,
-      "run_time_str": "08.14.19",
-      "hours": 8.24
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 43601,
-      "run_time_str": "02.54.36",
-      "hours": 2.91
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 143367,
-      "run_time_str": "12.14.03",
-      "hours": 12.23
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 122927,
-      "run_time_str": "10.44.13",
-      "hours": 10.74
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 41240,
-      "run_time_str": "02.44.36",
-      "hours": 2.74
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 142658,
-      "run_time_str": "12.04.25",
-      "hours": 12.07
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 80841,
-      "run_time_str": "05.44.21",
-      "hours": 5.74
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 34560,
-      "run_time_str": "02.14.42",
-      "hours": 2.25
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 140028,
-      "run_time_str": "11.54.01",
-      "hours": 11.9
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 112028,
-      "run_time_str": "09.54.19",
-      "hours": 9.91
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 61448,
-      "run_time_str": "04.15.59",
-      "hours": 4.27
-      },
-      {
-      "event_id": 117,
-      "musher_id": "106",
-      "run_dist": 157683,
-      "run_time_str": "14.04.00",
-      "hours": 14.07
-      },
-      {
-      "event_id": 119,
-      "musher_id": "106",
-      "run_dist": 243399,
-      "run_time_str": "30.20.16",
-      "hours": 30.34
-      },
-      {
-      "event_id": 119,
-      "musher_id": "106",
-      "run_dist": 265189,
-      "run_time_str": "31.50.07",
-      "hours": 31.84
-      },
-      {
-      "event_id": 119,
-      "musher_id": "106",
-      "run_dist": 278007,
-      "run_time_str": "32.49.23",
-      "hours": 32.82
-      },
-      {
-      "event_id": 119,
-      "musher_id": "106",
-      "run_dist": 245997,
-      "run_time_str": "30.30.10",
-      "hours": 30.5
-      },
-      {
-      "event_id": 119,
-      "musher_id": "106",
-      "run_dist": 239110,
-      "run_time_str": "27.55.11",
-      "hours": 27.92
-      },
-      {
-      "event_id": 119,
-      "musher_id": "106",
-      "run_dist": 282569,
-      "run_time_str": "33.09.16",
-      "hours": 33.15
-      },
-      {
-      "event_id": 119,
-      "musher_id": "106",
-      "run_dist": 239107,
-      "run_time_str": "27.45.13",
-      "hours": 27.75
-      },
-]
-  
-const generateProgressDistanceData = (data) => {
-let filteredArray = data.filter((datum) => datum.run_dist === '1')
-
-filteredArray.map((musher_id, run_dist) => {
-  return run_dist = run_dist.map((run_dist) => {
-    if (musher_id === musher_id) {
-            run_dist = Object.assign({}, run_dist, ...run_dist, { [musher_id]: parseFloat((musher_id.run_dist).replace(/:/gi, '.')) })
-        }
-        return musher_id
-        })
-    })
-}
-
-function metresToKm(run_dist) {
-  return (run_dist / 1000).toFixed(1);
-} 
-
-function rookieOrNot(musher_id, event_id) {
- // map through past race event_id, 
- //does musher_id occur more than once for previous percy event_ids?
- //if yes, vetran
- //else rookie
- return 
-   // push status back to musher_id
- 
-}
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
+import PropTypes from 'prop-types';
+import { getPastMushers } from '../api/pastmushers'
 
 const renderLegend = () => {
-  return <div style={{ color: "#191919", display: "inline-block", padding: "0.3rem 1.2rem", }}>
-    <p style={{ padding: "0.3rem 1.2rem", textAnchor: 'middle', margin: 0,fontSize: '0.8em',textAlign: 'center', fontWeight: 'bold',}}>
-    Legend</p>
-    <p style={{ backgroundColor: "#b5b991", padding: "0.5rem 1.2rem", margin: "0.1rem", textAnchor: 'middle', fontSize: '0.8em', textAlign: 'center'}}
-    > Rookie </p>
-    <p style={{ textAlign: 'center', color: '#fff', backgroundColor: "#3d5941", fontSize: '0.8em', padding: "0.5rem 1.2rem", textAnchor: 'middle', margin: "0.1rem" }}
-    > Veteran</p>
-  </div>
+  return (
+    <div style={{
+    color: "#191919",
+    display: "inline-block",
+    padding: "0.3rem 0.3rem",
+}}>
+    <p style={{
+        padding: "0.3rem 0.3rem",
+        textAnchor: "middle",
+        fontSize: "0.6rem",
+        textAlign: "center",
+        fontWeight: "bold"
+    }}>Legend</p>
+    <p style={{
+        backgroundColor: "#3d5941",
+        color: "#fff",
+        padding: "0.3rem 0.3rem",
+        textAnchor: "middle",
+        fontSize: "0.6rem",
+        textAlign: "center"
+    }}>Rookie</p>
+    <p style={{
+        textAlign: "center",
+        color: "#fff",
+        backgroundColor: "#b5b991",
+        fontSize: "0.6rem",
+        padding: "0.3rem 1.3rem",
+        textAnchor: "middle",
+        margin: "0.1rem"
+    }}>Vetran</p>
+</div>
+)
 }
 
-export default class ProgressBarChart extends Component {
+
+class CustomTooltip extends Component{
+
   state = {
+    data: null
+  }
+  
+  propTypes= {
+    type: PropTypes.string,
+    payload: PropTypes.array,
+    bib: PropTypes.string,
+  }
+
+  getIntroOfPage(label) {
+    if (label === 1) {
+      return "Percy DeWolfe";
+    } else if (label === 2) {
+      return "Cholena";
+    } else if (label === 3) {
+      return "Gretch";
+    } else if (label === 4) {
+      return "Hannah";
+    } else if (label === 5) {
+      return "Carl";
+    } else if (label === 6) {
+      return "Pat";
+    }
+  }
+
+  // pass this.state.data for data
+  determineExperience = (data, id) => {
+    if (data.some((datum) => datum.musher_id === id)) {
+      // Rookie
+    }
+  }
+  
+  componentDidMount() {
+    getPastMushers().then((res) => {
+      this.setState({ data: res })
+    })
+  }
+
+  render() {
+    const { active } = this.props;
+
+    if (active) {
+      const { payload, label } = this.props;
+      return (
+        <div className="custom-tooltip">
+          <p className="label">
+       
+
+         
+          {`${label} : ${payload[2].name}`}</p>
+          <p className="intro">{this.getIntroOfPage(label)}</p>
+          <p className="desc">they are getting closer to the finish line....</p>
+        </div>
+      );
+    }
+
+    return null;
+  }
+};
+
+/*
+const rookieOrVetran = () => {
+  let vetranBibId = []
+
+data.forEach((datum) => {
+  if musher_bib === musher_bib
+  return vetranBibId.splice()
+}
+*/
+ 
+
+/*
+const generateKeyArray = (data, filterKey) => {
+  let countArray = []
+  data.forEach((datum) => {
+    if (countArray.every((object) => (object [filterKey] != datum[filterKey] ))) {
+      countArray = [...countArray, {
+        [filterKey]: datum[filterKey] 
+      }]
+    }
+  })
+  return countArray
+}
+
+const generateDataStructure = (data, id, key) => {
+  let dataArray = []
+  data.forEach((datum) => {
+    if (datum[key] == id) {
+      return dataArray = [ ...dataArray, {
+        distance: datum.run_dist } ];
+      }
+    })
+  return dataArray
+}
+
+const generateData = (data, key) => {
+  let filteredData = generateKeyArray(data, key)
+  filteredData = filterData.map((object) => {
+    return object = Object.assign({},
+    object, {data: generateDataStructure (data, object[key], key )} )
+  })
+  return filteredData
+}
+*/
+/* class ProgressBarChart extends Component {
+  constructor(props) {
+    super(props);
+
+    state = {
       mushers: null,
       data: null
     }
@@ -266,31 +165,168 @@ export default class ProgressBarChart extends Component {
         this.setState({ data: generateProgressDistanceData(this.state.mushers) })
       })
     }
+    */
 
-render () {
+const series = [
+  {name: 'Percy DeWolfe', data: [
+          {bib: '0', dist: 338, time: 0},
+          ]},
+        {name: 'Cholena', data: [
+          {bib: '1', dist: 0, time: 0},
+          {bib: '1', dist: 100, time: 13},
+          {bib: '1', dist: 150, time: 22}
+        ]},
+        {name: 'Gretch', data: [
+          {bib: '2', dist: 0, time: 0},
+          {bib: '2', dist: 16, time: 12},
+          {bib: '2', dist: 22, time: 18},
+          {bib: '2', dist: 21, time: 22},
+          {bib: '2', dist: 338, time: 29}
+        ]},
+        {name: 'Hannah', data: [
+          {bib: '3', dist: 0, time: 0},
+          {bib: '3', dist: 17, time: 3},
+          {bib: '3', dist: 224, time: 28}
+        ]},
+          {name: 'Carl', data: [
+          {bib: '4', dist: 0, time: 0},
+          {bib: '4', dist: 100, time: 13},
+          {bib: '4', dist: 250, time: 22}
+        ]},
+        {name: 'Pat', data: [
+          {bib: '5', dist: 0, time: 0},
+          {bib: '5', dist: 16, time: 12},
+          {bib: '5', dist: 22, time: 18},
+          {bib: '5', dist: 21, time: 22},
+          {bib: '5', dist: 331, time: 29}
+        ]},
+        {name: 'Matt', data: [
+          {bib: '6', dist: 0, time: 0},
+          {bib: '6', dist: 17, time: 3},
+          {bib: '6', dist: 24, time: 28}
+        ]},
+        {name: 'Fholena', data: [
+          {bib: '7', dist: 0, time: 0},
+          {bib: '7', dist: 100, time: 13},
+          {bib: '7', dist: 150, time: 22}
+        ]},
+        {name: 'Fretch', data: [
+          {bib: '8', dist: 0, time: 0},
+          {bib: '8', dist: 16, time: 12},
+          {bib: '8', dist: 22, time: 18},
+          {bib: '8', dist: 21, time: 22},
+          {bib: '8', dist: 31, time: 29}
+        ]},
+        {name: 'Fannah', data: [
+          {bib: '9', dist: 0, time: 0},
+          {bib: '9', dist: 17, time: 3},
+          {bib: '9', dist: 328, time: 28}
+        ]},
+          {name: 'Farl', data: [
+          {bib: '10', dist: 0, time: 0},
+          {bib: '10', dist: 100, time: 13},
+          {bib: '10', dist: 150, time: 22}
+        ]},
+        {name: 'Fat', data: [
+          {bib: '11', dist: 0, time: 0},
+          {bib: '11', dist: 16, time: 12},
+          {bib: '11', dist: 22, time: 18},
+          {bib: '11', dist: 21, time: 22},
+          {bib: '11', dist: 181, time: 29}
+        ]},
+        {name: 'Fatt', data: [
+          {bib: '12', dist: 0, time: 0},
+          {bib: '12', dist: 17, time: 3},
+          {bib: '12', dist: 224, time: 28}
+        ]},
+        {name: 'Gat', data: [
+          {bib: '13', dist: 0, time: 0},
+          {bib: '13', dist: 16, time: 12},
+          {bib: '13', dist: 22, time: 18},
+          {bib: '13', dist: 21, time: 22},
+          {bib: '13', dist: 231, time: 29}
+        ]},
+        {name: 'Gatt', data: [
+          {bib: '14', dist: 0, time: 0},
+          {bib: '14', dist: 17, time: 3},
+          {bib: '14', dist: 24, time: 28}
+        ]},
+        {name: 'Gholena', data: [
+          {bib: '15', dist: 0, time: 0},
+          {bib: '15', dist: 100, time: 13},
+          {bib: '15', dist: 150, time: 22}
+        ]},
+        {name: 'Ggretch', data: [
+          {bib: '16', dist: 0, time: 0},
+          {bib: '16', dist: 16, time: 12},
+          {bib: '16', dist: 22, time: 18},
+          {bib: '16', dist: 21, time: 22},
+          {bib: '16', dist: 31, time: 29}
+        ]},
+        {name: 'Gannah', data: [
+          {bib: '17', dist: 0, time: 0},
+          {bib: '17', dist: 17, time: 3},
+          {bib: '17', dist: 328, time: 28}
+        ]},
+          {name: 'Garl', data: [
+          {bib: '18', dist: 0, time: 0},
+          {bib: '18', dist: 100, time: 13},
+          {bib: '18', dist: 150, time: 22}
+        ]},
+        {name: 'Hat', data: [
+          {bib: '19', dist: 0, time: 0},
+          {bib: '19', dist: 16, time: 12},
+          {bib: '19', dist: 22, time: 18},
+          {bib: '19', dist: 21, time: 22},
+          {bib: '19', dist: 31, time: 29}
+        ]},
+        {name: 'Hatt', data: [
+          {bib: '20', dist: 0, time: 0},
+          {bib: '20', dist: 17, time: 3},
+          {bib: '20', dist: 24, time: 28}
+        ]},
+      ];
+
+class ProgressBarChart extends Component{
+  propTypes= {
+    type: PropTypes.string,
+    payload: PropTypes.array,
+    bib: PropTypes.string,
+  }
+
+  render () {
+    const payload = this.props;
   return (
-    <div className="area-chart-wrapper" style={{ width: '95%', height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
-      <ResponsiveContainer padding="1rem">
-        <BarChart width={600} height={400} data={data} margin={{ top: 30, right: 30, left: 50, bottom: 30 }} layout="vertical">
-          <XAxis type="number" domain={[0, 338000]}>
-            <Label name="Distance" offset={-15} position="insideBottom" ticks={[85000, 169000, 254000, 338000]}/>
-          </XAxis>
-          <YAxis type="category" dataKey="musher_id">
-            <Label name="Mushers" angle={-90} offset={-35} position="insideLeft" />
-          </YAxis>
-          <Tooltip cursor={{ fill: "#eee" }} />
-          <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
-          <Bar dataKey="run_dist" maxBarSize={15}>
-            {data.map((entry, index) => {
-              return <Cell fill={data[index].experience === "veteran" ? "#3d5941" : "#b5b991"} />;
-            })}
-          </Bar>
-          <ReferenceLine x={80400} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
-          <ReferenceLine x={159870} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-          <ReferenceLine x={240270} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-          <ReferenceLine x={338000} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-        </BarChart>
+    <div className="area-chart-wrapper" style={{ width: '95%', height: "500px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
+    <h2>Musher Progress</h2>
+      <ResponsiveContainer>
+        <LineChart width={300} height={300} margin={{top: 50, right: 30, left: 50, bottom: 100}}>
+       
+
+            <XAxis dataKey="dist" type="number" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
+              <Label value="Distance" offset={-15} position="insideBottom" />
+            </XAxis>
+
+            <YAxis type="category" dataKey="bib" name={payload.name} domain={[20, 0]}>
+              <Label value="Name" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
+             </YAxis>
+            
+             <Tooltip content={<CustomTooltip/>}/>
+          
+
+              {series.map(s => (
+                <Line dataKey="bib" data={s.data} name={s.name} key={s.name} strokeWidth="13" dot={{strokeWidth: 1, r: 4}}/>
+              ))}
+          
+
+            <ReferenceLine x={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
+            <ReferenceLine x={159.8} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+            <ReferenceLine x={239.2} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+            <ReferenceLine x={320} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+        </LineChart>
       </ResponsiveContainer>
     </div>
-  )}
-}        
+    )}
+  }
+
+export default ProgressBarChart

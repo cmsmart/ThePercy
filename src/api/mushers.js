@@ -5,3 +5,9 @@ export function getMushers() {
     return res.data
   })
 }
+
+export function getMusher(id) {
+  return api.get(`./mushers?id=${id}`).then((res) => {
+    return res.data
+  })
+}

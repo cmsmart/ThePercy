@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, Legend, Label } from 'recharts'
-
-import { ResponsiveContainer } from 'recharts';
+import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Cell, LabelList, Legend, Label, ResponsiveContainer } from 'recharts'
 
 const data = [
   {year: '2002', place: 6, runtime: 9.53, race: "Percy Junior"},
@@ -22,7 +20,6 @@ const data = [
   {year: '2016'},
   {year: '2017', place: 6, runtime: 27.37, race: "Percy"},
 ];
-
 
 // const RenderLegend = () => {
 //   return <div style={{
