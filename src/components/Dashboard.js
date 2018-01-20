@@ -1,24 +1,30 @@
-import React, { Component } from 'react'
-import ProgressBarChart from '../components/ProgressBarChart'
-import DashboardLineChart from '../components/DashboardLineChart'
-
-import { getUpdates } from '../api/updates'
-
-import Timer from '../containers/Timer'
-
-import { Table } from './Table'
+import React, { Component } from 'react';
+import ProgressBarChart from '../components/ProgressBarChart';
+import DashboardLineChart from '../components/DashboardLineChart';
+import { getUpdates } from '../api/updates';
+import { getMushers } from '../api/mushers';
+// import Timer from '../containers/Timer';
+import Countdown from '../containers/Countdown';
+import { Field } from '../components/Field';
+import { Table } from './Table';
 
 const headings = ['Status', 'Name', 'Bib', 'Start', 'Fortymile In', 'Fortymile Out', 'Eagle In', 'Eagle Out', 'Fortymile In', 'Fortymile Out', 'Finish', 'Total Run Time']
 
 export default class Dashboard extends Component {
-  
   state = {
-    data: null
+    data: null,
+    // year: (new Date()).getFullYear(),
+    year: '2017',
+    race: 'Percy',
+    field: null
   }
 
   componentDidMount() {
     getUpdates().then((res) => {
       this.setState({ data: res })
+    })
+    getMushers().then((res) => {
+      this.setState({ field: res })
     })
   }
 
@@ -43,18 +49,25 @@ export default class Dashboard extends Component {
     return tableData
   }
 
+  filterYear = (data) => {
+    let filteredData = data.filter((datum) => (
+      // datum.year === (new Date()).getFullYear()
+      datum.year === "2017"
+    ))
+    return filteredData
+  }
+
   render() {
-    !!this.state.data && console.log(this.generateTableData(this.state.data))
     return (
-      <main className='dashboard'>
-
-        <ProgressBarChart title='Progress Bar Chart' />
-        <Timer />
-
-         <DashboardLineChart title='Race Progress Chart' />
-
-        {!!this.state.data && <Table data={this.generateTableData(this.state.data)} classname={'live-data'} headings={headings} />}
-
+    <main className="dashboard">
+        {/* <Timer /> */}
+        <Countdown />
+        <ProgressBarChart title="Progress Bar Chart" />
+        {!!this.state.field &&
+        <Field data={this.filterYear(this.state.field)} />
+        }
+        <DashboardLineChart title="Race Progress Chart" />
+        {!!this.state.data && <Table data={this.generateTableData(this.filterYear(this.state.data))} classname={"live-data"} headings={headings} />}
       </main>
     )
   }

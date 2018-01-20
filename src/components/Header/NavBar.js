@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import { NavItem } from './NavItem'
+import React from 'react';
+import { NavItem } from './NavItem';
+import { mapsvg, dashboardsvg, dashboard_historicalsvg, teamsvg, analyticssvg } from '../../assets/icons';
 
 export const NavBar = (props) => {
-  return (
-    <nav>
+  return <nav>
       <ul>
-        <NavItem path="/tracker" image="map.svg" title="Race Map" />
-        <NavItem path="/dashboard" image="dashboard.svg" title="Current Race" />
-        <NavItem path="/pastraces" image="dashboard_historical.svg" title="Past Races" />
-        <NavItem path="/mushers" image="team.svg" title="Mushers" />
-        <NavItem path="/statistics" image="analytics.svg" title="Statistics" />
+        <NavItem path="/tracker" viewBox="0 0 55.017 55.017" svg={mapsvg} title="Race Map" />
+        <NavItem path="/dashboard" svg={dashboardsvg} title="Current Race" />
+        <NavItem path="/pastraces" svg={dashboard_historicalsvg} title="Past Races" />
+        <NavItem path="/mushers" svg={teamsvg} title="Mushers" />
+        <NavItem path="/statistics" svg={analyticssvg} title="Statistics" />
       </ul>
-    </nav>
-  )
+    </nav>;
 }
+

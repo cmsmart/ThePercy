@@ -37,10 +37,6 @@ export default class StatisticsPage extends Component {
   componentDidMount() {
     getPastMushers().then((res) => {
       this.setState({ data: res })
-    }).then(() => {
-      console.log(getTopRaces(this.state.data))
-      console.log(getTopWins(this.state.data))
-      console.log(getTopTimes(this.state.data, 'Percy'))
     })
   }
   

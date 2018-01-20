@@ -6,7 +6,7 @@ export function getMushers() {
   })
 }
 
-export function getMusher(id) {
+export function getMusherByID(id) {
   return api.get(`./mushers?id=${id}`).then((res) => {
     return res.data
   })

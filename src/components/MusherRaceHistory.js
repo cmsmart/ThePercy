@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+
 import { getPastMushers } from '../api/pastmushers'
 
-import { ComposedChart, Bar, Line, XAxis, YAxis, Tooltip, Label, Legend, Cell, ResponsiveContainer } from 'recharts'
+import { ComposedChart, Bar, Line, XAxis, YAxis, Tooltip, Label, Legend, ResponsiveContainer } from 'recharts'
 
 // Create a years array to map through
 const generateYearsArray = () => {
@@ -20,6 +21,7 @@ const generateRunTimesData = (data) => {
       if (result.standing === "1") {
           winningTime.push(Object.assign({}, {'wintime': parseFloat((result.run_time).replace(/:/gi, '.')), 'year': result.year, 'race': result.race}))
       }
+      return winningTime
   })
 
   // Create an array of objects mapping individual musher runtimes with race wintimes
@@ -41,6 +43,7 @@ const generateRunTimesData = (data) => {
           if ((musher.year === win.year) && (musher.race === win.race)) {
             year = Object.assign({}, year, { 'runtime': runtime(musher.run_time), 'race': musher.race, 'standing': musher.standing, 'win': win.wintime, 'time_status': musher.runtime })
           }
+          return year
         })
       }
       return year
@@ -70,7 +73,7 @@ export default class MusherHistoryChart extends Component {
 
   
 	render () {
-    console.log(this.state.data)
+    // console.log(this.state.data)
     return (
       <div className="outer-wrapper">
         <h2>Race History - The Percy</h2>
