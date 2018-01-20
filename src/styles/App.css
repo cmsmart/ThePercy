@@ -29,13 +29,14 @@ nav {
   display: flex;
   flex-direction: column;
   border-bottom: 0.2rem solid #FA5252; }
+  .active g, .active path, .active circle {
+    fill: #FA5252; }
 
-.nav-icons {
+.nav-icon {
   height: 3rem;
   width: auto;
   display: block;
-  margin: 0.5rem;
-  color: #FA5252; }
+  margin: 0.5rem; }
 
 .timer {
   background-color: #C3D8EC;
