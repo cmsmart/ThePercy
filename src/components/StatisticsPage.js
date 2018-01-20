@@ -46,12 +46,22 @@ export default class StatisticsPage extends Component {
   render() {
     return (
     <div className='statistics-page'>
-      <p>Statistics Page</p>
+      <div className ="statistic-wrapper">
+        <section>
+          <h2>Most run</h2>
+          <StatisticInformation data={getTopRaces(this.state.data)} id='name' value='races' />
+        </section>
+        <section>
+          <h2>Most won</h2>
+          <StatisticInformation data={getTopWins(this.state.data)} id='name' value='wins' />
+        </section>
+        <section>
+          <h2>Fastest run times</h2>
+          <StatisticInformation data={getTopTimes(this.state.data, 'Percy')} id='name' value='time' />
+        </section>
+      </div>
       <WinningTimesChart />
       <WeatherChart />
-      <StatisticInformation data={getTopRaces(this.state.data)} id='name' value='races' />
-      <StatisticInformation data={getTopWins(this.state.data)} id='name' value='wins' />
-      <StatisticInformation data={getTopTimes(this.state.data, 'Percy')} id='name' value='time' />
     </div>
     )
   }
