@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { BarChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
+import {compareObjectValues} from '../utils/compareObjectValues';
 //import { getMushers } from '../api/po_by_mushers'
-
-import { LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
 
 const series = [
   {name: 'Percy DeWolfe', data: [
@@ -124,6 +123,21 @@ const series = [
         ]},
       ];
 
+/*const CustomTooltip =() => {
+  render () 
+        const { active } = this.props;
+        if (active) {
+          const { payload, label, value } = this.props;
+          return (
+            console.log(payload),
+            <div className="custom-tooltip">
+            <p className="label"> { ` Bib (${payload[0].value}), Distance: ${label}, Time: ${payload[0].payload.time} `}</p>  
+            </div>
+          );
+        }
+        return null;
+      }*/
+
 class ProgressBarChart extends Component{
   render () {
     const payload = this.props;
@@ -135,21 +149,17 @@ class ProgressBarChart extends Component{
        
 
             <XAxis dataKey="dist" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
-              <Label value="Distance" offset={-15} position="insideBottom" />
+              <Label value="Distance (km)" offset={-15} position="insideBottom" />
             </XAxis>
 
             <YAxis type="category" dataKey="bib" name={payload.name} domain={[20, 0]}>
-              <Label value="Name" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
+              <Label value="Musher Bib #" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
              </YAxis>
-            
-             <Tooltip />
           
-
               {series.map(s => (
-                <Line dataKey="bib" data={s.data} name={s.name} key={s.name} strokeWidth="13" dot={{strokeWidth: 1, r: 4}}/>
+                <Line dataKey="bib" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_name} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 4}}/>
               ))}
           
-
             <ReferenceLine x={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine x={159.8} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine x={239.2} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
