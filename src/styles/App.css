@@ -70,6 +70,12 @@ nav {
 .Composed-chart-wrapper {
   margin: 0 10px; }
 
+.percy_bar {
+  fill: #3d5941; }
+
+.junior_bar {
+  fill: #b5b991; }
+
 .table {
   width: 100%;
   max-width: 100%;
@@ -336,7 +342,9 @@ button {
     margin: 0 auto;
     border-radius: 50%;
     object-fit: cover;
-    position: relative; }
+    position: relative;
+    height: 100%;
+    width: 100%; }
 
 .mushers-page form {
   display: inline-flex; }
