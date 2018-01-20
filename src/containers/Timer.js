@@ -5,7 +5,7 @@ import moment from "moment";
 const formatTimerDigit = digit => {
   if (digit < 0) return digit < -9 ? -digit : "0" + -digit;
   return digit > 9 ? digit : "0" + digit;
-};
+}
 
 // Format the countdownText to include labels and set to blank when value is 0 (strict)
 // When strict is true, set the value to blank when digit is 0

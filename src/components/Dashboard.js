@@ -3,7 +3,8 @@ import ProgressBarChart from '../components/ProgressBarChart';
 import DashboardLineChart from '../components/DashboardLineChart';
 import { getUpdates } from '../api/updates';
 import { getMushers } from '../api/mushers';
-import Timer from '../containers/Timer';
+// import Timer from '../containers/Timer';
+import Countdown from '../containers/Countdown';
 import { Field } from '../components/Field';
 import { Table } from './Table';
 
@@ -59,7 +60,8 @@ export default class Dashboard extends Component {
   render() {
     return (
     <main className="dashboard">
-        <Timer />
+        {/* <Timer /> */}
+        <Countdown />
         <ProgressBarChart title="Progress Bar Chart" />
         {!!this.state.field &&
         <Field data={this.filterYear(this.state.field)} />
