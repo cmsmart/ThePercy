@@ -1,5 +1,6 @@
 import React from 'react'
-import { Dropdown } from './Dropdown';
+
+import { Dropdown } from './Dropdown'
 
 const generateYearsArray = () => {
     let years = []
@@ -12,7 +13,6 @@ const generateYearsArray = () => {
 export const FilterContainer = (props) => { 
     const years = generateYearsArray()
     const races = ['Race', 'Percy', 'Percy Junior']
-
     return (
         <div className="searchFilter">
             <Dropdown data={years} handleSelection={props.handleYearSelection} />

@@ -1,22 +1,22 @@
-import React from "react";
-import ProfileCard from "./ProfileCard";
+import React from "react"
 
-export const Field = props => {
+import { ProfileCard } from "./ProfileCard"
 
-  return (
-    <div className="field">
-    <h2>The Field</h2>
-    <div className="myCards">
-  {props.data.map((datum, index) => {
+const mapDataToProfileCard = (data) => {
+    let profileCards = data.map((datum, index) => (
+            <ProfileCard key={index} src={datum.profile_image} musher_id={datum.musher_id} name={datum.musher} />
+        )
+    )
+    return profileCards
+}
+
+export const Field = (props) => {
     return (
-          <ProfileCard
-            key={index}
-            src={datum.profile_image}
-            musher_id={datum.musher_id}
-            name={datum.musher}
-            />
-          );
-        })}
+        <div className="field">
+            <h2>The Field</h2>
+            <div className="myCards">
+                {mapDataToProfileCard(props.data)}
+            </div>
         </div>
-      </div>
-  )};
+    )
+}

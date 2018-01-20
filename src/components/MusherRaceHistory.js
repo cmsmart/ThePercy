@@ -14,7 +14,6 @@ const generateYearsArray = () => {
   return years
 }
 
-
 const generateRunTimesData = (data) => {
   const first = []
   data.map((result) => {

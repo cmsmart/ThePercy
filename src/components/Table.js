@@ -1,14 +1,10 @@
 import React from 'react';
 
-const mapHeadingsToTable = (headings) => (
-    <tr>
-        {
-            headings.map((heading, index) => (
-                <th key={index}>{heading}</th>
-            ))
-        }
-    </tr>
-)
+const mapHeadingsToTable = (headings) => {
+    return (
+        headings.map((heading, index) => (<th key={index}>{heading}</th>))
+    )
+}
 
 const mapDataToTable = (data) => (
     Object.keys(data).map((level1, index) => (
@@ -29,7 +25,7 @@ export const Table = (props) => {
             <h2>Race Updates</h2>
             <table className={ classes } >
                 <thead>
-                    {mapHeadingsToTable(props.headings)}
+                    <tr>{mapHeadingsToTable(props.headings)}</tr>
                 </thead>
                 <tbody>
                     {props.data && mapDataToTable(props.data)}

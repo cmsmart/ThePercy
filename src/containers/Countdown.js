@@ -9,25 +9,23 @@ export default class Countdown extends Component {
     }
 
     tick = () => {
-        this.setState({ timeRemaining: this.state.timeRemaining - 1});
+        this.setState({ timeRemaining: this.state.timeRemaining - 1})
         if (this.state.timeRemaining <= 0) {
-          clearInterval(this.interval);
+          clearInterval(this.interval)
         }
     }
 
     componentDidMount = () => {
-        this.interval = setInterval(this.tick, 1000);
+        this.interval = setInterval(this.tick, 1000)
     }
 
     componentWillUnmount = () => {
-        clearInterval(this.interval);
+        clearInterval(this.interval)
     }
 
-    render() {
+    render = () => {
         return (
-            <div className='timer'>
-                <Timer {...this.state} />
-            </div>
+            <div className='timer'><Timer {...this.state} /></div>
         )
     }
 }

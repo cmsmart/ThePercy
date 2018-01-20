@@ -1,6 +1,7 @@
 import React from 'react'
-import { Dropdown } from './Dropdown';
-import { Searchbar } from './Searchbar';
+
+import { Dropdown } from './Dropdown'
+import { Searchbar } from './Searchbar'
 
 const generateYearsArray = () => {
     let years = []
@@ -11,7 +12,6 @@ const generateYearsArray = () => {
 }
 
 export const SearchFilterContainer = (props) => { 
-
     const years = generateYearsArray()
     const races = ['Race', 'Percy', 'Percy Junior']
     
