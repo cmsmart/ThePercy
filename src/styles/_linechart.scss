@@ -1,0 +1,35 @@
+.line-chart-wrapper {
+  width: 100%; 
+  height: 400px; 
+  background-color: $white; 
+  // border: 0.2rem solid $navy; 
+  box-sizing: border-box;
+  margin: 0.2rem 0; 
+  h3 {
+    text-align: center;
+    padding-top: 1.5rem;
+    margin: 0;
+  }
+}
+
+.recharts-legend-wrapper {
+  padding: 0.2rem;
+}
+
+.legend {
+  display: inline-block;
+  // padding: 1rem;
+  margin: 0;
+  ul {
+    padding: 0;
+  };
+  li {
+    padding: 0.25rem 0.6rem;
+    margin: 0.05rem;
+    list-style: none;
+    color: $white;
+    // text-anchor: middle;
+    font-size: 0.6rem;
+    text-align: center;
+  }}
+

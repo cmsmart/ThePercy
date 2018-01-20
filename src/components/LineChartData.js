@@ -1,21 +1,6 @@
 import React from 'react'
 import MusherLineChart from './MusherLineChart';
 
-// Format we want 
-//const series = [
-
-  // {race_id OR musher_id: 'XXXX', data: [
-  //   {time: '0', dist: 0 },
-  //   {time: '30', dist: 152.7},
-  //   {time: '50', dist: 338}
-  // ]},
-  // {year: '2013', data: [
-  //   {time: '0', dist: 0 },
-  //   {time: '30', dist: 152.7},
-  //   {time: '45', dist: 338}
-  // ]},
-
-  // Format of data we're getting
 const mySeries = [
     {
         "event_id": "117",

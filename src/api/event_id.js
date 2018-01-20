@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const event_ids = [{ year: 2008,name: "Percy DeWolfe Memorial Mail Race",event_id: 101},
 { year: 2008,name: "Percy Junior",event_id: 102},
 { year: 2009,name: "Percy DeWolfe Memorial Mail Race",event_id: 103},
