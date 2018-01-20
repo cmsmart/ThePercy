@@ -10,10 +10,9 @@ class MusherPage extends Component {
   }
 
   componentDidMount() {
-    getMusherByID(this.state.musher_id)
-    .then(res => {
-      this.setState({ musher: res[0] })
-    })
+    getMusherByID(this.props.match.params.id).then(res => {
+      this.setState({ musher: res[0] });
+    });
   }
 
   render() {
