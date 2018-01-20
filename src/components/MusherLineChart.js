@@ -1,7 +1,6 @@
 import React from 'react'
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from 'recharts';
 import { compareObjectValues } from '../utils/compareObjectValues';
-import { event_ids } from '../api/event_id';
 
 const RenderLegend = () => {
   return <div style={{
@@ -93,55 +92,19 @@ const EventColor = [
   {event_id: 107, lineColor: "#dd4124"}
 ]
 
-const getYearForEvent = (event_id) => {
-  let eventYear = ''
-  event_ids.map(itemInAPI => {
-    if (itemInAPI.event_id === event_id) {
-      eventYear = itemInAPI.year
-    }
-    return eventYear
-  })
-  return eventYear
-}
-
-
-const getEventForYear = (year) => {
-  let eventID = ''
-  event_ids.map(itemInAPI => {
-    if (itemInAPI.name === "Percy DeWolfe Memorial Mail Race") {
-      if (itemInAPI.year) {
-        eventID = itemInAPI.event_id
-      }
-    }
-  })
-  return eventID
-}
-
-const getColorForEvent = (event_id) => {
-  let eventYear = getYearForEvent(event_id)
-  let eventColor = ''
-  EventColor.map(item => {
-    if (item.year === eventYear) {
-      eventColor = item.lineColor
-    }
-    return eventColor
-  })
-  return eventColor
-}
-
 const MusherLineChart = (props) => {
   return <div className="Line-chart-wrapper" style={{ width: "100%", height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
     <ResponsiveContainer padding="1rem">
       <LineChart width={300} height={300} margin={{ top: 30, right: 30, left: 50, bottom: 50 }}>
         <CartesianGrid strokeDasharray="3 3" horizontal={false} />
         <XAxis dataKey="time" type="number" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]}>
-          <Label value={["Time (hours)"]} offset={-45} position="insideBottom" />
+          <Label offset={-45} position="insideBottom" />
         </XAxis>
         <YAxis dataKey="distance" type="number" allowDuplicatedCategory={false} domain={[0, 338]}>
-          <Label value={["Distance (km)"]} angle={-90} offset={-25} position="insideLeft" />
+          <Label angle={-90} offset={-25} position="insideLeft" />
         </YAxis>
         <Tooltip />
-        <Legend layout="vertical" verticalAlign="middle" align="leftBottom" content={RenderLegend} />
+        <Legend layout="vertical" verticalAlign="middle" align="left" content={RenderLegend} />
         {props.data.map(s => (
           <Line
             {...props}

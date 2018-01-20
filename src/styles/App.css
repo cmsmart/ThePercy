@@ -29,31 +29,33 @@ nav {
   display: flex;
   flex-direction: column;
   border-bottom: 0.2rem solid #FA5252; }
+  .active g, .active path, .active circle {
+    fill: #FA5252; }
 
-.nav-icons {
+.nav-icon {
   height: 3rem;
   width: auto;
   display: block;
-  margin: 0.5rem;
-  color: #FA5252; }
+  margin: 0.5rem; }
 
 .timer {
   background-color: #C3D8EC;
   color: #0C2639;
-  max-width: 5rem;
+  max-width: 25rem;
+  max-height: 4rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 0.5rem 0;
-  padding: 0.5rem 0;
+  margin: 0.5rem 1rem;
+  padding: 0rem 0;
   border: 0.2rem solid #F8F8F8; }
   .timer h4 {
     margin: auto;
     padding: 0; }
   .timer p {
-    margin: 1rem 2rem; }
+    margin: 0rem 1.5rem; }
 
 .recharts-legend-wrapper {
   padding: 10px; }

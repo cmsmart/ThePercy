@@ -1,60 +1,33 @@
 import React, { Component } from 'react';
 import MusherHistoryChart from '../components/MusherRaceHistory';
-import MusherLineChart from './MusherLineChart';
-import { getMushers, getMusher } from '../api/mushers';
+import { getMusherByID } from '../api/mushers';
 import InfoContainer from './InfoContainer';
 import LineChartData from './LineChartData';
 
 class MusherPage extends Component {
   state = {
-    musher_id: this.props.match.params.id,
-    musher: null,
-    mushers: {},
-  };
+    musher: null
+  }
 
   componentDidMount() {
-    getMusher(this.state.musher_id)
-    .then(res => {
-      this.setState({ musher: res[0] })
-      
-    })
-    .then(() => {
-      console.log(this.state.musher)
-    })
-    // getMushers()
-    // .then(res => {
-    //   this.setState({ mushers: res })
-    // }).then(() => {
-    //   let filteredMushers = this.state.mushers.filter(musher => (
-    //     musher.musher_id === this.state.musher_id
-    //   )
-    // )
-    // console.log(filteredMushers)
-    // this.setState({ musher: filteredMushers })
-    // console.log('musher state', this.state.musher)
-    // })
-  }
-  getImageAddress(musher) {
-    const imageAddress = musher.profile_image.uri.split("//"); 
-    const image = imageAddress[1];
-    return image
+    getMusherByID(this.props.match.params.id).then(res => {
+      this.setState({ musher: res[0] });
+    });
   }
 
   render() {
-    const { musher, musher_id } = this.state;
-    
     return (
-    <div className="musher-page">
+      <div className="musher-page">
         { !!this.state.musher &&
         <div>
-        <h1>{musher.musher}</h1>
-          <InfoContainer src={ this.getImageAddress(musher)}
-          residence={musher.residence}
+        <h1>{this.state.musher.musher}</h1>
+          <InfoContainer src={this.state.musher.profile_image}
+          residence={this.state.musher.residence}
           >
           </InfoContainer>
         </div>
       }
-        <LineChartData {...this.props} />
+        <LineChartData />
         <MusherHistoryChart />
       </div>
 )

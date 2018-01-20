@@ -2,170 +2,7 @@ import React, { Component } from 'react'
 import { BarChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
 //import { getMushers } from '../api/po_by_mushers'
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
-import PropTypes from 'prop-types';
-import { getPastMushers } from '../api/pastmushers'
-
-const renderLegend = () => {
-  return (
-    <div style={{
-    color: "#191919",
-    display: "inline-block",
-    padding: "0.3rem 0.3rem",
-}}>
-    <p style={{
-        padding: "0.3rem 0.3rem",
-        textAnchor: "middle",
-        fontSize: "0.6rem",
-        textAlign: "center",
-        fontWeight: "bold"
-    }}>Legend</p>
-    <p style={{
-        backgroundColor: "#3d5941",
-        color: "#fff",
-        padding: "0.3rem 0.3rem",
-        textAnchor: "middle",
-        fontSize: "0.6rem",
-        textAlign: "center"
-    }}>Rookie</p>
-    <p style={{
-        textAlign: "center",
-        color: "#fff",
-        backgroundColor: "#b5b991",
-        fontSize: "0.6rem",
-        padding: "0.3rem 1.3rem",
-        textAnchor: "middle",
-        margin: "0.1rem"
-    }}>Vetran</p>
-</div>
-)
-}
-
-
-class CustomTooltip extends Component{
-
-  state = {
-    data: null
-  }
-  
-  propTypes= {
-    type: PropTypes.string,
-    payload: PropTypes.array,
-    bib: PropTypes.string,
-  }
-
-  getIntroOfPage(label) {
-    if (label === 1) {
-      return "Percy DeWolfe";
-    } else if (label === 2) {
-      return "Cholena";
-    } else if (label === 3) {
-      return "Gretch";
-    } else if (label === 4) {
-      return "Hannah";
-    } else if (label === 5) {
-      return "Carl";
-    } else if (label === 6) {
-      return "Pat";
-    }
-  }
-
-  // pass this.state.data for data
-  determineExperience = (data, id) => {
-    if (data.some((datum) => datum.musher_id === id)) {
-      // Rookie
-    }
-  }
-  
-  componentDidMount() {
-    getPastMushers().then((res) => {
-      this.setState({ data: res })
-    })
-  }
-
-  render() {
-    const { active } = this.props;
-
-    if (active) {
-      const { payload, label } = this.props;
-      return (
-        <div className="custom-tooltip">
-          <p className="label">
-       
-
-         
-          {`${label} : ${payload[2].name}`}</p>
-          <p className="intro">{this.getIntroOfPage(label)}</p>
-          <p className="desc">they are getting closer to the finish line....</p>
-        </div>
-      );
-    }
-
-    return null;
-  }
-};
-
-/*
-const rookieOrVetran = () => {
-  let vetranBibId = []
-
-data.forEach((datum) => {
-  if musher_bib === musher_bib
-  return vetranBibId.splice()
-}
-*/
- 
-
-/*
-const generateKeyArray = (data, filterKey) => {
-  let countArray = []
-  data.forEach((datum) => {
-    if (countArray.every((object) => (object [filterKey] != datum[filterKey] ))) {
-      countArray = [...countArray, {
-        [filterKey]: datum[filterKey] 
-      }]
-    }
-  })
-  return countArray
-}
-
-const generateDataStructure = (data, id, key) => {
-  let dataArray = []
-  data.forEach((datum) => {
-    if (datum[key] == id) {
-      return dataArray = [ ...dataArray, {
-        distance: datum.run_dist } ];
-      }
-    })
-  return dataArray
-}
-
-const generateData = (data, key) => {
-  let filteredData = generateKeyArray(data, key)
-  filteredData = filterData.map((object) => {
-    return object = Object.assign({},
-    object, {data: generateDataStructure (data, object[key], key )} )
-  })
-  return filteredData
-}
-*/
-/* class ProgressBarChart extends Component {
-  constructor(props) {
-    super(props);
-
-    state = {
-      mushers: null,
-      data: null
-    }
-  
-    componentDidMount() {
-      getMushers().then((res) => {
-        this.setState({ mushers: res })
-      }).then(() => {
-        this.setState({ data: generateProgressDistanceData(this.state.mushers) })
-      })
-    }
-    */
+import { LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
 
 const series = [
   {name: 'Percy DeWolfe', data: [
@@ -288,12 +125,6 @@ const series = [
       ];
 
 class ProgressBarChart extends Component{
-  propTypes= {
-    type: PropTypes.string,
-    payload: PropTypes.array,
-    bib: PropTypes.string,
-  }
-
   render () {
     const payload = this.props;
   return (
@@ -303,7 +134,7 @@ class ProgressBarChart extends Component{
         <LineChart width={300} height={300} margin={{top: 50, right: 30, left: 50, bottom: 100}}>
        
 
-            <XAxis dataKey="dist" type="number" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
+            <XAxis dataKey="dist" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
               <Label value="Distance" offset={-15} position="insideBottom" />
             </XAxis>
 
@@ -311,7 +142,7 @@ class ProgressBarChart extends Component{
               <Label value="Name" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
              </YAxis>
             
-             <Tooltip content={<CustomTooltip/>}/>
+             <Tooltip />
           
 
               {series.map(s => (

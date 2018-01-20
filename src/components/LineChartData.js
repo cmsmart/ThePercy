@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import MusherLineChart from './MusherLineChart';
-import {compareObjectValues} from '../utils/compareObjectValues';
 
 // Format we want 
 //const series = [
@@ -238,10 +237,6 @@ const generateData = (data, key) => {
 
 
 const LineChartData = (props) => {
-
-    // console.log(generatingData(mySeries, props.match.params.id, 'musher_id'))
-    console.log("check data",generateData(mySeries, 'event_id'))
-
     return (
         <div>
             <MusherLineChart data={generateData(mySeries, "event_id")} />

@@ -125,10 +125,10 @@ class DashboardLineChart extends Component {
         <LineChart width={300} height={300} margin={{top: 30, right: 30, left: 50, bottom: 50}}>
           <CartesianGrid strokeDasharray="3 3" horizontal={false}/>
           <XAxis dataKey="time" type="number" domain={[0, 50]}  ticks={[10, 20, 30, 40, 50]}>
-            <Label value={['Time (hours)']} offset={-45} position="insideBottom" />
+            <Label offset={-45} position="insideBottom" />
           </XAxis>
           <YAxis  dataKey="dist"  type="number"  allowDuplicatedCategory={false} domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]} >
-            <Label value={['Distance (km)']} angle={-90} offset={-10} position="insideLeft" style={{ textAnchor: 'middle' }}/> 
+            <Label angle={-90} offset={-10} position="insideLeft" style={{ textAnchor: 'middle' }}/> 
           </YAxis>
           <Tooltip/>
           <Legend layout="vertical" verticalAlign="bottom" align="left" content={RenderLegend} />

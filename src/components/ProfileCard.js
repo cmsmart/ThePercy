@@ -1,10 +1,10 @@
 import React from 'react';
 import Avatar from './Avatar';
 
-function ProfileCard(props) {
+const ProfileCard = (props) => {
   return <div className="card">
       <a href={`mushers/${props.musher_id}`}>
-        <Avatar {...props} />
+        <Avatar src={props.src} />
         <div className="container">
           <h4>
             <b>{props.name}</b>

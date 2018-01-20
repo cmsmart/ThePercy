@@ -37,12 +37,16 @@ nav {
     display: flex;
     flex-direction: column;
     border-bottom: 0.2rem solid $pink;
+    g, path, circle {
+      fill: $pink;
+
+    }
   }
   
-  .nav-icons{
+  .nav-icon{
     height: 3rem;
     width: auto;
     display: block;
     margin: 0.5rem;
-    color: $pink;
-  }
+    }
+  
