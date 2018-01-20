@@ -3,6 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, Re
 import {compareObjectValues} from '../utils/compareObjectValues';
 //import { getMushers } from '../api/po_by_mushers'
 
+
 const series = [
   {name: 'Percy DeWolfe', data: [
           {bib: '0', dist: 338, time: 0},
@@ -138,6 +139,7 @@ const series = [
         return null;
       }*/
 
+
 class ProgressBarChart extends Component{
   render () {
     const payload = this.props;
@@ -149,12 +151,15 @@ class ProgressBarChart extends Component{
        
 
             <XAxis dataKey="dist" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
+
               <Label value="Distance (km)" offset={-15} position="insideBottom" />
+
             </XAxis>
 
             <YAxis type="category" dataKey="bib" name={payload.name} domain={[20, 0]}>
               <Label value="Musher Bib #" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
              </YAxis>
+
           
               {series.map(s => (
                 <Line dataKey="bib" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_name} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 4}}/>
