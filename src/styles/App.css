@@ -72,6 +72,12 @@ nav {
 .Composed-chart-wrapper {
   margin: 0 10px; }
 
+.percy_bar {
+  fill: #3d5941; }
+
+.junior_bar {
+  fill: #b5b991; }
+
 .table {
   width: 100%;
   max-width: 100%;
