@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 import { getPastMushers } from '../api/pastmushers'
 
-import WinningTimesChart from './WinningTimesChart'
+import { WinningTimesChart } from './WinningTimesChart'
+import { WinningTimesChartJunior } from './WinningTimesChartJunior'
 import { StatisticInformation } from './StatisticInformation'
 import WeatherChart from './WeatherChart'
 
@@ -44,19 +45,20 @@ export default class StatisticsPage extends Component {
     <div className='statistics-page'>
       <div className ="statistic-wrapper">
         <section>
-          <h2>Most run</h2>
+          <h2>Most Run - The Percy</h2>
           <StatisticInformation data={getTopRaces(this.state.data)} id='name' value='races' />
         </section>
         <section>
-          <h2>Most won</h2>
+          <h2>Most Won - The Percy</h2>
           <StatisticInformation data={getTopWins(this.state.data)} id='name' value='wins' />
         </section>
         <section>
-          <h2>Fastest run times</h2>
+          <h2>Fastest Run Times - The Percy</h2>
           <StatisticInformation data={getTopTimes(this.state.data, 'Percy')} id='name' value='time' />
         </section>
       </div>
       <WinningTimesChart />
+      <WinningTimesChartJunior />
       <WeatherChart />
     </div>
     )

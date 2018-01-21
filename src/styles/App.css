@@ -71,6 +71,12 @@ nav {
 .Composed-chart-wrapper {
   margin: 0 10px; }
 
+.percy_bar {
+  fill: #3d5941; }
+
+.junior_bar {
+  fill: #b5b991; }
+
 .table {
   width: 100%;
   max-width: 100%;
@@ -153,6 +159,34 @@ nav {
 .nav-icons {
   height: 3rem;
   margin: 0.5rem; }
+
+.line-chart-wrapper {
+  width: 100%;
+  height: 400px;
+  background-color: #F8F8F8;
+  box-sizing: border-box;
+  margin: 0.2rem 0; }
+  .line-chart-wrapper h3 {
+    text-align: center;
+    padding-top: 1.5rem;
+    margin: 0; }
+
+.recharts-legend-wrapper {
+  padding: 0.2rem; }
+
+.legend {
+  display: inline-block;
+  margin: 0; }
+  .legend ul {
+    padding: 0; }
+  .legend li {
+    padding: 0.25rem 0rem;
+    margin: 0.05rem;
+    list-style: circle;
+    color: #F8F8F8;
+    text-anchor: middle;
+    font-size: 0.6rem;
+    text-align: center; }
 
 html, body {
   width: 100%;
@@ -339,8 +373,7 @@ button {
 .avatar {
   display: flex;
   height: 10rem;
-  width: 10rem;
-  border-radius: 50%;
+  width: 8rem;
   overflow: hidden;
   justify-content: center;
   align-self: center;
@@ -348,8 +381,7 @@ button {
   border: 2px solid #0C2639; }
   .avatar img {
     margin: 0 auto;
-    border-radius: 50%;
-    object-fit: cover;
+    object-fit: scale-down;
     position: relative;
     height: 100%;
     width: 100%; }
