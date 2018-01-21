@@ -1,204 +1,161 @@
 import React from 'react'
 import MusherLineChart from './MusherLineChart';
 
-// Format we want 
-//const series = [
-
-  // {race_id OR musher_id: 'XXXX', data: [
-  //   {time: '0', dist: 0 },
-  //   {time: '30', dist: 152.7},
-  //   {time: '50', dist: 338}
-  // ]},
-  // {year: '2013', data: [
-  //   {time: '0', dist: 0 },
-  //   {time: '30', dist: 152.7},
-  //   {time: '45', dist: 338}
-  // ]},
-
-  // Format of data we're getting
 const mySeries = [
     {
         "event_id": "117",
         "musher_id": "106",
-        "run_dist": 157683,
+        "run_dist": 0,
         "run_time_str": "19.15.12",
-        "hours": 19.25
+        "hours": 0.0
     },
     {
         "event_id": "117",
         "musher_id": "106",
-        "run_dist": 80860,
-        "run_time_str": "06.04.23",
-        "hours": 6.07
-    },
-    {
-        "event_id": "117",
-        "musher_id": "106",
-        "run_dist": 157683,
-        "run_time_str": "19.05.13",
-        "hours": 19.09
-    },
-    {
-        "event_id": "117",
-        "musher_id": "106",
-        "run_dist": 80677,
-        "run_time_str": "05.34.21",
-        "hours": 5.57
-    },
-    {
-        "event_id": "117",
-        "musher_id": "106",
-        "run_dist": 157683,
-        "run_time_str": "18.55.19",
-        "hours": 18.92
-        },
-        {
-        "event_id": "117",
-        "musher_id": "106",
-        "run_dist": 120582,
-        "run_time_str": "10.34.13",
-        "hours": 10.57
-        },
-        {
-        "event_id": "117",
-        "musher_id": "106",
-        "run_dist": 157683,
-        "run_time_str": "18.43.46",
-        "hours": 18.73
-        },
-        {
-        "event_id": "117",
-        "musher_id": "106",
-        "run_dist": 80862,
-        "run_time_str": "07.34.27",
-        "hours": 7.57
-        },
-        {
-        "event_id": "117",
-        "musher_id": "106",
-        "run_dist": 157683,
-        "run_time_str": "18.45.50",
-        "hours": 18.76
-        },
-        {
-        "event_id": "117",
-        "musher_id": "106",
-        "run_dist": 80841,
-        "run_time_str": "05.54.24",
-        "hours": 5.91
-        },
-        {
-        "event_id": "117",
-        "musher_id": "106",
-        "run_dist": 157683,
-        "run_time_str": "18.33.43",
-        "hours": 18.56
-        },
-        {
-        "event_id": "117",
-        "musher_id": "106",
-        "run_dist": 77597,
-        "run_time_str": "05.24.21",
-        "hours": 5.41
-        },
-        {
-        "event_id": "117",
-        "musher_id": "106",
-        "run_dist": 157683,
-        "run_time_str": "18.23.44",
-        "hours": 18.4
-        },
-    {
-        "event_id": "119",
-        "musher_id": "106",
-        "run_dist": 197683,
+        "run_dist": 50000,
         "run_time_str": "19.15.12",
-        "hours": 19.25
+        "hours": 2.25
     },
     {
-        "event_id": "119",
+        "event_id": "117",
         "musher_id": "106",
-        "run_dist": 90860,
-        "run_time_str": "06.04.23",
-        "hours": 6.07
+        "run_dist": 100000,
+        "run_time_str": "19.15.12",
+        "hours": 6.25
     },
     {
-        "event_id": "119",
+        "event_id": "117",
         "musher_id": "106",
-        "run_dist": 197683,
-        "run_time_str": "19.05.13",
-        "hours": 19.09
+        "run_dist": 150000,
+        "run_time_str": "19.15.12",
+        "hours": 10.25
     },
     {
-        "event_id": "119",
+        "event_id": "117",
         "musher_id": "106",
-        "run_dist": 90677,
-        "run_time_str": "05.34.21",
-        "hours": 5.57
+        "run_dist": 180000,
+        "run_time_str": "19.15.12",
+        "hours": 14.25
     },
     {
-        "event_id": "119",
+        "event_id": "117",
         "musher_id": "106",
-        "run_dist": 187683,
-        "run_time_str": "18.55.19",
-        "hours": 18.92
-        },
-        {
-        "event_id": "119",
+        "run_dist": 200000,
+        "run_time_str": "19.15.12",
+        "hours": 17.25
+    },
+    {
+        "event_id": "117",
         "musher_id": "106",
-        "run_dist": 130582,
-        "run_time_str": "10.34.13",
-        "hours": 10.57
-        },
-        {
-        "event_id": "119",
+        "run_dist": 240000,
+        "run_time_str": "19.15.12",
+        "hours": 21.25
+    },
+    {
+        "event_id": "117",
         "musher_id": "106",
-        "run_dist": 147683,
-        "run_time_str": "18.43.46",
-        "hours": 18.73
-        },
-        {
-        "event_id": "119",
+        "run_dist": 280000,
+        "run_time_str": "19.15.12",
+        "hours": 24.25
+    },
+    {
+        "event_id": "117",
         "musher_id": "106",
-        "run_dist": 90862,
-        "run_time_str": "07.34.27",
-        "hours": 7.57
-        },
-        {
-        "event_id": "119",
+        "run_dist": 300000,
+        "run_time_str": "19.15.12",
+        "hours": 28.25
+    },
+    {
+        "event_id": "117",
         "musher_id": "106",
-        "run_dist": 147683,
-        "run_time_str": "18.45.50",
-        "hours": 18.76
-        },
-        {
-        "event_id": "119",
+        "run_dist": 320000,
+        "run_time_str": "19.15.12",
+        "hours": 30.25
+    },
+    {
+        "event_id": "117",
         "musher_id": "106",
-        "run_dist": 90841,
-        "run_time_str": "05.54.24",
-        "hours": 5.91
-        },
-        {
-        "event_id": "119",
+        "run_dist": 338000,
+        "run_time_str": "19.15.12",
+        "hours": 32.25
+    },
+    {
+        "event_id": "115",
         "musher_id": "106",
-        "run_dist": 187683,
-        "run_time_str": "18.33.43",
-        "hours": 18.56
-        },
-        {
-        "event_id": "119",
+        "run_dist": 0,
+        "run_time_str": "19.15.12",
+        "hours": 0.0
+    },
+    {
+        "event_id": "115",
         "musher_id": "106",
-        "run_dist": 87597,
-        "run_time_str": "05.24.21",
-        "hours": 5.41
-        },
-        {
-        "event_id": "119",
+        "run_dist": 40000,
+        "run_time_str": "19.15.12",
+        "hours": 2.25
+    },
+    {
+        "event_id": "115",
         "musher_id": "106",
-        "run_dist": 187683,
-        "run_time_str": "18.23.44",
-        "hours": 18.4
-        }
+        "run_dist": 90000,
+        "run_time_str": "19.15.12",
+        "hours": 6.25
+    },
+    {
+        "event_id": "115",
+        "musher_id": "106",
+        "run_dist": 140000,
+        "run_time_str": "19.15.12",
+        "hours": 10.25
+    },
+    {
+        "event_id": "115",
+        "musher_id": "106",
+        "run_dist": 170000,
+        "run_time_str": "19.15.12",
+        "hours": 14.25
+    },
+    {
+        "event_id": "115",
+        "musher_id": "106",
+        "run_dist": 210000,
+        "run_time_str": "19.15.12",
+        "hours": 17.25
+    },
+    {
+        "event_id": "115",
+        "musher_id": "106",
+        "run_dist": 235000,
+        "run_time_str": "19.15.12",
+        "hours": 21.25
+    },
+    {
+        "event_id": "115",
+        "musher_id": "106",
+        "run_dist": 270000,
+        "run_time_str": "19.15.12",
+        "hours": 26.25
+    },
+    {
+        "event_id": "115",
+        "musher_id": "106",
+        "run_dist": 295000,
+        "run_time_str": "19.15.12",
+        "hours": 29.25
+    },
+    {
+        "event_id": "115",
+        "musher_id": "106",
+        "run_dist": 315000,
+        "run_time_str": "19.15.12",
+        "hours": 31.25
+    },
+    {
+        "event_id": "115",
+        "musher_id": "106",
+        "run_dist": 338000,
+        "run_time_str": "19.15.12",
+        "hours": 33.25
+    },
 ]
 
 const generateKeyArray = (data, filterKey) => {

@@ -17,6 +17,7 @@ export const FilterContainer = (props) => {
         <div className="searchFilter">
             <Dropdown data={years} handleSelection={props.handleYearSelection} />
             <Dropdown data={races} handleSelection={props.handleRaceSelection} />
+            <h2>{props.year}: {props.race}</h2>
         </div>
     )   
 }

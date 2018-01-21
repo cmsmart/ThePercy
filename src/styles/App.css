@@ -161,6 +161,34 @@ nav {
   height: 3rem;
   margin: 0.5rem; }
 
+.line-chart-wrapper {
+  width: 100%;
+  height: 400px;
+  background-color: #F8F8F8;
+  box-sizing: border-box;
+  margin: 0.2rem 0; }
+  .line-chart-wrapper h3 {
+    text-align: center;
+    padding-top: 1.5rem;
+    margin: 0; }
+
+.recharts-legend-wrapper {
+  padding: 0.2rem; }
+
+.legend {
+  display: inline-block;
+  margin: 0; }
+  .legend ul {
+    padding: 0; }
+  .legend li {
+    padding: 0.25rem 0rem;
+    margin: 0.05rem;
+    list-style: circle;
+    color: #F8F8F8;
+    text-anchor: middle;
+    font-size: 0.6rem;
+    text-align: center; }
+
 html, body {
   width: 100%;
   height: 100%;
