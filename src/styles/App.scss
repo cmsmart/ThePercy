@@ -20,12 +20,14 @@ body {
   color: $textgrey;
   background: $navy;
   font-family: $secondaryfont;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 #root {
   height: 98%;
-  margin-left: 20px;
-  margin-right: 20px;
+  // margin-left: 20px;
+  // margin-right: 20px;
   padding: 0;
 
 }
@@ -45,6 +47,7 @@ main {
 
 h1, h2, h3, h4 {
   font-family: $mainfont;
+  font-weight: normal;
 }
 
 h1 {
@@ -59,23 +62,34 @@ h2 {
 // Header
 
 header {
-  margin-top: 10px;
+  padding-top: 10px;
+  // background: $darkblue;
+  // background: linear-gradient($darkblue, rgba(255,0,0,0));
 }
 
 .info {
   display: flex;
   flex-flow: wrap;
-  margin-bottom: 20px;
+  padding-right: 10px;
+  // margin-bottom: 20px;
     img.logo {
       margin-right: 20px;
-      width: 150px;
-      height: 113px;
+      width: 119px;
+      height: 90px;
     }
     section {
       flex: 1 1 auto;
     }
+    h1 {
+      margin-top: 10px;
+    }
     .site-title {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
+      font-weight: normal;
+      font-size: 1.8em;
+      a {
+        color: $white;
+      }
     }
     aside {
       width: 30px;
@@ -86,6 +100,11 @@ header {
       img {
         margin: 5px auto;
       }
+    }
+    .subtitle {
+      margin: 5px 0;
+      color: $lightblue;
+      font-size: 0.9em;
     }
 }
 
@@ -138,6 +157,19 @@ iframe {
   width: 100%;
   border: 0;
 }
+
+//Past Race page
+ .top-display {
+   display: flex;
+   flex-flow: row;
+   .field {
+     flex: 1 1 auto
+   }
+   .Line-chart-wrapper {
+     width: 25%;
+   }
+ }
+
 
 // Search
 

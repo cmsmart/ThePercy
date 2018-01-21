@@ -42,8 +42,8 @@ export default class WeatherChart extends Component {
                         <CartesianGrid strokeDasharray="3 3"/>
                         <Tooltip />
                         <Legend verticalAlign="top"/>
-                        <Bar dataKey="max" fill="#8884d8" barSize={10}/>
-                        <Bar dataKey="min" fill="#82ca9d" barSize={10}/>
+                        <Bar dataKey="max" fill="#70a494" barSize={10}/>
+                        <Bar dataKey="min" fill="#b4c8a8" barSize={10}/>
                         {/* <Bar dataKey="mean" fill="red" /> */}
                         <ReferenceLine y={0} stroke="red" strokeDasharray="3 3"  />
                         

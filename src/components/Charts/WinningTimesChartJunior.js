@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label, ResponsiveContainer } from 'recharts'
+import { ComposedChart, Bar, XAxis, YAxis, Tooltip, Label, ResponsiveContainer } from 'recharts'
 
-import { getPastMushers } from '../api/pastmushers'
+import { getPastMushers } from '../../api/pastmushers'
 
 const generateYearsArray = () => {
     let years = []
@@ -27,7 +27,7 @@ const generateWinningTimesData = (data) => {
 }
 
 
-export class WinningTimesChartJunior extends Component {
+export default class WinningTimesChartJunior extends Component {
 
     state = {
         mushers: null,
@@ -57,10 +57,8 @@ export class WinningTimesChartJunior extends Component {
                         <YAxis>
                             <Label value="Time (hours)" angle={-90} position="insideLeft"/> 
                         </YAxis>
-                        <CartesianGrid strokeDasharray="3 3" stroke='#f5f5f5'/>
                         <Tooltip cursor={{fill: "eee"}} fill="blue" />
-                        <Legend verticalAlign="top"/> 
-                        <Bar dataKey="Percy Junior" name="Win time" fill="#b5b991" className="junior_bar" barSize={20}/>
+                        <Bar dataKey="Percy Junior" name="Win time" fill="#de8a5a" className="junior_bar" barSize={15}/>
                     </ComposedChart>
                 </ResponsiveContainer>
             </div>

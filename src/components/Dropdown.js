@@ -1,10 +1,12 @@
 import React from 'react'
 
-const mapDataToOptions = (data) => (
-    data.map((datum, index) => (
-        <option key={index} value={`${datum}`}>{`${datum}`}</option>
-    ))
-)
+const mapDataToOptions = (data) => {
+    return (
+        data.map((datum, index) => (
+            <option key={index} value={`${datum}`}>{`${datum}`}</option>
+        ))
+    )
+}
 
 export const Dropdown = (props) => {
     return (
