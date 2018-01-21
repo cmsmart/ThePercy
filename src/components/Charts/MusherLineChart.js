@@ -1,6 +1,7 @@
 import React from 'react'
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from 'recharts';
-import { compareObjectValues } from '../utils/compareObjectValues';
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from 'recharts'
+
+import { compareObjectValues } from '../../utils/compareObjectValues'
 
 const RenderLegend = () => {
   return <div style={{

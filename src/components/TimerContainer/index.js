@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 
-import { Timer } from '../components/Timer'
+import { Timer } from './Timer'
 
-export default class Countdown extends Component {
+export default class TimerContainer extends Component {
     state = {
         timeRemaining: moment(1521741600) - moment().unix(), 
     }
@@ -25,7 +25,10 @@ export default class Countdown extends Component {
 
     render = () => {
         return (
-            <div className='timer'><Timer {...this.state} /></div>
+            <div className='timer'>
+                <h4>Race Start</h4>
+                <Timer {...this.state} />
+            </div>
         )
     }
 }

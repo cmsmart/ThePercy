@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label, ResponsiveContainer } from 'recharts'
 
-import { getPastMushers } from '../api/pastmushers'
+import { getPastMushers } from '../../api/pastmushers'
 
-const generateYearsArray = () => {
+const generateYearsObjectArray = () => {
     let years = []
     for (let i = 1981; i < (new Date()).getFullYear(); i++) {
       years = [ ...years, { year: `${i}` } ]
@@ -13,7 +13,7 @@ const generateYearsArray = () => {
   
 const generateWinningTimesData = (data) => {
     let filteredArray = data.filter((datum) => datum.standing === '1')
-    let years = generateYearsArray()
+    let years = generateYearsObjectArray()
     
     filteredArray.map((musher) => {
         return years = years.map((year) => {

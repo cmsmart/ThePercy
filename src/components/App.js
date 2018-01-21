@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import "../styles/App.css"
 
-import { PrimaryLayout } from '../components/PrimaryLayout'
+import { PrimaryLayout } from './Layouts/PrimaryLayout'
 
 export default class App extends Component {
     render = () => {

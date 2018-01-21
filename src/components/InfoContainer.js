@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Avatar } from './Avatar'
+import { Avatar } from './MushersContainer/Avatar'
 
 export const InfoContainer = (props) => {
     return (

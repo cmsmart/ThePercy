@@ -4,7 +4,7 @@ import { ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Label, Legend
 
 import { ResponsiveContainer } from 'recharts'
 
-import { getPastMushers } from '../api/pastmushers'
+import { getPastMushers } from '../../api/pastmushers'
 
 const generateYearsArray = () => {
   let years = []

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-import { getMusherByID } from '../api/mushers'
+import { getMusherByID } from '../../api/mushers'
 
-import { InfoContainer } from '../components/InfoContainer'
-import LineChartData from '../components/LineChartData'
-import MusherHistoryChart from '../components/MusherRaceHistory'
+import { InfoContainer } from '../InfoContainer'
+import LineChartData from '../Charts/LineChartData'
+import MusherHistoryChart from '../Charts/MusherRaceHistory'
 
 export default class MusherPage extends Component {
     state = {

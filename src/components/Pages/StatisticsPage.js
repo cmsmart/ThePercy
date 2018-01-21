@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-import { getPastMushers } from '../api/pastmushers'
+import { getPastMushers } from '../../api/pastmushers'
 
-import WinningTimesChart from './WinningTimesChart'
-import { StatisticInformation } from './StatisticInformation'
-import WeatherChart from './WeatherChart'
+import WinningTimesChart from '../Charts/WinningTimesChart'
+import { StatisticInformation } from '../StatisticInformation'
+import WeatherChart from '../Charts/WeatherChart'
 
-import { compareObjectValues } from '../utils/compareObjectValues'
-import { deduplicateAndCountObjectByKey } from '../utils/deduplicateAndCountObjectByKey'
+import { compareObjectValues } from '../../utils/compareObjectValues'
+import { deduplicateAndCountObjectByKey } from '../../utils/deduplicateAndCountObjectByKey'
 
 const getTopRaces = (data) => {
     let countArray = deduplicateAndCountObjectByKey(data.filter((data) => (data.race === 'Percy')), 'musher', 'races', 'name')
@@ -44,6 +44,7 @@ export default class StatisticsPage extends Component {
   
     render = () => {
         return (
+            !!this.state.data && 
             <div className='statistics-page'>
                 <div className ="statistic-wrapper">
                     <section>
