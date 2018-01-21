@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ComposedChart, Bar, XAxis, YAxis, Tooltip, Label, ResponsiveContainer } from 'recharts'
 
-import { getPastMushers } from '../api/pastmushers'
+import { getPastMushers } from '../../api/pastmushers'
 
 const generateYearsArray = () => {
     let years = []
@@ -27,7 +27,7 @@ const generateWinningTimesData = (data) => {
 }
 
 
-export class WinningTimesChartJunior extends Component {
+export default class WinningTimesChartJunior extends Component {
 
     state = {
         mushers: null,

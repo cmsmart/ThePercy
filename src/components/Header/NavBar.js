@@ -1,6 +1,8 @@
-import React from 'react';
-import { NavItem } from './NavItem';
-import { mapsvg, dashboardsvg, dashboard_historicalsvg, teamsvg, analyticssvg } from '../../assets/icons';
+import React from 'react'
+
+import { mapsvg, dashboardsvg, dashboard_historicalsvg, teamsvg, analyticssvg } from '../../assets/icons'
+
+import { NavItem } from './NavItem'
 
 export const NavBar = (props) => {
   return <nav>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import { getPastMushers } from '../api/pastmushers'
-
 import { ComposedChart, Bar, Line, XAxis, YAxis, Tooltip, Label, Legend, ResponsiveContainer } from 'recharts'
+
+import { getPastMushers } from '../../api/pastmushers'
 
 // Create a years array to map through
 const generateYearsArray = () => {

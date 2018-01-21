@@ -9,7 +9,6 @@ const formatTimeRemaining = (time) => {
 
 export const Timer = (props) => (
     <Fragment>
-        <h4>Race Start</h4>
         <p>{formatTimeRemaining(props.timeRemaining)}</p>
     </Fragment>
 )
