@@ -2,8 +2,8 @@
 // Navigation
 
 nav {
-    background-color: $darkblue;
-    border: 0.2rem solid $white;
+    // background-color: $white;
+    border-bottom: 0.2rem solid $white;
     margin: 0.2rem 0;
     display: flex;
     flex-direction: row;
@@ -20,26 +20,38 @@ nav {
           color: $white;
           display: flex;
           flex-direction: column;
-          border-bottom: 0.2rem solid $darkblue;
+          // border-bottom: 0.2rem solid $darkblue;
           &:hover {
-            color: $pink;
+            color: $lightblue;
             display: flex;
             flex-direction: column;
-            // border-bottom: 0.2rem solid $pink;
+            border-bottom: 0.2rem solid $lightblue;
           }
         }
       }
     }
+    g {
+      fill: $lightblue;
+    }
+    path {
+      fill: $lightblue;
+    }
+    span {
+      padding-bottom: 5px;
+    }
   }
+
   
   .active {
-    color: $white;
+    color: $navy;
     display: flex;
     flex-direction: column;
-    border-bottom: 0.2rem solid $pink;
+    border-bottom: 0.2rem solid $highlight;
     g, path, circle {
-      fill: $pink;
-
+      fill: $highlight;
+    }
+    span {
+      color: $white;
     }
   }
   

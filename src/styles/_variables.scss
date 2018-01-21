@@ -4,13 +4,18 @@ $textgrey: #676a6c;
 
 $navy: #0C2639;
 $lightblue: #C3D8EC;
-$pink: #FA5252;
+$highlight: #ca562c;
 
 $white: #F8F8F8;
 $darkblue: #4E7590;
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700|Open+Sans:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Asap:400,500,600,700');
 
-$mainfont: 'Comfortaa', sans-serif;
+$mainfont: 'Asap', sans-serif;
 $secondaryfont: 'Open Sans', sans-serif;
+
+// #5F4690,#1D6996,#38A6A5,#0F8554,#73AF48,#EDAD08,#E17C05,#CC503E,#94346E,#6F4070,#994E95,#666666
+
+// #008080,#70a494,#b4c8a8,#f6edbd,#edbb8a,#de8a5a,#ca562c

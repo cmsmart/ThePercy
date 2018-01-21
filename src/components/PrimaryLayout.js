@@ -13,15 +13,17 @@ export const PrimaryLayout = (props) => {
   return (
     <div className='main-container'>
       <Header />
-      <Switch>
-        <Route path='/tracker' component={MapPage}/>
-        <Route path='/dashboard' component={Dashboard} />
-        <Route path='/pastraces' component= {Historical} />
-        <Route path='/statistics' component={StatisticsPage} />
-        <Route path='/mushers/:id' component={MusherPage} />
-        <Route path='/mushers' render={() => (<MushersPage />)} />
-        <Redirect to='/tracker'  />
-      </Switch>
+      <main>  
+        <Switch>
+          <Route path='/tracker' component={MapPage}/>
+          <Route path='/dashboard' component={Dashboard} />
+          <Route path='/pastraces' component= {Historical} />
+          <Route path='/statistics' component={StatisticsPage} />
+          <Route path='/mushers/:id' component={MusherPage} />
+          <Route path='/mushers' render={() => (<MushersPage />)} />
+          <Redirect to='/tracker'  />
+        </Switch>
+        </main>
     </div>
   )
 }
