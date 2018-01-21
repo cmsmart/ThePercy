@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 
 import { getMushers } from '../../api/mushers'
 
-import { Dropdown } from '../FilterContainer/Dropdown'
-import { FilterContainer } from '../FilterContainer/index'
+import { Button } from '../Button';
+import { Dropdown } from '../Dropdown'
 import { MushersContainer } from '../MushersContainer/index'
-import { Searchbar } from '../FilterContainer/Searchbar'
+import { Searchbar } from '../Searchbar'
 
 import { generateYears } from '../../utils/generateYears'
-import { Button } from '../FilterContainer/Button';
 
 export default class MushersPage extends Component {
     state = {
@@ -43,12 +42,12 @@ export default class MushersPage extends Component {
         return (
             <div className='mushers-page'>
                 <p>Mushers Page</p>
-                <FilterContainer>
+                <div className='searchFilter'>
                     <Dropdown data={['Year', ...generateYears(2012)]} handleSelection={this.handleYearSelection} />
                     <Dropdown data={['Race', 'Percy', 'Percy Junior']} handleSelection={this.handleRaceSelection} />
                     <Searchbar handleSearchQuery={this.handleSearchQuery}/>
                     <Button handleClick={this.handleClearFilter} >Clear</Button>
-                </FilterContainer>
+                </div>
                 {!!this.state.mushers && <MushersContainer {...this.state} />}
             </div>
         )

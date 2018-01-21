@@ -4,8 +4,7 @@ import { getUpdates } from "../../api/updates"
 import { getMushers } from "../../api/mushers"
 
 import DashboardLineChart from "../Charts/DashboardLineChart"
-import { Dropdown } from "../FilterContainer/Dropdown"
-import { FilterContainer } from '../FilterContainer/index'
+import { Dropdown } from "../Dropdown"
 import { MushersContainer } from "../MushersContainer/index"
 import { TableContainer } from "../TableContainer/index"
 
@@ -39,10 +38,10 @@ export default class PastRacesPage extends Component {
     render = () => {
         return (
             <main className="dashboard">
-                <FilterContainer>
+                <div className='searchFilter'>
                     <Dropdown data={generateYears(2012)} handleSelection={this.handleYearSelection} />
                     <Dropdown data={['Percy', 'Percy Junior']} handleSelection={this.handleRaceSelection} />
-                </FilterContainer>
+                </div>
                 <div>{this.state.year}</div>
                 {!!this.state.mushers && <MushersContainer mushers={this.state.mushers} year={this.state.year} race={this.state.race} />}
                 <DashboardLineChart {...this.state} title="Race Progress Chart" />
