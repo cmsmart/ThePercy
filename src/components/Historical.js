@@ -59,8 +59,7 @@ export class Historical extends Component {
 
   render() {
     return <main className="dashboard">
-        <FilterContainer handleYearSelection={this.handleYearSelection} handleRaceSelection={this.handleRaceSelection} />
-        <div>{this.state.year}</div>
+        <FilterContainer handleYearSelection={this.handleYearSelection} handleRaceSelection={this.handleRaceSelection} year={this.state.year} race={this.state.race}/>
         {!!this.state.field && <Results data={filterResults(this.state.field, this.state.year, this.state.race)} />}
         <DashboardLineChart {...this.state} title="Race Progress Chart" />
         {!!this.state.data && <Table data={this.generateTableData(filterResults(this.state.data, this.state.year, this.state.race))} classname={"live-data"} headings={headings} />}
