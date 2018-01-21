@@ -138,11 +138,25 @@ const series = [
         return null;
       }*/
 
+ const  experienceFilter = (mushers, pastmushers) => {
+        let experienceArray = []
+        mushers.map((datum) => {
+            if (pastmushers.some((object) => (object.musher_id === datum.musher_id))) {
+                experienceArray = [ ...experienceArray, { name: datum.musher, experience: true } ]
+            } else {
+                experienceArray = [ ...experienceArray, { name: datum.musher, experience: false } ]
+            }
+            return experienceArray
+        })
+        return experienceArray
+    }
+
+
 class ProgressBarChart extends Component{
   render () {
     const payload = this.props;
   return (
-    <div className="area-chart-wrapper" style={{ width: '95%', height: "500px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
+    <div className="area-chart-wrapper" style={{ width: '85%', height: "500px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
     <h2>Musher Progress</h2>
       <ResponsiveContainer>
         <LineChart width={300} height={300} margin={{top: 50, right: 30, left: 50, bottom: 100}}>
@@ -157,8 +171,14 @@ class ProgressBarChart extends Component{
              </YAxis>
           
               {series.map(s => (
-                <Line dataKey="bib" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_name} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 4}}/>
+                <Line dataKey="bib" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_name} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 5}}/>
               ))}
+
+              <Line datakey="bib">
+              {series.map((entry, index) => {
+                return <Cell fill={experienceFilter.experience  ? "#0c2639" : "#c3d8ec"}/>
+              })}
+              </Line>
           
             <ReferenceLine x={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine x={159.8} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />

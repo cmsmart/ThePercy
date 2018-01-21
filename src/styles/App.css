@@ -41,21 +41,20 @@ nav {
 .timer {
   background-color: #C3D8EC;
   color: #0C2639;
-  max-width: 25rem;
-  max-height: 4rem;
+  max-width: 5rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 0.5rem 1rem;
-  padding: 0rem 0;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
   border: 0.2rem solid #F8F8F8; }
   .timer h4 {
     margin: auto;
     padding: 0; }
   .timer p {
-    margin: 0rem 1.5rem; }
+    margin: 1rem 2rem; }
 
 .recharts-legend-wrapper {
   padding: 10px; }

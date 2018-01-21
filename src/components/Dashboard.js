@@ -49,6 +49,17 @@ export default class Dashboard extends Component {
     return tableData
   }
 
+  generateProgressBarBibLegend(data) {
+    let bibLegend = {}
+    bibLegend = data.map((datum) => {
+      return datum = {
+        musher: datum.musher,
+        bib: datum.bib
+      }
+    })
+    return bibLegend
+  }
+
   filterYear = (data) => {
     let filteredData = data.filter((datum) => (
       // datum.year === (new Date()).getFullYear()
@@ -60,13 +71,21 @@ export default class Dashboard extends Component {
   render() {
     return (
     <main className="dashboard">
+
         {/* <Timer /> */}
-        <Countdown />
+        
+
+        {/*!!this.state.data && <Table data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"live-data"} headings={headings} />*/}
+
         <ProgressBarChart title="Progress Bar Chart" />
+
+        <Countdown />
+    
+    
         {!!this.state.field &&
         <Field data={this.filterYear(this.state.field)} />
         }
-        <DashboardLineChart title="Race Progress Chart" />
+       
         {!!this.state.data && <Table data={this.generateTableData(this.filterYear(this.state.data))} classname={"live-data"} headings={headings} />}
       </main>
     )
