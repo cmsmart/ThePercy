@@ -5,7 +5,6 @@ export const Field = props => {
 
   return (
     <div className="field">
-    <h2>The Field</h2>
     <div className="myCards">
   {props.data.map((datum, index) => {
     return (

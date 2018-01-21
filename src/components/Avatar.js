@@ -9,7 +9,7 @@ const getImageAddress = musher => {
 const Avatar = (props) => {
   const address = getImageAddress(props.src)
   return <div className="avatar">
-      <img src={`http://percy.cholenasmart.com/sites/default/files/styles/mushers/public/${address}`} alt="Avatar" aria-label="Musher avatar" style={{ width: "200" }} />
+      <img src={`http://thepercy.com/sites/default/files/styles/mushers/public/${address}`} alt="Avatar" aria-label="Musher avatar" style={{ width: "200" }} />
     </div>;
 }
 

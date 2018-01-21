@@ -251,8 +251,8 @@ button {
 .avatar {
   display: flex;
   height: 10rem;
-  width: 10rem;
-  border-radius: 50%;
+  width: 8rem;
+  // border-radius: 50%;
   overflow: hidden;
   justify-content: center;
   align-self: center;
@@ -260,8 +260,8 @@ button {
   border: 2px solid $navy;
   img {
     margin: 0 auto;
-    border-radius: 50%;
-    object-fit: cover;
+    // border-radius: 50%;
+    object-fit: scale-down;
     position: relative;
     height: 100%;
     width: 100%;
