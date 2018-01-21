@@ -41,7 +41,7 @@ export default class CurrentRacePage extends Component {
 
     render = () => {
         return (
-            <main className="dashboard">
+            !!this.state.tableData && !!this.state.mushers && <main className="dashboard">
                 <TimerContainer />
                 <ProgressBarChart title="Progress Bar Chart" />
                 {!!this.state.mushers && <MushersContainer mushers={this.state.mushers} year={'2017'} race={'Percy' }/>}

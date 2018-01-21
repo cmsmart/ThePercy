@@ -40,6 +40,7 @@ export default class MushersPage extends Component {
   
     render = () => {
         return (
+            !!this.state.mushers && 
             <div className='mushers-page'>
                 <p>Mushers Page</p>
                 <div className='searchFilter'>
@@ -48,7 +49,7 @@ export default class MushersPage extends Component {
                     <Searchbar handleSearchQuery={this.handleSearchQuery}/>
                     <Button handleClick={this.handleClearFilter} >Clear</Button>
                 </div>
-                {!!this.state.mushers && <MushersContainer {...this.state} />}
+                <MushersContainer {...this.state} />
             </div>
         )
     }
