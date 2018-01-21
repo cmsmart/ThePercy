@@ -7,8 +7,10 @@ import { getMushers } from '../api/mushers';
 import Countdown from '../containers/Countdown';
 import { Field } from '../components/Field';
 import { Table } from './Table';
+import { BibLegendList } from './BibLegendList';
 
 const headings = ['Status', 'Name', 'Bib', 'Start', 'Fortymile In', 'Fortymile Out', 'Eagle In', 'Eagle Out', 'Fortymile In', 'Fortymile Out', 'Finish', 'Total Run Time']
+const musherBibHeadings = ['Bib', 'Name']
 
 export default class Dashboard extends Component {
   state = {
@@ -75,7 +77,7 @@ export default class Dashboard extends Component {
         {/* <Timer /> */}
         
 
-        {/*!!this.state.data && <Table data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"live-data"} headings={headings} />*/}
+        {!!this.state.data && <BibLegendList data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />}
 
         <ProgressBarChart title="Progress Bar Chart" />
 

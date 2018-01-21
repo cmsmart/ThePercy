@@ -1,16 +1,16 @@
 import React from 'react';
 
-const mapNameBibToTable = (headings) => (
+const mapNameToBibTable = (headings) => (
     <tr>
         {
             headings.map((heading, index) => (
-                <th key={index}>{heading}</th>
+                <th key={index[1]}>{heading}</th>
             ))
         }
     </tr>
 )
 
-const mapDataToTable = (data) => (
+const mapDataToNameTable = (data) => (
     Object.keys(data).map((level1, index) => (
         <tr key={index}>
             {
@@ -26,13 +26,13 @@ export const BibLegendList = (props) => {
     const classes = `${props.classname} table table-hover table-responsive`;
     return (
         <div className="outer-wrapper">
-            <h2>Race Updates</h2>
+            <h2>Bib Numbers</h2>
             <table className={ classes } >
                 <thead>
-                    {mapHeadingsToTable(props.headings)}
+                    {mapNameToBibTable(props.headings)}
                 </thead>
                 <tbody>
-                    {props.data && mapDataToTable(props.data)}
+                    {props.data && mapDataToNameTable(props.data)}
                 </tbody>
             </table>
         </div>

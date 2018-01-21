@@ -391,3 +391,6 @@ button {
 
 .musher-page h1 {
   text-align: center; }
+
+.dashboard .top-panel {
+  display: inline-flex; }
