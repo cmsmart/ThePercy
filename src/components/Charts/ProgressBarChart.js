@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
-import {compareObjectValues} from '../utils/compareObjectValues';
+import {compareObjectValues} from '..../utils/compareObjectValues';
 //import { getMushers } from '../api/po_by_mushers'
 
 const series = [
