@@ -55,8 +55,8 @@ export default class Dashboard extends Component {
     let bibLegend = {}
     bibLegend = data.map((datum) => {
       return datum = {
-        musher: datum.musher,
-        bib: datum.bib
+        bib: datum.bib,
+        musher: datum.musher
       }
     })
     return bibLegend
@@ -77,7 +77,7 @@ export default class Dashboard extends Component {
         {/* <Timer /> */}
         
 
-        {!!this.state.data && <BibLegendList data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />}
+        {!!this.state.data && <BibLegendList className="musherbiblist" data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />}
 
         <ProgressBarChart title="Progress Bar Chart" />
 
