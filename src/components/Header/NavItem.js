@@ -7,7 +7,7 @@ export const NavItem = (props) => {
         <li>
             <NavLink to={props.path} exact >
                 <NavIcon viewBox={props.viewBox} svg={props.svg} />
-                {props.title}
+                <span>{props.title}</span>
             </NavLink>
         </li> 
     )

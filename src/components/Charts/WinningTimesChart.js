@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label, ResponsiveContainer } from 'recharts'
+import { ComposedChart, Bar, XAxis, YAxis, Tooltip, Label, ResponsiveContainer } from 'recharts'
 
 import { getPastMushers } from '../../api/pastmushers'
 
@@ -56,10 +56,8 @@ export default class WinningTimesChart extends Component {
                                 <YAxis >
                                     <Label value="Time (hours)" angle={-90} position="insideLeft"/> 
                                 </YAxis>
-                                <CartesianGrid strokeDasharray="3 3" stroke='#f5f5f5'/>
                                 <Tooltip cursor={{fill: "eee"}} />
-                                <Legend verticalAlign="top"/> 
-                                <Bar dataKey="Percy" name="Win time" fill="#3d5941" className="percy_bar" barSize={20}/>
+                                <Bar dataKey="Percy" name="Win time" fill="#008080" className="percy_bar" barSize={15}/>
                             </ComposedChart>
                         </ResponsiveContainer>
                     </div>

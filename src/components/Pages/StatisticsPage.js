@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { getPastMushers } from '../../api/pastmushers'
 
 import WinningTimesChart from '../Charts/WinningTimesChart'
+import WinningTimesChartJunior from '../Charts/WinningTimesChartJunior'
+
 import { StatisticInformation } from '../StatisticInformation'
 import WeatherChart from '../Charts/WeatherChart'
 
@@ -61,6 +63,7 @@ export default class StatisticsPage extends Component {
                     </section>
                 </div>
                 <WinningTimesChart />
+                <WinningTimesChartJunior />
                 <WeatherChart />
             </div>
         )
