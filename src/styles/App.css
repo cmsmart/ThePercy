@@ -175,10 +175,11 @@ nav {
   .legend ul {
     padding: 0; }
   .legend li {
-    padding: 0.25rem 0.6rem;
+    padding: 0.25rem 0rem;
     margin: 0.05rem;
-    list-style: none;
+    list-style: circle;
     color: #F8F8F8;
+    text-anchor: middle;
     font-size: 0.6rem;
     text-align: center; }
 
