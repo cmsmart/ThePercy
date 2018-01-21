@@ -1,18 +1,9 @@
-import React from "react";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ReferenceLine,
-  ResponsiveContainer,
-  Label
-} from "recharts";
-import { compareObjectValues } from "../utils/compareObjectValues";
-import { event_ids } from "../api/event_id";
+import React from "react"
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label } from "recharts"
+
+import { event_ids } from "../../api/event_id"
+
+import { compareObjectValues } from "../../utils/compareObjectValues"
 
 const renderLegend = props => {
   const { payload } = props;
