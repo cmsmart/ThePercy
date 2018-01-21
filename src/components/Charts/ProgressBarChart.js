@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
-import {compareObjectValues} from '..../utils/compareObjectValues';
+import {compareObjectValues} from '../utils/compareObjectValues';
 //import { getMushers } from '../api/po_by_mushers'
 
 const series = [
@@ -123,20 +123,6 @@ const series = [
         ]},
       ];
 
-/*const CustomTooltip =() => {
-  render () 
-        const { active } = this.props;
-        if (active) {
-          const { payload, label, value } = this.props;
-          return (
-            console.log(payload),
-            <div className="custom-tooltip">
-            <p className="label"> { ` Bib (${payload[0].value}), Distance: ${label}, Time: ${payload[0].payload.time} `}</p>  
-            </div>
-          );
-        }
-        return null;
-      }*/
 
  const  experienceFilter = (mushers, pastmushers) => {
         let experienceArray = []
