@@ -32,15 +32,15 @@ Create a dedicated micro-site to sit alongside the Percy De Wolfe website which 
 [https://docs.google.com/presentation/d/1M4m8cykdXWLeh6CoKYhBm3RhfBV7VekAhCVS2FYG-qU/edit?usp=sharing]
 
 ## Wireframes
-[https://www.figma.com/file/XNePornjUw4ljQs193FpWJDf/Collect-My-Tribe]
-![Wireframe example](/assets/images/ThePercyWireframes.png)
+[https://www.figma.com/file/RMDcBB16ZOicgEoTeBBYT8Hw/The-Percy-Initial-wireframes]
+![Wireframe example](/src/assets/images/ThePercyWireframes.png)
 
 ## ERD
-![Erd image](/assets/images/ERD.png)
+![Erd image](/src/assets/images/ERD.png)
 
 
 ## Trello
 [https://trello.com/invite/b/9YUF6HnX/125e66203aef3e933309a3166c9fd20d/the-percy]
-![First screen shot of Trello](/assets/images/TrelloScreenShot1.png)
-![Second screen shot of Trello](/assets/images/TrelloScreenShot2.png)
+![First screen shot of Trello](/src/assets/images/TrelloScreenShot1.png)
+![Second screen shot of Trello](/src/assets/images/TrelloScreenShot2.png)
 
