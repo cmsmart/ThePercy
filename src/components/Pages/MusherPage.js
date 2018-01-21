@@ -19,12 +19,12 @@ export default class MusherPage extends Component {
 
     render = () => {
         return (
+            !!this.state.msuher && 
             <div className="musher-page">
-                { !!this.state.musher &&
                 <div>
                     <h1>{this.state.musher.musher}</h1>
                     <InfoContainer src={this.state.musher.profile_image} residence={this.state.musher.residence} />
-                </div> }
+                </div>
                 <LineChartData />
                 <MusherHistoryChart />
             </div>
