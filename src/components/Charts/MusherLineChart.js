@@ -43,6 +43,8 @@ const EventColor = [
   { event_id: 107, lineColor: "#dd4124" }
 ];
 
+const data = generateData(event_updates, "event_id")
+// console.log('musher data: ', data)
 
 const MusherLineChart = props => {
   const data = generateData({props}, "event_id")
