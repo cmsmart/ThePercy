@@ -1,4 +1,4 @@
-import johnapi from "./init";
+import { johnapi } from "./init";
 
 export function getRaceDataByEvent(id) {
   return johnapi.get(`./pos-by-event/${id}`);

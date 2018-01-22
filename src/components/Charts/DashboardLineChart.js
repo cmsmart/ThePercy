@@ -4,6 +4,7 @@ import { getMushers } from "../../api/mushers";
 import { compareObjectValues } from "../../utils/compareObjectValues";
 import { generateData } from "../../utils/generateLineChartData";
 import { event_updates } from "../../api/event_updates";
+import { event_ids } from "../../api/event_id"
 
 let musher_ids = []
 
