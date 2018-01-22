@@ -1,8 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import { ComposedChart, Bar, Line, XAxis, YAxis, Tooltip, Label, Legend, ResponsiveContainer } from 'recharts'
-
-import { getPastMushers } from '../../api/pastmushers'
 
 import { generateYearsObject } from '../../utils/generateYears'
 

@@ -15,14 +15,15 @@ const headings = [
     "Fortymile In",
     "Fortymile Out",
     "Finish",
-    "Total Run Time"
+    "Total Run Time",
+    "Standing"
 ]
 
 const generateTableData = (data) => {
     let tableData = data.map((datum) => (
         datum = { 
             status: datum.status,
-            musher: datum.musher,
+            musher: <a href={`/mushers/${datum.musher_id}`}>{datum.musher}</a>,
             bib: datum.bib, 
             chk_start: datum.chk_start, 
             chk_fm_ob_in: datum.chk_fm_ob_in, 
@@ -32,7 +33,8 @@ const generateTableData = (data) => {
             chk_fm_ib_in: datum.chk_fm_ib_in,
             chk_fm_ib_out: datum.chk_fm_ib_out,
             chk_finish: datum.chk_finish,
-            run_time: datum.run_time
+            run_time: datum.run_time,
+            standing: datum.standing
         }
     ))
     return tableData

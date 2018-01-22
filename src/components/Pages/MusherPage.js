@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { getMusherByID } from '../../api/mushers'
 import { getPastMushers } from '../../api/pastmushers'
 
-import { InfoContainer } from '../InfoContainer'
+import { MusherInformation } from '../MusherInformation'
 import LineChartData from '../Charts/LineChartData'
 import { MusherHistoryChart } from '../Charts/MusherHistoryChart'
 
@@ -23,15 +23,12 @@ export default class MusherPage extends Component {
     }
 
     render = () => {
-        !!this.state.pastData && console.log(
-            this.state.pastData.filter((datum) => datum.musher_id === this.props.match.params.id).slice(-1)[0].year
-        )
         return (
             !!this.state.musher && !!this.state.pastData &&
             <div className="musher-page">
                 <div>
                     <h1>{this.state.musher.musher}</h1>
-                    <InfoContainer src={this.state.musher.profile_image} residence={this.state.musher.residence} />
+                    <MusherInformation {...this.state} id={this.props.match.params.id}/>
                 </div>
                 <LineChartData />
                 {this.state.pastData.some((datum) => datum.musher_id === this.props.match.params.id && datum.race === 'Percy') && <MusherHistoryChart pastData={this.state.pastData.filter((datum) => datum.race === 'Percy')} year={parseInt(this.state.pastData.filter((datum) => datum.musher_id === this.props.match.params.id).slice(-1)[0].year, 10)} id={this.props.match.params.id}>Win Times - Percy</MusherHistoryChart>}
