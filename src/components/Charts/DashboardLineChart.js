@@ -4,17 +4,22 @@ import { getMushers } from "../../api/mushers";
 import { compareObjectValues } from "../../utils/compareObjectValues";
 import { generateData } from "../../utils/generateLineChartData";
 import { event_updates } from "../../api/event_updates";
-import { event_ids } from "../../api/event_id"
-
-let musher_ids = []
 
 const renderLegend = props => {
-  const { payload } = props;
+  const { payload, mushers } = props;
+  let name = ''
   return (
     <ul className="legend">
-      {payload.map((entry, index) => (
-        <li key={`item-${index}`} style={{color: `${ColorArray[index]}`}}>{entry.value}</li>
-      ))}
+      {payload.map((entry, index) => {
+        mushers.map(musher => {
+          if (musher.musher_id == entry.value) {
+            name = musher.musher
+          } 
+          return name
+        })
+        return <li key={`item-${index}`} style={{color: `${ColorArray[index]}`}}>{name}</li>
+      }
+      )}
     </ul>
   )
 }
@@ -30,7 +35,7 @@ const ColorArray = [
 ]
 
 const data = generateData(event_updates, "musher_id")
-console.log('event data:', data)
+// console.log('event data:', data)
 
 const DashboardLineChart = props => {
   	return <div className="line-chart-wrapper">
@@ -49,7 +54,7 @@ const DashboardLineChart = props => {
               </Label>
             </YAxis>
             <Tooltip />
-            <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
+            <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} {...props} />
             {data.map((s, index) => (
               <Line
                 dataKey="distance"
