@@ -4,16 +4,10 @@ import { ComposedChart, Bar, Line, XAxis, YAxis, Tooltip, Label, Legend, Respons
 
 import { getPastMushers } from '../../api/pastmushers'
 
-// Create a years array to map through
-const generateYearsArray = () => {
-  let years = []
-  for (let i = 1981; i < (new Date()).getFullYear(); i++) {
-    years = [ ...years, { year: `${i}` } ]
-  }
-  return years
-}
+import { generateYearsObject } from '../../utils/generateYears'
 
-const generateRunTimesData = (data) => {
+
+const generateRunTimesData = (data, initialYear, id) => {
 
   // Create an array of all wintimes
   const winningTime = []
@@ -25,8 +19,9 @@ const generateRunTimesData = (data) => {
   })
 
   // Create an array of objects mapping individual musher runtimes with race wintimes
-  let filteredArray = data.filter((datum) => ((datum.musher_id === '88')) && (datum.race === "Percy"))
-  let years = generateYearsArray()
+//   let filteredArray = data.filter((datum) => ((datum.musher_id === id)) && (datum.race === 'Percy'))
+  let filteredArray = data.filter((datum) => (datum.musher_id === id))
+  let years = generateYearsObject(initialYear)
   
   filteredArray.map((musher) => {
 
@@ -51,35 +46,19 @@ const generateRunTimesData = (data) => {
   })
 
   // start musher chart history at musher's first race
-  const firstYear = (filteredArray.slice(-1)[0])
-  const musherRaceYears = years.filter((datum) => (datum.year >= firstYear.year))
-  return musherRaceYears
+//   const firstYear = (filteredArray.slice(-1)[0])
+//   const musherRaceYears = years.filter((datum) => (datum.year >= firstYear.year))
+//   return musherRaceYears
+  return years
 }
 
-export default class MusherHistoryChart extends Component {
-
-  state = {
-    mushers: null,
-    data: null
-  }
-
-  componentDidMount() {    
-    getPastMushers().then((res) => {
-      this.setState({ mushers: res })
-    }).then(() => {
-      this.setState({ data: generateRunTimesData(this.state.mushers) })
-    })
-  }
-
-  
-	render () {
-    console.log(this.state.data)
+export const MusherHistoryChart = (props) => {
     return (
       <div className="outer-wrapper">
-        <h2>Race History - The Percy</h2>
+        <h2>{props.children}</h2>
         <div className="Composed-chart-wrapper" style={{height: '400px'}}>
               <ResponsiveContainer padding="1rem">
-                  <ComposedChart height={300} data={this.state.data} margin={{top: 30, right: 30, left: 50, bottom: 30}}>
+                  <ComposedChart height={300} data={generateRunTimesData(props.pastData, props.year, props.id)} margin={{top: 30, right: 30, left: 50, bottom: 30}}>
                       <XAxis dataKey="year" >
                         <Label value="Year" offset={-15} position="insideBottom"/>
                       </XAxis>
@@ -96,4 +75,4 @@ export default class MusherHistoryChart extends Component {
       </div>
     );
   }
-}
+
