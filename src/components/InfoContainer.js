@@ -8,22 +8,22 @@ export const InfoContainer = (props) => {
             <Avatar {...props} />
             <div className="container">
                 <h4>
-                    <b>Age: </b>
+                    Age:
                 </h4>
                 <h4>
-                    <b>Hometown: </b>{ props.residence }
+                    Hometown: { props.residence }
                 </h4>
                 <h4>
-                    <b>Number of times run the Percy: </b>{ props.musher }
+                    Number of times run the Percy: { props.musher }
                 </h4>
                 <h4>
-                    <b>Number of times run the Percy Junior: </b>
+                    Number of times run the Percy Junior: 
                 </h4>
                 <h4>
-                    <b>Best finishing time: </b>
+                    Best finishing time: 
                 </h4>
                 <h4>
-                    <b>Best placing: </b>
+                    Best placing: 
                 </h4>
             </div>
         </div>
