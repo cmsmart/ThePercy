@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { ComposedChart, Bar, XAxis, YAxis, Tooltip, Label, ResponsiveContainer } from 'recharts'
 
 import { generateYearsObject } from '../../utils/generateYears'
@@ -16,6 +16,24 @@ const generateWinningTimesData = (data, initialYear) => {
     return barData
 }
 
+export class CustomTooltip extends Component {
+    render() {
+        const { active } = this.props;
+        const { payload, label } = this.props;
+
+        if (active && (payload[0] !== undefined)) {
+            return (
+                <div className="custom-tooltip">
+                    <p className="label">{`${label}`}</p>
+                    <p className="label">{`Run time: ${payload[0].payload.run_time}`}</p>
+                    <p className="label">{`Winner: ${payload[0].payload.name}`}</p>
+                </div>
+        );
+      }
+    return null;
+    }
+}
+
 export const WinningTimesBarChart = (props) => {
     return (
         <div className="outer-wrapper">
@@ -30,7 +48,7 @@ export const WinningTimesBarChart = (props) => {
                         <YAxis >
                             <Label value="Time (hours)" angle={-90} position="insideLeft"/> 
                         </YAxis>
-                        <Tooltip cursor={{fill: "eee"}} />
+                        <Tooltip cursor={{fill: "eee"}} content={<CustomTooltip />} />
                         <Bar dataKey="run_time" name="Win time" fill={props.colour} className="percy_bar" barSize={15}/>
                     </ComposedChart>
                 </ResponsiveContainer>

@@ -49,15 +49,18 @@ export default class StatisticsPage extends Component {
             <div className='statistics-page'>
                 <div className ="statistic-wrapper">
                     <section>
-                        <h2>Most run</h2>
+                        <h2>Percy Veterans</h2>
+                        <p>Most races run</p>
                         <StatisticInformation data={getTopRaces(this.state.data)} id='name' value='races' />
                     </section>
                     <section>
-                        <h2>Most won</h2>
+                        <h2>Percy Champions</h2>
+                        <p>Most races won</p>
                         <StatisticInformation data={getTopWins(this.state.data)} id='name' value='wins' />
                     </section>
                     <section>
-                        <h2>Fastest run times</h2>
+                        <h2>Percy Speedsters</h2>
+                        <p>Fastest run times</p>
                         <StatisticInformation data={getTopTimes(this.state.data, 'Percy')} id='name' value='time' />
                     </section>
                 </div>
