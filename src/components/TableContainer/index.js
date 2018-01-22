@@ -22,7 +22,7 @@ const generateTableData = (data) => {
     let tableData = data.map((datum) => (
         datum = { 
             status: datum.status,
-            musher: datum.musher,
+            musher: <a href={`/mushers/${datum.musher_id}`}> { datum.musher} </a>,
             bib: datum.bib, 
             chk_start: datum.chk_start, 
             chk_fm_ob_in: datum.chk_fm_ob_in, 
