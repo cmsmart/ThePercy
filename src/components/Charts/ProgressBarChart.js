@@ -159,35 +159,30 @@ class CustomTooltip extends Component {
 class ProgressBarChart extends Component{
   render () {
     const payload = this.props;
-
- 
-
   return (
     <div className="area-chart-wrapper" style={{ width: '85%', height: "500px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
     <h2>Musher Progress</h2>
       <ResponsiveContainer>
         <LineChart width={300} height={300} margin={{top: 50, right: 30, left: 50, bottom: 100}}>
-       
+          <XAxis dataKey="dist" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
+            <Label value="Distance (km)" offset={-15} position="insideBottom" />
+          </XAxis>
 
-            <XAxis dataKey="dist" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
-              <Label value="Distance (km)" offset={-15} position="insideBottom" />
-            </XAxis>
+          <YAxis type="category" dataKey="bib" name={payload.name} domain={[20, 0]}>
+            <Label value="Musher Bib #" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
+          </YAxis>
 
-            <YAxis type="category" dataKey="bib" name={payload.name} domain={[20, 0]}>
-              <Label value="Musher Bib #" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
-             </YAxis>
-
-             <Tooltip content={<CustomTooltip />}/>
+          <Tooltip content={<CustomTooltip />}/>
           
-              {series.map(s => (
-                <Line dataKey="bib" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_name} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 5}}/>
-              ))}
+        {series.map(s => (
+          <Line dataKey="bib" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_name} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 5}}/>
+        ))}
 
-              <Line datakey="bib">
-              {series.map((entry, index) => {
-                return <Cell fill={experienceFilter.experience  ? "#0c2639" : "#c3d8ec"}/>
-              })}
-              </Line>
+        <Line datakey="bib">
+          {series.map((entry, index) => {
+            return <Cell fill={experienceFilter.experience  ? "#0c2639" : "#c3d8ec"}/>
+          })}
+        </Line>
           
             <ReferenceLine x={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine x={159.8} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
