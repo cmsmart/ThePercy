@@ -4,24 +4,21 @@ import { ComposedChart, Bar, XAxis, YAxis, Tooltip, Label, Legend, ResponsiveCon
 
 import { generateYearsObject } from '../../utils/generateYears'
 
-
 const generateRunTimesData = (data, initialYear, id) => {
 
   // Create an array of all wintimes
-  const winningTime = []
-  data.map((result) => {
-      if (result.standing === "1") {
-          winningTime.push(Object.assign({}, {'wintime': parseFloat((result.run_time).replace(/:/gi, '.')), 'year': result.year, 'race': result.race}))
-      }
-      return winningTime
-  })
+    const winningTime = []
+    data.map((result) => {
+        if (result.standing === "1") {
+            winningTime.push(Object.assign({}, {'wintime': parseFloat((result.run_time).replace(/:/gi, '.')), 'year': result.year, 'race': result.race}))
+        }
+        return winningTime
+    })
 
-  // Create an array of objects mapping individual musher runtimes with race wintimes
-//   let filteredArray = data.filter((datum) => ((datum.musher_id === id)) && (datum.race === 'Percy'))
-  let filteredArray = data.filter((datum) => (datum.musher_id === id))
-  let years = generateYearsObject(initialYear)
-  
-  filteredArray.map((musher) => {
+    let filteredArray = data.filter((datum) => (datum.musher_id === id))
+    let years = generateYearsObject(initialYear)
+    
+    filteredArray.map((musher) => {
 
     // Deal with irregular runtime results 
     const runtime = (time) => {
@@ -37,17 +34,16 @@ const generateRunTimesData = (data, initialYear, id) => {
             year = Object.assign({}, year, { 'runtime': runtime(musher.run_time), 'race': musher.race, 'standing': musher.standing, 'win': win.wintime, 'time_status': musher.runtime })
           }
           return year
-        })
-      }
-      return year
-    })
-  })
-
-  return years
+      })
+  }
+  return year
+})
+})
+return years
 }
 
 
-export class CustomTooltip extends Component {
+class CustomTooltip extends Component {
   render() {
       const { active } = this.props;
       const { payload, label } = this.props;
