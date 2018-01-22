@@ -50,7 +50,7 @@ export default class CurrentRacePage extends Component {
                     {!!this.state.mushers && <MushersContainer mushers={this.state.mushers} year={'2017'} race={'Percy' }/>}
                 </div>
 
-                <DashboardLineChart title="Race Progress Chart" />
+                <DashboardLineChart {...this.state} title="Race Progress Chart" />
 
                 <div className="outer-wrapper">
                     {!!this.state.tableData && <TableContainer tableClass={'live-data'} tableData={this.state.tableData} year={'2017'} race={'Percy'} /> }

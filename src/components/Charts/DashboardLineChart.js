@@ -1,22 +1,9 @@
-import React from "react";
-import { LineChart, Line, XAxis, YAxis,   CartesianGrid, Tooltip, Legend, ReferenceLine,   ResponsiveContainer, Label } from "recharts";
-import { getMushers } from "../../api/mushers";
+import React, { Component } from "react";
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine,   ResponsiveContainer, Label } from "recharts";
+// import { getMushers } from "../../api/mushers";
 import { compareObjectValues } from "../../utils/compareObjectValues";
 import { generateData } from "../../utils/generateLineChartData";
 import { event_updates } from "../../api/event_updates";
-
-let musher_ids = []
-
-const renderLegend = props => {
-  const { payload } = props;
-  return (
-    <ul className="legend">
-      {payload.map((entry, index) => (
-        <li key={`item-${index}`} style={{color: `${ColorArray[index]}`}}>{entry.value}</li>
-      ))}
-    </ul>
-  )
-}
 
 const ColorArray = [
   "#5f4b8b",
@@ -26,10 +13,60 @@ const ColorArray = [
   "#ad5e99",
   "#009473",
   "#dd4124"
-]
+];
+
+const renderLegend = props => {
+  const { payload, mushers } = props;
+  let name = ''
+  return (
+    <ul className="legend">
+      {payload.map((entry, index) => {
+        mushers.map(musher => {
+          if (musher.musher_id === entry.value) {
+            name = musher.musher
+          } 
+          return name
+        })
+        return <li key={`item-${index}`} style={{color: `${ColorArray[index]}`}}>{name}</li>
+      }
+      )}
+    </ul>
+  )
+}
+
+class CustomTooltip extends Component {
+  render() {
+    const { active } = this.props;
+    const { payload, mushers } = this.props;
+
+    const getMusherName = (id) => {
+      let name = ''
+      mushers.map(musher => {
+        if (musher.musher_id === id) {
+          name = musher.musher
+        }
+      })
+      return name
+    }
+
+    if (active && payload[0] !== undefined) {
+      return (
+        <div className="custom-tooltip">
+        <p className="label">Musher: {`${getMusherName(payload[0].name)}`}</p>
+          <p>Distance: {`${payload[0].payload.distance}`}kms</p>
+          <p>Time: {`${payload[0].payload.time} `}</p>  
+        </div>
+      );
+    }
+    return null;
+  }
+}
+
+
+ 
 
 const data = generateData(event_updates, "musher_id")
-console.log('event data:', data)
+// console.log('event data:', data)
 
 const DashboardLineChart = props => {
   	return <div className="line-chart-wrapper">
@@ -47,8 +84,8 @@ const DashboardLineChart = props => {
                 Distance (km)
               </Label>
             </YAxis>
-            <Tooltip />
-            <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
+            <Tooltip content={<CustomTooltip/>} {...props} />
+            <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} {...props} />
             {data.map((s, index) => (
               <Line
                 dataKey="distance"

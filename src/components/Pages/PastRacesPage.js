@@ -9,13 +9,15 @@ import { MushersContainer } from "../MushersContainer/index"
 import { TableContainer } from "../TableContainer/index"
 
 import { generateYears } from "../../utils/generateYears"
+import { getRaceDataByEvent } from '../../api/races';
 
 export default class PastRacesPage extends Component {
     state = { 
         mushers: null,
         tableData: null,
         year: '2017', 
-        race: 'Percy'
+        race: 'Percy',
+        raceData: null
     }
 
     componentDidMount = () => {
@@ -24,6 +26,9 @@ export default class PastRacesPage extends Component {
         })
         getMushers().then((res)=> {
             this.setState({ mushers: res })
+        })
+        getRaceDataByEvent(117).then((res) => {
+            this.setState({ raceData: res})
         })
     } 
 
@@ -36,6 +41,7 @@ export default class PastRacesPage extends Component {
     };
 
     render = () => {
+        console.log("past race data ", this.state.raceData)
         return (
             !!this.state.mushers && !!this.state.tableData && 
             <main className="dashboard">
