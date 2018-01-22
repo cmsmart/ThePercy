@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Referenc
 import { event_ids } from "../../api/event_id"
 import { compareObjectValues } from "../../utils/compareObjectValues"
 import { generateData } from '../../utils/generateLineChartData'
-import { getRaceDataByMusher } from "../../api/races";
+// import { getRaceDataByMusher } from "../../api/races";
 
 const renderLegend = props => {
   const { payload } = props;
@@ -15,9 +15,10 @@ const renderLegend = props => {
           if (event.event_id === entry.value) {
             EventColor.map(e => {
               if (e.event_id === entry.value) {
-                return (backgroundColor = `${e.lineColor}`);
+                backgroundColor = `${e.lineColor}`
               }
-            });
+              return backgroundColor
+            })
             return (
               <li
                 key={`item-${index}`}
@@ -32,6 +33,21 @@ const renderLegend = props => {
     </ul>
   );
 };
+
+const CustomTooltip =() => {
+   const { active } = this.props;
+   if (active) {
+     const { payload, label, name } = this.props;
+     console.log('payload: ', payload, 'label: ', label, 'name: ', name)
+     return (
+       console.log(payload),
+       <div className="custom-tooltip">
+       <p className="label"> { ` Bib (${payload[0].value}), Distance: ${label}, Time: ${payload[0].payload.time} `}</p>  
+       </div>
+     )
+   }
+  return null;
+}
 
 const EventColor = [
   { event_id: 119, lineColor: "#5f4b8b" },
@@ -60,7 +76,7 @@ const MusherLineChart = props => {
           <YAxis dataKey="dist" type="number" allowDuplicatedCategory={false} domain={[0, 340]} ticks={[80.4, 159.8, 239.2, 320]}>
             <Label angle={-90} offset={-10} position="insideLeft" style={{ textAnchor: "middle" }}>Distance (km)</Label>
           </YAxis>
-          {/* <Tooltip /> */}
+          <Tooltip content={<CustomTooltip/>}/>
           <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
           {data.map(s => <Line // {...props}
               dataKey="distance" data={s.data
