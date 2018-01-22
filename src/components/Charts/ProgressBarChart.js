@@ -137,9 +137,31 @@ const series = [
     }
 
 
+class CustomTooltip extends Component {
+  render() {
+   const { active } = this.props;
+      if (active) {
+        const { payload, label, name } = this.props;
+        return (
+          console.log(payload),
+          <div className="custom-tooltip">
+          <p className="label"> { ` Bib (${payload[0].value}), Distance: ${label}, Time: ${payload[0].payload.time} `}</p>  
+          <p className="label"> { ` Distance: ${label}`}</p> 
+          <p className="label"> { ` Time: ${payload[0].payload.time} `}</p>  
+          </div>
+              
+            );
+          }
+        return null;
+        }
+      }
+
 class ProgressBarChart extends Component{
   render () {
     const payload = this.props;
+
+ 
+
   return (
     <div className="area-chart-wrapper" style={{ width: '85%', height: "500px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
     <h2>Musher Progress</h2>
@@ -154,6 +176,8 @@ class ProgressBarChart extends Component{
             <YAxis type="category" dataKey="bib" name={payload.name} domain={[20, 0]}>
               <Label value="Musher Bib #" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
              </YAxis>
+
+             <Tooltip content={<CustomTooltip />}/>
           
               {series.map(s => (
                 <Line dataKey="bib" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_name} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 5}}/>
