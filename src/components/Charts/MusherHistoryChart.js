@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-import { ComposedChart, Bar, Line, XAxis, YAxis, Tooltip, Label, Legend, ResponsiveContainer } from 'recharts'
-
-import { getPastMushers } from '../../api/pastmushers'
+import { ComposedChart, Bar, XAxis, YAxis, Tooltip, Label, Legend, ResponsiveContainer } from 'recharts'
 
 import { generateYearsObject } from '../../utils/generateYears'
 
@@ -27,7 +25,7 @@ const generateRunTimesData = (data, initialYear, id) => {
 
     // Deal with irregular runtime results 
     const runtime = (time) => {
-      return (time === "unknown") || time === "scratched" ? musher.run_time : musher.runtime = parseFloat((time).replace(/:/gi, '.'))
+      return (time === "unknown") || (time.toLowerCase()) === "scratched" ? musher.run_time : musher.runtime = parseFloat((time).replace(/:/gi, '.'))
     }
    
     // Map over years array to find years the musher ran
@@ -45,11 +43,32 @@ const generateRunTimesData = (data, initialYear, id) => {
     })
   })
 
-  // start musher chart history at musher's first race
-//   const firstYear = (filteredArray.slice(-1)[0])
-//   const musherRaceYears = years.filter((datum) => (datum.year >= firstYear.year))
-//   return musherRaceYears
   return years
+}
+
+
+export class CustomTooltip extends Component {
+  render() {
+      const { active } = this.props;
+      const { payload, label } = this.props;
+      const runtime = () => {
+        const mytime = (payload[0].payload.runtime)
+        return ((typeof mytime) !== "string") ? mytime.toFixed(2) : mytime.toLowerCase()
+      }
+
+      if (active && (payload[0] !== undefined)) {
+          return (
+              <div className="custom-tooltip">
+                  <p className="label">{`${label}`}</p>
+                  <p className="label">{`Run time: ${runtime()}`}</p>
+                  <p className="label">{`Standing: ${payload[0].payload.standing}`}</p>
+                  <p className="label">{`Winning time: ${(payload[0].payload.win).toFixed(2)}`}</p>
+              </div>
+              
+      );
+    }
+  return null;
+  }
 }
 
 export const MusherHistoryChart = (props) => {
@@ -59,16 +78,16 @@ export const MusherHistoryChart = (props) => {
         <div className="Composed-chart-wrapper" style={{height: '400px'}}>
               <ResponsiveContainer padding="1rem">
                   <ComposedChart height={300} data={generateRunTimesData(props.pastData, props.year, props.id)} margin={{top: 30, right: 30, left: 50, bottom: 30}}>
-                      <XAxis dataKey="year" >
-                        <Label value="Year" offset={-15} position="insideBottom"/>
-                      </XAxis>
-                      <YAxis>
-                        <Label value="Time (hours)" angle={-90} offset={-35} position="insideLeft"/> 
-                      </YAxis>
-                      <Tooltip cursor={{fill: "eee"}} />
-                      <Legend verticalAlign="top" align="right" />
-                      <Bar dataKey="runtime" stackId="a" className="percy_bar" barSize={20} />
-                      <Line type='linear' dataKey='win' stroke='none' dot={{ fill: 'red', stroke: 'red' }} isAnimationActive={false}/>
+                    <XAxis dataKey="year" >
+                      <Label value="Year" offset={-15} position="insideBottom"/>
+                    </XAxis>
+                    <YAxis>
+                      <Label value="Time (hours)" angle={-90} position="insideLeft"/> 
+                    </YAxis>
+                    <Tooltip content={<CustomTooltip />} cursor={{fill: "eee"}} />
+                    <Legend verticalAlign="top" align="right" />
+                    <Bar dataKey="runtime" name="Run time" fill={props.colour}  barSize={15} />
+                    <Bar dataKey="win" name="Winning time" fill={props.colour_win} barSize={15} />                  
                   </ComposedChart>
               </ResponsiveContainer>
           </div>

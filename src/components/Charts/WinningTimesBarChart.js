@@ -25,7 +25,7 @@ export class CustomTooltip extends Component {
             return (
                 <div className="custom-tooltip">
                     <p className="label">{`${label}`}</p>
-                    <p className="label">{`Run time: ${payload[0].payload.run_time}`}</p>
+                    <p className="label">{`Run time: ${(payload[0].payload.run_time).toFixed(2)}`}</p>
                     <p className="label">{`Winner: ${payload[0].payload.name}`}</p>
                 </div>
         );
