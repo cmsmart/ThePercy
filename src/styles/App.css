@@ -86,6 +86,9 @@ nav {
 .junior_bar {
   fill: #b5b991; }
 
+.recharts-layer {
+  cursor: pointer; }
+
 .custom-tooltip {
   margin: 0px;
   padding: 10px;
