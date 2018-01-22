@@ -8,6 +8,32 @@ import { MushersContainer } from '../MushersContainer/index'
 import ProgressBarChart from '../Charts/ProgressBarChart'
 import { TableContainer } from '../TableContainer/index'
 import TimerContainer from '../TimerContainer/index'
+import { BibLegendList } from '../BibLegendList'
+import { filterData } from '../../utils/filterData'
+
+const musherBibHeadings = ['Bib', 'Name']
+
+
+const generateBibListData = (data) => {
+    let bibListData = data.map((datum) => (
+        datum = { 
+            musher: datum.musher,
+            bib: datum.bib
+        }
+    ))
+    return bibListData
+}
+
+const BibListContainer = (props) => {
+    return (
+        <div className="table-container">
+            <h2>{props.children}</h2>
+            <BibLegendList tableClass={props.tableClass} data={generateBibListData(filterData(props.bibListData, props.year, props.race))} headings={musherBibHeadings} />
+        </div>
+    )
+}
+
+
 
 export default class CurrentRacePage extends Component {    
     state = {
@@ -29,7 +55,9 @@ export default class CurrentRacePage extends Component {
         'Finish', 
         'Total Run Time' 
     ]
-  
+
+    musherBibHeadings = ['Bib', 'Name']
+      
     componentDidMount = () => {
         getUpdates().then((res) => {
             this.setState({ tableData: res })
@@ -42,9 +70,12 @@ export default class CurrentRacePage extends Component {
     render = () => {
         return (
             !!this.state.tableData && !!this.state.mushers && <main className="dashboard">
-                <TimerContainer />
+
+            {!!this.state.bibLegendData && <BibLegendList tableClass={'live-data'} tableData={this.state.tableData} year={'2017'} race={'Percy'} /> }
 
                 <ProgressBarChart title="Progress Bar Chart" />
+
+                <TimerContainer />
                 
                 <div class="outer-wrapper">
                     {!!this.state.mushers && <MushersContainer mushers={this.state.mushers} year={'2017'} race={'Percy' }/>}

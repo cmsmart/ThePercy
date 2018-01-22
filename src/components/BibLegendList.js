@@ -1,16 +1,18 @@
 import React from 'react';
 
-const mapNameToBibTable = (headings) => (
+const musherBibHeadings = ['Bib', 'Name']
+
+const mapNameToBibList = (headings) => (
     <tr>
         {
-            headings.map((heading, index) => (
-                <th key={index[1]}>{heading}</th>
+            musherBibHeadings.map((headings, index) => (
+                <th key={index[1]}>{headings}</th>
             ))
         }
     </tr>
 )
 
-const mapDataToNameTable = (data) => (
+const mapDataToBibList = (data) => (
     Object.keys(data).map((level1, index) => (
         <tr key={index}>
             {
@@ -23,18 +25,14 @@ const mapDataToNameTable = (data) => (
 )
 
 export const BibLegendList = (props) => {
-    const classes = `${props.classname} table table-hover table-responsive`;
     return (
-        <div className="outer-wrapper">
-            <h2>Bib Numbers</h2>
-            <table className={ classes } >
-                <thead>
-                    {mapNameToBibTable(props.headings)}
-                </thead>
-                <tbody>
-                    {props.data && mapDataToNameTable(props.data)}
-                </tbody>
-            </table>
-        </div>
+        <table className={ `${props.classname} table table-hover table-responsive` } >
+            <thead>
+                <tr>{mapNameToBibList(props.headings)}</tr>
+            </thead>
+            <tbody>
+                {props.data && mapDataToBibList(props.data)}
+            </tbody>
+        </table>
     )
 }
