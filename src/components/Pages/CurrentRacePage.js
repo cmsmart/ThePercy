@@ -17,8 +17,8 @@ const musherBibHeadings = ['Bib', 'Name']
 const generateBibListData = (data) => {
     let bibListData = data.map((datum) => (
         datum = { 
-            musher: datum.musher,
-            bib: datum.bib
+            bib: datum.bib,
+            musher: <a href={`/mushers/${datum.musher_id}`}> { datum.musher} </a>
         }
     ))
     return bibListData
@@ -57,7 +57,7 @@ export default class CurrentRacePage extends Component {
     ]
 
     musherBibHeadings = ['Bib', 'Name']
-      
+
     componentDidMount = () => {
         getUpdates().then((res) => {
             this.setState({ tableData: res })

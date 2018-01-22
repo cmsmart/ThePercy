@@ -136,6 +136,7 @@ const series = [
         return experienceArray
     }
 
+
 class ProgressBarChart extends Component{
   render () {
     const payload = this.props;
