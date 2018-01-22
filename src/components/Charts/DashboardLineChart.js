@@ -1,5 +1,38 @@
-import React, { Component } from 'react'
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from 'recharts'
+import React from "react";
+import { LineChart, Line, XAxis, YAxis,   CartesianGrid, Tooltip, Legend, ReferenceLine,   ResponsiveContainer, Label } from "recharts";
+import { getMushers } from "../../api/mushers";
+import { compareObjectValues } from "../../utils/compareObjectValues";
+
+let musher_ids = []
+getMushers()
+  .then((res) => {
+    musher_ids = res
+  })
+
+const renderLegend = props => {
+  const { payload } = props;
+  let backgroundColor = "";
+  return (
+    <ul className="legend">
+      {payload.map((entry, index) =>
+        musher_ids.map(musher => {
+          if (musher.musher_id === entry.value) {
+            NameColor.map(e => {
+              if (e.name === entry.value) {
+                return (backgroundColor = `${e.lineColor}`);
+              }
+            });
+            return (
+              <li key={`item-${index}`} style={{ color: `${backgroundColor}` }}>
+                {musher.name}
+              </li>
+            );
+          }
+        })
+      )}
+    </ul>
+  );
+};
 
 const series = [
   {name: 'Cho', data: [
@@ -27,86 +60,6 @@ const series = [
   ]},
 ];
 
-const RenderLegend = () => {
-  return <div style={{
-    color: "#191919",
-    display: "inline-block",
-    padding: "0.3rem 1.2rem",
-  }}>
-  <p style={{
-    padding: "0.3rem 1.2rem",
-    textAnchor: "middle",
-    margin: "0",
-    fontSize: "0.8rem",
-    textAlign: "center",
-    fontWeight: "bold"
-  }}>Legend</p>
-  <p style={{
-    backgroundColor: "#5f4b8b",
-    color: "#fff",
-    padding: "0.25rem 0.6rem",
-    margin: "0.05rem",
-    textAnchor: "middle",
-    fontSize: "0.4rem",
-    textAlign: "center"
-  }}>Cho</p>
-  <p style={{
-    textAlign: "center",
-    color: "#fff",
-    backgroundColor: "#88b04b",
-    fontSize: "0.4em",
-    padding: "0.25rem 0.6rem",
-    textAnchor: "middle",
-    margin: "0.05rem"
-  }}>Hannah</p>
-  <p style={{
-    backgroundColor: "#91a8d0",
-    color: "#fff",
-    padding: "0.25rem 0.6rem",
-    margin: "0.05rem",
-    textAnchor: "middle",
-    fontSize: "0.4rem",
-    textAlign: "center"
-  }}>Carl</p>
-  <p style={{
-    backgroundColor: "#964f4c",
-    color: "#fff",
-    padding: "0.25rem 0.6rem",
-    margin: "0.05rem",
-    textAnchor: "middle",
-    fontSize: "0.4rem",
-    textAlign: "center"
-  }}>Gretchen</p>
-  <p style={{
-    textAlign: "center",
-    color: "#fff",
-    backgroundColor: "#ad5e99",
-    fontSize: "0.4rem",
-    padding: "0.25rem 0.6rem",
-    textAnchor: "middle",
-    margin: "0.05rem"
-  }}>George</p>
-  <p style={{
-    backgroundColor: "#009473",
-    color: "#fff",
-    padding: "0.25rem 0.6rem",
-    margin: "0.05rem",
-    textAnchor: "middle",
-    fontSize: "0.4rem",
-    textAlign: "center"
-  }}>Julia</p>
-   <p style={{
-    backgroundColor: "#dd4124",
-    color: "#fff",
-    padding: "0.25rem 0.6rem",
-    margin: "0.05rem",
-    textAnchor: "middle",
-    fontSize: "0.4rem",
-    textAlign: "center"
-  }}>Nick</p>
-  </div>
-}
-
 const NameColor = [
   {name: "Cho", lineColor: "#5f4b8b"},
   {name: "Hannah", lineColor: "#88b04b"},
@@ -117,10 +70,8 @@ const NameColor = [
   {name: "Nick", lineColor: "#dd4124"}
 ]
 
-class DashboardLineChart extends Component {
-	render () {
-  	return (
-      <div className="Line-chart-wrapper" style={{ width: "45%", height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
+const DashboardLineChart = props => {
+  	return <div className="Line-chart-wrapper" style={{ width: "45%", height: "400px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }}>
       <ResponsiveContainer padding="1rem">
         <LineChart width={300} height={300} margin={{top: 30, right: 30, left: 50, bottom: 50}}>
           <CartesianGrid strokeDasharray="3 3" horizontal={false}/>
@@ -131,7 +82,7 @@ class DashboardLineChart extends Component {
             <Label angle={-90} offset={-10} position="insideLeft" style={{ textAnchor: 'middle' }}/> 
           </YAxis>
           <Tooltip/>
-          <Legend layout="vertical" verticalAlign="bottom" align="left" content={RenderLegend} />
+          <Legend layout="vertical" verticalAlign="bottom" align="left" content={renderLegend} />
           {series.map(s => (
             <Line dataKey="dist" data={s.data} name={s.name} key={s.name} type="natural"/> 
           ))}
@@ -145,7 +96,7 @@ class DashboardLineChart extends Component {
         </LineChart>
       </ResponsiveContainer>
       </div>
-    )}
-}
+    }
+
 
 export default DashboardLineChart

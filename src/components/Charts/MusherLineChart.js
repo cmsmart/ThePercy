@@ -1,8 +1,6 @@
 import React from "react"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label } from "recharts"
-
 import { event_ids } from "../../api/event_id"
-
 import { compareObjectValues } from "../../utils/compareObjectValues"
 
 const renderLegend = props => {
@@ -59,7 +57,7 @@ const MusherLineChart = props => {
               Distance (kms)
             </Label>
           </YAxis>
-          <Tooltip />
+          {/* <Tooltip /> */}
           <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
           {props.data.map(s => (
             <Line
@@ -77,7 +75,7 @@ const MusherLineChart = props => {
               name={event.event_id}
             />
           ))}
-          <ReferenceLine y={80.4} stroke="#0C2639" strokeWidth="2" label={{ position: "top", value: "Fortymile Inbound", fontSize: "0.8em", scaleToFit: true }} />
+          <ReferenceLine y={80.4} stroke="#0C2639" label={{ position: "top", value: "Fortymile Inbound", fontSize: "0.8em", scaleToFit: true }} />
           <ReferenceLine y={159.87} stroke="#0C2639" label={{ position: "top", value: "Eagle", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
           <ReferenceLine y={240.27} stroke="#0C2639" label={{ position: "top", value: "Fortymile Outbound", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
           <ReferenceLine y={338} stroke="#0C2639" label={{ position: "top", value: "Finish Dawson", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />

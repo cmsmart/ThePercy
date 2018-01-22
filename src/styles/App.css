@@ -378,8 +378,7 @@ button {
   overflow: hidden;
   justify-content: center;
   align-self: center;
-  margin: 10px;
-  border: 2px solid #0C2639; }
+  margin: 10px; }
   .avatar img {
     margin: 0 auto;
     object-fit: scale-down;

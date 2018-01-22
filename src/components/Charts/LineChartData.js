@@ -169,25 +169,19 @@ const generateKeyArray = (data, filterKey) => {
 }
 
 const generateDataStructure = (data, id, key) => {
-  // dataArray = [ {id : props.match.params.id, data: [ ]}]
-  // map over the data array passed in, and for each object in the array
     let dataArray = []
     data.forEach((datum) => {
         if (datum[key] === id) {
-            // Create a new object that adds distance and time key-value pairs to whatever already exists in the dataArray2
             return dataArray = [ ...dataArray, { distance: (datum.run_dist/1000), time: datum.hours } ];
         }
     })
-    // Add what you've mapped to a new Array that also holds the ID key-value pair
     return dataArray
 }
 
 const generateData = (data, key) => {
     let filteredData = generateKeyArray(data, key)
     filteredData = filteredData.map((object) => {
-        // if (object[key] === ) {
             return object = Object.assign({}, object, { data: generateDataStructure(data, object[key], key)} )
-        // }
     })
     return filteredData 
 }

@@ -25,7 +25,7 @@ export default class MusherPage extends Component {
                     <h1>{this.state.musher.musher}</h1>
                     <InfoContainer src={this.state.musher.profile_image} residence={this.state.musher.residence} />
                 </div> }
-                <LineChartData />
+                <LineChartData {...this.state.musher}/>
                 <MusherHistoryChart />
             </div>
         )
