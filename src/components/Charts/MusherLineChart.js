@@ -52,7 +52,7 @@ const MusherLineChart = props => {
       <ResponsiveContainer padding="1rem">
         <LineChart margin={{ top: 40, right: 20, left: 30, bottom: 90 }}>
           <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-          <XAxis dataKey="time" type="number" domain={[0, 50]} ticks={[10, 20, 30, 40, 50]}>
+          <XAxis dataKey="time" type="number" domain={[0, 42]} ticks={[10, 20, 30, 40, 50]}>
             <Label offset={-25} position="insideBottom">
               Time
             </Label>
@@ -75,10 +75,10 @@ const MusherLineChart = props => {
               name={event.event_id}
             />
           ))}
-          <ReferenceLine y={80.4} stroke="#0C2639" label={{ position: "top", value: "Fortymile Inbound", fontSize: "0.8em", scaleToFit: true }} />
-          <ReferenceLine y={159.87} stroke="#0C2639" label={{ position: "top", value: "Eagle", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
-          <ReferenceLine y={240.27} stroke="#0C2639" label={{ position: "top", value: "Fortymile Outbound", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
-          <ReferenceLine y={338} stroke="#0C2639" label={{ position: "top", value: "Finish Dawson", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
+          <ReferenceLine y={80.4} stroke="#0C2639" label={{ position: "insideTopRight", value: "Fortymile Inbound", fontSize: "0.8em", scaleToFit: true }} />
+          <ReferenceLine y={159.87} stroke="#0C2639" label={{ position: "insideTopRight", value: "Eagle", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
+          <ReferenceLine y={240.27} stroke="#0C2639" label={{ position: "insideTopRight", value: "Fortymile Outbound", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
+          <ReferenceLine y={338} stroke="#0C2639" label={{ position: "insideTopRight", value: "Finish Dawson", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
         </LineChart>
       </ResponsiveContainer>
     </div>;

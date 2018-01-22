@@ -43,7 +43,6 @@ export default class PastRacesPage extends Component {
                     <Dropdown data={generateYears(2012)} handleSelection={this.handleYearSelection} />
                     <Dropdown data={['Percy', 'Percy Junior']} handleSelection={this.handleRaceSelection} />
                 </div>
-                <div>{this.state.year}</div>
                 <MushersContainer mushers={this.state.mushers} year={this.state.year} race={this.state.race} />
                 <DashboardLineChart {...this.state} title="Race Progress Chart" />
                 <TableContainer tableClass={'live-data'} tableData={this.state.tableData} year={this.state.year} race={this.state.race} />
