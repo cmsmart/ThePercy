@@ -4,7 +4,7 @@ import { getMusherByID } from '../../api/mushers'
 import { getPastMushers } from '../../api/pastmushers'
 
 import { InfoContainer } from '../InfoContainer'
-import LineChartData from '../Charts/LineChartData'
+import MusherLineChart from '../Charts/MusherLineChart'
 import { MusherHistoryChart } from '../Charts/MusherHistoryChart'
 
 export default class MusherPage extends Component {
@@ -33,7 +33,7 @@ export default class MusherPage extends Component {
                     <h1>{this.state.musher.musher}</h1>
                     <InfoContainer src={this.state.musher.profile_image} residence={this.state.musher.residence} />
                 </div>
-                <LineChartData />
+                <MusherLineChart />
 
                 {this.state.pastData.some((datum) => datum.musher_id === this.props.match.params.id && datum.race === 'Percy') && <MusherHistoryChart  colour={'#70a494'} colour_win={'#b4c8a8'}  pastData={this.state.pastData.filter((datum) => datum.race === 'Percy')} year={parseInt(this.state.pastData.filter((datum) => datum.musher_id === this.props.match.params.id).slice(-1)[0].year, 10)} id={this.props.match.params.id}>Win Times - Percy</MusherHistoryChart>}
 
