@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label } from "recharts"
 import { event_ids } from "../../api/event_id"
 import { compareObjectValues } from "../../utils/compareObjectValues"
@@ -34,33 +34,33 @@ const renderLegend = props => {
   );
 };
 
-class CustomTooltip extends Component {
-  render() {
-    const { active } = this.props;
-    const { payload, mushers } = this.props;
+// class CustomTooltip extends Component {
+//   render() {
+//     const { active } = this.props;
+//     const { payload, mushers } = this.props;
 
-    const getEventName = id => {
-      let eventName = "";
-      event_ids.map(event => {
-        if (musher.musher_id === id) {
-          name = musher.musher;
-        }
-      });
-      return name;
-    };
+//     const getEventName = id => {
+//       let eventName = "";
+//       event_ids.map(event => {
+//         if (musher.musher_id === id) {
+//           name = musher.musher;
+//         }
+//       });
+//       return name;
+//     };
 
-    if (active && payload[0] !== undefined) {
-      return (
-        <div className="custom-tooltip">
-          <p className="label">Year: {`${getMusherName(payload[0].name)}`}</p>
-          <p>Distance: {`${payload[0].payload.distance}`}kms</p>
-          <p>Time: {`${payload[0].payload.time} `}</p>
-        </div>
-      );
-    }
-    return null;
-  }
-}
+//     if (active && payload[0] !== undefined) {
+//       return (
+//         <div className="custom-tooltip">
+//           <p className="label">Year: {`${getMusherName(payload[0].name)}`}</p>
+//           <p>Distance: {`${payload[0].payload.distance}`}kms</p>
+//           <p>Time: {`${payload[0].payload.time} `}</p>
+//         </div>
+//       );
+//     }
+//     return null;
+//   }
+// }
 
 const EventColor = [
   { event_id: 119, lineColor: "#5f4b8b" },
@@ -89,7 +89,9 @@ const MusherLineChart = props => {
           <YAxis dataKey="dist" type="number" allowDuplicatedCategory={false} domain={[0, 340]} ticks={[80.4, 159.8, 239.2, 320]}>
             <Label angle={-90} offset={-10} position="insideLeft" style={{ textAnchor: "middle" }}>Distance (km)</Label>
           </YAxis>
-          <Tooltip content={<CustomTooltip/>}/>
+          <Tooltip 
+          // content={<CustomTooltip/>}
+          />
           <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
           {data.map(s => <Line // {...props}
               dataKey="distance" data={s.data

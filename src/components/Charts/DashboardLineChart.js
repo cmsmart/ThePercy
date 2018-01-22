@@ -84,7 +84,9 @@ const DashboardLineChart = props => {
                 Distance (km)
               </Label>
             </YAxis>
-            <Tooltip content={<CustomTooltip/>} {...props} />
+            <Tooltip 
+            content={<CustomTooltip/>} {...props} 
+            />
             <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} {...props} />
             {data.map((s, index) => (
               <Line
