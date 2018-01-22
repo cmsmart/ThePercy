@@ -123,7 +123,6 @@ const series = [
         ]},
       ];
 
-
  const  experienceFilter = (mushers, pastmushers) => {
         let experienceArray = []
         mushers.map((datum) => {
@@ -136,7 +135,6 @@ const series = [
         })
         return experienceArray
     }
-
 
 class ProgressBarChart extends Component{
   render () {

@@ -28,3 +28,15 @@
 .junior_bar {
     fill:  #b5b991;
 }
+
+.recharts-layer  {
+    cursor: pointer; 
+}
+
+.custom-tooltip {
+    margin: 0px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(204, 204, 204);
+    white-space: nowrap;
+}

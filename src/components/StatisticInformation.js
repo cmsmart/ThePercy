@@ -4,11 +4,11 @@ const generateListItems = (data, id, value) => (
     <ul>
         {data.map((datum, index) => (
             <li key={index}>
-                <span>{datum[id]}</span> |
-                <span>{datum[value]}</span>
+                <span className="top_name">{datum[id]}</span> |
+                <span className="top_data">{datum[value]}</span>
                 {!!datum.year && 
                 <Fragment>
-                     | <span>{datum.year}</span>
+                    &nbsp;hrs in <span>{datum.year}</span>
                 </Fragment>}
             </li>
         ))}
