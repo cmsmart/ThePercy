@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-
 import { getMusherByID } from '../../api/mushers'
-
 import { InfoContainer } from '../InfoContainer'
-import LineChartData from '../Charts/LineChartData'
 import MusherHistoryChart from '../Charts/MusherRaceHistory'
+import MusherLineChart from '../Charts/MusherLineChart';
 
 export default class MusherPage extends Component {
     state = {
@@ -25,7 +23,8 @@ export default class MusherPage extends Component {
                     <h1>{this.state.musher.musher}</h1>
                     <InfoContainer src={this.state.musher.profile_image} residence={this.state.musher.residence} />
                 </div> }
-                <LineChartData {...this.state.musher}/>
+                <MusherLineChart {...this.state.musher}/>
+                {/* <LineChartData {...this.state.musher}/> */}
                 <MusherHistoryChart />
             </div>
         )

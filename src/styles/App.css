@@ -184,10 +184,13 @@ nav {
     padding: 0.25rem 0rem;
     margin: 0.05rem;
     list-style: circle;
-    color: #F8F8F8;
     text-anchor: middle;
     font-size: 0.6rem;
     text-align: center; }
+
+.ResponsiveContainer {
+  padding: 1rem;
+  height: 500px; }
 
 html, body {
   width: 100%;
