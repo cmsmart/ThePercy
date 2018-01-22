@@ -41,9 +41,14 @@ export const MusherInformation = (props) => {
                 <h4>Age: {}</h4>
                 {!!props.musher.residence && <h4>Hometown: {props.musher.residence}</h4>}
                 {!!dataForMusher.some((datum) => datum.race === 'Percy') && <Fragment>
-                    <h4>Times Run (Percy): {percyInformation[0]}</h4>
-                    <h4>Best Standing (Percy): {percyInformation[1]}</h4>
-                    <h4>Best Finish Time (Percy): {percyInformation[2]}</h4>
+                    <div>
+                        <h4>The Percy</h4>
+                        <ul>
+                            <li>Times run: {percyInformation[0]}</li>
+                            <li>Best Finishing Position: {percyInformation[1]}</li>
+                            <li>Best Finish Time: {percyInformation[2]}</li>
+                        </ul>
+                    </div>
                 </Fragment>}
                 {!!dataForMusher.some((datum) => datum.race === 'Percy Junior') && <Fragment>
                     <h4>Times Run (Percy Junior): {percyJuniorInformation[0]}</h4>

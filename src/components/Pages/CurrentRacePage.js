@@ -42,8 +42,7 @@ export default class CurrentRacePage extends Component {
     render = () => {
         return (
             !!this.state.tableData && !!this.state.mushers && <main className="dashboard">
-                <TimerContainer />
-
+                
                 <ProgressBarChart title="Progress Bar Chart" />
                 
                 <div className="outer-wrapper">
@@ -53,7 +52,7 @@ export default class CurrentRacePage extends Component {
                 <DashboardLineChart title="Race Progress Chart" />
 
                 <div className="outer-wrapper">
-                    {!!this.state.tableData && <TableContainer tableClass={'live-data'} tableData={this.state.tableData} year={'2017'} race={'Percy'} /> }
+                    {!!this.state.tableData && <TableContainer tableClass={'live-data'} tableData={this.state.tableData} year={'2017'} race={'Percy'} >Race Updates - The Percy</TableContainer> }
                 </div>
             </main>
         )
