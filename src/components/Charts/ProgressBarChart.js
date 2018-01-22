@@ -168,14 +168,14 @@ class ProgressBarChart extends Component{
             <Label value="Distance (km)" offset={-15} position="insideBottom" />
           </XAxis>
 
-          <YAxis type="category" dataKey="bib" name={payload.name} domain={[20, 0]}>
+          <YAxis type="category" dataKey="bib" name={payload[0].payload.name} domain={[20, 0]}>
             <Label value="Musher Bib #" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
           </YAxis>
 
           <Tooltip content={<CustomTooltip />}/>
           
         {series.map(s => (
-          <Line dataKey="bib" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_name} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 5}}/>
+          <Line dataKey="bib" data={s.data} name={s.musher_name} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 5}}/>
         ))}
 
         <Line datakey="bib">
