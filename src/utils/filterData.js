@@ -7,7 +7,7 @@ export const filterData = (data, year, race, searchQuery = null) => {
         filteredData = filteredData.filter(result => result.race === race);
     }
     if (!!searchQuery) {
-        filteredData = filteredData.filter(result => (new RegExp(searchQuery)).test(result.musher));
+        filteredData = filteredData.filter(result => (new RegExp(searchQuery.toLowerCase())).test(result.musher.toLowerCase()));
     }
     filteredData = filteredData.filter((result, index, self) => (
         self.map(mapObject => mapObject["musher_id"]).indexOf(result["musher_id"]) === index

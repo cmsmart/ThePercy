@@ -5,7 +5,7 @@ import { Timer } from './Timer'
 
 export default class TimerContainer extends Component {
     state = {
-        timeRemaining: moment(1521741600) - moment().unix(), 
+        timeRemaining: moment(1521738000) - moment().unix(), 
     }
 
     tick = () => {

@@ -1,6 +1,6 @@
 .line-chart-wrapper {
   width: 100%; 
-  height: 400px; 
+  height: 500px; 
   background-color: $white; 
   // border: 0.2rem solid $navy; 
   box-sizing: border-box;
@@ -27,9 +27,14 @@
     padding: 0.25rem 0rem;
     margin: 0.05rem;
     list-style: circle;
-    color: $white;
+    // color: $white;
     text-anchor: middle;
     font-size: 0.6rem;
     text-align: center;
   }}
+
+  .ResponsiveContainer {
+    padding: 1rem; 
+    height: 500px;
+  }
 
