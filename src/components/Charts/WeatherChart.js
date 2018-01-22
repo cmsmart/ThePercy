@@ -4,19 +4,20 @@ import {BarChart, Bar, XAxis, YAxis,Tooltip, ReferenceLine, Label} from 'rechart
 import { ResponsiveContainer } from 'recharts';
 
 const data = [
-      {year: '2000', temperature: [4.8, -5.6] },
-      {year: '2001', temperature: [3.3, -17.2],},
-      {year: '2007', temperature: [-0.7, -12.1] },
-      {year: '2008', temperature: [-1, -25.8,]},
-      {year: '2009', temperature: [1.9, -13.1,]},
-      {year: '2010', temperature: [-7.3, -21.6,]},
-      {year: '2011', temperature: [2.6, -18]},
-      {year: '2012', temperature: [-9.3, -24.4]},
-      {year: '2013', temperature: [-3.4, -28.4]},
-      {year: '2014', temperature: [0.6, -23.2]},
-      {year: '2015', temperature: [6.9, -11,]},
-      {year: '2016', temperature: [7, -2.7]},
-      {year: '2017', temperature: [-4.5, -23.5]},
+      {year: '2000', day: '22 March', temperature: [4.8, -5.6] },
+      {year: '2001', day: '22 March', temperature: [3.3, -17.2],},
+      {year: '2002'},
+      {year: '2007', day: '22 March', temperature: [-0.7, -12.1] },
+      {year: '2008', day: '22 March', temperature: [-1, -25.8,]},
+      {year: '2009', day: '22 March', temperature: [1.9, -13.1,]},
+      {year: '2010', day: '22 March', temperature: [-7.3, -21.6,]},
+      {year: '2011', day: '22 March', temperature: [2.6, -18]},
+      {year: '2012', day: '22 March', temperature: [-9.3, -24.4]},
+      {year: '2013', day: '22 March', temperature: [-3.4, -28.4]},
+      {year: '2014', day: '22 March', temperature: [0.6, -23.2]},
+      {year: '2015', day: '22 March', temperature: [6.9, -11,]},
+      {year: '2016', day: '22 March', temperature: [7, -2.7]},
+      {year: '2017', day: '22 March', temperature: [-4.5, -23.5]},
 ];
 
 export default class WeatherChart extends Component {

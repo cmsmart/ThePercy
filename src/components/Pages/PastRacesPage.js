@@ -37,15 +37,16 @@ export default class PastRacesPage extends Component {
 
     render = () => {
         return (
+            !!this.state.mushers && !!this.state.tableData && 
             <main className="dashboard">
                 <div className='searchFilter'>
                     <Dropdown data={generateYears(2012)} handleSelection={this.handleYearSelection} />
                     <Dropdown data={['Percy', 'Percy Junior']} handleSelection={this.handleRaceSelection} />
                 </div>
                 <div>{this.state.year}</div>
-                {!!this.state.mushers && <MushersContainer mushers={this.state.mushers} year={this.state.year} race={this.state.race} />}
+                <MushersContainer mushers={this.state.mushers} year={this.state.year} race={this.state.race} />
                 <DashboardLineChart {...this.state} title="Race Progress Chart" />
-                {!!this.state.tableData && <TableContainer tableClass={'live-data'} tableData={this.state.tableData} year={this.state.year} race={this.state.race} /> }
+                <TableContainer tableClass={'live-data'} tableData={this.state.tableData} year={this.state.year} race={this.state.race} />
             </main>
         )
     }

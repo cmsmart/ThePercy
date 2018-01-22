@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 
 import { getPastMushers } from '../../api/pastmushers'
 
-import WinningTimesChart from '../Charts/WinningTimesChart'
-import WinningTimesChartJunior from '../Charts/WinningTimesChartJunior'
+import WeatherChart from '../Charts/WeatherChart'
+import { WinningTimesBarChart } from '../Charts/WinningTimesBarChart'
 
 import { StatisticInformation } from '../StatisticInformation'
-import WeatherChart from '../Charts/WeatherChart'
 
 import { compareObjectValues } from '../../utils/compareObjectValues'
 import { deduplicateAndCountObjectByKey } from '../../utils/deduplicateAndCountObjectByKey'
@@ -56,7 +55,7 @@ export default class StatisticsPage extends Component {
                     </section>
                     <section>
                         <h2>Percy Champions</h2>
-                        <p>Most races run</p>
+                        <p>Most races won</p>
                         <StatisticInformation data={getTopWins(this.state.data)} id='name' value='wins' />
                     </section>
                     <section>
@@ -65,8 +64,8 @@ export default class StatisticsPage extends Component {
                         <StatisticInformation data={getTopTimes(this.state.data, 'Percy')} id='name' value='time' />
                     </section>
                 </div>
-                <WinningTimesChart />
-                <WinningTimesChartJunior />
+                <WinningTimesBarChart colour={'#008080'} year={1981} data={this.state.data.filter((datum) => datum.standing === '1' && datum.race === 'Percy')}>Win Times - Percy</WinningTimesBarChart>
+                <WinningTimesBarChart colour={'#DE8A5A'} year={2002} data={this.state.data.filter((datum) => datum.standing === '1' && datum.race === 'Percy Junior')}>Win Times - Percy Junior</WinningTimesBarChart>
                 <WeatherChart />
             </div>
         )

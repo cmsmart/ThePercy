@@ -13,6 +13,6 @@ export const NavBar = (props) => {
         <NavItem path="/mushers" svg={teamsvg} title="Mushers" />
         <NavItem path="/statistics" svg={analyticssvg} title="Statistics" />
       </ul>
-    </nav>;
+    </nav>
 }
 
