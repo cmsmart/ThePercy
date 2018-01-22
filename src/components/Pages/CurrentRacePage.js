@@ -13,32 +13,12 @@ import { filterData } from '../../utils/filterData'
 
 const musherBibHeadings = ['Bib', 'Name']
 
-
-const generateBibListData = (data) => {
-    let bibListData = data.map((datum) => (
-        datum = { 
-            bib: datum.bib,
-            musher: <a href={`/mushers/${datum.musher_id}`}> { datum.musher} </a>
-        }
-    ))
-    return bibListData
-}
-
-const BibListContainer = (props) => {
-    return (
-        <div className="table-container">
-            <h2>{props.children}</h2>
-            <BibLegendList tableClass={props.tableClass} data={generateBibListData(filterData(props.bibListData, props.year, props.race))} headings={musherBibHeadings} />
-        </div>
-    )
-}
-
-
-
 export default class CurrentRacePage extends Component {    
     state = {
         tableData: null,
-        mushers: null
+        mushers: null,
+        data: null,
+        field: null
     }
 
     headings = [ 
@@ -67,11 +47,30 @@ export default class CurrentRacePage extends Component {
         })
     }
 
+    generateProgressBarBibLegend(data) {
+        let bibLegend = {}
+        bibLegend = data.map((datum) => {
+          return datum = {
+            bib: datum.bib,
+            musher: datum.musher
+          }
+        })
+        return bibLegend
+      }
+    
+    filterYear = (data) => {
+        let filteredData = data.filter((datum) => (
+          // datum.year === (new Date()).getFullYear()
+          datum.year === "2017"
+        ))
+        return filteredData
+      }
+
     render = () => {
         return (
             !!this.state.tableData && !!this.state.mushers && <main className="dashboard">
 
-            {!!this.state.bibLegendData && <BibLegendList tableClass={'live-data'} tableData={this.state.tableData} year={'2017'} race={'Percy'} /> }
+                {!!this.state.data && <BibLegendList className="musherbiblist" data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />}
 
                 <ProgressBarChart title="Progress Bar Chart" />
 
