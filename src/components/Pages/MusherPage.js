@@ -19,7 +19,7 @@ export default class MusherPage extends Component {
 
     render = () => {
         return (
-            !!this.state.msuher && 
+            !!this.state.musher && 
             <div className="musher-page">
                 <div>
                     <h1>{this.state.musher.musher}</h1>
