@@ -3,6 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Referenc
 import { event_ids } from "../../api/event_id"
 import { compareObjectValues } from "../../utils/compareObjectValues"
 import { generateData } from '../../utils/generateLineChartData'
+import { event_updates } from "../../api/event_updates";
 // import { getRaceDataByMusher } from "../../api/races";
 
 const renderLegend = props => {
@@ -74,7 +75,7 @@ const EventColor = [
 
 
 const MusherLineChart = props => {
-  const data = generateData({props}, "event_id")
+  const data = generateData(event_updates, "event_id")
   console.log('musher data: ', data)
   return <div className="line-chart-wrapper">
       <h3>Past Race Results</h3>

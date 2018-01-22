@@ -39,7 +39,7 @@ export default class MusherPage extends Component {
                 </div>
             {!!this.state.raceData &&
                 <div>
-                <MusherLineChart {...this.state.raceData}/>
+                <MusherLineChart {...this.state}/>
                 {console.log(this.state.raceData)}
                 </div>
                 }
