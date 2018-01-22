@@ -73,7 +73,7 @@ export default class MusherHistoryChart extends Component {
 
   
 	render () {
-    // console.log(this.state.data)
+    console.log(this.state.data)
     return (
       <div className="outer-wrapper">
         <h2>Race History - The Percy</h2>
