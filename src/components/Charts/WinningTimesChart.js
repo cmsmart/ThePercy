@@ -18,12 +18,32 @@ const generateWinningTimesData = (data) => {
     filteredArray.map((musher) => {
         return years = years.map((year) => {
             if (year.year === musher.year) {
-                year = Object.assign({}, year, { [musher.race]: parseFloat((musher.run_time).replace(/:/gi, '.')), Winner: musher.musher })
+                year = Object.assign({}, year, 
+                    { race: parseFloat((musher.run_time).replace(/:/gi, '.')), name: musher.musher }
+                )
             }
             return year
         })
     })   
     return years
+}
+
+export class CustomTooltip extends Component {
+    render() {
+        const { active } = this.props;
+        const { payload, label } = this.props;
+
+        if (active && (payload[0] != undefined)) {
+            return (
+                <div className="custom-tooltip">
+                    <p className="label">{`${label}`}</p>
+                    <p className="label">{`Run time : ${payload[0].payload.race}`}</p>
+                    <p className="label">{`Winner : ${payload[0].payload.name}`}</p>
+                </div>
+        );
+      }
+    return null;
+    }
 }
 
 export default class WinningTimesChart extends Component {
@@ -45,7 +65,7 @@ export default class WinningTimesChart extends Component {
           console.log(this.state.data)
           return (
               <div className="outer-wrapper">
-                <h2>Win Times - The Percy</h2>
+                <h2>Winning Times - The Percy</h2>
                     <div className="Composed-chart-wrapper rechart" style={{ height: '500px'}}>
                         <ResponsiveContainer padding="1rem">
                             <ComposedChart height={500} data={this.state.data}
@@ -56,8 +76,8 @@ export default class WinningTimesChart extends Component {
                                 <YAxis >
                                     <Label value="Time (hours)" angle={-90} position="insideLeft"/> 
                                 </YAxis>
-                                <Tooltip cursor={{fill: "eee"}} />
-                                <Bar dataKey="Percy" name="Win time" fill="#008080" className="percy_bar" barSize={15}/>
+                                <Tooltip content={<CustomTooltip />} cursor={{fill: "eee"}} />
+                                <Bar dataKey="race" name="Win time" fill="#008080" className="percy_bar" barSize={15}/>
                             </ComposedChart>
                         </ResponsiveContainer>
                     </div>

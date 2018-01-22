@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { mapsvg, dashboardsvg, dashboard_historicalsvg, teamsvg, analyticssvg } from '../../assets/icons'
+import { mapsvg, dashboardsvg, teamsvg, analyticssvg } from '../../assets/icons'
 
 import { NavItem } from './NavItem'
 

@@ -46,7 +46,7 @@ export default class WinningTimesChartJunior extends Component {
         console.log(this.state.data)
   	return (
         <div className="outer-wrapper">
-        <h2>Win Times - Percy Junior</h2>
+        <h2>Winning Times - Percy Junior</h2>
             <div className="Composed-chart-wrapper rechart" style={{ height: '500px'}}>
                 <ResponsiveContainer padding="1rem">
                     <ComposedChart height={500} data={this.state.data}
