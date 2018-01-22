@@ -34,19 +34,32 @@ const renderLegend = props => {
   );
 };
 
-const CustomTooltip =() => {
-   const { active } = this.props;
-   if (active) {
-     const { payload, label, name } = this.props;
-     console.log('payload: ', payload, 'label: ', label, 'name: ', name)
-     return (
-       console.log(payload),
-       <div className="custom-tooltip">
-       <p className="label"> { ` Bib (${payload[0].value}), Distance: ${label}, Time: ${payload[0].payload.time} `}</p>  
-       </div>
-     )
-   }
-  return null;
+class CustomTooltip extends Component {
+  render() {
+    const { active } = this.props;
+    const { payload, mushers } = this.props;
+
+    const getEventName = id => {
+      let eventName = "";
+      event_ids.map(event => {
+        if (musher.musher_id === id) {
+          name = musher.musher;
+        }
+      });
+      return name;
+    };
+
+    if (active && payload[0] !== undefined) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">Year: {`${getMusherName(payload[0].name)}`}</p>
+          <p>Distance: {`${payload[0].payload.distance}`}kms</p>
+          <p>Time: {`${payload[0].payload.time} `}</p>
+        </div>
+      );
+    }
+    return null;
+  }
 }
 
 const EventColor = [
@@ -59,11 +72,6 @@ const EventColor = [
   { event_id: 107, lineColor: "#dd4124" }
 ];
 
-<<<<<<< HEAD
-const data = generateData(event_updates, "event_id")
-// console.log('musher data: ', data)
-=======
->>>>>>> live-chart-data
 
 const MusherLineChart = props => {
   const data = generateData({props}, "event_id")
