@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
 import {compareObjectValues} from "../../utils/compareObjectValues";
+import { generateData } from '../../utils/generateLineChartData';
+import { event_updates } from '../../api/event_updates';
 //import { getMushers } from '../api/po_by_mushers'
 
 const series = [
   {name: 'Percy DeWolfe', data: [
-          {bib: '0', dist: 338, time: 0},
+          {dist: 338, time: 0},
           ]},
         {name: 'Cholena', data: [
           {bib: '1', dist: 0, time: 0},
@@ -137,25 +139,28 @@ const series = [
     }
 
 
-class CustomTooltip extends Component {
-  render() {
-   const { active } = this.props;
-      if (active) {
-        const { payload, label, name } = this.props;
-        return (
-          console.log(payload),
-          <div className="custom-tooltip">
-          <p className="label"> { ` Bib (${payload[0].value}), Distance: ${label}, Time: ${payload[0].payload.time} `}</p>  
-          <p className="label"> { ` Distance: ${label}`}</p> 
-          <p className="label"> { ` Time: ${payload[0].payload.time} `}</p>  
-          </div>
+// class CustomTooltip extends Component {
+//   render() {
+//    const { active, mushers } = this.props;
+//   //  const getMusherName = ()
+//       if (active) {
+//         const { payload, label, name } = this.props;
+//         // console.log(payload)
+//         return (
+//           <div className="custom-tooltip">
+//           <p className="label"> { ` Bib (${payload[0].value}) `}</p>  
+//           <p className="label"> { ` Distance: ${label}`}</p> 
+//           <p className="label"> { ` Time: ${payload[0].payload.time} `}</p>  
+//           </div>
               
-            );
-          }
-        return null;
-        }
-      }
+//             );
+//           }
+//         return null;
+//         }
+//       }
 
+const data = generateData(event_updates, "musher_id")
+console.log(data)
 class ProgressBarChart extends Component{
   render () {
     const payload = this.props;
@@ -168,21 +173,21 @@ class ProgressBarChart extends Component{
             <Label value="Distance (km)" offset={-15} position="insideBottom" />
           </XAxis>
 
-          <YAxis type="category" dataKey="bib" name={payload[0].payload.name} domain={[20, 0]}>
+          <YAxis type="category" dataKey="bib"  domain={[20, 0]}>
             <Label value="Musher Bib #" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
           </YAxis>
 
-          <Tooltip content={<CustomTooltip />}/>
+          <Tooltip/>
           
-        {series.map(s => (
-          <Line dataKey="bib" data={s.data} name={s.musher_name} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 5}}/>
+        {data.map(s => (
+          <Line dataKey="bib" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_id} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 5}}/>
         ))}
 
-        <Line datakey="bib">
+        {/*<Line datakey="bib">
           {series.map((entry, index) => {
             return <Cell fill={experienceFilter.experience  ? "#0c2639" : "#c3d8ec"}/>
           })}
-        </Line>
+        </Line>*/}
           
             <ReferenceLine x={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine x={159.8} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />

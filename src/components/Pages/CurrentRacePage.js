@@ -72,7 +72,7 @@ export default class CurrentRacePage extends Component {
 
                 {!!this.state.data && <BibLegendList className="musherbiblist" data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />}
 
-                <ProgressBarChart title="Progress Bar Chart" />
+                <ProgressBarChart title="Progress Bar Chart" {...this.state} />
 
                 <TimerContainer />
                 
