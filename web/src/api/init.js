@@ -5,6 +5,6 @@ export const api = axios.create({
 })
 
 export const johnapi = axios.create({
-  baseURL: "http://159.89.148.36:3000/api/"
+  baseURL: "http://mammothgeo.com:3000/api/"
 });
 
