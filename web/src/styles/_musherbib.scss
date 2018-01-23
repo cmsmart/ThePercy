@@ -1,0 +1,22 @@
+// musherbiblist
+
+.musherbiblist {
+  background-color: $lightblue;
+  color: $navy;
+  max-width: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  border: 0.2rem solid $white;
+  h4 {
+    margin: auto;
+    padding: 0;
+  }
+  p {
+    margin: 1rem 2rem;
+  }
+}
