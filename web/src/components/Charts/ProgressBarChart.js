@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
 import {compareObjectValues} from "../../utils/compareObjectValues";
-import { generateData } from '../../utils/generateLineChartData';
+import { generateData } from '../../utils/generateProgressBarData';
 import { event_updates } from '../../api/event_updates';
 //import { getMushers } from '../api/po_by_mushers'
 
@@ -139,48 +139,49 @@ const series = [
     }
 
 
-// class CustomTooltip extends Component {
-//   render() {
-//    const { active, mushers } = this.props;
-//   //  const getMusherName = ()
-//       if (active) {
-//         const { payload, label, name } = this.props;
-//         // console.log(payload)
-//         return (
-//           <div className="custom-tooltip">
-//           <p className="label"> { ` Bib (${payload[0].value}) `}</p>  
-//           <p className="label"> { ` Distance: ${label}`}</p> 
-//           <p className="label"> { ` Time: ${payload[0].payload.time} `}</p>  
-//           </div>
+class CustomTooltip extends Component {
+  render() {
+   const { active, mushers, payload, label } = this.props;
+     //console.log(payload)
+ 
+ 
+      if (active) {
+        // const { payload, label, name } = this.props;
+        return (
+          <div className="custom-tooltip">
+     
+          <p className="label">{`Musher name: `}</p>  
+          <p className="label"> { ` Distance: ${payload[0].value}`}</p> 
+          <p className="label"> { ` Time: ${payload[0].payload.time} `}</p>  
+          </div>
               
-//             );
-//           }
-//         return null;
-//         }
-//       }
+            );
+          }
+        return null;
+        }
+      }
 
 const data = generateData(event_updates, "musher_id")
 console.log(data)
-class ProgressBarChart extends Component{
-  render () {
+const ProgressBarChart = (props) => {
     const payload = this.props;
   return (
     <div className="area-chart-wrapper" style={{ width: '85%', height: "500px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
     <h2>Musher Progress</h2>
       <ResponsiveContainer>
-        <LineChart width={300} height={300} margin={{top: 50, right: 30, left: 50, bottom: 100}}>
+        <LineChart width={300} height={300} margin={{top: 50, right: 50, left: 50, bottom: 100}}>
           <XAxis dataKey="dist" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
             <Label value="Distance (km)" offset={-15} position="insideBottom" />
           </XAxis>
 
           <YAxis type="category" dataKey="bib"  domain={[20, 0]}>
-            <Label value="Musher Bib #" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
+            <Label value="Musher id: " angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
           </YAxis>
 
-          <Tooltip/>
+  <Tooltip content={<CustomTooltip />} {...props}/>
           
         {data.map(s => (
-          <Line dataKey="bib" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_id} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 5}}/>
+          <Line dataKey="distance" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_id} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 5}}/>
         ))}
 
         {/*<Line datakey="bib">
@@ -197,6 +198,7 @@ class ProgressBarChart extends Component{
       </ResponsiveContainer>
     </div>
     )}
-  }
+
 
 export default ProgressBarChart
+
