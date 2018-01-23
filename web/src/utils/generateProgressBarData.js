@@ -15,7 +15,7 @@ const generateKeyArray = (data, filterKey) => {
             countArray = [ ...countArray, { [filterKey]: datum[filterKey] } ]
         }
     })
-     console.log('generateKeyArray: ', filterKey, countArray)
+    //  console.log('generateKeyArray: ', filterKey, countArray)
     return countArray
 }
 
@@ -23,10 +23,10 @@ const generateDataStructure = (data, id, key) => {
     let dataArray = []
     data.forEach((datum) => {
         if (datum[key] === id) {
-            return dataArray = [ ...dataArray, { musher_id: datum.musher_id, distance: (datum.run_dist/1000), time: datum.hours } ];
+            return dataArray = [ ...dataArray, { musher_id: datum.musher_id, distance: (datum.run_dist/1000), time: datum.run_time } ];
         }
     })
-    console.log('generateDataStructure', dataArray)
+    // console.log('generateDataStructure', dataArray)
     return dataArray
 }
 
@@ -35,6 +35,6 @@ export const generateData = (data, key) => {
     filteredData = filteredData.map((object) => {
             return object = Object.assign({}, object, { data: generateDataStructure(data, object[key], key)} )
     })
-    console.log('generateData', filteredData)
+    // console.log('generateData', filteredData)
     return filteredData 
 }

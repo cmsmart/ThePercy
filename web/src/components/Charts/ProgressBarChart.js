@@ -150,9 +150,9 @@ class CustomTooltip extends Component {
         return (
           <div className="custom-tooltip">
      
-          <p className="label">{`Musher name: `}</p>  
-          <p className="label"> { ` Distance: ${payload[0].value}`}</p> 
-          <p className="label"> { ` Time: ${payload[0].payload.time} `}</p>  
+          <p className="label">{`Musher id: ${payload[0].mushers} `}</p>  
+          <p className="label"> { ` Distance (km): ${payload[0].value}`}</p> 
+          <p className="label"> { ` Time (hrs): ${payload[0].payload.time} `}</p>  
           </div>
               
             );
@@ -161,27 +161,31 @@ class CustomTooltip extends Component {
         }
       }
 
-const data = generateData(event_updates, "musher_id")
+
+      const data = generateData(event_updates, "musher_id")
 console.log(data)
+
 const ProgressBarChart = (props) => {
     const payload = this.props;
+    const dataseries = generateData(props.raceData, "musher_id")
+    console.log(dataseries)
   return (
     <div className="area-chart-wrapper" style={{ width: '85%', height: "500px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
     <h2>Musher Progress</h2>
       <ResponsiveContainer>
         <LineChart width={300} height={300} margin={{top: 50, right: 50, left: 50, bottom: 100}}>
-          <XAxis dataKey="dist" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
+          <XAxis dataKey="distance" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
             <Label value="Distance (km)" offset={-15} position="insideBottom" />
           </XAxis>
 
-          <YAxis type="category" dataKey="bib"  domain={[20, 0]}>
+          <YAxis type="category" dataKey="musher_id"  >
             <Label value="Musher id: " angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
           </YAxis>
 
   <Tooltip content={<CustomTooltip />} {...props}/>
           
-        {data.map(s => (
-          <Line dataKey="distance" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_id} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 5}}/>
+        {dataseries.map(s => (
+          <Line dataKey="musher_id" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_id} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 3}}/>
         ))}
 
         {/*<Line datakey="bib">
