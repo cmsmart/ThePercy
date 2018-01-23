@@ -8,11 +8,17 @@ import { MushersContainer } from '../MushersContainer/index'
 import ProgressBarChart from '../Charts/ProgressBarChart'
 import { TableContainer } from '../TableContainer/index'
 import TimerContainer from '../TimerContainer/index'
+import { BibLegendList } from '../BibLegendList'
+import { filterData } from '../../utils/filterData'
+
+const musherBibHeadings = ['Bib', 'Name']
 
 export default class CurrentRacePage extends Component {    
     state = {
         tableData: null,
-        mushers: null
+        mushers: null,
+        data: null,
+        field: null
     }
 
     headings = [ 
@@ -29,7 +35,9 @@ export default class CurrentRacePage extends Component {
         'Finish', 
         'Total Run Time' 
     ]
-  
+
+    musherBibHeadings = ['Bib', 'Name']
+
     componentDidMount = () => {
         getUpdates().then((res) => {
             this.setState({ tableData: res })
@@ -39,11 +47,34 @@ export default class CurrentRacePage extends Component {
         })
     }
 
+    generateProgressBarBibLegend(data) {
+        let bibLegend = {}
+        bibLegend = data.map((datum) => {
+          return datum = {
+            bib: datum.bib,
+            musher: datum.musher
+          }
+        })
+        return bibLegend
+      }
+    
+    filterYear = (data) => {
+        let filteredData = data.filter((datum) => (
+          // datum.year === (new Date()).getFullYear()
+          datum.year === "2017"
+        ))
+        return filteredData
+      }
+
     render = () => {
         return (
             !!this.state.tableData && !!this.state.mushers && <main className="dashboard">
-                
-                <ProgressBarChart title="Progress Bar Chart" />
+
+                {!!this.state.data && <BibLegendList className="musherbiblist" data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />}
+
+                <ProgressBarChart title="Progress Bar Chart" {...this.state} />
+
+                <TimerContainer />
                 
                 <div className="outer-wrapper">
                     {!!this.state.mushers && <MushersContainer mushers={this.state.mushers} year={'2017'} race={'Percy' }/>}

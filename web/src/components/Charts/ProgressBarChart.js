@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-
-import { LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
+import {compareObjectValues} from "../../utils/compareObjectValues";
+import { generateData } from '../../utils/generateLineChartData';
+import { event_updates } from '../../api/event_updates';
+//import { getMushers } from '../api/po_by_mushers'
 
 const series = [
   {name: 'Percy DeWolfe', data: [
-          {bib: '0', dist: 338, time: 0},
+          {dist: 338, time: 0},
           ]},
         {name: 'Cholena', data: [
           {bib: '1', dist: 0, time: 0},
@@ -122,40 +125,76 @@ const series = [
         ]},
       ];
 
+ const  experienceFilter = (mushers, pastmushers) => {
+        let experienceArray = []
+        mushers.map((datum) => {
+            if (pastmushers.some((object) => (object.musher_id === datum.musher_id))) {
+                experienceArray = [ ...experienceArray, { name: datum.musher, experience: true } ]
+            } else {
+                experienceArray = [ ...experienceArray, { name: datum.musher, experience: false } ]
+            }
+            return experienceArray
+        })
+        return experienceArray
+    }
+
+
+// class CustomTooltip extends Component {
+//   render() {
+//    const { active, mushers } = this.props;
+//   //  const getMusherName = ()
+//       if (active) {
+//         const { payload, label, name } = this.props;
+//         // console.log(payload)
+//         return (
+//           <div className="custom-tooltip">
+//           <p className="label"> { ` Bib (${payload[0].value}) `}</p>  
+//           <p className="label"> { ` Distance: ${label}`}</p> 
+//           <p className="label"> { ` Time: ${payload[0].payload.time} `}</p>  
+//           </div>
+              
+//             );
+//           }
+//         return null;
+//         }
+//       }
+
+const data = generateData(event_updates, "musher_id")
+console.log(data)
 class ProgressBarChart extends Component{
   render () {
     const payload = this.props;
   return (
-    <div className="outer-wrapper">
-     <h2>Race Progress</h2>
-      <div className="area-chart-wrapper" style={{height: "500px"}}>
-        <ResponsiveContainer>
-          <LineChart width={300} height={300} margin={{top: 50, right: 30, left: 50, bottom: 100}}>
-        
+    <div className="area-chart-wrapper" style={{ width: '85%', height: "500px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
+    <h2>Musher Progress</h2>
+      <ResponsiveContainer>
+        <LineChart width={300} height={300} margin={{top: 50, right: 30, left: 50, bottom: 100}}>
+          <XAxis dataKey="dist" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
+            <Label value="Distance (km)" offset={-15} position="insideBottom" />
+          </XAxis>
 
-              <XAxis dataKey="dist" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
-                <Label value="Distance" offset={-15} position="insideBottom" />
-              </XAxis>
+          <YAxis type="category" dataKey="bib"  domain={[20, 0]}>
+            <Label value="Musher Bib #" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
+          </YAxis>
 
-              <YAxis type="category" dataKey="bib" name={payload.name} domain={[20, 0]}>
-                <Label value="Name" angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
-              </YAxis>
-              
-              {/* <Tooltip /> */}
-            
+          <Tooltip/>
+          
+        {data.map(s => (
+          <Line dataKey="bib" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_id} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 5}}/>
+        ))}
 
-                {series.map(s => (
-                  <Line dataKey="bib" data={s.data} name={s.name} key={s.name} strokeWidth="13" dot={{strokeWidth: 1, r: 4}}/>
-                ))}
-            
-
-              <ReferenceLine x={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
-              <ReferenceLine x={159.8} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-              <ReferenceLine x={239.2} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-              <ReferenceLine x={320} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
+        {/*<Line datakey="bib">
+          {series.map((entry, index) => {
+            return <Cell fill={experienceFilter.experience  ? "#0c2639" : "#c3d8ec"}/>
+          })}
+        </Line>*/}
+          
+            <ReferenceLine x={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
+            <ReferenceLine x={159.8} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+            <ReferenceLine x={239.2} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+            <ReferenceLine x={320} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+        </LineChart>
+      </ResponsiveContainer>
     </div>
     )}
   }
