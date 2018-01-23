@@ -142,7 +142,7 @@ const series = [
 class CustomTooltip extends Component {
   render() {
    const { active, mushers, payload, label } = this.props;
-     //console.log(payload)
+     console.log(payload)
  
  
       if (active) {
@@ -150,8 +150,9 @@ class CustomTooltip extends Component {
         return (
           <div className="custom-tooltip">
      
-          <p className="label">{`Musher id: ${payload[0].mushers} `}</p>  
-          <p className="label"> { ` Distance (km): ${payload[0].value}`}</p> 
+         
+          <p className="label">{`Musher id: ${payload[1].value} `}</p>  
+          <p className="label"> { ` Distance (km): ${payload[1].payload.distance}`}</p> 
           <p className="label"> { ` Time (hrs): ${payload[0].payload.time} `}</p>  
           </div>
               
@@ -163,12 +164,12 @@ class CustomTooltip extends Component {
 
 
       const data = generateData(event_updates, "musher_id")
-console.log(data)
+//console.log(data)
 
 const ProgressBarChart = (props) => {
     const payload = this.props;
     const dataseries = generateData(props.raceData, "musher_id")
-    console.log(dataseries)
+    //console.log(dataseries)
   return (
     <div className="area-chart-wrapper" style={{ width: '85%', height: "500px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
     <h2>Musher Progress</h2>
@@ -185,7 +186,7 @@ const ProgressBarChart = (props) => {
   <Tooltip content={<CustomTooltip />} {...props}/>
           
         {dataseries.map(s => (
-          <Line dataKey="musher_id" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_id} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 3}}/>
+          <Line dataKey="musher_id" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_id} key={s.musher_id} strokeWidth="13"    dot={{strokeDasharray: 'none'}} activeDot={{r: 8}}/>
         ))}
 
         {/*<Line datakey="bib">
