@@ -18,3 +18,16 @@ export const event_ids = [{ year: 2008,name: "Percy",event_id: 101},
 { year: 2016,name: "Percy Junior",event_id: 118},
 { year: 2017,name: "Percy",event_id: 119},
 { year: 2017,name: "Percy Junior",event_id: 120}]
+
+export const getRaceID = (year, race) => {
+  let id = "";
+  let yearInt = parseInt(year);
+  event_ids.map(event => {
+    if (event.year === yearInt) {
+      if (event.name === race) {
+        id = event.event_id;
+      }
+    }
+  });
+  return id;
+};

@@ -1,10 +1,8 @@
 import React, { Component } from "react"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label } from "recharts"
-import { event_ids } from "../../api/event_id"
+import { event_ids } from "../../utils/getRaceID"
 import { compareObjectValues } from "../../utils/compareObjectValues"
 import { generateData } from '../../utils/generateLineChartData'
-// import { event_updates } from "../../api/event_updates";
-// import { getRaceDataByMusher } from "../../api/races";
 
 const renderLegend = props => {
   const { payload } = props;

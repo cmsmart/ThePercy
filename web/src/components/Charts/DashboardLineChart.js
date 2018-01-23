@@ -51,10 +51,7 @@ const renderLegend = props => {
 // } 
 
 const DashboardLineChart = props => {
-    console.log(props)
-    console.log("raceData", props.raceData);
     const data = generateData(props.raceData, "musher_id");
-    console.log("event data: ", data);
   	return <div className="line-chart-wrapper">
         <h3>Musher Performance</h3>
         <ResponsiveContainer padding="1rem">
@@ -90,9 +87,9 @@ const DashboardLineChart = props => {
           </LineChart>
         </ResponsiveContainer>
       </div>
-      </div>
-    )
-    }
+      }
+    
+
 
 
 export default DashboardLineChart

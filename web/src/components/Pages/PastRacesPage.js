@@ -10,20 +10,7 @@ import { TableContainer } from "../TableContainer/index"
 
 import { generateYears } from "../../utils/generateYears"
 import { getRaceDataByEvent } from '../../api/races';
-import { event_ids } from "../../api/event_id";
-
-const getRaceIDFromYear = (year, race) => {
-	let id = "";
-	let yearInt = parseInt(year)
-	event_ids.map(event => {
-		if (event.year === yearInt) {
-			if (event.name === race) {
-				id = event.event_id;
-			}
-		}
-	});
-	return id;
-};
+import { getRaceID } from '../../utils/getRaceID'
 
 export default class PastRacesPage extends Component {
 	state = { 
@@ -41,7 +28,7 @@ export default class PastRacesPage extends Component {
 			getMushers().then(res => {
 				this.setState({ mushers: res });
 			});
-			getRaceDataByEvent(getRaceIDFromYear(this.state.year, this.state.race)).then(res => {
+			getRaceDataByEvent(getRaceID(this.state.year, this.state.race)).then(res => {
 					this.setState({
 						raceData: res.data.data
 					});
@@ -51,12 +38,12 @@ export default class PastRacesPage extends Component {
 
 	componentDidUpdate = (prevProps, prevState) => {
 		if (prevState.raceData !== this.state.raceData) {
-		getRaceDataByEvent(getRaceIDFromYear(this.state.year, this.state.race)).then(
+		getRaceDataByEvent(getRaceID(this.state.year, this.state.race)).then(
       res => {
         this.setState({
           raceData: res.data.data
-        });
-      }
+        })
+      	}
 		)
 	}
 	}
@@ -70,7 +57,6 @@ export default class PastRacesPage extends Component {
 		};
 
 		render = () => {
-			console.log("past race data ", this.state.raceData);
 			return !!this.state.mushers && !!this.state.tableData && !!this.state.raceData && <main className="dashboard">
 						<div className="searchFilter">
 							<Dropdown data={generateYears(2012)} handleSelection={this.handleYearSelection} />
