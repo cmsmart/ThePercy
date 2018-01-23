@@ -36,6 +36,7 @@ export const MusherInformation = (props) => {
 
     return (
         <div className="info-card">
+            <h1>{props.children}</h1>
             <Avatar src={props.musher.profile_image} />
             <div className="container">
                 <h4>Age: {}</h4>
@@ -51,9 +52,14 @@ export const MusherInformation = (props) => {
                     </div>
                 </Fragment>}
                 {!!dataForMusher.some((datum) => datum.race === 'Percy Junior') && <Fragment>
-                    <h4>Times Run (Percy Junior): {percyJuniorInformation[0]}</h4>
-                    <h4>Best Standing (Percy Junior): {percyJuniorInformation[1]}</h4>
-                    <h4>Best Finish Time (Percy Junior): {percyJuniorInformation[2]}</h4>
+                <div>
+                        <h4>Percy Junior</h4>
+                        <ul>
+                            <li>Times run: {percyJuniorInformation[0]}</li>
+                            <li>Best Finishing Position: {percyJuniorInformation[1]}</li>
+                            <li>Best Finish Time: {percyJuniorInformation[2]}</li>
+                        </ul>
+                    </div>
                 </Fragment>}
             </div>
         </div>

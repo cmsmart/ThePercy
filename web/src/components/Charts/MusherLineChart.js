@@ -98,7 +98,7 @@ const MusherLineChart = props => {
             </YAxis>
             <Tooltip />
             {/* content={<CustomTooltip/>} */}
-            <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
+            <Legend layout="vertical" verticalAlign="middle" wrapperStyle={{left: 120, top: 30}} content={renderLegend} />
             {data.map(s => (
               <Line // {...props}
                 dataKey="distance"

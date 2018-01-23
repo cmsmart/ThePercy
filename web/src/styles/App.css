@@ -84,13 +84,13 @@ nav {
   background: #F8F8F8;
   font-size: 14px;
   border-collapse: collapse;
-  background-color: #fff;
   text-align: center; }
   .table th,
   .table td {
     padding: 0.75rem;
     vertical-align: top;
-    border-top: 1px solid #eceeef; }
+    border-top: 1px solid #eceeef;
+    background-color: #fff; }
   .table thead th {
     vertical-align: middle;
     border-bottom: 2px solid #C3D8EC; }
@@ -217,7 +217,7 @@ h1 {
 
 h2 {
   font-size: 1.2em;
-  color: #676a6c; }
+  color: #0C2639; }
 
 header {
   padding-top: 10px; }
@@ -277,11 +277,24 @@ header {
     flex: 1 1 auto;
     background: #F8F8F8;
     margin: 5px;
-    padding: 10px 20px 10px 30px; }
+    padding: 10px 20px 20px 30px; }
+    .statistic-wrapper section p {
+      margin: 5px 0 10px 0;
+      color: #0C2639; }
+    .statistic-wrapper section h2 {
+      margin: 5px 0; }
     .statistic-wrapper section ul {
       list-style: none;
       margin: 0;
       padding: 0; }
+    .statistic-wrapper section .top_name {
+      padding-right: 5px; }
+    .statistic-wrapper section .top_data {
+      color: #008080;
+      padding-left: 5px;
+      font-weight: bold; }
+    .statistic-wrapper section .pop {
+      color: #008080; }
 
 a {
   text-decoration: none;
@@ -385,19 +398,6 @@ button {
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
 
-.info-card {
-  background-color: #C3D8EC;
-  color: #4E7590;
-  display: flex;
-  border: 0.2rem solid #F8F8F8; }
-  .info-card .container {
-    height: auto;
-    margin: 0.5rem 1rem;
-    padding: 0 0.5rem; }
-  .info-card h4 {
-    padding: 0.5rem;
-    margin: 0; }
-
 .avatar {
   display: flex;
   height: 10rem;
@@ -419,6 +419,38 @@ button {
 
 .musher-page h1 {
   text-align: center; }
+
+.musher-page .profile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.musher-page section.line {
+  flex: 1 1 auto; }
+
+.musher-page .info-card {
+  background-color: #F8F8F8;
+  width: 30%;
+  min-width: 350px;
+  color: #676a6c;
+  display: flex;
+  flex-direction: column;
+  margin: 10px; }
+  .musher-page .info-card .container {
+    height: auto;
+    margin: 0.5rem 1rem;
+    padding: 0 0.5rem; }
+  .musher-page .info-card h4 {
+    padding: 0.5rem;
+    margin: 0; }
+  .musher-page .info-card .avatar {
+    height: auto;
+    width: auto; }
+
+.musher-page ul {
+  margin: 0; }
+  .musher-page ul li {
+    list-style: none; }
 
 .dashboard .top-panel {
   display: inline-flex; }

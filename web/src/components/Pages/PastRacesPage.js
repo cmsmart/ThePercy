@@ -58,14 +58,18 @@ export default class PastRacesPage extends Component {
 
 		render = () => {
 			return !!this.state.mushers && !!this.state.tableData && !!this.state.raceData && <main className="dashboard">
-						<div className="searchFilter">
-							<Dropdown data={generateYears(2012)} handleSelection={this.handleYearSelection} />
-							<Dropdown data={["Percy", "Percy Junior"]} handleSelection={this.handleRaceSelection} />
-						</div>
-						<MushersContainer mushers={this.state.mushers} year={this.state.year} race={this.state.race} />
-						<DashboardLineChart {...this.state} title="Race Progress Chart" />
-						<TableContainer tableClass={"live-data"} tableData={this.state.tableData} year={this.state.year} race={this.state.race} />
-					</main>;
+				<div className="searchFilter">
+					<Dropdown data={generateYears(2012)} handleSelection={this.handleYearSelection} />
+					<Dropdown data={["Percy", "Percy Junior"]} handleSelection={this.handleRaceSelection} />
+				</div>
+
+				<MushersContainer mushers={this.state.mushers} year={this.state.year} race={this.state.race} >{this.state.year} {this.state.race} Field </MushersContainer>
+
+				<DashboardLineChart {...this.state} title="Race Progress Chart" >{this.state.year} {this.state.race} Progress</DashboardLineChart>
+
+				<TableContainer tableClass={"live-data"} tableData={this.state.tableData} year={this.state.year} race={this.state.race}>
+				{this.state.year} {this.state.race} Results </TableContainer>
+			</main>;
 		};
 	}
 

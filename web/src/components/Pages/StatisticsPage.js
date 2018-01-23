@@ -64,7 +64,7 @@ export default class StatisticsPage extends Component {
                         <StatisticInformation data={getTopTimes(this.state.data, 'Percy')} id='name' value='time' />
                     </section>
                 </div>
-                <WinningTimesBarChart colour={'#008080'} year={1981} data={this.state.data.filter((datum) => datum.standing === '1' && datum.race === 'Percy')}>Win Times - Percy</WinningTimesBarChart>
+                <WinningTimesBarChart colour={'#70a494'} year={1981} data={this.state.data.filter((datum) => datum.standing === '1' && datum.race === 'Percy')}>Win Times - Percy</WinningTimesBarChart>
                 <WinningTimesBarChart colour={'#DE8A5A'} year={2002} data={this.state.data.filter((datum) => datum.standing === '1' && datum.race === 'Percy Junior')}>Win Times - Percy Junior</WinningTimesBarChart>
                 <WeatherChart />
             </div>
