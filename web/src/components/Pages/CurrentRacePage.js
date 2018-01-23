@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import { getUpdates } from '../../api/updates'
 import { getMushers } from '../../api/mushers'
+import { getRaceDataByEvent } from "../../api/races"
 
 import DashboardLineChart from '../Charts/DashboardLineChart'
 import { MushersContainer } from '../MushersContainer/index'
@@ -10,6 +11,7 @@ import { TableContainer } from '../TableContainer/index'
 import TimerContainer from '../TimerContainer/index'
 import { BibLegendList } from '../BibLegendList'
 import { filterData } from '../../utils/filterData'
+import { getRaceID } from "../../utils/getRaceID"
 
 const musherBibHeadings = ['Bib', 'Name']
 
@@ -18,7 +20,8 @@ export default class CurrentRacePage extends Component {
         tableData: null,
         mushers: null,
         data: null,
-        field: null
+        field: null,
+        raceData: null
     }
 
     headings = [ 
@@ -45,6 +48,13 @@ export default class CurrentRacePage extends Component {
         getMushers().then((res) => {
             this.setState({ mushers: res })
         })
+        getRaceDataByEvent(getRaceID(2017, "Percy")).then(
+          res => {
+            this.setState({
+              raceData: res.data.data
+            });
+          }
+        );
     }
 
     generateProgressBarBibLegend(data) {
@@ -60,33 +70,41 @@ export default class CurrentRacePage extends Component {
     
     filterYear = (data) => {
         let filteredData = data.filter((datum) => (
-          // datum.year === (new Date()).getFullYear()
+        //   datum.year === (new Date()).getFullYear()
           datum.year === "2017"
         ))
         return filteredData
       }
 
     render = () => {
-        return (
-            !!this.state.tableData && !!this.state.mushers && <main className="dashboard">
+        return !!this.state.tableData && !!this.state.mushers && !!this.state.raceData &&
+        
+        <main className="dashboard">
+        {console.log(this.state.raceData)}
+              {!!this.state.data && <BibLegendList className="musherbiblist" data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />}
 
-                {!!this.state.data && <BibLegendList className="musherbiblist" data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />}
+              <ProgressBarChart title="Progress Bar Chart" {...this.state} />
 
-                <ProgressBarChart title="Progress Bar Chart" {...this.state} />
+              <TimerContainer />
 
-                <TimerContainer />
-                
-                <div className="outer-wrapper">
-                    {!!this.state.mushers && <MushersContainer mushers={this.state.mushers} year={'2017'} race={'Percy' }/>}
-                </div>
+              <div className="outer-wrapper">
+                {!!this.state.mushers && (
+                  <MushersContainer
+                    mushers={this.state.mushers}
+                    year={"2017"}
+                    race={"Percy"}
+                  />
+                )}
+              </div>
 
-                <DashboardLineChart {...this.state} title="Race Progress Chart" />
+              <DashboardLineChart {...this.state} title="Race Progress Chart" />
 
-                <div className="outer-wrapper">
-                    {!!this.state.tableData && <TableContainer tableClass={'live-data'} tableData={this.state.tableData} year={'2017'} race={'Percy'} >Race Updates - The Percy</TableContainer> }
-                </div>
-            </main>
-        )
+              <div className="outer-wrapper">
+                {!!this.state.tableData && <TableContainer tableClass={"live-data"} tableData={this.state.tableData} year={"2017"} race={"Percy"}>
+                    Race Updates - The Percy
+                  </TableContainer>}
+              </div>
+            </main>;
     }
 }
 
