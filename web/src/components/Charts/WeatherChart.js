@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {BarChart, Bar, XAxis, YAxis,Tooltip, ReferenceLine, CartesianGrid, Label, CartesianAxis} from 'recharts'
+import {BarChart, Bar, XAxis, YAxis,Tooltip, ReferenceLine, CartesianGrid, Label} from 'recharts'
 import { ResponsiveContainer } from 'recharts';
 
 const data = [

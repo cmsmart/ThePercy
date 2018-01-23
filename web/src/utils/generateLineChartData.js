@@ -24,6 +24,5 @@ export const generateData = (data, key) => {
     filteredData = filteredData.map((object) => {
             return object = Object.assign({}, object, { data: generateDataStructure(data, object[key], key)} )
     })
-    // console.log('generateData', filteredData)
     return filteredData 
 }
