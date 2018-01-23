@@ -1,0 +1,330 @@
+@import 'variables';
+@import 'nav';
+@import 'timer';
+@import 'recharts';
+@import 'tables';
+@import 'media';
+@import 'linechart';
+
+html, body {
+  width: 100%;
+  height: 100%;
+  
+  margin: 0;
+  padding: 0;
+
+  font-family: sans-serif;
+}
+
+body {
+  color: $textgrey;
+  background: $navy;
+  font-family: $secondaryfont;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+#root {
+  height: 98%;
+  // margin-left: 20px;
+  // margin-right: 20px;
+  padding: 0;
+
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+main {
+  flex: 1;
+}
+
+//Headers
+
+h1, h2, h3, h4 {
+  font-family: $mainfont;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: $textgrey;
+}
+
+// Header
+
+header {
+  padding-top: 10px;
+  // background: $darkblue;
+  // background: linear-gradient($darkblue, rgba(255,0,0,0));
+}
+
+.info {
+  display: flex;
+  flex-flow: wrap;
+  padding-right: 10px;
+  // margin-bottom: 20px;
+    img.logo {
+      margin-right: 20px;
+      width: 119px;
+      height: 90px;
+    }
+    section {
+      flex: 1 1 auto;
+    }
+    h1 {
+      margin-top: 10px;
+    }
+    .site-title {
+      margin-bottom: 5px;
+      font-weight: normal;
+      font-size: 1.8em;
+      a {
+        color: $white;
+      }
+    }
+    aside.logolink {
+      display: flex;
+      flex-direction: column;
+      width: 119px;
+    }
+    aside.social {
+      width: 30px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      img {
+        margin: 5px auto;
+      }
+    }
+    .subtitle {
+      margin: 5px 0;
+      color: $lightblue;
+      font-size: 0.9em;
+    }
+}
+
+// Statistics page
+
+.statistic-wrapper {
+  display: flex;
+  flex-flow: wrap;
+  section {
+    flex: 1 1 auto;
+    background: white;
+    margin: 5px;
+    padding: 10px 20px 10px 30px;
+    h2 {
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+// Links
+
+a {
+  text-decoration: none;
+  color: $darkblue;
+}
+
+
+// Wrappers for data boxes
+
+
+.outer-wrapper {
+  background: white;
+  margin: 10px;
+  padding-bottom: 10px;
+  h2 {
+      margin: 0 0 10px 20px;
+      padding-top: 20px;
+  }
+}
+
+// Map page 
+
+iframe {
+  height: 100%;
+  min-height: 700px;
+  width: 100%;
+  border: 0;
+}
+
+//Past Race page
+ .top-display {
+   display: flex;
+   flex-flow: row;
+   .field {
+     flex: 1 1 auto
+   }
+   .Line-chart-wrapper {
+     width: 25%;
+   }
+ }
+
+
+// Search
+
+.searchFilter {
+  margin: 1rem;
+  select { 
+    display: inline-block;
+    padding: 0.5rem 2rem 0.5rem 1rem; 
+    margin: 0.5rem 0.2rem 0.5rem 0; 
+    max-width: 100%; 
+    height: auto; 
+    border: 1px solid $darkblue; 
+    background: url("https://image.ibb.co/iMeAJv/selectbox_arrow.png") right center no-repeat; background-color: $white; 
+    color: $navy; 
+    font-size: 1rem; 
+    line-height: 2rem; 
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    option { 
+      padding: 0 4px; 
+    }
+  }
+}
+
+// Forms and Buttons
+
+input {
+  background-color: $white;
+  border: none;
+  color: $navy;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+button {
+    background-color: $darkblue;
+    border: none;
+    color: $white;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    transition-duration: 0.4s;
+    &:hover {
+      background-color: $white; /* Green */
+      color: $darkblue;
+  }
+
+}
+
+.field {
+  background-color: $white;
+  margin: 1rem;
+  color: $navy;
+}
+
+.field h2 {
+  padding: 1rem;
+  margin: 0;
+  color: $navy
+    }
+
+// Cards
+
+.myCards {
+  display: flex;
+  flex-wrap: wrap;
+  background: $white;
+  justify-content: center;
+  a {
+    color: $navy;
+  }
+}
+
+.card {
+    color: $navy;
+    transition: 0.3s;
+    width: 12rem;
+    margin: 0.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+}
+
+.info-card {
+  background-color: $lightblue;
+  color: $darkblue;
+  display: flex;
+  border: 0.2rem solid $white;
+  .container {
+    height: auto;
+    margin: 0.5rem 1rem;
+    padding: 0 0.5rem;
+  }
+  h4 {
+    padding: 0.5rem;
+    margin: 0;
+  }
+}
+
+.avatar {
+  display: flex;
+  height: 10rem;
+  width: 8rem;
+  // border-radius: 50%;
+  overflow: hidden;
+  justify-content: center;
+  align-self: center;
+  margin: 10px;
+  // border: 2px solid $navy;
+  img {
+    margin: 0 auto;
+    // border-radius: 50%;
+    object-fit: scale-down;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    
+  }
+}
+
+// Mushers Page
+
+.mushers-page {
+  form {
+    display: inline-flex;
+  }
+}
+
+.musher-page {
+  h1 {
+    text-align: center;
+  }
+}
+
+// Dashboard Page
+
+.dashboard {
+  .top-panel {
+    display: inline-flex;
+  }
+}
