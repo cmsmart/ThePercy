@@ -69,8 +69,10 @@ const data = generateData(event_updates, "musher_id")
 // console.log('event data:', data)
 
 const DashboardLineChart = props => {
-  	return <div className="line-chart-wrapper">
-        <h3>Musher Performance</h3>
+  	return (
+    <div className="outer-wrapper">
+    <h2>Performance</h2>
+    <div className="line-chart-wrapper">
         <ResponsiveContainer padding="1rem">
           <LineChart margin={{ top: 40, right: 20, left: 30, bottom: 90 }}>
             {/* <CartesianGrid strokeDasharray="3 3" horizontal={false} /> */}
@@ -103,7 +105,9 @@ const DashboardLineChart = props => {
             <ReferenceLine y={338} stroke="#0C2639" label={{ position: "insideTopRight", value: "Finish Dawson", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
           </LineChart>
         </ResponsiveContainer>
-      </div>;
+      </div>
+      </div>
+    )
     }
 
 

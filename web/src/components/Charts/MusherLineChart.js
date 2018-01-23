@@ -77,43 +77,47 @@ const EventColor = [
 const MusherLineChart = props => {
   const data = generateData(event_updates, "event_id")
   console.log('musher data: ', data)
-  return <div className="line-chart-wrapper">
-      <h3>Past Race Results</h3>
-      <ResponsiveContainer padding="1rem">
-        <LineChart margin={{ top: 40, right: 20, left: 30, bottom: 90 }}>
-          <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-          <XAxis dataKey="time" type="number" domain={[0, 42]} ticks={[10, 20, 30, 40, 50]}>
-            <Label offset={-25} position="insideBottom">
-              Time
-            </Label>
-          </XAxis>
-          <YAxis dataKey="dist" type="number" allowDuplicatedCategory={false} domain={[0, 340]} ticks={[80.4, 159.8, 239.2, 320]}>
-            <Label angle={-90} offset={-10} position="insideLeft" style={{ textAnchor: "middle" }}>Distance (km)</Label>
-          </YAxis>
-          <Tooltip 
-          // content={<CustomTooltip/>}
-          />
-          <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
-          {data.map(s => <Line // {...props}
-              dataKey="distance" data={s.data
-                .slice()
-                .sort(
-                  compareObjectValues("time")
-                )} name={s.event_id} key={s.event_id} />)}
-          {EventColor.map(event => (
-            <Line
-              key={event.event_id}
-              stroke={event.lineColor}
-              name={event.event_id}
+  return (
+    <div className="outer-wrapper">
+      <h2>Past Performance Results</h2>
+      <div className="line-chart-wrapper">
+        <ResponsiveContainer padding="1rem">
+          <LineChart margin={{ top: 40, right: 20, left: 30, bottom: 90 }}>
+            <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+            <XAxis dataKey="time" type="number" domain={[0, 42]} ticks={[10, 20, 30, 40, 50]}>
+              <Label offset={-25} position="insideBottom">
+                Time
+              </Label>
+            </XAxis>
+            <YAxis dataKey="dist" type="number" allowDuplicatedCategory={false} domain={[0, 340]} ticks={[80.4, 159.8, 239.2, 320]}>
+              <Label angle={-90} offset={-10} position="insideLeft" style={{ textAnchor: "middle" }}>Distance (km)</Label>
+            </YAxis>
+            <Tooltip 
+            // content={<CustomTooltip/>}
             />
-          ))}
-          <ReferenceLine y={80.4} stroke="#0C2639" label={{ position: "insideTopRight", value: "Fortymile Inbound", fontSize: "0.8em", scaleToFit: true }} />
-          <ReferenceLine y={159.87} stroke="#0C2639" label={{ position: "insideTopRight", value: "Eagle", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
-          <ReferenceLine y={240.27} stroke="#0C2639" label={{ position: "insideTopRight", value: "Fortymile Outbound", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
-          <ReferenceLine y={338} stroke="#0C2639" label={{ position: "insideTopRight", value: "Finish Dawson", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
-        </LineChart>
-      </ResponsiveContainer>
-    </div>;
+            <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} />
+            {data.map(s => <Line // {...props}
+                dataKey="distance" data={s.data
+                  .slice()
+                  .sort(
+                    compareObjectValues("time")
+                  )} name={s.event_id} key={s.event_id} />)}
+            {EventColor.map(event => (
+              <Line
+                key={event.event_id}
+                stroke={event.lineColor}
+                name={event.event_id}
+              />
+            ))}
+            <ReferenceLine y={80.4} stroke="#0C2639" label={{ position: "insideTopRight", value: "Fortymile Inbound", fontSize: "0.8em", scaleToFit: true }} />
+            <ReferenceLine y={159.87} stroke="#0C2639" label={{ position: "insideTopRight", value: "Eagle", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
+            <ReferenceLine y={240.27} stroke="#0C2639" label={{ position: "insideTopRight", value: "Fortymile Outbound", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
+            <ReferenceLine y={338} stroke="#0C2639" label={{ position: "insideTopRight", value: "Finish Dawson", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+      )
 };
 
 export default MusherLineChart;
