@@ -85,7 +85,7 @@ export default class CurrentRacePage extends Component {
 
               <ProgressBarChart {...this.state} title="Progress Bar Chart" />
 
-              <TimerContainer />
+            
 
               <div className="outer-wrapper">
                 {!!this.state.mushers && (

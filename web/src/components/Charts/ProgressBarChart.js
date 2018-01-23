@@ -139,7 +139,26 @@ const series = [
     }
 
 
-class CustomTooltip extends Component {
+
+    const ExperienceColour = [
+      { experience: true, lineColor: "#5f4b8b" },
+      { experience: false, lineColor: "#88b04b" }
+    ];
+    {/*dataseries.map((entry, index) => {
+      <Line datakey="musher_id"
+          stroke={experienceArray.forEach((musher) => {
+            if (entry.musher_id === musher.musher_id && musher.experience === true) {
+              stroke="#0c2639"
+            }
+            else {
+              stroke="#c3d8ec"
+            }
+          })} />
+        })*/}
+    
+
+
+    class CustomTooltip extends Component {
   render() {
    const { active, mushers, payload, label } = this.props;
      console.log(payload)
@@ -170,30 +189,53 @@ const ProgressBarChart = (props) => {
     const payload = this.props;
     const dataseries = generateData(props.raceData, "musher_id")
     //console.log(dataseries)
+
+
+    const  experienceFilter = (mushers, pastmushers) => {
+      let experienceArray = []
+      mushers.map((datum) => {
+          if (pastmushers.some((object) => (object.musher_id === datum.musher_id))) {
+              experienceArray = [ ...experienceArray, { name: datum.musher, experience: true } ]
+          } else {
+              experienceArray = [ ...experienceArray, { name: datum.musher, experience: false } ]
+          }
+          return experienceArray
+      })
+      return experienceArray
+    }
+
   return (
-    <div className="area-chart-wrapper" style={{ width: '85%', height: "500px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
+    <div className="area-chart-wrapper" style={{ width: '85%', height: "600px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
     <h2>Musher Progress</h2>
       <ResponsiveContainer>
-        <LineChart width={300} height={300} margin={{top: 50, right: 50, left: 50, bottom: 100}}>
+        <LineChart width={300} height={500} margin={{top: 50, right: 50, left: 50, bottom: 100}}>
           <XAxis dataKey="distance" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
             <Label value="Distance (km)" offset={-15} position="insideBottom" />
           </XAxis>
 
-          <YAxis type="category" dataKey="musher_id"  >
+          <YAxis type="category" dataKey="musher_id" domain={[0 ]} >
             <Label value="Musher id: " angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
           </YAxis>
 
   <Tooltip content={<CustomTooltip />} {...props}/>
           
         {dataseries.map(s => (
-          <Line dataKey="musher_id" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_id} key={s.musher_id} strokeWidth="13"    dot={{strokeDasharray: 'none'}} activeDot={{r: 8}}/>
+          <Line dataKey="musher_id" data={s.data} 
+          name={s.musher_id} key={s.musher_id} strokeWidth="13" activeDot={{r: 8}}
+          type="monotone"  strokeDasharray="5 5"  dot={{strokeDasharray: 'none'}} />
+        
+         
         ))}
+ 
 
-        {/*<Line datakey="bib">
-          {series.map((entry, index) => {
-            return <Cell fill={experienceFilter.experience  ? "#0c2639" : "#c3d8ec"}/>
+        {ExperienceColour.map((experience) => {
+        <Line datakey="musher_id"
+         key={experience.musher_id}
+        stroke={experience.lineColor}
+        name={experience.experience}
+        strokeWidth='12'
+      />
           })}
-        </Line>*/}
           
             <ReferenceLine x={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine x={159.8} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
