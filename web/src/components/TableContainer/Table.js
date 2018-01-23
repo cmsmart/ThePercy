@@ -20,7 +20,7 @@ const mapDataToTable = (data) => (
 
 export const Table = (props) => {
     return (
-        <table className={ `${props.classname} table table-hover table-responsive` } >
+        <table className={ `table table-hover table-responsive` } >
             <thead>
                 <tr>{mapHeadingsToTable(props.headings)}</tr>
             </thead>

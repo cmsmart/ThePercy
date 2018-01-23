@@ -4,9 +4,9 @@ import { Table } from './Table';
 import { filterData } from '../../utils/filterData'
 
 const headings = [
-    "Status",
-    "Name",
+    "Standing",
     "Bib",
+    "Name",
     "Start",
     "Fortymile In",
     "Fortymile Out",
@@ -16,15 +16,15 @@ const headings = [
     "Fortymile Out",
     "Finish",
     "Total Run Time",
-    "Standing"
+    "Status"
 ]
 
 const generateTableData = (data) => {
     let tableData = data.map((datum) => (
         datum = { 
-            status: datum.status,
-            musher: <a href={`/mushers/${datum.musher_id}`}>{datum.musher}</a>,
+            standing: datum.standing,
             bib: datum.bib, 
+            musher: <a href={`/mushers/${datum.musher_id}`}>{datum.musher}</a>,
             chk_start: datum.chk_start, 
             chk_fm_ob_in: datum.chk_fm_ob_in, 
             chk_fm_ob_out: datum.chk_fm_ob_out,
@@ -34,7 +34,7 @@ const generateTableData = (data) => {
             chk_fm_ib_out: datum.chk_fm_ib_out,
             chk_finish: datum.chk_finish,
             run_time: datum.run_time,
-            standing: datum.standing
+            status: datum.status
         }
     ))
     return tableData
@@ -42,9 +42,11 @@ const generateTableData = (data) => {
 
 export const TableContainer = (props) => {
     return (
-        <div className="table-container">
+        <div className="outer-wrapper">
             <h2>{props.children}</h2>
-            <Table tableClass={props.tableClass} data={generateTableData(filterData(props.tableData, props.year, props.race))} headings={headings} />
+            <div className="table-container">
+                <Table tableClass={props.tableClass} data={generateTableData(filterData(props.tableData, props.year, props.race))} headings={headings} />
+            </div>
         </div>
     )
 }

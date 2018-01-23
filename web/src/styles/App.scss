@@ -91,7 +91,12 @@ header {
         color: $white;
       }
     }
-    aside {
+    aside.logolink {
+      display: flex;
+      flex-direction: column;
+      width: 119px;
+    }
+    aside.social {
       width: 30px;
       align-items: center;
       justify-content: center;
@@ -132,7 +137,7 @@ header {
 
 a {
   text-decoration: none;
-  color: $lightblue;
+  color: $darkblue;
 }
 
 

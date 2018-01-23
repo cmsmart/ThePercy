@@ -269,13 +269,17 @@ header {
     font-size: 1.8em; }
     .info .site-title a {
       color: #F8F8F8; }
-  .info aside {
+  .info aside.logolink {
+    display: flex;
+    flex-direction: column;
+    width: 119px; }
+  .info aside.social {
     width: 30px;
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column; }
-    .info aside img {
+    .info aside.social img {
       margin: 5px auto; }
   .info .subtitle {
     margin: 5px 0;
@@ -297,7 +301,7 @@ header {
 
 a {
   text-decoration: none;
-  color: #C3D8EC; }
+  color: #4E7590; }
 
 .outer-wrapper {
   background: white;
