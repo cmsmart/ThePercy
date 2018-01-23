@@ -62,14 +62,17 @@ const renderLegend = props => {
 // }
 
 const EventColor = [
-  { event_id: 119, lineColor: "#5f4b8b" },
-  { event_id: 117, lineColor: "#88b04b" },
-  { event_id: 115, lineColor: "#91a8d0" },
-  { event_id: 113, lineColor: "#964f4c" },
-  { event_id: 111, lineColor: "#ad5e99" },
-  { event_id: 109, lineColor: "#009473" },
-  { event_id: 107, lineColor: "#dd4124" }
+  { event_id: 121, lineColor: "#CC503E" },
+  { event_id: 119, lineColor: "#5F4690" },
+  { event_id: 117, lineColor: "#1D6996" },
+  { event_id: 115, lineColor: "#38A6A5" },
+  { event_id: 113, lineColor: "#0F8554" },
+  { event_id: 111, lineColor: "#73AF48" },
+  { event_id: 109, lineColor: "#EDAD08" },
+  { event_id: 107, lineColor: "#E17C05" }
 ];
+
+
 
 
 const MusherLineChart = props => {

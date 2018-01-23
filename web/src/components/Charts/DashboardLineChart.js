@@ -3,7 +3,29 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine,   Respon
 import { compareObjectValues } from "../../utils/compareObjectValues";
 import { generateData } from "../../utils/generateLineChartData";
 
-const ColorArray = ['#5F4690','#1D6996','#38A6A5','#0F8554','#73AF48','#EDAD08','#E17C05','#CC503E','#94346E','#6F4070','#994E95','#666666']
+const ColorArray = [
+  "#5F4690",
+  "#1D6996",
+  "#38A6A5",
+  "#0F8554",
+  "#73AF48",
+  "#EDAD08",
+  "#E17C05",
+  "#CC503E",
+  "#94346E",
+  "#7F3C8D",
+  "#11A579",
+  "#3969AC",
+  "#F2B701",
+  "#E73F74",
+  "#80BA5A",
+  "#E68310",
+  "#008695",
+  "#CF1C90",
+  "#f97b72",
+  "#4b4b8f",
+  "#A5AA99"
+];
 
 const renderLegend = props => {
   const { payload, mushers } = props;
