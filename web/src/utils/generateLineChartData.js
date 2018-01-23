@@ -9,7 +9,8 @@ const generateKeyArray = (data, filterKey) => {
 }
 
 const generateDataStructure = (data, id, key) => {
-    let dataArray = []
+    let dataArray = [{distance: 0, time: 0}]
+    // let dataArray = []
     data.forEach((datum) => {
         if (datum[key] === id) {
             return dataArray = [ ...dataArray, { distance: (datum.run_dist/1000), time: datum.run_time } ];
