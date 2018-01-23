@@ -46,24 +46,6 @@ nav {
   display: block;
   margin: 0.5rem; }
 
-.timer {
-  background-color: #C3D8EC;
-  color: #0C2639;
-  max-width: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 0.5rem 0;
-  padding: 0.5rem 0;
-  border: 0.2rem solid #F8F8F8; }
-  .timer h4 {
-    margin: auto;
-    padding: 0; }
-  .timer p {
-    margin: 1rem 2rem; }
-
 .recharts-legend-wrapper {
   padding: 10px; }
 
@@ -99,8 +81,11 @@ nav {
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;
-  background: white;
-  font-size: 14px; }
+  background: #F8F8F8;
+  font-size: 14px;
+  border-collapse: collapse;
+  background-color: #fff;
+  text-align: center; }
   .table th,
   .table td {
     padding: 0.75rem;
@@ -108,11 +93,12 @@ nav {
     border-top: 1px solid #eceeef; }
   .table thead th {
     vertical-align: middle;
-    border-bottom: 2px solid #eceeef; }
+    border-bottom: 2px solid #C3D8EC; }
   .table tbody + tbody {
     border-top: 2px solid #eceeef; }
-  .table .table {
-    background-color: #fff; }
+
+.table-bordered td, .table-bordered th {
+  border: 1px solid #eceeef; }
 
 .table-sm th,
 .table-sm td {
@@ -141,9 +127,6 @@ nav {
   width: 100%;
   overflow-x: auto;
   -ms-overflow-style: -ms-autohiding-scrollbar; }
-
-.table-responsive.table-bordered {
-  border: 0; }
 
 @media screen and (max-width: 700px) {
   header {
@@ -179,22 +162,12 @@ nav {
   margin: 0.5rem; }
 
 .line-chart-wrapper {
-  width: 100%;
-  height: 800px;
-  background-color: #F8F8F8;
-  box-sizing: border-box;
-  margin: 0.2rem 0; }
-  .line-chart-wrapper h3 {
-    text-align: center;
-    padding-top: 1.5rem;
-    margin: 0; }
-
-.recharts-legend-wrapper {
-  padding: 0.2rem; }
+  height: 800px; }
 
 .legend {
-  display: inline-block;
-  margin: 0; }
+  padding: 10px 20px 10px 40px;
+  background: #F8F8F8;
+  border: thin solid #4E7590; }
   .legend ul {
     padding: 0; }
   .legend li {
@@ -202,11 +175,10 @@ nav {
     margin: 0.05rem;
     list-style: square;
     text-anchor: middle;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     text-align: left; }
 
 .ResponsiveContainer {
-  padding: 1rem;
   height: 500px; }
 
 html, body {
@@ -271,26 +243,39 @@ header {
   .info aside.logolink {
     display: flex;
     flex-direction: column;
-    width: 119px; }
+    width: 119px;
+    text-align: center;
+    padding-right: 20px; }
+  .info aside.timer {
+    width: 200px;
+    text-align: center; }
   .info aside.social {
-    width: 30px;
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column; }
     .info aside.social img {
       margin: 5px auto; }
+    .info aside.social span {
+      font-size: 11px;
+      margin: 10px 0;
+      text-align: center; }
+      .info aside.social span a {
+        color: #F8F8F8; }
   .info .subtitle {
     margin: 5px 0;
     color: #C3D8EC;
     font-size: 0.9em; }
+  .info .timer p {
+    padding: 0;
+    margin: 0; }
 
 .statistic-wrapper {
   display: flex;
   flex-flow: wrap; }
   .statistic-wrapper section {
     flex: 1 1 auto;
-    background: white;
+    background: #F8F8F8;
     margin: 5px;
     padding: 10px 20px 10px 30px; }
     .statistic-wrapper section ul {
@@ -303,7 +288,7 @@ a {
   color: #4E7590; }
 
 .outer-wrapper {
-  background: white;
+  background: #F8F8F8;
   margin: 10px;
   padding-bottom: 10px; }
   .outer-wrapper h2 {
@@ -383,7 +368,6 @@ button {
 .myCards {
   display: flex;
   flex-wrap: wrap;
-  background: #F8F8F8;
   justify-content: center; }
   .myCards a {
     color: #0C2639; }
@@ -421,7 +405,8 @@ button {
   overflow: hidden;
   justify-content: center;
   align-self: center;
-  margin: 10px; }
+  margin: 10px;
+  border: 1px solid #0C2639; }
   .avatar img {
     margin: 0 auto;
     object-fit: scale-down;

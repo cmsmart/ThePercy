@@ -136,7 +136,7 @@ const series = [
             return experienceArray
         })
         return experienceArray
-    }
+    } 
 
 
 

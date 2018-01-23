@@ -81,21 +81,25 @@ export default class CurrentRacePage extends Component {
         
         <main className="dashboard">
         {console.log(this.state.raceData)}
-              {!!this.state.data && <BibLegendList className="musherbiblist" data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />}
 
-              <ProgressBarChart {...this.state} title="Progress Bar Chart" />
-
+<<<<<<< HEAD
             
 
               <div className="outer-wrapper">
+=======
+>>>>>>> 2ceb8708e8aaa84a9eaf20693dba1a1a579cbaf6
                 {!!this.state.mushers && (
                   <MushersContainer
                     mushers={this.state.mushers}
                     year={"2017"}
                     race={"Percy"}
-                  />
+                  >2017 Field</MushersContainer>
                 )}
-              </div>
+
+              {!!this.state.data && <BibLegendList className="musherbiblist" data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />}
+
+              <ProgressBarChart {...this.state} title="Progress Bar Chart" />
+
 
               <DashboardLineChart {...this.state} title="Race Progress Chart" />
 
