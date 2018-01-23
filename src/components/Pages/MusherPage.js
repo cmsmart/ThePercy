@@ -25,7 +25,7 @@ export default class MusherPage extends Component {
             this.setState({ pastData: res })
         })
         getRaceDataByMusher(this.props.match.params.id).then((res) => {
-            this.setState({ raceData: res })
+            this.setState({ raceData: res.data })
         })
     }
 
@@ -40,7 +40,6 @@ export default class MusherPage extends Component {
             {!!this.state.raceData &&
                 <div>
                 <MusherLineChart {...this.state}/>
-                {console.log(this.state.raceData)}
                 </div>
                 }
 

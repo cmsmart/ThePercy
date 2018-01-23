@@ -1,19 +1,9 @@
 import React, { Component } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine,   ResponsiveContainer, Label } from "recharts";
-// import { getMushers } from "../../api/mushers";
 import { compareObjectValues } from "../../utils/compareObjectValues";
 import { generateData } from "../../utils/generateLineChartData";
-import { event_updates } from "../../api/event_updates";
 
-const ColorArray = [
-  "#5f4b8b",
-  "#88b04b",
-  "#91a8d0",
-  "#964f4c",
-  "#ad5e99",
-  "#009473",
-  "#dd4124"
-];
+const ColorArray = ['#5F4690','#1D6996','#38A6A5','#0F8554','#73AF48','#EDAD08','#E17C05','#CC503E','#94346E','#6F4070','#994E95','#666666']
 
 const renderLegend = props => {
   const { payload, mushers } = props;
@@ -34,41 +24,37 @@ const renderLegend = props => {
   )
 }
 
-class CustomTooltip extends Component {
-  render() {
-    const { active } = this.props;
-    const { payload, mushers } = this.props;
-
-    const getMusherName = (id) => {
-      let name = ''
-      mushers.map(musher => {
-        if (musher.musher_id === id) {
-          name = musher.musher
-        }
-      })
-      return name
-    }
-
-    if (active && payload[0] !== undefined) {
-      return (
-        <div className="custom-tooltip">
-        <p className="label">Musher: {`${getMusherName(payload[0].name)}`}</p>
-          <p>Distance: {`${payload[0].payload.distance}`}kms</p>
-          <p>Time: {`${payload[0].payload.time} `}</p>  
-        </div>
-      );
-    }
-    return null;
-  }
-}
-
-
- 
-
-const data = generateData(event_updates, "musher_id")
-// console.log('event data:', data)
+// class CustomTooltip extends Component {
+//   render() {
+//     const { active } = this.props;
+//     const { payload, mushers } = this.props;
+//     console.log('payload', payload)
+//     const getMusherName = (id) => {
+//       let name = ''
+//       mushers.map(musher => {
+//         if (musher.musher_id === id) {
+//           name = musher.musher
+//         }
+//         return name
+//       })
+//       return name
+//     }
+//     if (active && payload[0] !== undefined) {
+//       return <div className="custom-tooltip">
+//           <p className="label">Musher: {`${payload[0].payload.name}`}</p>
+//           <p>Distance: {`${payload[0].payload.distance}`}kms</p>
+//           <p>Time: {`${payload[0].payload.time} `}</p>
+//         </div>;
+//     }
+//     return null;
+//   }
+// } 
 
 const DashboardLineChart = props => {
+    console.log(props)
+    console.log("raceData", props.raceData);
+    const data = generateData(props.raceData, "musher_id");
+    console.log("event data: ", data);
   	return <div className="line-chart-wrapper">
         <h3>Musher Performance</h3>
         <ResponsiveContainer padding="1rem">
@@ -84,9 +70,7 @@ const DashboardLineChart = props => {
                 Distance (km)
               </Label>
             </YAxis>
-            <Tooltip 
-            content={<CustomTooltip/>} {...props} 
-            />
+            {/* <Tooltip content={<CustomTooltip />} {...props} /> */}
             <Legend layout="vertical" verticalAlign="middle" align="right" content={renderLegend} {...props} />
             {data.map((s, index) => (
               <Line
@@ -95,12 +79,14 @@ const DashboardLineChart = props => {
                 name={s.musher_id}
                 key={s.musher_id}
                 stroke={ColorArray[index]}
+                dot={false}
+                strokeWidth="2"
               />
             ))}
             <ReferenceLine y={80.4} stroke="#0C2639" label={{ position: "insideTopRight", value: "Fortymile Inbound", fontSize: "0.8em", scaleToFit: true }} />
             <ReferenceLine y={159.87} stroke="#0C2639" label={{ position: "insideTopRight", value: "Eagle", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
             <ReferenceLine y={240.27} stroke="#0C2639" label={{ position: "insideTopRight", value: "Fortymile Outbound", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
-            <ReferenceLine y={338} stroke="#0C2639" label={{ position: "insideTopRight", value: "Finish Dawson", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
+            <ReferenceLine y={320} stroke="#0C2639" label={{ position: "insideTopRight", value: "Finish Dawson", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
           </LineChart>
         </ResponsiveContainer>
       </div>;
