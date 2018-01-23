@@ -170,22 +170,23 @@ const ProgressBarChart = (props) => {
     const dataseries = generateData(props.raceData, "musher_id")
     console.log(dataseries)
   return (
-    <div className="area-chart-wrapper" style={{ width: '85%', height: "500px", backgroundColor: "#f8f8f8", border: "1px solid black", margin: "10px" }} display= "inline-block">
+    <div className="outer-wrapper">
     <h2>Musher Progress</h2>
+    <div className="area-chart-wrapper" style={{  height: "500px"}} >
       <ResponsiveContainer>
-        <LineChart width={300} height={300} margin={{top: 50, right: 50, left: 50, bottom: 100}}>
-          <XAxis dataKey="distance" type="number" domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
+        <LineChart height={300} margin={{top: 50, right: 50, left: 50, bottom: 100}}>
+          <XAxis dataKey="distance" type="number" domain={[0, 320]}  unit="km" ticks={[80.4, 159.8, 239.2, 320]}>
             <Label value="Distance (km)" offset={-15} position="insideBottom" />
           </XAxis>
 
           <YAxis type="category" dataKey="musher_id"  >
-            <Label value="Musher id: " angle={-90} offset={-15} position="insideLeft" style={{ textAnchor: 'middle' }} />
+            <Label value="Musher id: " angle={-90} position="insideLeft" style={{ textAnchor: 'middle' }} />
           </YAxis>
 
   <Tooltip content={<CustomTooltip />} {...props}/>
           
         {dataseries.map(s => (
-          <Line dataKey="musher_id" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_id} key={s.musher_id} strokeWidth="13" dot={{strokeWidth: 1, r: 3}}/>
+          <Line dataKey="musher_id" data={s.data.slice().sort(compareObjectValues("time"))} name={s.musher_id} key={s.musher_id} strokeWidth="10" dot={{strokeWidth: 1, r: 2}}/>
         ))}
 
         {/*<Line datakey="bib">
@@ -197,9 +198,10 @@ const ProgressBarChart = (props) => {
             <ReferenceLine x={80.4} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em',  fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine x={159.8} stroke="#FA5252" label={{ position: "top", value: "Eagle", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
             <ReferenceLine x={239.2} stroke="#FA5252" label={{ position: "top", value: "Fortymile", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
-            <ReferenceLine x={320} stroke="#FA5252" label={{ position: "top", value: "Finish Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
+            <ReferenceLine x={320} stroke="#FA5252" label={{ position: "top", value: "Dawson", fontSize: '0.8em', fill: "#FA5252", scaleToFit: true }} />
         </LineChart>
       </ResponsiveContainer>
+    </div>
     </div>
     )}
 

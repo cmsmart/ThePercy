@@ -26,7 +26,7 @@ export default class TimerContainer extends Component {
     render = () => {
         return (
             <div className='timer'>
-                <h4>Race Start</h4>
+                <p>Race Start</p>
                 <Timer {...this.state} />
             </div>
         )

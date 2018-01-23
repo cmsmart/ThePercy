@@ -1,6 +1,6 @@
 @import 'variables';
 @import 'nav';
-@import 'timer';
+// @import 'timer';
 @import 'recharts';
 @import 'tables';
 @import 'media';
@@ -63,8 +63,6 @@ h2 {
 
 header {
   padding-top: 10px;
-  // background: $darkblue;
-  // background: linear-gradient($darkblue, rgba(255,0,0,0));
 }
 
 .info {
@@ -94,10 +92,15 @@ header {
     aside.logolink {
       display: flex;
       flex-direction: column;
-      width: 119px;
+      width: 119px; 
+      text-align: center;
+      padding-right: 20px;
+    }
+    aside.timer {
+      width: 200px;
+      text-align: center;
     }
     aside.social {
-      width: 30px;
       align-items: center;
       justify-content: center;
       display: flex;
@@ -105,11 +108,26 @@ header {
       img {
         margin: 5px auto;
       }
+        span {
+          font-size: 11px;
+          margin: 10px 0;
+          text-align: center;
+          a{
+            color: $white;
+          }           
+      }
     }
     .subtitle {
       margin: 5px 0;
       color: $lightblue;
       font-size: 0.9em;
+    }
+
+    .timer {
+      p {
+        padding: 0;
+        margin: 0;
+      }
     }
 }
 
@@ -120,7 +138,7 @@ header {
   flex-flow: wrap;
   section {
     flex: 1 1 auto;
-    background: white;
+    background: $white;
     margin: 5px;
     padding: 10px 20px 10px 30px;
     h2 {
@@ -145,7 +163,7 @@ a {
 
 
 .outer-wrapper {
-  background: white;
+  background: $white;
   margin: 10px;
   padding-bottom: 10px;
   h2 {
@@ -248,7 +266,7 @@ button {
 .myCards {
   display: flex;
   flex-wrap: wrap;
-  background: $white;
+  // background: $white;
   justify-content: center;
   a {
     color: $navy;
@@ -295,7 +313,7 @@ button {
   justify-content: center;
   align-self: center;
   margin: 10px;
-  // border: 2px solid $navy;
+  border: 1px solid $navy;
   img {
     margin: 0 auto;
     // border-radius: 50%;
