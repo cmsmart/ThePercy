@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, Label, ResponsiveContainer, activeDot } from 'recharts'
 import {compareObjectValues} from "../../utils/compareObjectValues";
 import { generateData } from '../../utils/generateProgressBarData';
 //import { getMushers } from '../api/po_by_mushers'
+import  { LabelAsPoint } from '../../utils/LabelAsPoint';
 
  const  experienceFilter = (mushers, pastmushers) => {
         let experienceArray = []
@@ -17,22 +18,39 @@ import { generateData } from '../../utils/generateProgressBarData';
         return experienceArray
     }
 
+    const ExperienceColour = [
+      { experience: true, lineColor: "#5f4b8b" },
+      { experience: false, lineColor: "#88b04b" }
+    ];
+    {/*dataseries.map((entry, index) => {
+      <Line datakey="musher_id"
+          stroke={experienceArray.forEach((musher) => {
+            if (entry.musher_id === musher.musher_id && musher.experience === true) {
+              stroke="#0c2639"
+            }
+            else {
+              stroke="#c3d8ec"
+            }
+          })} />
+        })*/}
+
 
 class CustomTooltip extends Component {
   render() {
    const { active, payload, label } = this.props;
-    //  console.log(payload)
- 
- 
       if (active) {
         // const { payload, label, name } = this.props;
         return (
           <div className="custom-tooltip">
-          <p className="label">{`${payload[0].payload.musher_name} `}</p>  
-          <p className="label">{`Bib: ${payload[0].payload.bib} `}</p>  
-          <p className="label"> { ` Distance (km): ${payload[0].payload.distance}`}</p> 
-          <p className="label"> { ` Time (hrs): ${payload[0].payload.time} `}</p>  
-          </div>
+   
+
+
+
+<p className="label">{`${payload[0].payload.musher_name} `}</p>  
+<p className="label">{`Bib: ${payload[0].payload.bib} `}</p>  
+<p className="label"> { ` Distance (km): ${payload[0].payload.distance.toFixed(2)}`}</p> 
+<p className="label"> { ` Time (hrs): ${payload[0].payload.time} `}</p>  
+</div>
               
             );
           }
@@ -43,8 +61,9 @@ class CustomTooltip extends Component {
 
 const ProgressBarChart = (props) => {
     const payload = this.props;
-    const dataseries = generateData(props.raceData, "musher_id")
-    // console.log(dataseries)
+    const datas = generateData(props.raceData, "musher_id")
+    const dataseries = datas.slice().sort(compareObjectValues("bib"))
+    console.log(dataseries)
   return (
     <div className="outer-wrapper">
     <h2>Musher Progress</h2>
@@ -55,14 +74,17 @@ const ProgressBarChart = (props) => {
             <Label value="Distance (km)" offset={-15} position="insideBottom" />
           </XAxis>
 
-          <YAxis type="category" dataKey="bib"  >
+          <YAxis type="number" dataKey="bib" ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]} >
             <Label value="Bib Number" angle={-90} position="insideLeft" style={{ textAnchor: 'middle' }} />
           </YAxis>
 
         <Tooltip content={<CustomTooltip />}/>
+
+        <Label/>
                 
         {dataseries.map(s => (
-          <Line dataKey="bib" data={s.data.slice().sort(compareObjectValues("time"))} name={s.bib} key={s.bib} strokeWidth="1" stroke="#008080" dot={{strokeWidth: 1, r: 2}} />
+          <Line dataKey="bib" data={s.data} name={s.bib} key={s.bib} strokeWidth="1" stroke="#008080" dot={{strokeWidth: 1, r: 2}} activeDot={false} label={ <LabelAsPoint /> }
+          activeDot={false}/>
         ))}
 
         {/*<Line datakey="bib">
@@ -85,4 +107,3 @@ const ProgressBarChart = (props) => {
 
 
 export default ProgressBarChart
-

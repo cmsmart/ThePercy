@@ -1,8 +1,9 @@
 import React, { Component } from "react"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label } from "recharts"
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label, formatter } from "recharts"
 import { event_ids } from "../../utils/getRaceID"
 import { compareObjectValues } from "../../utils/compareObjectValues"
 import { generateData } from '../../utils/generateLineChartData'
+import { getUpdates } from "../../api/updates";
 
 const renderLegend = props => {
   const { payload } = props;
@@ -41,9 +42,11 @@ const renderLegend = props => {
 
 class CustomTooltip extends Component {
   render() {
-    const { active } = this.props;
-    const { payload } = this.props;
+    const { active, mushers, payload, label, eventName, formatter } = this.props;
+    //console.log(payload)
     
+   
+
     const getEventName = id => {
       let eventName = "";
       event_ids.map(event => {
@@ -54,13 +57,15 @@ class CustomTooltip extends Component {
       return eventName;
     };
 
-    if (active && payload[0] !== undefined) {
+    if (active) {
+      const { active, mushers, payload, label, eventName, formatter } = this.props;
+    console.log(payload)  
+          
       return (
         <div className="custom-tooltip">
-          {/* <p className="label">Year: {`${getEventName(payload[0].name)}`}</p> */}
-          <p>Time: {`${payload[0].payload.time} `}</p>
-          <p>Distance: {`${payload[0].payload.distance.toFixed(2)}`}kms</p>
-          {/* {console.log(payload[0].name)} */}
+           <p >{`Year: ${getEventName} `}</p>  
+          <p >{` Time (hrs): ${payload[0].payload.time} `}</p> 
+          <p >{` Distance (km): ${payload[0].payload.distance.toFixed(2)}`}</p> 
         </div>
       );
     }
@@ -90,12 +95,11 @@ const MusherLineChart = props => {
           <LineChart margin={{ top: 40, right: 20, left: 30, bottom: 90 }}>
             <CartesianGrid strokeDasharray="3 3" horizontal={false} />
             <XAxis dataKey="time" type="number" domain={[0, 42]} ticks={[10, 20, 30, 40]}>
-              <Label offset={-25} position="insideBottom">
-                Time
+              <Label offset={-25} position="insideBottom" value="bib">
               </Label>
             </XAxis>
             <YAxis dataKey="dist" type="number" allowDuplicatedCategory={false} domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
-              <Label angle={-90} offset={-10} position="insideLeft" style={{ textAnchor: "middle" }}>
+              <Label angle={-90} offset={-10} position="insideLeft" style={{ textAnchor: "middle" }} value="year">
                 Distance (km)
               </Label>
             </YAxis>
