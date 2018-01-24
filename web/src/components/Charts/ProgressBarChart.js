@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
 import {compareObjectValues} from "../../utils/compareObjectValues";
 import { generateData } from '../../utils/generateProgressBarData';
 //import { getMushers } from '../api/po_by_mushers'
@@ -20,8 +20,8 @@ import { generateData } from '../../utils/generateProgressBarData';
 
 class CustomTooltip extends Component {
   render() {
-   const { active, payload, label } = this.props;
-     console.log(payload)
+   const { active, payload } = this.props;
+    //  console.log('bar chart payload', payload)
  
  
       if (active) {
@@ -42,9 +42,10 @@ class CustomTooltip extends Component {
 
 
 const ProgressBarChart = (props) => {
-    const payload = this.props;
+    // const payload = this.props;
     const dataseries = generateData(props.raceData, "musher_id")
     // console.log(dataseries)
+    // console.log(payload)
   return (
     <div className="outer-wrapper">
     <h2>Musher Progress</h2>

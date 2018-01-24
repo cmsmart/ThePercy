@@ -9,11 +9,9 @@ import { MushersContainer } from '../MushersContainer/index'
 import ProgressBarChart from '../Charts/ProgressBarChart'
 import { TableContainer } from '../TableContainer/index'
 
-import { getRaceID } from "../../utils/getRaceID"
+// import { getRaceID } from "../../utils/getRaceID"
 
-const musherBibHeadings = ['Bib', 'Name']
-
-const currentYear = new Date().getFullYear()
+// const currentYear = new Date().getFullYear()
 
 export default class CurrentRacePage extends Component {    
     state = {

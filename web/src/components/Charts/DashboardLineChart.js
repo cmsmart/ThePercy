@@ -48,17 +48,17 @@ const renderLegend = props => {
 
 class CustomTooltip extends Component {
   render() {
-    const { active, payload, label } = this.props;
-    // console.log(payload);
+    const { active, payload } = this.props;
+    console.log('linechart payload', payload);
 
     if (active) {
       // const { payload, label, name } = this.props;
       return (
         <div className="custom-tooltip">
-          <p className="label">{` Musher ID: ${payload[0].name} `}</p>
+          <p className="label">{` Musher: ${payload[0].payload.musher_name} `}</p>
           <p className="label">
             {" "}
-            {` Distance (km): ${payload[0].payload.distance}`}
+            {` Distance (km): ${payload[0].payload.distance.toFixed(2)}`}
           </p>
           <p className="label"> {` Time (hrs): ${payload[0].payload.time} `}</p>
         </div>

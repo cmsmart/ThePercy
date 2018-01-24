@@ -3,7 +3,6 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Referenc
 import { event_ids, getRaceYear } from "../../utils/getRaceID"
 import { compareObjectValues } from "../../utils/compareObjectValues"
 import { generateData } from '../../utils/generateLineChartData'
-import { filterData } from "../../utils/filterData";
 
 const renderLegend = props => {
   const { payload } = props;
@@ -42,14 +41,12 @@ const renderLegend = props => {
 
 class CustomTooltip extends Component {
   render() {
-    const { active, payload, label } = this.props;
-    // console.log(payload);
+    const { active, payload } = this.props;
 
     if (active) {
-      // const { payload, label, name } = this.props;
       return (
         <div className="custom-tooltip">
-          <p className="label">{` Year: ${getRaceYear(payload[0].name)} `}</p>
+          <p className="label">{` Year: ${getRaceYear(payload[0].payload.event_id)} `}</p>
           <p className="label">
             {" "}
             {` Distance (km): ${payload[0].payload.distance}`}
@@ -79,10 +76,9 @@ const MusherLineChart = props => {
   const filterRace = data.filter(datum => {
     return datum.event_id % 2 !== 0
   })
-  return (
-    <div className="outer-wrapper">
-    <h2>Performance</h2>
-     <div className="line-chart-wrapper">
+  return <div className="outer-wrapper">
+      <h2>Performance</h2>
+      <div className="line-chart-wrapper">
         <ResponsiveContainer padding="1rem">
           <LineChart margin={{ top: 40, right: 20, left: 30, bottom: 90 }}>
             <CartesianGrid strokeDasharray="3 3" horizontal={false} />
@@ -96,10 +92,8 @@ const MusherLineChart = props => {
                 Distance (km)
               </Label>
             </YAxis>
-            <Tooltip 
-            content={<CustomTooltip />}
-            />
-            <Legend layout="vertical" verticalAlign="middle" wrapperStyle={{left: 120, top: 40}} content={renderLegend} />
+            <Tooltip content={<CustomTooltip />} cursor={{ strokeWidth: 1 }} />
+            <Legend layout="vertical" verticalAlign="middle" wrapperStyle={{ left: 120, top: 40 }} content={renderLegend} />
             {filterRace.map(s => (
               <Line // {...props}
                 dataKey="distance"
@@ -115,7 +109,7 @@ const MusherLineChart = props => {
                 stroke={event.lineColor}
                 name={event.event_id}
                 dot={false}
-                strokeWidth='2'
+                strokeWidth="2"
               />
             ))}
             <ReferenceLine y={80.4} stroke="#0C2639" label={{ position: "insideTopRight", value: "Fortymile Inbound", fontSize: "0.8em", scaleToFit: true }} />
@@ -125,8 +119,7 @@ const MusherLineChart = props => {
           </LineChart>
         </ResponsiveContainer>
       </div>
-    </div>
-  )
+    </div>;
 };
 
 export default MusherLineChart;
