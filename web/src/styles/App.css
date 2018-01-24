@@ -76,6 +76,11 @@ nav {
   border: 1px solid #cccccc;
   white-space: nowrap; }
 
+.dot:hover {
+  fill: #2B98F0;
+  stroke: white;
+  stroke-width: .2em; }
+
 .table {
   width: 100%;
   max-width: 100%;
@@ -174,7 +179,8 @@ nav {
     margin: 0.05rem;
     text-anchor: middle;
     font-size: 0.8rem;
-    text-align: left; }
+    text-align: left;
+    list-style: none; }
 
 .ResponsiveContainer {
   height: 500px; }
