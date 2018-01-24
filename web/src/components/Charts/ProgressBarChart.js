@@ -38,7 +38,6 @@ import  { LabelAsPoint } from '../../utils/LabelAsPoint';
 class CustomTooltip extends Component {
   render() {
    const { active, payload, label } = this.props;
-      console.log(payload)
       if (active) {
         // const { payload, label, name } = this.props;
         return (
