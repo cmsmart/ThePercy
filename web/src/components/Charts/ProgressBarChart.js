@@ -83,6 +83,7 @@ const ProgressBarChart = (props) => {
     const dataseries = generateData(props.raceData, "musher_id")
   return <div className="outer-wrapper">
       <h2>Musher Progress</h2>
+      <p className="explanatory">Includes mandatory 6 hr layover in Eagle, additional 2 hr layover in Fortymile or Eagle.</p>
       <div className="area-chart-wrapper" style={{ height: "500px" }}>
         <ResponsiveContainer>
           <LineChart height={300} margin={{ top: 50, right: 50, left: 50, bottom: 100 }}>

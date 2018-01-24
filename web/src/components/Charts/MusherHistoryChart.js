@@ -71,6 +71,7 @@ export const MusherHistoryChart = (props) => {
     return (
       <div className="outer-wrapper">
         <h2>{props.children}</h2>
+        <p className="explanatory">Actual runtime (excludes layovers)</p>
         <div className="Composed-chart-wrapper" style={{height: '400px'}}>
               <ResponsiveContainer padding="1rem">
                   <ComposedChart height={300} data={generateRunTimesData(props.pastData, props.year, props.id)} margin={{top: 30, right: 30, left: 50, bottom: 30}}>
@@ -80,7 +81,7 @@ export const MusherHistoryChart = (props) => {
                     <YAxis>
                       <Label value="Time (hours)" angle={-90} position="insideLeft"/> 
                     </YAxis>
-                    <Tooltip content={<CustomTooltip />} cursor={{fill: "eee"}} />
+                    <Tooltip content={<CustomTooltip />} cursor={{fill: "#eee"}} />
                     <Legend verticalAlign="top" align="right" />
                     <Bar dataKey="runtime" name="Run time" fill={props.colour}  barSize={15} />
                     <Bar dataKey="win" name="Winning time" fill={props.colour_win} barSize={15} />                  

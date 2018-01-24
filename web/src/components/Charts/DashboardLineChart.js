@@ -71,7 +71,7 @@ const DashboardLineChart = props => {
     const data = generateData(props.raceData, "musher_id");
   	return <div className="outer-wrapper">
         <h2>{props.children}</h2>
-        <p className="explanatory">Includes mandatory 6 hr layover in Eagle, 2 hr layover in Fortymile or Eagle.</p>
+        <p className="explanatory">Includes mandatory 6 hr layover in Eagle, additional 2 hr layover in Fortymile or Eagle.</p>
         <div className="line-chart-wrapper">
           <ResponsiveContainer padding="1rem">
             <LineChart margin={{ top: 30, right: 30, left: 50, bottom: 30 }}>

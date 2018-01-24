@@ -51,7 +51,9 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 1.8em;
+  font-size: 1.5em;
+  color: $navy;
+  margin-bottom: 0.5rem;
 }
 
 h2 {
@@ -304,9 +306,6 @@ button {
   }
 }
 
-
-
-
 .avatar {
   display: flex;
   height: 10rem;
@@ -349,6 +348,9 @@ button {
   }
   section.line {
     flex: 1 1 auto;
+  }
+  .stats {
+    margin-bottom: 20px;
   }
   
   .info-card {

@@ -81,7 +81,7 @@ const MusherLineChart = props => {
   return <div className="outer-wrapper">
       <h2>Performance</h2>
       <div className="line-chart-wrapper">
-    <p className="explanatory">Includes mandatory 6 hr layover in Eagle, 2 hr layover in Fortymile or Eagle.</p>
+    <p className="explanatory">Includes mandatory 6 hr layover in Eagle, additional 2 hr layover in Fortymile or Eagle.</p>
      <div className="line-chart-wrapper">
         <ResponsiveContainer padding="1rem">
           <LineChart margin={{ top: 40, right: 20, left: 30, bottom: 90 }}>

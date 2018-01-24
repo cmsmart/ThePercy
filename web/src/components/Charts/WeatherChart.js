@@ -26,6 +26,27 @@ const data = [
 
 ];
 
+class CustomTooltip extends Component {
+    
+    render() {
+        const { active } = this.props;
+        const { payload, label } = this.props;
+  
+        if (active && (payload[0] !== undefined)) {
+            return (
+                <div className="custom-tooltip">
+                    <p className="label">{`${payload[0].payload.day} ${payload[0].payload.year}`}</p>
+                    <p className="label">{`Min: ${(payload[0].payload.temperature[0])} °C` }</p>
+                    <p className="label">{`Max: ${(payload[0].payload.temperature[1])} °C`}</p>
+                </div>
+
+                
+        );
+      }
+    return null;
+    }
+  }
+
 export default class WeatherChart extends Component {
 	render () {
   	return (
@@ -45,7 +66,8 @@ export default class WeatherChart extends Component {
                     <YAxis unit="°C">
                         <Label value="Temp (°C  )" angle={-90} position="insideLeft" /> 
                     </YAxis>
-                    <Tooltip />
+                    <Tooltip content={<CustomTooltip />} cursor={{fill: "#eee"}} />
+                    
                     <CartesianGrid stroke="#eee" />
                     <Bar dataKey="temperature" fill="#b4c8a8" barSize={15} name="Temperature range" unit="°C" />
                     <ReferenceLine y={0} stroke="red" />

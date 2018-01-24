@@ -28,6 +28,36 @@ Create a dedicated micro-site to sit alongside the Percy De Wolfe website which 
 ## Local Setup
 - run `yarn install`
 
+## Data and APIs
+
+There are two primary sources of race data. 
+1. [The Percy DeWolfe Website](https://thepercy.com) - race volunteers and administators manage the content on this site, in particular adding data about race results, run times, mushers etc. Since 2012 more extensive race data has been collected which is when this site was built. However, the race has been running since 1981 and this less comprehnsive data is also available from the website. As the website administator, Cholena was able to set up a couple of APIs that pushed out this data for project use.
+2. [The Percy race tracker](http://thepercy.com/tracker/) - Mammoth Mapping aka John Bryant and Cholena have been running a race-tracking service for the Percy since about 2008. The mushers carry a satellite tracking unit that transmits their position back in real time to an exteral api, and this data is processed by and presented on a tracking map app. All the data related to this has also been recorded for 5+ years. We needed to create an API that was able to output this data for us to integrate it into the map.
+
+
+## Node, Express and Postgres
+
+As all the race tracking data is stored in a postgres database, we needed to set up a postgres/node/express instance to create the API. We utilized [this resource](http://mherman.org/blog/2016/03/13/designing-a-restful-api-with-node-and-postgres/#.WmguvnXXY8o) to help with the different setup. The db admin assisted with writing the appropriate queries to extract the relevant data from the database.
+
+
+## Hosting
+
+The client intends to amalgamate their hosting into one location. The current server for the Percy website has been a little erratic in serving up the api, and with this new tracking website, the tracking page, and the tracking data api, the intention before the 2018 race in March is to find a single home for all elements.
+
+For the purposes of this project, the tracking website is hosted on Netlify - the main issues being with https access and CORS.
+
+The node/express/server is hosted on an instance on Digital Ocean. Again, the main issues being CORS and https access (because the express server defaults to port 3000 and to enable a certificate like 'Lets Encrypt' it requires it to default to port 80).
+
+Due to the fact that this is all going to move to one home, the server arrangements are temporary and will be changed post-project.
+
+
+## Future developments
+
+* Move the website, tracking app and tracking page to one server location.
+* Integrate the map tracking page properly into the tracking React app.
+* Bedazzle with more representations of data.
+
+
 ## Presentation Slides
 [https://docs.google.com/presentation/d/1M4m8cykdXWLeh6CoKYhBm3RhfBV7VekAhCVS2FYG-qU/edit?usp=sharing]
 

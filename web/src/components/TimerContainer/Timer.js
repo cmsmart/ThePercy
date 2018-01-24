@@ -9,6 +9,6 @@ const formatTimeRemaining = (time) => {
 
 export const Timer = (props) => (
     <Fragment>
-        <p>{formatTimeRemaining(props.timeRemaining)}</p>
+        {formatTimeRemaining(props.timeRemaining)}
     </Fragment>
 )
