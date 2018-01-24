@@ -7,7 +7,6 @@ import { MusherInformation } from '../MusherInformation'
 import MusherLineChart from '../Charts/MusherLineChart'
 import { MusherHistoryChart } from '../Charts/MusherHistoryChart'
 
-import { generateData } from "../../utils/generateLineChartData";
 import { getRaceDataByMusher } from "../../api/races";
 
 export default class MusherPage extends Component {

@@ -22,7 +22,7 @@ import { event_updates } from '../../api/event_updates';
 class CustomTooltip extends Component {
   render() {
    const { active, payload, label } = this.props;
-     console.log(payload)
+    //  console.log(payload)
  
  
       if (active) {
@@ -43,7 +43,7 @@ class CustomTooltip extends Component {
 
 
       const data = generateData(event_updates, "musher_id")
-console.log(data)
+// console.log(data)
 
 const ProgressBarChart = (props) => {
     const payload = this.props;

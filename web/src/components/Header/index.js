@@ -19,7 +19,7 @@ export const Header = (props) => {
                 <aside className="social">
                     <img className="twitter" src={require('../../assets/twitter.svg')} alt="logo" width={30} height={24}/>
                     <img className="facebook" src={require('../../assets/facebook.svg')} alt="logo" width={30} height={30}/>
-                    <span className="webli nk"><a href="http://thepercy.com" target="_blank"> Website</a></span>                    
+                    <span className="webli nk"><a href="http://thepercy.com" target="_blank" rel="noopener noreferrer"> Website</a></span>                    
                 </aside>
             </div>
             <NavBar />
