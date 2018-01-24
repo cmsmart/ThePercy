@@ -76,6 +76,11 @@ nav {
   border: 1px solid #cccccc;
   white-space: nowrap; }
 
+.dot:hover {
+  fill: #2B98F0;
+  stroke: white;
+  stroke-width: .2em; }
+
 .table-container {
   padding: 0 20px; }
 
@@ -166,6 +171,20 @@ nav {
 .line-chart-wrapper {
   height: 800px; }
 
+.progress-bar-legend {
+  padding: 10px 20px 10px 10px;
+  margin-bottom: 100px;
+  background: #F8F8F8; }
+  .progress-bar-legend ul {
+    padding: 0; }
+  .progress-bar-legend li {
+    padding: 0.25rem 0rem;
+    margin: 0.05rem;
+    text-anchor: left;
+    font-size: 0.8rem;
+    text-align: left;
+    list-style: none; }
+
 .legend {
   padding: 10px 20px 10px 40px;
   background: #F8F8F8;
@@ -177,7 +196,8 @@ nav {
     margin: 0.05rem;
     text-anchor: middle;
     font-size: 0.8rem;
-    text-align: left; }
+    text-align: left;
+    list-style: none; }
 
 .ResponsiveContainer {
   height: 500px; }

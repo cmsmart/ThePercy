@@ -65,7 +65,7 @@ export default class PastRacesPage extends Component {
 				</div>
 
 				<MushersContainer mushers={this.state.mushers} year={this.state.year} race={this.state.race} >{this.state.year} {this.state.race} Field </MushersContainer>
-
+				
 				<DashboardLineChart {...this.state} title="Race Progress Chart" >{this.state.year} {this.state.race} Progress</DashboardLineChart>
 
 				<TableContainer tableClass={"live-data"} tableData={this.state.tableData} year={this.state.year} race={this.state.race}>

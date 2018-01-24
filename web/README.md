@@ -48,6 +48,8 @@ For the purposes of this project, the tracking website is hosted on Netlify - th
 
 The node/express/server is hosted on an instance on Digital Ocean. Again, the main issues being CORS and https access (because the express server defaults to port 3000 and to enable a certificate like 'Lets Encrypt' it requires it to default to port 80).
 
+Due to the fact that this is all going to move to one home, the server arrangements are temporary and will be changed post-project.
+
 
 ## Future developments
 
