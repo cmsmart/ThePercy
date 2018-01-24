@@ -29,7 +29,6 @@ const ColorArray = [
 
 const renderLegend = props => {
   const { payload, mushers } = props;
-  console.log('linechart', payload)
   let name = ''
   return (
     <ul className="legend">
@@ -101,10 +100,11 @@ const DashboardLineChart = props => {
                   strokeWidth="2"
                 />
               ))}
+              <ReferenceLine y={0} stroke="#b6bdc3" label={{ position: "insideBottomRight", value: "Start: Dawson", fontSize: "0.8em", scaleToFit: true }} />
               <ReferenceLine y={80.4} stroke="#b6bdc3" label={{ position: "insideBottomRight", value: "Fortymile", fontSize: "0.8em", scaleToFit: true }} />
               <ReferenceLine y={159.87} stroke="#b6bdc3" label={{ position: "insideBottomRight", value: "Eagle", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
               <ReferenceLine y={240.27} stroke="#b6bdc3" label={{ position: "insideBottomRight", value: "Fortymile", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
-              <ReferenceLine y={320} stroke="#b6bdc3" label={{ position: "insideBottomRight", value: "Dawson", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
+              <ReferenceLine y={320} stroke="#b6bdc3" label={{ position: "insideBottomRight", value: "Finish: Dawson", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
             </LineChart>
           </ResponsiveContainer>
         </div>

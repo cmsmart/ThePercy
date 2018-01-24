@@ -168,6 +168,20 @@ nav {
 .line-chart-wrapper {
   height: 800px; }
 
+.progress-bar-legend {
+  padding: 10px 20px 10px 10px;
+  margin-bottom: 100px;
+  background: #F8F8F8; }
+  .progress-bar-legend ul {
+    padding: 0; }
+  .progress-bar-legend li {
+    padding: 0.25rem 0rem;
+    margin: 0.05rem;
+    text-anchor: left;
+    font-size: 0.8rem;
+    text-align: left;
+    list-style: none; }
+
 .legend {
   padding: 10px 20px 10px 40px;
   background: #F8F8F8;

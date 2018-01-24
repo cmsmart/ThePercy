@@ -9,7 +9,7 @@ const renderLegend = props => {
   const { payload } = props;
   let backgroundColor = "";
   let year = "";
-  let data = payload.slice().sort(compareObjectValues("value"))
+  let data = payload.slice().sort(compareObjectValues("value")).reverse()
   return (
     <ul className="legend">
       {data.map((entry, index) => {
@@ -115,10 +115,11 @@ const MusherLineChart = props => {
                 strokeWidth="2"
               />
             ))}
+            <ReferenceLine y={0} stroke="#0C2639" label={{ position: "insideTopRight", value: "Start: Dawson", fontSize: "0.8em", scaleToFit: true }} />
             <ReferenceLine y={80.4} stroke="#0C2639" label={{ position: "insideTopRight", value: "Fortymile Inbound", fontSize: "0.8em", scaleToFit: true }} />
             <ReferenceLine y={159.87} stroke="#0C2639" label={{ position: "insideTopRight", value: "Eagle", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
             <ReferenceLine y={240.27} stroke="#0C2639" label={{ position: "insideTopRight", value: "Fortymile Outbound", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
-            <ReferenceLine y={320} stroke="#0C2639" label={{ position: "insideTopRight", value: "Finish Dawson", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
+            <ReferenceLine y={320} stroke="#0C2639" label={{ position: "insideTopRight", value: "Finish: Dawson", fontSize: "0.8em", fill: "#0C2639", scaleToFit: true }} />
           </LineChart>
         </ResponsiveContainer>
       </div>
