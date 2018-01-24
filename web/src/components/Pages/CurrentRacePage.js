@@ -44,13 +44,9 @@ export default class CurrentRacePage extends Component {
         getMushers().then((res) => {
             this.setState({ mushers: res })
         })
-        getRaceDataByEvent(getRaceID(2017, "Percy")).then(
-          res => {
-            this.setState({
-              raceData: res.data.data
-            });
-          }
-        );
+        getRaceDataByEvent(119).then(res => {
+          this.setState({ raceData: res.data.data });
+        });
     }
 
     // generateProgressBarBibLegend(data) {

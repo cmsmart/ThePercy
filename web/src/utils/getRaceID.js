@@ -21,7 +21,7 @@ export const event_ids = [{ year: 2008,name: "Percy",event_id: 101},
 
 export const getRaceID = (year, race) => {
   let id = "";
-  let yearInt = parseInt(year, 10);
+  let yearInt = parseInt(year,10);
   event_ids.map(event => {
     if (event.year === yearInt) {
       if (event.name === race) {
@@ -31,4 +31,5 @@ export const getRaceID = (year, race) => {
     }
     return id;
   });
+  return id;
 };
