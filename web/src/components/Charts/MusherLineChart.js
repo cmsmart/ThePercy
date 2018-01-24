@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label, formatter } from "recharts"
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label} from "recharts"
 import { event_ids } from "../../utils/getRaceID"
 import { compareObjectValues } from "../../utils/compareObjectValues"
 import { generateData } from '../../utils/generateLineChartData'

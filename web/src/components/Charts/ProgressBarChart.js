@@ -1,28 +1,28 @@
 import React, { Component } from 'react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, Label, ResponsiveContainer, activeDot, cx, cy, onMouseEnter } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine, Label, ResponsiveContainer} from 'recharts'
 import {compareObjectValues} from "../../utils/compareObjectValues";
 import { generateData } from '../../utils/generateProgressBarData';
 //import { getMushers } from '../api/po_by_mushers'
 //import  { labelAsPoint } from '../../utils/labelAsPoint';
 
- const  experienceFilter = (mushers, pastmushers) => {
-        let experienceArray = []
-        mushers.map((datum) => {
-            if (pastmushers.some((object) => (object.musher_id === datum.musher_id))) {
-                experienceArray = [ ...experienceArray, { name: datum.musher, experience: true } ]
-            } else {
-                experienceArray = [ ...experienceArray, { name: datum.musher, experience: false } ]
-            }
-            return experienceArray
-        })
-        return experienceArray
-    }
+//  const  experienceFilter = (mushers, pastmushers) => {
+//         let experienceArray = []
+//         mushers.map((datum) => {
+//             if (pastmushers.some((object) => (object.musher_id === datum.musher_id))) {
+//                 experienceArray = [ ...experienceArray, { name: datum.musher, experience: true } ]
+//             } else {
+//                 experienceArray = [ ...experienceArray, { name: datum.musher, experience: false } ]
+//             }
+//             return experienceArray
+//         })
+//         return experienceArray
+//     }
 
-const ExperienceColour = [
-      { experience: true, lineColor: "#0c2639" },
-      { experience: false, lineColor: "#c3d8ec" }
-    ];
-    {/*dataseries.map((entry, index) => {
+// const ExperienceColour = [
+//       { experience: true, lineColor: "#0c2639" },
+//       { experience: false, lineColor: "#c3d8ec" }
+//     ];
+    /*dataseries.map((entry, index) => {
       <Line datakey="musher_id"
           stroke={experienceArray.forEach((musher) => {
             if (entry.musher_id === musher.musher_id && musher.experience === true) {
@@ -32,12 +32,12 @@ const ExperienceColour = [
               stroke="#c3d8ec"
             }
           })} />
-        })*/}
+        })*/
 
 
 class CustomTooltip extends Component {
   render() {
-   const { active, payload, label, labelAsPoint, CustomizedLabel } = this.props;
+   const { active, payload} = this.props;
  
       if (active) {
         return (
@@ -54,7 +54,7 @@ class CustomTooltip extends Component {
       }
   
 const ProgressBarChart = (props) => {
-    const payload = this.props;
+
     const datas = generateData(props.raceData, "musher_id")
     const dataseries = datas.slice().sort(compareObjectValues("bib"))
    
@@ -75,8 +75,7 @@ const ProgressBarChart = (props) => {
   <Tooltip content={<CustomTooltip />} />
                 
         {dataseries.map(s => (
-          <Line dataKey="bib" data={s.data} name={s.bib} key={s.bib} strokeWidth="1" stroke="#008080" dot={{strokeWidth: 1, r: 2}} activeDot={false} 
-          activeDot={false}  label={labelAsPoint}/>
+          <Line dataKey="bib" data={s.data} name={s.bib} key={s.bib} strokeWidth="1" stroke="#008080" dot={{strokeWidth: 1, r: 2}} activeDot={false}  />
         ))}
 
         <Legend layout="vertical" verticalAlign="middle" align="right" />
