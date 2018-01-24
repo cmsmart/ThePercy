@@ -43,17 +43,18 @@ class CustomTooltip extends Component {
   render() {
     const { active, payload } = this.props;
 
-    if (active) {
-      return (
-        <div className="custom-tooltip">
+    if (active && payload !== null && payload !== undefined) {
+      return <div className="custom-tooltip">
           <p className="label">{` Year: ${getRaceYear(payload[0].payload.event_id)} `}</p>
           <p className="label">
             {" "}
             {` Distance (km): ${payload[0].payload.distance}`}
           </p>
-          <p className="label"> {` Time (hrs): ${payload[0].payload.time} `}</p>
-        </div>
-      );
+          <p className="label">
+            {" "}
+            {` Time (hrs): ${payload[0].payload.time} `}
+          </p>
+        </div>;
     }
     return null;
   }
@@ -76,8 +77,7 @@ const MusherLineChart = props => {
   const filterRace = data.filter(datum => {
     return datum.event_id % 2 !== 0
   })
-  return
-  (<div className="outer-wrapper">
+  return <div className="outer-wrapper">
       <h2>Performance</h2>
       <div className="line-chart-wrapper">
     <p className="explanatory">Includes mandatory 6 hr layover in Eagle, 2 hr layover in Fortymile or Eagle.</p>
@@ -123,7 +123,7 @@ const MusherLineChart = props => {
         </ResponsiveContainer>
       </div>
     </div>
-    </div>)
+    </div>
 };
 
 export default MusherLineChart

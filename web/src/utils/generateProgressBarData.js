@@ -1,3 +1,5 @@
+import { compareObjectValues } from "./compareObjectValues";
+
 // const getMusherName = (id) => {
 //     let name = ''
 //     mushers.map(musher => {
@@ -37,5 +39,7 @@ export const generateData = (data, key) => {
             return object = Object.assign({}, object, { data: generateDataStructure(data, object[key], key)} )
     })
     // console.log('generateData', filteredData)
-    return filteredData 
+    let sortedData = filteredData.slice().sort(compareObjectValues('bib'));
+    console.log('sorteddata', sortedData)
+    return sortedData
 }

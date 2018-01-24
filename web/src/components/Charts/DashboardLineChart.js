@@ -29,6 +29,7 @@ const ColorArray = [
 
 const renderLegend = props => {
   const { payload, mushers } = props;
+  console.log('linechart', payload)
   let name = ''
   return (
     <ul className="legend">
@@ -49,20 +50,19 @@ const renderLegend = props => {
 class CustomTooltip extends Component {
   render() {
     const { active, payload } = this.props;
-    console.log('linechart payload', payload);
 
-    if (active) {
-      // const { payload, label, name } = this.props;
-      return (
-        <div className="custom-tooltip">
+    if (active && payload !== null && payload !== undefined) {
+      return <div className="custom-tooltip">
           <p className="label">{` Musher: ${payload[0].payload.musher_name} `}</p>
           <p className="label">
             {" "}
             {` Distance (km): ${payload[0].payload.distance.toFixed(2)}`}
           </p>
-          <p className="label"> {` Time (hrs): ${payload[0].payload.time} `}</p>
-        </div>
-      );
+          <p className="label">
+            {" "}
+            {` Time (hrs): ${payload[0].payload.time} `}
+          </p>
+        </div>;
     }
     return null;
   }
@@ -110,8 +110,5 @@ const DashboardLineChart = props => {
         </div>
       </div>;
     }
-    
-
-
 
 export default DashboardLineChart

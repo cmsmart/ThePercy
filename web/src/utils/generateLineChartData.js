@@ -1,4 +1,4 @@
-import { filterData } from "./filterData";
+// import { filterData } from "./filterData";
 
 const generateKeyArray = (data, filterKey) => {
     let countArray = []
