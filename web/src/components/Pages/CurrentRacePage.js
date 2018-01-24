@@ -82,12 +82,6 @@ export default class CurrentRacePage extends Component {
         <main className="dashboard">
         {console.log(this.state.raceData)}
 
-<<<<<<< HEAD
-            
-
-              <div className="outer-wrapper">
-=======
->>>>>>> 2ceb8708e8aaa84a9eaf20693dba1a1a579cbaf6
                 {!!this.state.mushers && (
                   <MushersContainer
                     mushers={this.state.mushers}
@@ -96,17 +90,16 @@ export default class CurrentRacePage extends Component {
                   >2017 Field</MushersContainer>
                 )}
 
-              {!!this.state.data && <BibLegendList className="musherbiblist" data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />}
+              {/* {!!this.state.data && <BibLegendList className="musherbiblist" data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />} */}
 
               <ProgressBarChart {...this.state} title="Progress Bar Chart" />
 
 
-              <DashboardLineChart {...this.state} title="Race Progress Chart" />
+              <DashboardLineChart {...this.state} title="Race Progress Chart" >Race Progress</DashboardLineChart>
 
               <div className="outer-wrapper">
                 {!!this.state.tableData && <TableContainer tableClass={"live-data"} tableData={this.state.tableData} year={"2017"} race={"Percy"}>
-                    Race Updates - The Percy
-                  </TableContainer>}
+                    Race Updates - The Percy</TableContainer>}
               </div>
             </main>;
     }
