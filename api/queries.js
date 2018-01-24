@@ -18,6 +18,8 @@ module.exports = {
   getPosByMusher: getPosByMusher
 };
 
+
+
 function getPosAll(req, res, next) {
   db.any('select * from percy.vw_pos_stats')
     .then(function (data) {
@@ -54,6 +56,8 @@ function getPosByEvent(req, res, next) {
   db.any(`SELECT
             event_id,
             musher_id::varchar,
+            name,
+            bib_no
             run_dist,
             REPLACE((date_part('epoch', run_time)*INTERVAL '1 second')::varchar,':','.') run_time_str,
             ROUND((extract('epoch' FROM run_time)/3600)::numeric,2)::real hours
@@ -78,6 +82,8 @@ function getPosByMusher(req, res, next) {
   db.any(`SELECT
             event_id,
             musher_id::varchar,
+            name,
+            bib_no,            
             run_dist,
             REPLACE((date_part('epoch', run_time)*INTERVAL '1 second')::varchar,':','.') run_time_str,
             ROUND((extract('epoch' FROM run_time)/3600)::numeric,2)::real hours
