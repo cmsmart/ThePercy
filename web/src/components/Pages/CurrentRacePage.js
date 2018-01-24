@@ -11,8 +11,6 @@ import { TableContainer } from '../TableContainer/index'
 
 import { getRaceID } from "../../utils/getRaceID"
 
-const musherBibHeadings = ['Bib', 'Name']
-
 export default class CurrentRacePage extends Component {    
     state = {
         tableData: null,
@@ -34,8 +32,6 @@ export default class CurrentRacePage extends Component {
         'Finish', 
         'Total Run Time' 
     ]
-
-    musherBibHeadings = ['Bib', 'Name']
 
     componentDidMount = () => {
         getUpdates().then((res) => {
