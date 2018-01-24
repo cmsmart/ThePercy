@@ -57,6 +57,7 @@ Due to the fact that this is all going to move to one home, the server arrangeme
 * Integrate the map tracking page properly into the tracking React app.
 * Bedazzle with more representations of data.
 
+## Project Documentation
 
 ## Presentation Slides
 [https://docs.google.com/presentation/d/1M4m8cykdXWLeh6CoKYhBm3RhfBV7VekAhCVS2FYG-qU/edit?usp=sharing]
@@ -68,9 +69,23 @@ Due to the fact that this is all going to move to one home, the server arrangeme
 ## ERD
 ![Erd image](/src/assets/images/ERD.png)
 
-
 ## Trello
 [https://trello.com/invite/b/9YUF6HnX/125e66203aef3e933309a3166c9fd20d/the-percy]
 ![First screen shot of Trello](/src/assets/images/TrelloScreenShot1.png)
 ![Second screen shot of Trello](/src/assets/images/TrelloScreenShot2.png)
+
+## Teamwork
+The team held weekly meetings to discuss the project structure and direction and to allocate tasks. Minutes were taken for each meeting. Task allocation was originally documented in a table on Google Docs, but as the project progressed it was moved to Trello due to easier movement and updating of information.
+Often at these meetings, project scope was altered or updated due to the agile nature of the project
+More informal daily team catch ups were held, where tasks were sometimes reallocated and help was offered to overcome any roadblocks. 
+Outside of class, Slack was used for communication.
+Weekly meetings were also held with the class teachers to ensure the project was on track and some sage advice was given.
+
+## Client Meetings
+Two physical meetings were held with the client. These were hugely productive - there is much to be said about instant feedback. Each meeting had formal minutes taken.
+In addition to physical meetings, a lot of email communication occured. This was beneficial, but also could be slow as some of the people we were corresponding with exist in a different time zone.
+
+## Link to Meeting Minutes
+[https://docs.google.com/document/d/1P7RehDXEWnG2iMyqDF69fCR5f9-p8gCJZ5jOTux2-Rc/edit?usp=sharing]
+
 
