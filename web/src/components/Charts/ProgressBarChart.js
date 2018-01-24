@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, Label, ResponsiveContainer, activeDot } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, Label, ResponsiveContainer, activeDot, cx, cy, onMouseEnter } from 'recharts'
 import {compareObjectValues} from "../../utils/compareObjectValues";
 import { generateData } from '../../utils/generateProgressBarData';
 //import { getMushers } from '../api/po_by_mushers'
-import  { LabelAsPoint } from '../../utils/LabelAsPoint';
+//import  { labelAsPoint } from '../../utils/labelAsPoint';
 
  const  experienceFilter = (mushers, pastmushers) => {
         let experienceArray = []
@@ -18,9 +18,9 @@ import  { LabelAsPoint } from '../../utils/LabelAsPoint';
         return experienceArray
     }
 
-    const ExperienceColour = [
-      { experience: true, lineColor: "#5f4b8b" },
-      { experience: false, lineColor: "#88b04b" }
+const ExperienceColour = [
+      { experience: true, lineColor: "#0c2639" },
+      { experience: false, lineColor: "#c3d8ec" }
     ];
     {/*dataseries.map((entry, index) => {
       <Line datakey="musher_id"
@@ -37,36 +37,27 @@ import  { LabelAsPoint } from '../../utils/LabelAsPoint';
 
 class CustomTooltip extends Component {
   render() {
-   const { active, payload, label } = this.props;
-    //  console.log(payload)
- 
+   const { active, payload, label, labelAsPoint, CustomizedLabel } = this.props;
  
       if (active) {
-        // const { payload, label, name } = this.props;
         return (
           <div className="custom-tooltip">
-   
-
-
-
-<p className="label">{`${payload[0].payload.musher_name} `}</p>  
-<p className="label">{`Bib: ${payload[0].payload.bib} `}</p>  
-<p className="label"> { ` Distance (km): ${payload[0].payload.distance.toFixed(2)}`}</p> 
-<p className="label"> { ` Time (hrs): ${payload[0].payload.time} `}</p>  
-</div>
-              
+            <p className="label">{`${payload[0].payload.musher_name} `}</p>  
+            <p className="label">{`Bib: ${payload[0].payload.bib} `}</p>  
+            <p className="label"> { ` Distance (km): ${payload[0].payload.distance.toFixed(2)}`}</p> 
+            <p className="label"> { ` Time (hrs): ${payload[0].payload.time} `}</p>  
+            </div>
             );
           }
         return null;
         }
       }
-
-
+  
 const ProgressBarChart = (props) => {
     const payload = this.props;
     const datas = generateData(props.raceData, "musher_id")
     const dataseries = datas.slice().sort(compareObjectValues("bib"))
-    console.log(dataseries)
+   
   return (
     <div className="outer-wrapper">
     <h2>Musher Progress</h2>
@@ -81,20 +72,12 @@ const ProgressBarChart = (props) => {
             <Label value="Bib Number" angle={-90} position="insideLeft" style={{ textAnchor: 'middle' }} />
           </YAxis>
 
-        <Tooltip content={<CustomTooltip />}/>
-
-        <Label/>
+  <Tooltip content={<CustomTooltip />} />
                 
         {dataseries.map(s => (
-          <Line dataKey="bib" data={s.data} name={s.bib} key={s.bib} strokeWidth="1" stroke="#008080" dot={{strokeWidth: 1, r: 2}} activeDot={false} label={ <LabelAsPoint /> }
-          activeDot={false}/>
+          <Line dataKey="bib" data={s.data} name={s.bib} key={s.bib} strokeWidth="1" stroke="#008080" dot={{strokeWidth: 1, r: 2}} activeDot={false} 
+          activeDot={false}  label={labelAsPoint}/>
         ))}
-
-        {/*<Line datakey="bib">
-          {series.map((entry, index) => {
-            return <Cell fill={experienceFilter.experience  ? "#0c2639" : "#c3d8ec"}/>
-          })}
-        </Line>*/}
 
         <Legend layout="vertical" verticalAlign="middle" align="right" />
           
