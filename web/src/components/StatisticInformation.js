@@ -8,7 +8,7 @@ const generateListItems = (data, id, value) => (
                 <span className="top_data">{datum[value]}</span>
                 {!!datum.year && 
                 <Fragment>
-                    &nbsp;hrs in <span>{datum.year}</span>
+                    <span class="pop">&nbsp;hrs</span> in <span>{datum.year}</span>
                 </Fragment>}
             </li>
         ))}
