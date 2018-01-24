@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Label } from "recharts"
-import { event_ids } from "../../utils/getRaceID"
+import { event_ids, getRaceYear } from "../../utils/getRaceID"
 import { compareObjectValues } from "../../utils/compareObjectValues"
 import { generateData } from '../../utils/generateLineChartData'
+import { filterData } from "../../utils/filterData";
 
 const renderLegend = props => {
   const { payload } = props;
@@ -12,7 +13,7 @@ const renderLegend = props => {
   return (
     <ul className="legend">
       {data.map((entry, index) => {
-        if (entry.dataKey) {
+        if (entry.dataKey && entry.value % 2 !== 0) {
         event_ids.map(event => {
           if (event.event_id === entry.value) {
             EventColor.map(e => {
@@ -41,26 +42,19 @@ const renderLegend = props => {
 
 class CustomTooltip extends Component {
   render() {
-    const { active } = this.props;
-    const { payload } = this.props;
-    
-    const getEventName = id => {
-      let eventName = "";
-      event_ids.map(event => {
-        if (event.event_id === id) {
-          eventName = event.year;
-        }
-      });
-      return eventName;
-    };
+    const { active, payload, label } = this.props;
+    // console.log(payload);
 
-    if (active && payload[0] !== undefined) {
+    if (active) {
+      // const { payload, label, name } = this.props;
       return (
         <div className="custom-tooltip">
-          {/* <p className="label">Year: {`${getEventName(payload[0].name)}`}</p> */}
-          <p>Time: {`${payload[0].payload.time} `}</p>
-          <p>Distance: {`${payload[0].payload.distance.toFixed(2)}`}kms</p>
-          {/* {console.log(payload[0].name)} */}
+          <p className="label">{` Year: ${getRaceYear(payload[0].name)} `}</p>
+          <p className="label">
+            {" "}
+            {` Distance (km): ${payload[0].payload.distance}`}
+          </p>
+          <p className="label"> {` Time (hrs): ${payload[0].payload.time} `}</p>
         </div>
       );
     }
@@ -79,8 +73,12 @@ const EventColor = [
   { event_id: 107, lineColor: "#E17C05" }
 ];
 
+
 const MusherLineChart = props => {
   const data = generateData(props.raceData.data, "event_id")
+  const filterRace = data.filter(datum => {
+    return datum.event_id % 2 !== 0
+  })
   return (
     <div className="outer-wrapper">
     <h2>Performance</h2>
@@ -102,7 +100,7 @@ const MusherLineChart = props => {
             content={<CustomTooltip />}
             />
             <Legend layout="vertical" verticalAlign="middle" wrapperStyle={{left: 120, top: 40}} content={renderLegend} />
-            {data.map(s => (
+            {filterRace.map(s => (
               <Line // {...props}
                 dataKey="distance"
                 data={s.data.slice().sort(compareObjectValues("time"))}

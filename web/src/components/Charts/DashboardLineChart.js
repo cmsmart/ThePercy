@@ -46,36 +46,31 @@ const renderLegend = props => {
   )
 }
 
-// class CustomTooltip extends Component {
-//   render() {
-//     const { active } = this.props;
-//     const { payload, mushers } = this.props;
-//     console.log('payload', payload)
-//     const getMusherName = (id) => {
-//       let name = ''
-//       mushers.map(musher => {
-//         if (musher.musher_id === id) {
-//           name = musher.musher
-//         }
-//         return name
-//       })
-//       return name
-//     }
-//     if (active && payload[0] !== undefined) {
-//       return <div className="custom-tooltip">
-//           <p className="label">Musher: {`${payload[0].payload.name}`}</p>
-//           <p>Distance: {`${payload[0].payload.distance}`}kms</p>
-//           <p>Time: {`${payload[0].payload.time} `}</p>
-//         </div>;
-//     }
-//     return null;
-//   }
-// } 
+class CustomTooltip extends Component {
+  render() {
+    const { active, payload, label } = this.props;
+    // console.log(payload);
+
+    if (active) {
+      // const { payload, label, name } = this.props;
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{` Musher ID: ${payload[0].name} `}</p>
+          <p className="label">
+            {" "}
+            {` Distance (km): ${payload[0].payload.distance}`}
+          </p>
+          <p className="label"> {` Time (hrs): ${payload[0].payload.time} `}</p>
+        </div>
+      );
+    }
+    return null;
+  }
+}
 
 const DashboardLineChart = props => {
     const data = generateData(props.raceData, "musher_id");
-  	return (
-      <div className="outer-wrapper">
+  	return <div className="outer-wrapper">
         <h2>{props.children}</h2>
         <div className="line-chart-wrapper">
           <ResponsiveContainer padding="1rem">
@@ -91,9 +86,9 @@ const DashboardLineChart = props => {
                   Distance (km)
                 </Label>
               </YAxis>
-              
-              {/* <Tooltip content={<CustomTooltip />} {...props} /> */}
-              <Legend layout="vertical" verticalAlign="middle" wrapperStyle={{left: 120, top: 30}} content={renderLegend} {...props} />
+
+              <Tooltip content={<CustomTooltip />} />
+              <Legend layout="vertical" verticalAlign="middle" wrapperStyle={{ left: 120, top: 30 }} content={renderLegend} {...props} />
               {data.map((s, index) => (
                 <Line
                   dataKey="distance"
@@ -112,8 +107,7 @@ const DashboardLineChart = props => {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        </div>
-      )
+      </div>;
     }
     
 

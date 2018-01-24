@@ -13,6 +13,8 @@ import { getRaceID } from "../../utils/getRaceID"
 
 const musherBibHeadings = ['Bib', 'Name']
 
+const currentYear = new Date().getFullYear()
+
 export default class CurrentRacePage extends Component {    
     state = {
         tableData: null,
