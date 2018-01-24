@@ -19,10 +19,9 @@ nav {
         display: flex;
         flex-direction: column; }
         nav ul li a:hover {
-          color: #C3D8EC;
+          color: #ca562c;
           display: flex;
-          flex-direction: column;
-          border-bottom: 0.2rem solid #C3D8EC; }
+          flex-direction: column; }
   nav g {
     fill: #C3D8EC; }
   nav path {
