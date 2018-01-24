@@ -7,59 +7,67 @@ import { generateData } from '../../utils/generateLineChartData'
 const renderLegend = props => {
   const { payload } = props;
   let backgroundColor = "";
+  let year = ""
   return (
     <ul className="legend">
-      {payload.map((entry, index) =>
+      {payload.map((entry, index) => {
+        console.log(entry)
         event_ids.map(event => {
           if (event.event_id === entry.value) {
             EventColor.map(e => {
               if (e.event_id === entry.value) {
                 backgroundColor = `${e.lineColor}`
               }
+              console.log(backgroundColor)
               return backgroundColor
             })
-            return (
-              <li
-                key={`item-${index}`}
-                style={{ color: `${backgroundColor}` }}
-              >
-                {event.year}
-              </li>
-            );
+            year = event.year
           }
-        })
-      )}
+          console.log(year)
+          return year
+        }
+      )
+      return (
+        <li
+          key={`item-${index}`}
+          style={{ color: `${backgroundColor}` }}
+        >{year}</li>
+      )
+    }
+  )
+  }
     </ul>
   );
 };
 
-// class CustomTooltip extends Component {
-//   render() {
-//     const { active } = this.props;
-//     const { payload, mushers } = this.props;
+class CustomTooltip extends Component {
+  render() {
+    const { active } = this.props;
+    const { payload } = this.props;
+    
+    const getEventName = id => {
+      let eventName = "";
+      event_ids.map(event => {
+        if (event.event_id === id) {
+          eventName = event.year;
+        }
+      });
+      return eventName;
+    };
 
-//     const getEventName = id => {
-//       let eventName = "";
-//       event_ids.map(event => {
-//         if (musher.musher_id === id) {
-//           name = musher.musher;
-//         }
-//       });
-//       return name;
-//     };
-
-//     if (active && payload[0] !== undefined) {
-//       return (
-//         <div className="custom-tooltip">
-//           <p className="label">Year: {`${getMusherName(payload[0].name)}`}</p>
-//           <p>Distance: {`${payload[0].payload.distance}`}kms</p>
-//           <p>Time: {`${payload[0].payload.time} `}</p>
-//         </div>
-//       );
-//     }
-//     return null;
-//   }
-// }
+    if (active && payload[0] !== undefined) {
+      return (
+        <div className="custom-tooltip">
+          {/* <p className="label">Year: {`${getEventName(payload[0].name)}`}</p> */}
+          <p>Time: {`${payload[0].payload.time} `}</p>
+          <p>Distance: {`${payload[0].payload.distance.toFixed(2)}`}kms</p>
+          {console.log(payload[0].name)}
+        </div>
+      );
+    }
+    return null;
+  }
+}
 
 const EventColor = [
   { event_id: 121, lineColor: "#CC503E" },
@@ -72,13 +80,8 @@ const EventColor = [
   { event_id: 107, lineColor: "#E17C05" }
 ];
 
-
-
-
 const MusherLineChart = props => {
-  console.log('raceData', props.raceData.data)
   const data = generateData(props.raceData.data, "event_id")
-  console.log('musher data: ', data)
   return (
     <div className="outer-wrapper">
     <h2>Performance</h2>
@@ -96,8 +99,9 @@ const MusherLineChart = props => {
                 Distance (km)
               </Label>
             </YAxis>
-            <Tooltip />
-            {/* content={<CustomTooltip/>} */}
+            <Tooltip 
+            content={<CustomTooltip />}
+            />
             <Legend layout="vertical" verticalAlign="middle" wrapperStyle={{left: 120, top: 30}} content={renderLegend} />
             {data.map(s => (
               <Line // {...props}

@@ -39,7 +39,7 @@ export const MusherInformation = (props) => {
             <h1>{props.children}</h1>
             <Avatar src={props.musher.profile_image} />
             <div className="container">
-                <h4>Age: {}</h4>
+                <h4>Age: {props.musher.age}</h4>
                 {!!props.musher.residence && <h4>Hometown: {props.musher.residence}</h4>}
                 {!!dataForMusher.some((datum) => datum.race === 'Percy') && <Fragment>
                     <div>

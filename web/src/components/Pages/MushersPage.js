@@ -42,7 +42,6 @@ export default class MushersPage extends Component {
         return (
             !!this.state.mushers && 
             <div className='mushers-page'>
-                <p>Mushers Page</p>
                 <div className='searchFilter'>
                     <Dropdown data={['Year', ...generateYears(2012)]} handleSelection={this.handleYearSelection} />
                     <Dropdown data={['Race', 'Percy', 'Percy Junior']} handleSelection={this.handleRaceSelection} />

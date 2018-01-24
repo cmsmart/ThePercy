@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ReferenceLine, Label, ResponsiveContainer } from 'recharts'
 import {compareObjectValues} from "../../utils/compareObjectValues";
 import { generateData } from '../../utils/generateProgressBarData';
-import { event_updates } from '../../api/event_updates';
 //import { getMushers } from '../api/po_by_mushers'
 
  const  experienceFilter = (mushers, pastmushers) => {
@@ -41,9 +40,6 @@ class CustomTooltip extends Component {
         }
       }
 
-
-      const data = generateData(event_updates, "musher_id")
-// console.log(data)
 
 const ProgressBarChart = (props) => {
     const payload = this.props;

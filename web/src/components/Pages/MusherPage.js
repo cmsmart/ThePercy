@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 
 import { getMusherByID } from '../../api/mushers'
 import { getPastMushers } from '../../api/pastmushers'
+import { getRaceDataByMusher } from "../../api/races";
 
 import { MusherInformation } from '../MusherInformation'
 import MusherLineChart from '../Charts/MusherLineChart'
 import { MusherHistoryChart } from '../Charts/MusherHistoryChart'
 
-import { getRaceDataByMusher } from "../../api/races";
 
 export default class MusherPage extends Component {
     state = {
@@ -33,11 +33,11 @@ export default class MusherPage extends Component {
             (!!this.state.musher && !!this.state.pastData) &&
             <div className="musher-page">
                 {/* <h1>{this.state.musher.musher}</h1> */}
-                <div class="profile">
+                <div className="profile">
                     <MusherInformation {...this.state} id={this.props.match.params.id}>{this.state.musher.musher}</MusherInformation>
 
             {!!this.state.raceData &&
-                <section class="line">
+                <section className="line">
                     <MusherLineChart {...this.state}/>
                 </section>
                 }
