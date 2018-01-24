@@ -7,23 +7,22 @@ import { generateData } from '../../utils/generateLineChartData'
 const renderLegend = props => {
   const { payload } = props;
   let backgroundColor = "";
-  let year = ""
+  let year = "";
+  let data = payload.slice().sort(compareObjectValues("value"))
   return (
     <ul className="legend">
-      {payload.map((entry, index) => {
-        console.log(entry)
+      {data.map((entry, index) => {
+        if (entry.dataKey) {
         event_ids.map(event => {
           if (event.event_id === entry.value) {
             EventColor.map(e => {
               if (e.event_id === entry.value) {
                 backgroundColor = `${e.lineColor}`
               }
-              console.log(backgroundColor)
               return backgroundColor
             })
             year = event.year
           }
-          console.log(year)
           return year
         }
       )
@@ -33,7 +32,7 @@ const renderLegend = props => {
           style={{ color: `${backgroundColor}` }}
         >{year}</li>
       )
-    }
+    }}
   )
   }
     </ul>
@@ -61,7 +60,7 @@ class CustomTooltip extends Component {
           {/* <p className="label">Year: {`${getEventName(payload[0].name)}`}</p> */}
           <p>Time: {`${payload[0].payload.time} `}</p>
           <p>Distance: {`${payload[0].payload.distance.toFixed(2)}`}kms</p>
-          {console.log(payload[0].name)}
+          {/* {console.log(payload[0].name)} */}
         </div>
       );
     }
@@ -102,7 +101,7 @@ const MusherLineChart = props => {
             <Tooltip 
             content={<CustomTooltip />}
             />
-            <Legend layout="vertical" verticalAlign="middle" wrapperStyle={{left: 120, top: 30}} content={renderLegend} />
+            <Legend layout="vertical" verticalAlign="middle" wrapperStyle={{left: 120, top: 40}} content={renderLegend} />
             {data.map(s => (
               <Line // {...props}
                 dataKey="distance"

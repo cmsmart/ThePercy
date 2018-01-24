@@ -28,7 +28,8 @@ export default class PastRacesPage extends Component {
 			getMushers().then(res => {
 				this.setState({ mushers: res });
 			});
-			getRaceDataByEvent(getRaceID(this.state.year, this.state.race)).then(res => {
+			getRaceDataByEvent(getRaceID(this.state.year, this.state.race))
+				.then(res => {
 					this.setState({
 						raceData: res.data.data
 					});
