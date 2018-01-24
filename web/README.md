@@ -26,7 +26,6 @@ Create a dedicated micro-site to sit alongside the Percy De Wolfe website which 
 6. Created Table component
 
 ## Local Setup
-<<<<<<< HEAD:web/README.md
 - run `yarn install`
 
 ## Presentation Slides
@@ -45,6 +44,3 @@ Create a dedicated micro-site to sit alongside the Percy De Wolfe website which 
 ![First screen shot of Trello](/src/assets/images/TrelloScreenShot1.png)
 ![Second screen shot of Trello](/src/assets/images/TrelloScreenShot2.png)
 
-=======
-- run `yarn init`
->>>>>>> 95d39364708fcd7afb06fc4298671a17e661f6ea:README.md
