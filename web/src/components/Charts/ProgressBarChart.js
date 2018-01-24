@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Referenc
 import {compareObjectValues} from "../../utils/compareObjectValues";
 import { generateData } from '../../utils/generateProgressBarData';
 //import { getMushers } from '../api/po_by_mushers'
-import  LabelAsPoint from '/LabelAsPoint';
+import  { LabelAsPoint } from '../../utils/LabelAsPoint';
 
  const  experienceFilter = (mushers, pastmushers) => {
         let experienceArray = []
@@ -43,10 +43,15 @@ class CustomTooltip extends Component {
         // const { payload, label, name } = this.props;
         return (
           <div className="custom-tooltip">
-          <p >{`Year: ${payload[0].payload.year} `}</p>  
-          <p >{` Distance (km): ${payload[0].payload.distance.toFixed(2)}`}</p> 
-          <p >{` Time (hrs): ${payload[0].payload.time} `}</p>  
-          </div>
+   
+
+
+
+<p className="label">{`${payload[0].payload.musher_name} `}</p>  
+<p className="label">{`Bib: ${payload[0].payload.bib} `}</p>  
+<p className="label"> { ` Distance (km): ${payload[0].payload.distance.toFixed(2)}`}</p> 
+<p className="label"> { ` Time (hrs): ${payload[0].payload.time} `}</p>  
+</div>
               
             );
           }

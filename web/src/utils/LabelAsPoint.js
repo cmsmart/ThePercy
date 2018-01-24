@@ -9,7 +9,7 @@ export class LabelAsPoint extends Component {
       const { x, y } = this.props;
       return (
           <circle
-              className={`${styles.dot}`}
+        
               onClick={this.onClick}
               cx={x}
               cy={y}
