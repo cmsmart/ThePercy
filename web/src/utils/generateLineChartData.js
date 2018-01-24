@@ -13,7 +13,7 @@ const generateDataStructure = (data, id, key) => {
     // let dataArray = []
     data.forEach((datum) => {
         if (datum[key] === id) {
-            return dataArray = [ ...dataArray, { distance: (datum.run_dist/1000), time: datum.run_time } ];
+            return dataArray = [ ...dataArray, {  distance: (datum.run_dist/1000), time: datum.run_time   } ];
         }
     })
     return dataArray
