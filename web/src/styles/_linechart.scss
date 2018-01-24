@@ -16,9 +16,9 @@
 //   padding: 0.2rem;
 // }
 
-.recharts-legend-wrapper {
-  // left: 120px !important
-}
+// .recharts-legend-wrapper {
+//   // left: 120px !important
+// }
 
 .legend {
   padding: 10px 20px 10px 40px;
@@ -27,11 +27,11 @@
   border: thin solid $darkblue;
   ul {
     padding: 0;
+    // list-style-type: dashed;
   };
   li {
     padding: 0.25rem 0rem;
     margin: 0.05rem;
-    list-style: square;
     // color: $white;
     text-anchor: middle;
     font-size: 0.8rem;
@@ -42,4 +42,3 @@
     // padding: 1rem; 
     height: 500px;
   }
-
