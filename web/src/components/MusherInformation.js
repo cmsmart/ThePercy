@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 import { Avatar } from './MushersContainer/Avatar'
 
-import { compareObjectValues } from '../utils/compareObjectValues'
+import { compareObjectValues, compareObjectValuesNumeric } from '../utils/compareObjectValues'
 import { deduplicateAndCountObjectByKey } from '../utils/deduplicateAndCountObjectByKey'
 
 const getTopByKeyCount = (data, key, topLimit) => {
@@ -14,9 +14,11 @@ const getTopByKeyCount = (data, key, topLimit) => {
 
 const generateInformation = (data, race) => {
     let informationArray = []
-    let forRace = data.filter((datum) => (datum.race === race))
-    let bestStanding = forRace.slice().sort(compareObjectValues('standing', 'desc'))[0].standing
-    let bestFinishTime = forRace.filter((datum) => (datum.run_time !== ('unknown' || 'scratched'))).sort(compareObjectValues('run_time'))[0].run_time
+    let forRace = data.filter((datum) => (datum.race === race && datum.run_time !== 'unknown' && datum.run_time !== 'scratched'))
+    let sortedStandingData = forRace.slice().sort(compareObjectValuesNumeric('standing'))[0]
+    let bestStanding = `${sortedStandingData.standing} in ${sortedStandingData.year}`
+    let sortedRunTimeData = forRace.sort(compareObjectValues('run_time'))[0]
+    let bestFinishTime = `${sortedRunTimeData.run_time} in ${sortedRunTimeData.year}`
     let runCount = getTopByKeyCount(forRace, 'races', 1)[0].races
     return informationArray = [ runCount, bestStanding, bestFinishTime ]
 }
