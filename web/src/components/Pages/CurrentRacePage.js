@@ -8,7 +8,6 @@ import DashboardLineChart from '../Charts/DashboardLineChart'
 import { MushersContainer } from '../MushersContainer/index'
 import ProgressBarChart from '../Charts/ProgressBarChart'
 import { TableContainer } from '../TableContainer/index'
-
 import { getRaceID } from "../../utils/getRaceID"
 
 export default class CurrentRacePage extends Component {    
@@ -45,15 +44,13 @@ export default class CurrentRacePage extends Component {
         });
     }
 
-    // generateProgressBarBibLegend(data) {
-    //     let bibLegend = {}
-    //     bibLegend = data.map((datum) => {
-    //       return datum = {
-    //         bib: datum.bib,
-    //         musher: datum.musher
-    //       }
-    //     })
-    //     return bibLegend
+    
+    // filterYear = (data) => {
+    //     let filteredData = data.filter((datum) => (
+    //     //   datum.year === (new Date()).getFullYear()
+    //       datum.year === "2017"
+    //     ))
+    //     return filteredData
     //   }
 
     render = () => {
@@ -68,10 +65,7 @@ export default class CurrentRacePage extends Component {
                   >2017 Field</MushersContainer>
                 )}
 
-              {/* {!!this.state.data && <BibLegendList className="musherbiblist" data={this.generateProgressBarBibLegend(this.filterYear(this.state.data))} classname={"bib-list"} headings={musherBibHeadings} />} */}
-
               <ProgressBarChart {...this.state} title="Progress Bar Chart" />
-
 
               <DashboardLineChart {...this.state} title="Race Progress Chart" >Race Progress</DashboardLineChart>
 

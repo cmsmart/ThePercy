@@ -184,6 +184,10 @@ nav {
 .ResponsiveContainer {
   height: 500px; }
 
+.explanatory {
+  font-size: 10px;
+  margin-left: 20px; }
+
 html, body {
   width: 100%;
   height: 100%;
