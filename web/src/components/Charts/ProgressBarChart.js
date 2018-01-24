@@ -21,7 +21,7 @@ import { generateData } from '../../utils/generateProgressBarData';
 class CustomTooltip extends Component {
   render() {
    const { active, payload, label } = this.props;
-     console.log(payload)
+    //  console.log(payload)
  
  
       if (active) {
