@@ -76,6 +76,9 @@ nav {
   border: 1px solid #cccccc;
   white-space: nowrap; }
 
+.table-container {
+  padding: 0 20px; }
+
 .table {
   width: 100%;
   max-width: 100%;
@@ -215,7 +218,9 @@ h1, h2, h3, h4 {
   font-weight: normal; }
 
 h1 {
-  font-size: 1.8em; }
+  font-size: 1.5em;
+  color: #0C2639;
+  margin-bottom: 0.5rem; }
 
 h2 {
   font-size: 1.2em;
@@ -429,6 +434,9 @@ button {
 
 .musher-page section.line {
   flex: 1 1 auto; }
+
+.musher-page .stats {
+  margin-bottom: 20px; }
 
 .musher-page .info-card {
   background-color: #F8F8F8;

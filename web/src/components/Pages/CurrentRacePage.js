@@ -10,6 +10,8 @@ import ProgressBarChart from '../Charts/ProgressBarChart'
 import { TableContainer } from '../TableContainer/index'
 import { getRaceID } from "../../utils/getRaceID"
 
+
+
 export default class CurrentRacePage extends Component {    
     state = {
         tableData: null,
@@ -57,6 +59,7 @@ export default class CurrentRacePage extends Component {
         return (
             !!this.state.tableData && !!this.state.mushers && !!this.state.raceData && (
             <main className="dashboard">
+
                 {!!this.state.mushers && (
                   <MushersContainer
                     mushers={this.state.mushers}

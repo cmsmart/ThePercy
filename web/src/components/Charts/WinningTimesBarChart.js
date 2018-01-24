@@ -38,6 +38,7 @@ export const WinningTimesBarChart = (props) => {
     return (
         <div className="outer-wrapper">
             <h2>{props.children}</h2>
+            <p className="explanatory">Actual runtime (excludes layovers)</p>
             <div className="Composed-chart-wrapper rechart" style={{ height: '500px'}}>
                 <ResponsiveContainer padding="1rem">
                     <ComposedChart height={500} data={generateWinningTimesData(props.data, props.year)}

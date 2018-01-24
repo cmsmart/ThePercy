@@ -44,6 +44,7 @@ export const TableContainer = (props) => {
     return (
         <div className="outer-wrapper">
             <h2>{props.children}</h2>
+            <p className="explanatory">Race start is at 10.00am, and mushers leave in staggered intervals of 2 minutes. The difference is calculated into mandatory layover time.</p>
             <div className="table-container">
                 <Table tableClass={props.tableClass} data={generateTableData(filterData(props.tableData, props.year, props.race))} headings={headings} />
             </div>
