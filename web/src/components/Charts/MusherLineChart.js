@@ -76,9 +76,12 @@ const MusherLineChart = props => {
   const filterRace = data.filter(datum => {
     return datum.event_id % 2 !== 0
   })
-  return <div className="outer-wrapper">
+  return
+  (<div className="outer-wrapper">
       <h2>Performance</h2>
       <div className="line-chart-wrapper">
+    <p className="explanatory">Includes mandatory 6 hr layover in Eagle, 2 hr layover in Fortymile or Eagle.</p>
+     <div className="line-chart-wrapper">
         <ResponsiveContainer padding="1rem">
           <LineChart margin={{ top: 40, right: 20, left: 30, bottom: 90 }}>
             <CartesianGrid strokeDasharray="3 3" horizontal={false} />
@@ -119,7 +122,8 @@ const MusherLineChart = props => {
           </LineChart>
         </ResponsiveContainer>
       </div>
-    </div>;
+    </div>
+    </div>)
 };
 
-export default MusherLineChart;
+export default MusherLineChart
