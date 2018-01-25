@@ -93,7 +93,7 @@ const ProgressBarChart = (props) => {
             <YAxis type="number" dataKey="bib" ticks={[2, 3, 4, 5, 6, 7, 8, 9, 10]}>
               <Label value="Bib Number" angle={-90} position="insideLeft" style={{ textAnchor: "middle" }} />
             </YAxis>
-            <Tooltip content={<CustomTooltip />} />
+            {/* <Tooltip content={<CustomTooltip />} /> */}
             <Label />
 
             {dataseries.map((s, index) => (

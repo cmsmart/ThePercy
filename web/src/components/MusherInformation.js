@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 import { Avatar } from './MushersContainer/Avatar'
 
-import { compareObjectValues } from '../utils/compareObjectValues'
+import { compareObjectValues, compareObjectValuesNumeric } from '../utils/compareObjectValues'
 import { deduplicateAndCountObjectByKey } from '../utils/deduplicateAndCountObjectByKey'
 
 const getTopByKeyCount = (data, key, topLimit) => {
@@ -14,11 +14,11 @@ const getTopByKeyCount = (data, key, topLimit) => {
 
 const generateInformation = (data, race) => {
     let informationArray = []
-    let forRace = data.filter((datum) => (datum.race === race))
-    let compareByStanding = forRace.slice().sort(compareObjectValues('standing'))
-    let bestStanding = `${compareByStanding[0].standing} in ${compareByStanding[0].year}`
-    let compareByFinishTime = forRace.filter((datum) => (datum.run_time !== ('unknown' || 'scratched'))).sort(compareObjectValues('run_time'))
-    let bestFinishTime = `${compareByFinishTime[0].run_time} in ${compareByFinishTime[0].year}`
+    let forRace = data.filter((datum) => (datum.race === race && datum.run_time.toLowerCase() !== 'unknown' && datum.run_time.toLowerCase() !== 'scratched'))
+    let sortedStandingData = forRace.slice().sort(compareObjectValuesNumeric('standing'))[0]
+    let bestStanding = `${sortedStandingData.standing} in ${sortedStandingData.year}`
+    let sortedRunTimeData = forRace.sort(compareObjectValues('run_time'))[0]
+    let bestFinishTime = `${sortedRunTimeData.run_time} in ${sortedRunTimeData.year}`
     let runCount = getTopByKeyCount(forRace, 'races', 1)[0].races
     return informationArray = [ runCount, bestStanding, bestFinishTime ]
 }
@@ -44,7 +44,7 @@ export const MusherInformation = (props) => {
                 <h4>Age: {props.musher.age}</h4>
                 {!!props.musher.residence && <h4>Hometown: {props.musher.residence}</h4>}
                 {!!dataForMusher.some((datum) => datum.race === 'Percy') && <Fragment>
-                    <div className="stats">
+                    <div>
                         <h4>The Percy</h4>
                         <ul>
                             <li>Times run: {percyInformation[0]}</li>
@@ -54,7 +54,7 @@ export const MusherInformation = (props) => {
                     </div>
                 </Fragment>}
                 {!!dataForMusher.some((datum) => datum.race === 'Percy Junior') && <Fragment>
-                    <div className="stats">
+                <div>
                         <h4>Percy Junior</h4>
                         <ul>
                             <li>Times run: {percyJuniorInformation[0]}</li>
