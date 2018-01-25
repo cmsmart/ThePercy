@@ -74,18 +74,17 @@ Due to the fact that this is all going to move to one home, the server arrangeme
 ![First screen shot of Trello](/src/assets/images/TrelloScreenShot1.png)
 ![Second screen shot of Trello](/src/assets/images/TrelloScreenShot2.png)
 
-## Teamwork
-The team held weekly meetings to discuss the project structure and direction and to allocate tasks. Minutes were taken for each meeting. Task allocation was originally documented in a table on Google Docs, but as the project progressed it was moved to Trello due to easier movement and updating of information.
-Often at these meetings, project scope was altered or updated due to the agile nature of the project
-More informal daily team catch ups were held, where tasks were sometimes reallocated and help was offered to overcome any roadblocks. 
-Outside of class, Slack was used for communication.
-Weekly meetings were also held with the class teachers to ensure the project was on track and some sage advice was given.
+### Teamwork
+Weekly team meetings were held, with an agile review of the overarching project criteria. During each of these meetings, notes were taken and tasks were allocated to team members.
+Initially these tasks were allocated in a google doc table, but as the project progressed, the documentation of this moved onto Trello as it was easier to move and alter tasks.
+Daily catch ups were held in class, which sometimes were also used to implement agile processes. These catch ups were often used to brainstorm solutions to task roadblocks.
+During hours outside of the classroom, regular communication was continued via Slack.
+Weekly team catch ups were held with the class teachers to determine whether the project was on track, and to obtain some wise advice.
 
-## Client Meetings
-Two physical meetings were held with the client. These were hugely productive - there is much to be said about instant feedback. Each meeting had formal minutes taken.
-In addition to physical meetings, a lot of email communication occured. This was beneficial, but also could be slow as some of the people we were corresponding with exist in a different time zone.
+### Client Communication
+Two physical client meetings were over the project duration. These meetings were very productive due to the instantaneous feedback that was provided. Minutes were taken on Google Docs.
+In addition to the physical client meetings, regular email correspondence was had.
+Currently, a client survey has been sent and we are waiting on the response.
 
-## Link to Meeting Minutes
+### Documentation of Minutes
 [https://docs.google.com/document/d/1P7RehDXEWnG2iMyqDF69fCR5f9-p8gCJZ5jOTux2-Rc/edit?usp=sharing]
-
-
