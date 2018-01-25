@@ -11,6 +11,7 @@ import { TableContainer } from "../TableContainer/index"
 import { generateYears } from "../../utils/generateYears"
 import { getRaceDataByEvent } from '../../api/races';
 import { getRaceID } from '../../utils/getRaceID'
+import LoadScreen from '../LoadScreen';
 
 export default class PastRacesPage extends Component {
 	state = { 
@@ -58,7 +59,7 @@ export default class PastRacesPage extends Component {
 		};
 
 		render = () => {
-			return !!this.state.mushers && !!this.state.tableData && !!this.state.raceData && <main className="dashboard">
+			return (!!this.state.mushers && !!this.state.tableData && !!this.state.raceData) ? (<main className="dashboard">
 				<div className="searchFilter">
 					<Dropdown data={generateYears(2012)} handleSelection={this.handleYearSelection} />
 					<Dropdown data={["Percy", "Percy Junior"]} handleSelection={this.handleRaceSelection} />
@@ -70,7 +71,9 @@ export default class PastRacesPage extends Component {
 
 				<TableContainer tableClass={"live-data"} tableData={this.state.tableData} year={this.state.year} race={this.state.race}>
 				{this.state.year} {this.state.race} Results </TableContainer>
-			</main>;
+			</main>) : (
+			<LoadScreen />
+		)
 		};
 	}
 

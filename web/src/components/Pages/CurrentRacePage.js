@@ -8,12 +8,11 @@ import DashboardLineChart from '../Charts/DashboardLineChart'
 import { MushersContainer } from '../MushersContainer/index'
 import ProgressBarChart from '../Charts/ProgressBarChart'
 import { TableContainer } from '../TableContainer/index'
+import LoadScreen from './../LoadScreen'
 
 // import { getRaceID } from "../../utils/getRaceID"
 
 // const currentYear = new Date().getFullYear()
-
-
 
 export default class CurrentRacePage extends Component {    
     state = {
@@ -60,7 +59,7 @@ export default class CurrentRacePage extends Component {
 
     render = () => {
         return (
-            !!this.state.tableData && !!this.state.mushers && !!this.state.raceData && (
+            !!this.state.tableData && !!this.state.mushers && !!this.state.raceData ? (
             <main className="dashboard">
 
                 {!!this.state.mushers && (
@@ -79,7 +78,9 @@ export default class CurrentRacePage extends Component {
                 {!!this.state.tableData && <TableContainer tableClass={"live-data"} tableData={this.state.tableData} year={"2017"} race={"Percy"}>
                     Race Updates - The Percy</TableContainer>}
               </div>
-            </main>)
+            </main>) : (
+                <LoadScreen />
+            )
         )
     }
 }

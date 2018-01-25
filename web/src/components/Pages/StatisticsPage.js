@@ -9,6 +9,7 @@ import { StatisticInformation } from '../StatisticInformation'
 
 import { compareObjectValues } from '../../utils/compareObjectValues'
 import { deduplicateAndCountObjectByKey } from '../../utils/deduplicateAndCountObjectByKey'
+import LoadScreen from '../LoadScreen';
 
 const getTopRaces = (data) => {
     let countArray = deduplicateAndCountObjectByKey(data.filter((data) => (data.race === 'Percy')), 'musher', 'races', 'name')
@@ -45,7 +46,7 @@ export default class StatisticsPage extends Component {
   
     render = () => {
         return (
-            !!this.state.data && 
+            !!this.state.data ? (
             <div className='statistics-page'>
                 <div className ="statistic-wrapper">
                     <section>
@@ -67,7 +68,9 @@ export default class StatisticsPage extends Component {
                 <WinningTimesBarChart colour={'#70a494'} year={1981} data={this.state.data.filter((datum) => datum.standing === '1' && datum.race === 'Percy')}>Win Times - Percy</WinningTimesBarChart>
                 <WinningTimesBarChart colour={'#DE8A5A'} year={2002} data={this.state.data.filter((datum) => datum.standing === '1' && datum.race === 'Percy Junior')}>Win Times - Percy Junior</WinningTimesBarChart>
                 <WeatherChart />
-            </div>
+            </div> ):(
+                <LoadScreen />
+            )
         )
     }
 }

@@ -7,6 +7,7 @@ import { getRaceDataByMusher } from "../../api/races";
 import { MusherInformation } from '../MusherInformation'
 import MusherLineChart from '../Charts/MusherLineChart'
 import { MusherHistoryChart } from '../Charts/MusherHistoryChart'
+import LoadScreen from '../LoadScreen';
 
 
 export default class MusherPage extends Component {
@@ -30,7 +31,7 @@ export default class MusherPage extends Component {
 
     render = () => {
         return (
-            (!!this.state.musher && !!this.state.pastData) &&
+            (!!this.state.musher && !!this.state.pastData) ? (
             <div className="musher-page">
                 {/* <h1>{this.state.musher.musher}</h1> */}
                 <div className="profile">
@@ -47,6 +48,8 @@ export default class MusherPage extends Component {
 
                 {this.state.pastData.some((datum) => datum.musher_id === this.props.match.params.id && datum.race === 'Percy Junior') && <MusherHistoryChart colour={'#de8a5a'} colour_win={'#edbb8a'}  pastData={this.state.pastData.filter((datum) => datum.race === 'Percy Junior')} year={parseInt(this.state.pastData.filter((datum) => datum.musher_id === this.props.match.params.id).slice(-1)[0].year, 10)} id={this.props.match.params.id}>Win Times - Percy Junior</MusherHistoryChart>}
             </div>
-        )
+        ) : (
+            <LoadScreen />
+        ))
     }
 }

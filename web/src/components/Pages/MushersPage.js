@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 
 import { getMushers } from '../../api/mushers'
 
-import { Button } from '../Button';
+import { Button } from '../Button'
 import { Dropdown } from '../Dropdown'
 import { MushersContainer } from '../MushersContainer/index'
 import { Searchbar } from '../Searchbar'
 
 import { generateYears } from '../../utils/generateYears'
+import LoadScreen from '../LoadScreen'
 
 export default class MushersPage extends Component {
     state = {
@@ -40,7 +41,7 @@ export default class MushersPage extends Component {
   
     render = () => {
         return (
-            !!this.state.mushers && 
+            !!this.state.mushers ? (
             <div className='mushers-page'>
                 <div className='searchFilter'>
                     <Dropdown data={['Year', ...generateYears(2012)]} handleSelection={this.handleYearSelection} />
@@ -50,6 +51,7 @@ export default class MushersPage extends Component {
                 </div>
                 <MushersContainer {...this.state} />
             </div>
+            ) : ( <LoadScreen /> )
         )
     }
 }
