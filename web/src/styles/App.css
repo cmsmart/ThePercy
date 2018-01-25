@@ -1,5 +1,45 @@
 @import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700|Open+Sans:400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Asap:400,500,600,700");
+@media screen and (max-width: 700px) {
+  header {
+    text-align: center; }
+    header .info p {
+      line-height: 1.5em; }
+    header .info img.logo {
+      display: none; }
+    header .info aside {
+      display: none; }
+  nav ul li {
+    margin: 0; }
+    nav ul li a {
+      line-height: 1rem;
+      font-size: 0.5rem; }
+      nav ul li a:hover {
+        color: #ca562c; }
+  .nav-icons {
+    height: 1.5rem;
+    margin: 0.1rem; } }
+
+@media screen and (min-width: 700px) and (max-width: 845px) {
+  header .info img.logo {
+    width: 105px;
+    height: 79.1px; }
+  header .info .site-title {
+    font-size: 1.5em; }
+  nav ul li {
+    margin: 0 2rem; } }
+
+.nav-icons {
+  height: 3rem;
+  margin: 0.5rem; }
+
+@media screen and (max-width: 1023px) {
+  .info aside.timer-wrapper {
+    width: 100% !important;
+    text-align: center; }
+  .info aside.social {
+    display: none !important; } }
+
 nav {
   border-bottom: 0.2rem solid #F8F8F8;
   margin: 0.2rem 0;
@@ -135,39 +175,6 @@ nav {
   overflow-x: auto;
   -ms-overflow-style: -ms-autohiding-scrollbar; }
 
-@media screen and (max-width: 700px) {
-  header {
-    text-align: center; }
-    header .info p {
-      line-height: 1.5em; }
-    header .info img.logo {
-      display: none; }
-    header .info aside {
-      display: none; }
-  nav ul li {
-    margin: 0; }
-    nav ul li a {
-      line-height: 1rem;
-      font-size: 0.5rem; }
-      nav ul li a:hover {
-        color: #ca562c; }
-  .nav-icons {
-    height: 1.5rem;
-    margin: 0.1rem; } }
-
-@media screen and (min-width: 700px) and (max-width: 845px) {
-  header .info img.logo {
-    width: 105px;
-    height: 79.1px; }
-  header .info .site-title {
-    font-size: 1.5em; }
-  nav ul li {
-    margin: 0 2rem; } }
-
-.nav-icons {
-  height: 3rem;
-  margin: 0.5rem; }
-
 .line-chart-wrapper {
   height: 800px; }
 
@@ -273,9 +280,10 @@ header {
     width: 119px;
     text-align: center;
     padding-right: 20px; }
-  .info aside.timer {
-    width: 200px;
-    text-align: center; }
+  .info aside.timer-wrapper {
+    width: 30%;
+    text-align: center;
+    margin-top: 10px; }
   .info aside.social {
     align-items: center;
     justify-content: center;
@@ -295,7 +303,11 @@ header {
     font-size: 0.9em; }
   .info .timer p {
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    color: #edbb8a;
+    text-align: center; }
+  .info .timer .countdown {
+    font-size: 14px; }
 
 .statistic-wrapper {
   display: flex;

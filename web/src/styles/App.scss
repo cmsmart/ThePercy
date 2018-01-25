@@ -1,9 +1,9 @@
 @import 'variables';
+@import 'media';
 @import 'nav';
 // @import 'timer';
 @import 'recharts';
 @import 'tables';
-@import 'media';
 @import 'linechart';
 
 html, body {
@@ -98,9 +98,10 @@ header {
       text-align: center;
       padding-right: 20px;
     }
-    aside.timer {
-      width: 200px;
+    aside.timer-wrapper {
+      width: 30%;
       text-align: center;
+      margin-top: 10px;
     }
     aside.social {
       align-items: center;
@@ -129,6 +130,11 @@ header {
       p {
         padding: 0;
         margin: 0;
+        color: #edbb8a;
+        text-align: center;
+      }
+      .countdown {
+        font-size: 14px;
       }
     }
 }
