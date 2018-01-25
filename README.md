@@ -1,6 +1,10 @@
 
 # The Percy Dashboard
 
+## Team Members
+
+Cholena Smart, Gretchen Scott, Hannah Bourke, Carl Camit
+
 [Github](https://github.com/cmsmart/ThePercy/tree/master)
 
 [Netflify deployment](https://thepercytracker.netlify.com/tracker)
