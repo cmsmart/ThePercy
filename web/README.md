@@ -1,4 +1,12 @@
-# Problem
+
+# The Percy Dashboard
+
+[Github](https://github.com/cmsmart/ThePercy/tree/master)
+
+[Netflify deployment](https://thepercytracker.netlify.com/tracker)
+
+
+## Problem
 
 The Percy DeWolfe Memorial Mail Race is a 200 mile (321 km) international dog sled race run annually over a two to three day period in March. It has been running since 1981. The race follows the Yukon River along the historic mail route of legendary mail carrier Percy DeWolfe, between Dawson City, Yukon, to Eagle, Alaska. 
 
@@ -6,7 +14,7 @@ In 2007, the race organizers implemented a race tracking system that allows view
 
 Consistent race tracking data has been gathered since 2012, but it is archived at the end of each race year and not further utilized. The Percy also has general race data dating back to 1981. The Percy would like to maintain and increase viewer interaction by providing access to the race data in an engaging manner. 
 
-# Solution
+## Solution
 
 Create a dedicated micro-site to sit alongside the Percy De Wolfe website which hosts an interactive dashboard of live and historical race data. Through utilizing data visualisation techniques, we can increase access to and engagement with the race. 
 
@@ -40,6 +48,8 @@ There are two primary sources of race data.
 As all the race tracking data is stored in a postgres database, we needed to set up a postgres/node/express instance to create the API. We utilized [this resource](http://mherman.org/blog/2016/03/13/designing-a-restful-api-with-node-and-postgres/#.WmguvnXXY8o) to help with the different setup. The db admin assisted with writing the appropriate queries to extract the relevant data from the database.
 
 
+[Node/Express API](http://mammothgeo.com:3000/api/pos-by-event/117)
+
 ## Hosting
 
 The client intends to amalgamate their hosting into one location. The current server for the Percy website has been a little erratic in serving up the api, and with this new tracking website, the tracking page, and the tracking data api, the intention before the 2018 race in March is to find a single home for all elements.
@@ -64,15 +74,15 @@ Due to the fact that this is all going to move to one home, the server arrangeme
 
 ## Wireframes
 [https://www.figma.com/file/RMDcBB16ZOicgEoTeBBYT8Hw/The-Percy-Initial-wireframes]
-![Wireframe example](/src/assets/images/ThePercyWireframes.png)
+![Wireframe example](/web/src/assets/images/ThePercyWireframes.png)
 
 ## ERD
-![Erd image](/src/assets/images/ERD.png)
+![Erd image](/web/src/assets/images/ERD.png)
 
 ## Trello
 [https://trello.com/invite/b/9YUF6HnX/125e66203aef3e933309a3166c9fd20d/the-percy]
-![First screen shot of Trello](/src/assets/images/TrelloScreenShot1.png)
-![Second screen shot of Trello](/src/assets/images/TrelloScreenShot2.png)
+![First screen shot of Trello](/web/src/assets/images/TrelloScreenShot1.png)
+![Second screen shot of Trello](/web/src/assets/images/TrelloScreenShot2.png)
 
 ### Teamwork
 Weekly team meetings were held, with an agile review of the overarching project criteria. During each of these meetings, notes were taken and tasks were allocated to team members.
