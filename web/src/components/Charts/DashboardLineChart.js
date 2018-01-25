@@ -87,7 +87,7 @@ const DashboardLineChart = props => {
                 </Label>
               </YAxis>
 
-              <Tooltip content={<CustomTooltip />} />
+              {/* <Tooltip content={<CustomTooltip />} /> */}
               <Legend layout="vertical" verticalAlign="middle" wrapperStyle={{ left: 120, top: 30 }} content={renderLegend} {...props} />
               {data.map((s, index) => (
                 <Line

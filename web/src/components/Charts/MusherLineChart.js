@@ -95,7 +95,7 @@ const MusherLineChart = props => {
                 Distance (km)
               </Label>
             </YAxis>
-            <Tooltip content={<CustomTooltip />} cursor={{ strokeWidth: 1 }} />
+            {/* <Tooltip content={<CustomTooltip />} cursor={{ strokeWidth: 1 }} /> */}
             <Legend layout="vertical" verticalAlign="middle" wrapperStyle={{ left: 120, top: 40 }} content={renderLegend} />
             {filterRace.map(s => (
               <Line // {...props}

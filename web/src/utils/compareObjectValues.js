@@ -20,4 +20,20 @@ export const compareObjectValues = (key, order='asc') => {
             (order === 'desc') ? (comparison * -1) : comparison
         );
     };
-} 
+}
+
+export const compareObjectValuesNumeric = (key, order='asc') => {
+    return function(a, b) {
+        if(!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+            // property doesn't exist on either object
+            return 0
+        }
+        let varA = a[key]
+        let varB = b[key]
+        let comparison = varA - varB
+        return (
+            (order === 'desc') ? (comparison * -1) : comparison
+        )
+    }
+}
+
