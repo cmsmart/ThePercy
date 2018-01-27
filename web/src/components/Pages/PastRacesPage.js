@@ -38,17 +38,17 @@ export default class PastRacesPage extends Component {
 			);
 		};
 
-	// componentDidUpdate = (prevProps, prevState) => {
-	// 	if (prevState.raceData !== this.state.raceData) {
-	// 	getRaceDataByEvent(getRaceID(this.state.year, this.state.race)).then(
-    //   res => {
-    //     this.setState({
-    //       raceData: res.data.data
-    //     })
-    //   	}
-	// 	)
-	// }
-	// }
+	componentDidUpdate = (prevProps, prevState) => {
+		if (prevState.raceData !== this.state.raceData) {
+		getRaceDataByEvent(getRaceID(this.state.year, this.state.race)).then(
+      res => {
+        this.setState({
+          raceData: res.data.data
+        })
+      	}
+		)
+	}
+	}
 
 		handleYearSelection = year => {
 			this.setState({ year: year });
