@@ -85,6 +85,7 @@ Weekly team catch ups were held with the class teachers to determine whether the
 Two physical client meetings were over the project duration. These meetings were very productive due to the instantaneous feedback that was provided. Minutes were taken on Google Docs.
 In addition to the physical client meetings, regular email correspondence was had.
 Currently, a client survey has been sent and we are waiting on the response.
+The response to our client survey can be viewed [here](/web/src/assets/ClientSurvey.md).
 
 ### Documentation of Minutes
 [https://docs.google.com/document/d/1P7RehDXEWnG2iMyqDF69fCR5f9-p8gCJZ5jOTux2-Rc/edit?usp=sharing]
