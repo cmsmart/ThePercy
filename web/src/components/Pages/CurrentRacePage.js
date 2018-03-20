@@ -52,7 +52,7 @@ export default class CurrentRacePage extends Component {
     // filterYear = (data) => {
     //     let filteredData = data.filter((datum) => (
     //     //   datum.year === (new Date()).getFullYear()
-    //       datum.year === "2017"
+    //       datum.year === "2018"
     //     ))
     //     return filteredData
     //   }
@@ -65,9 +65,9 @@ export default class CurrentRacePage extends Component {
                 {!!this.state.mushers && (
                   <MushersContainer
                     mushers={this.state.mushers}
-                    year={"2017"}
+                    year={"2018"}
                     race={"Percy"}
-                  >2017 Field</MushersContainer>
+                  >2018 Field</MushersContainer>
                 )}
 
               <ProgressBarChart {...this.state} title="Progress Bar Chart" />
@@ -75,7 +75,7 @@ export default class CurrentRacePage extends Component {
               <DashboardLineChart {...this.state} title="Race Progress Chart" >Race Progress</DashboardLineChart>
 
               <div className="outer-wrapper">
-                {!!this.state.tableData && <TableContainer tableClass={"live-data"} tableData={this.state.tableData} year={"2017"} race={"Percy"}>
+                {!!this.state.tableData && <TableContainer tableClass={"live-data"} tableData={this.state.tableData} year={"2018"} race={"Percy"}>
                     Race Updates - The Percy</TableContainer>}
               </div>
             </main>) : (
