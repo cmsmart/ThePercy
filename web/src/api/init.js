@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const api = axios.create({
-  baseURL: 'https://thepercy.com/percy'
+  baseURL: 'https://www.thepercy.com/percy'
   // baseURL: 'http://percy.cholenasmart.com/percy'
 })
 
