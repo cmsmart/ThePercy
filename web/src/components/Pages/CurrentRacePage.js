@@ -43,7 +43,7 @@ export default class CurrentRacePage extends Component {
         getMushers().then((res) => {
             this.setState({ mushers: res })
         })
-        getRaceDataByEvent(119).then(res => {
+        getRaceDataByEvent(121).then(res => {
           this.setState({ raceData: res.data.data });
         });
     }
