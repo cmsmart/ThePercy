@@ -14,7 +14,7 @@ const getTopByKeyCount = (data, key, topLimit) => {
 
 const generateInformation = (data, race) => {
     let informationArray = []
-    let forRace = data.filter((datum) => (datum.race === race && datum.run_time.toLowerCase() !== 'unknown' && datum.run_time.toLowerCase() !== 'scratched'))
+    let forRace = data.filter((datum) => (datum.race === race && datum.run_time.toLowerCase() !== 'unknown' && datum.run_time.toLowerCase() !== 'scratched' && datum.run_time !== ''))
     let sortedStandingData = forRace.slice().sort(compareObjectValuesNumeric('standing'))[0]
     let bestStanding = `${sortedStandingData.standing} in ${sortedStandingData.year}`
     let sortedRunTimeData = forRace.sort(compareObjectValues('run_time'))[0]
