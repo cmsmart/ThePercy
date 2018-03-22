@@ -86,7 +86,7 @@ const ProgressBarChart = (props) => {
       <p className="explanatory">Includes mandatory 6 hr layover in Eagle, additional 2 hr layover in Fortymile or Eagle.</p>
       <div className="area-chart-wrapper" style={{ height: "500px" }}>
         <ResponsiveContainer>
-          <LineChart height={400} margin={{ top: 50, right: 50, left: 50, bottom: 100 }}>
+          <LineChart height={500} margin={{ top: 50, right: 50, left: 50, bottom: 100 }}>
             <XAxis dataKey="distance" type="number" domain={[0, 320]} unit="km" ticks={[80.4, 159.8, 239.2, 320]}>
               <Label value="Distance (km)" offset={-15} position="insideBottom" />
             </XAxis>
