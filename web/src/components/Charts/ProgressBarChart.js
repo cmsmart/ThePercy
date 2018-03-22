@@ -90,7 +90,7 @@ const ProgressBarChart = (props) => {
             <XAxis dataKey="distance" type="number" domain={[0, 320]} unit="km" ticks={[80.4, 159.8, 239.2, 320]}>
               <Label value="Distance (km)" offset={-15} position="insideBottom" />
             </XAxis>
-            <YAxis type="number" dataKey="bib" ticks={[2, 3, 4, 5, 6, 7, 8, 9, 10]}>
+            <YAxis type="number" dataKey="bib" ticks={[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]} minTickGap="1">
               <Label value="Bib Number" angle={-90} position="insideLeft" style={{ textAnchor: "middle" }} />
             </YAxis>
             {/* <Tooltip content={<CustomTooltip />} /> */}
