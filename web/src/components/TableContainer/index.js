@@ -16,7 +16,6 @@ const headings = [
     "Fortymile Out",
     "Finish",
     "Total Run Time",
-    "Status"
 ]
 
 const generateTableData = (data) => {
@@ -34,7 +33,6 @@ const generateTableData = (data) => {
             chk_fm_ib_out: datum.chk_fm_ib_out,
             chk_finish: datum.chk_finish,
             run_time: datum.run_time,
-            status: datum.status
         }
     ))
     return tableData
