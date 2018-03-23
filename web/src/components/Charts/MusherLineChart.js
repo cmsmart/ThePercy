@@ -87,7 +87,7 @@ const MusherLineChart = props => {
           <LineChart margin={{ top: 40, right: 20, left: 30, bottom: 90 }}>
             <CartesianGrid strokeDasharray="3 3" horizontal={false} />
             <XAxis dataKey="time" type="number" domain={[0, 42]} ticks={[10, 20, 30, 40]}>
-              <Label offset={-25} position="insideBottom" value="bib">
+              <Label offset={-25} position="insideBottom" value="Time">
               </Label>
             </XAxis>
             <YAxis dataKey="dist" type="number" allowDuplicatedCategory={false} domain={[0, 320]} ticks={[80.4, 159.8, 239.2, 320]}>
