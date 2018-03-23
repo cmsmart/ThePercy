@@ -61,7 +61,7 @@ export default class StatisticsPage extends Component {
                     </section>
                     <section>
                         <h2>Percy Speedsters</h2>
-                        <p>Fastest run times</p>
+                        <p>Fastest win times</p>
                         <StatisticInformation data={getTopTimes(this.state.data, 'Percy')} id='name' value='time' />
                     </section>
                 </div>
