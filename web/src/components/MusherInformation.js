@@ -48,8 +48,8 @@ export const MusherInformation = (props) => {
                         <h4>The Percy</h4>
                         <ul>
                             <li>Times run: {percyInformation[0]}</li>
-                            <li>Best Finishing Position: {percyInformation[1]}</li>
-                            <li>Best Finish Time: {percyInformation[2]}</li>
+                            {/* <li>Best Finishing Position: {percyInformation[1]}</li>
+                            <li>Best Finish Time: {percyInformation[2]}</li> */}
                         </ul>
                     </div>
                 </Fragment>}
@@ -58,8 +58,8 @@ export const MusherInformation = (props) => {
                         <h4>Percy Junior</h4>
                         <ul>
                             <li>Times run: {percyJuniorInformation[0]}</li>
-                            <li>Best Finishing Position: {percyJuniorInformation[1]}</li>
-                            <li>Best Finish Time: {percyJuniorInformation[2]}</li>
+                            {/* <li>Best Finishing Position: {percyJuniorInformation[1]}</li> */}
+                            {/* <li>Best Finish Time: {percyJuniorInformation[2]}</li> */}
                         </ul>
                     </div>
                 </Fragment>}
