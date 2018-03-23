@@ -31,7 +31,7 @@ const generateRunTimesData = (data, initialYear, id) => {
         // Map over winning times array to find win times for years musher ran
         winningTime.map((win) => {
           if ((musher.year === win.year) && (musher.race === win.race)) {
-            year = Object.assign({}, year, { 'runtime': runtime(musher.run_time), 'race': musher.race, 'standing': musher.standing, 'win': win.wintime, 'time_status': musher.runtime })
+            year = Object.assign({}, year, { 'runtime': runtime(musher.run_time), 'race': musher.race, 'win': win.wintime, 'time_status': musher.runtime })
           }
           return year
       })
@@ -57,7 +57,7 @@ class CustomTooltip extends Component {
               <div className="custom-tooltip">
                   <p className="label">{`${label}`}</p>
                   <p className="label">{`Run time: ${runtime()}`}</p>
-                  <p className="label">{`Standing: ${payload[0].payload.standing}`}</p>
+                  {/* <p className="label">{`Standing: ${payload[0].payload.standing}`}</p> */}
                   <p className="label">{`Winning time: ${(payload[0].payload.win).toFixed(2)}`}</p>
               </div>
               
