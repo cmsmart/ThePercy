@@ -13,7 +13,6 @@ const getTopByKeyCount = (data, key, topLimit) => {
 }
 
 const generateInformation = (data, race) => {
-    if (data.standing != '') {
         let informationArray = []
         let forRace = data.filter((datum) => (datum.race === race && datum.run_time.toLowerCase() !== 'unknown' && datum.run_time.toLowerCase() !== 'scratched' && datum.run_time !== ''))
         let sortedStandingData = forRace.slice().sort(compareObjectValuesNumeric('standing'))[0]
@@ -22,7 +21,6 @@ const generateInformation = (data, race) => {
         let bestFinishTime = `${sortedRunTimeData.run_time} in ${sortedRunTimeData.year}`
         let runCount = getTopByKeyCount(forRace, 'races', 1)[0].races
         return informationArray = [ runCount, bestStanding, bestFinishTime ]
-    }
 }
 
 export const MusherInformation = (props) => {
@@ -45,7 +43,7 @@ export const MusherInformation = (props) => {
             <div className="container">
                 <h4>Age: {props.musher.age}</h4>
                 {!!props.musher.residence && <h4>Hometown: {props.musher.residence}</h4>}
-                {!!dataForMusher.some((datum) => datum.race === 'Percy') && <Fragment>
+                {/* {!!dataForMusher.some((datum) => datum.race === 'Percy') && <Fragment>
                     <div>
                         <h4>The Percy</h4>
                         <ul>
@@ -64,7 +62,7 @@ export const MusherInformation = (props) => {
                             <li>Best Finish Time: {percyJuniorInformation[2]}</li>
                         </ul>
                     </div>
-                </Fragment>}
+                </Fragment>} */}
             </div>
         </div>
     )
