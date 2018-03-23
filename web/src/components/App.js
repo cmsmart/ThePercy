@@ -9,20 +9,14 @@ import ReactGA from 'react-ga';
 
 ReactGA.initialize('UA-84813849-5')
 
-export function fireTracking(nextState) {
-
-    const { pathname } = nextState.location // this gives you the next URL
-
-     ReactGA.pageview(pathname)
-
-   }
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 export default class App extends Component {
     render = () => {
         return (
             <div className="container">
                 <Router>
-                    <Route path='/' onEnter={ fireTracking } component={PrimaryLayout} />
+                    <Route path='/'  component={PrimaryLayout} />
                 </Router>
             </div>
         )
