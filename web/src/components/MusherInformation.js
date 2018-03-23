@@ -25,16 +25,16 @@ const generateInformation = (data, race) => {
 
 export const MusherInformation = (props) => {
     let dataForMusher = props.pastData.filter((datum) => (datum.musher_id === props.id))
-    let percyInformation = []
-    let percyJuniorInformation = []
+    // let percyInformation = []
+    // let percyJuniorInformation = []
 
-    if (!!dataForMusher.some((datum) => datum.race === 'Percy')) {
-        percyInformation = generateInformation(dataForMusher, 'Percy')
-    }
+    // if (!!dataForMusher.some((datum) => datum.race === 'Percy')) {
+    //     percyInformation = generateInformation(dataForMusher, 'Percy')
+    // }
 
-    if (!!dataForMusher.some((datum) => datum.race === 'Percy Junior')) {
-        percyJuniorInformation = generateInformation(dataForMusher, 'Percy Junior')
-    }
+    // if (!!dataForMusher.some((datum) => datum.race === 'Percy Junior')) {
+    //     percyJuniorInformation = generateInformation(dataForMusher, 'Percy Junior')
+    // }
 
     return (
         <div className="info-card">
