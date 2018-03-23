@@ -35,7 +35,7 @@ export default class MusherPage extends Component {
             <div className="musher-page">
                 {/* <h1>{this.state.musher.musher}</h1> */}
                 <div className="profile">
-                    <MusherInformation {...this.state} id={this.props.match.params.id}>{this.state.musher.musher}</MusherInformation>
+                    {/* <MusherInformation {...this.state} id={this.props.match.params.id}>{this.state.musher.musher}</MusherInformation> */}
 
             {!!this.state.raceData &&
                 <section className="line">
