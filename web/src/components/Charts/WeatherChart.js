@@ -22,7 +22,7 @@ const data = [
       {year: '2015', day: '26 March', temperature: [6.9, -11,]},
       {year: '2016', day: '24 March', temperature: [7, -2.7]},
       {year: '2017', day: '23 March', temperature: [-4.5, -23.5]},
-      {year: '2018', day: '22 March', temperature: [-4.8, -24.1]}
+      {year: '2018', day: '22 March', temperature: [-4.9, -24.1]}
 ];
 
 class CustomTooltip extends Component {
