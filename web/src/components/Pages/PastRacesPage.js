@@ -17,7 +17,7 @@ export default class PastRacesPage extends Component {
 	state = { 
 		mushers: null, 
 		tableData: null, 
-		year: "2017", 
+		year: "2018", 
 		race: "Percy", 
 		raceData: null 
 	};
